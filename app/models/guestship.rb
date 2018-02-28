@@ -1,0 +1,2 @@
+class Guestship < ApplicationRecord
+end

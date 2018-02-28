@@ -1,0 +1,2 @@
+class Guestships < ApplicationController
+end
