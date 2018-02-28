@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :username
       t.string :name
       t.string :image
-      t.boolean :host
+      t.boolean :host, default: false
       t.string :rsvp
 
       t.timestamps

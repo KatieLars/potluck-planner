@@ -5,7 +5,7 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
         t.string :difficulty
         t.string :url
         t.string :image
-        t.boolean :taken
+        t.boolean :taken, default: false
       t.timestamps
     end
   end
