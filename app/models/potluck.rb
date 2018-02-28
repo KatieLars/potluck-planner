@@ -1,5 +1,5 @@
 class Potluck < ApplicationRecord#may need foreign keys specified
-  belongs_to :users
+  belongs_to :user
   has_many :guestships
   has_many :guests, through: :guestships
   has_many :potluck_recipes
