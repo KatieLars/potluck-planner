@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :guest_potlucks, through: :guestships, source: :potlucks, foreign_key: :potluck_id
   has_many :recipes, through: :potlucks
   has_many :friendships
-  has_many :friends,through: :friendships
+  has_many :friends, through: :friendships
 end
