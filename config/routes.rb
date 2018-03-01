@@ -5,5 +5,6 @@ Rails.application.routes.draw do
      resources :guestships
      resources :friendships
      resources :recipes
+     resources :sessions
    end
 end
