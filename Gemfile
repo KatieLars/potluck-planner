@@ -18,7 +18,7 @@ gem 'puma', '~> 3.7'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'thor', '~> 0.19.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -26,14 +26,15 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'rack-cors'
 
 group :development, :test do
-  gem 'foreman', '~> 0.82.0'
-  gem 'pry'
-  gem 'sqlite3'
+
+
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
+  gem 'foreman', '~> 0.82.0'
   gem 'pry'
   gem 'sqlite3'
   gem 'listen', '>= 3.0.5', '< 3.2'
