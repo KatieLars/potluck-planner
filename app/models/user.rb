@@ -11,11 +11,11 @@ class User < ApplicationRecord
   end
 
   def total_potlucks #returns a list of total potlucks
-    self.guest_potlucks.push(self.potlucks)
+    self.guest_potlucks.push(self.potlucks).flatten
   end
 
   def total_recipes #all recipes from host and guest potlucks
-    self.total_potlucks.collect {|r| r.recipes}
+    self.total_potlucks.collect {|r| r.recipes}.flatten
   end
 
 end
