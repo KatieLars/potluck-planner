@@ -14,5 +14,8 @@ class User < ApplicationRecord
     self.guest_potlucks.push(self.potlucks)
   end
 
+  def total_recipes #all recipes from host and guest potlucks
+    self.total_potlucks.collect {|r| r.recipes}
+  end
 
 end
