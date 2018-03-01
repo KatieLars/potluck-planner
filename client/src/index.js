@@ -3,17 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
-import { Button,
-   Col,
-   Row,
-   Container,
-   NavBarToggler,
-   NavLink,
-   NavItem,
-   NavbarBrand,
-   Navbar,
-   Nav,
-  Collapse} from 'reactstrap'
 //import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
