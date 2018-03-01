@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Navbar, Nav, Container} from 'reactstrap'
+
 
 class App extends Component {
   render() {
     return (
-      <button>Hello, World!</button>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a href="#">Title</a>
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+        </div>
+      </div>
+
     );
   }
 }
