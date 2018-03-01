@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WelcomeNavbar from './containers/welcomeNavbar'
+import WelcomeNavbar from './components/welcomeNavbar'
 import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 
 

@@ -9,7 +9,7 @@ class WelcomeNavbar extends React.Component{
       <div>
       <Navbar color="faded" light toggleable>
         <NavbarToggler right />
-        <NavbarBrand href="/">BeautyPlaces</NavbarBrand>
+        <NavbarBrand href="/"><h1>Potluck Planner</h1></NavbarBrand>
         <Collapse navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
@@ -19,7 +19,16 @@ class WelcomeNavbar extends React.Component{
                 >About</TopNav></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/about">About</NavLink>
+              <NavLink><TopNav
+                  to="/signup"
+                  exact
+                >Sign Up</TopNav></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><TopNav
+                  to="/signin"
+                  exact
+                >Sign In</TopNav></NavLink>
             </NavItem>
           </Nav>
         </Collapse>
