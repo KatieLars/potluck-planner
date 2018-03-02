@@ -6,17 +6,20 @@ class signIn extends React.Component {
     super()
     this.state = {
       password: "",
-      email: ""
+      email: "",
     }
   }
 
-  handleChange = (event) => {
-    this.setState(
-      {password: event.target.value,
-      email: event.target.value
-      }
+handleChange(event){
+    this.setState({ [event.target.name] : event.target.value}
     )
+
   }
+
+handleSubmit(event) {
+  console.log(this.state)
+}
+
 
   render() {
     return(
@@ -24,7 +27,7 @@ class signIn extends React.Component {
         <Row style={{paddingTop: "25px"}}>
           <Col className="col-4"></Col>
           <Col className="col-4">
-            <Form onChange={(event) => handleChange(event)} onSubmit={() => handleSubmit()}>
+            <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
               <FormGroup>
                 <Label for="email">Email</Label>
                 <Input type="email" name="email" id="email" />
