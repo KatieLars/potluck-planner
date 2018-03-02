@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'user_token' => 'user_token#create'
    scope '/api' do
      resources :potlucks
      resources :users
