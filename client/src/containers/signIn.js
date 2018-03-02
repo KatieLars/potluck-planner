@@ -5,17 +5,26 @@ class signIn extends React.Component {
   constructor() {
     super()
     this.state = {
-
+      password: "",
+      email: ""
     }
+  }
+
+  handleChange = (event) => {
+    this.setState(
+      {password: event.target.value,
+      email: event.target.value
+      }
+    )
   }
 
   render() {
     return(
       <Container>
-        <Row>
-          <Col className="col-3"></Col>
-          <Col className-"col-6">
-            <Form>
+        <Row style={{paddingTop: "25px"}}>
+          <Col className="col-4"></Col>
+          <Col className="col-4">
+            <Form onChange={(event) => handleChange(event)} onSubmit={() => handleSubmit()}>
               <FormGroup>
                 <Label for="email">Email</Label>
                 <Input type="email" name="email" id="email" />
@@ -27,7 +36,7 @@ class signIn extends React.Component {
               <Button>Submit</Button>
             </Form>
           </Col>
-          <Col className="col-3"></Col>
+          <Col className="col-4"></Col>
         </Row>
       </Container>
     )
