@@ -1,16 +1,22 @@
 import React from 'react'
 import { NavLink as TopNav } from 'react-router-dom';
-import { Col, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
+import { Container, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
+
+const lightText = {
+  color: 'white'
+}
 
 const WelcomeNavbar = () => {
     return (
       <div>
-      <Col>
-      <Navbar color="faded" light toggleable>
+
+      <Navbar className="navbar navbar-expand-lg bg-dark" toggleable>
+
         <NavbarToggler />
-        <NavbarBrand ><h3>Potluck Planner</h3></NavbarBrand>
+        <NavbarBrand style={lightText} ><h3>Potluck Planner</h3></NavbarBrand>
+        <Container>
         <Collapse navbar>
-          <Nav className="ml-auto" navbar>
+          <Nav className="mr-auto ml-auto" navbar>
             <NavItem>
               <NavLink><TopNav
                 to="/"
@@ -36,9 +42,11 @@ const WelcomeNavbar = () => {
                 >Sign In</TopNav></NavLink>
             </NavItem>
           </Nav>
+
         </Collapse>
+    </Container>
       </Navbar>
-      </Col>
+
     </div>
     )
 }
