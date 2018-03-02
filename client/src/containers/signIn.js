@@ -1,22 +1,30 @@
 import React from 'react'
 import { Col, Row, Container, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as sessionActions from '../actions/sessionActions'
 
 class signIn extends React.Component {
   constructor() {
     super()
     this.state = {
-      password: "",
-      email: "",
+      credentials: {
+        password: "",
+        email: "",
+      }
     }
   }
 
 handleChange(event){
-    this.setState({ [event.target.name] : event.target.value}
-    )
-
+  const field = event.target.name;
+  const credentials = this.state.credentials;
+  credentials[field] = event.target.value;
+  return this.setState({credentials: credentials})
   }
 
 handleSubmit(event) {
+  event.preventDefault()
+  this.props.actions.loginUser(this.state.credentials);
   console.log(this.state)
 }
 
@@ -47,4 +55,9 @@ handleSubmit(event) {
 
 }
 
-export default signIn
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(sessionActions, dispatch)
+  };
+}
+export default connect(null, mapDispatchToProps)(SignIn)
