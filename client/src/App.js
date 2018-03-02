@@ -3,6 +3,7 @@ import WelcomeNavbar from './components/welcomeNavbar'
 import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import About from './components/about'
 import Home from './components/home'
+import SignIn from "./containers/signIn"
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
             <WelcomeNavbar />
             <Route path="/about" render={About} />
             <Route exact path="/" render={Home} />
+            <Route path="/signin" component={SignIn}
           </div>
         </Router>
       </div>
