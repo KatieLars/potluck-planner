@@ -15,7 +15,7 @@ class App extends Component {
             <WelcomeNavbar />
             <Route path="/about" render={About} />
             <Route exact path="/" render={Home} />
-            <Route path="/signin" component={SignIn}
+            <Route path="/signin" component={SignIn} />
           </div>
         </Router>
       </div>
