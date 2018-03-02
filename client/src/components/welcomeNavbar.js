@@ -1,17 +1,22 @@
 import React from 'react'
 import { NavLink as TopNav } from 'react-router-dom';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
-import 'bootstrap/dist/css/bootstrap.css'
+import { Col, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
 
-class WelcomeNavbar extends React.Component{
-  render() {
+const WelcomeNavbar = () => {
     return (
       <div>
+      <Col>
       <Navbar color="faded" light toggleable>
-        <NavbarToggler right />
-        <NavbarBrand href="/"><h1>Potluck Planner</h1></NavbarBrand>
+        <NavbarToggler />
+        <NavbarBrand ><h3>Potluck Planner</h3></NavbarBrand>
         <Collapse navbar>
           <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink><TopNav
+                to="/"
+                exact
+              >Home</TopNav></NavLink>
+            </NavItem>
             <NavItem>
               <NavLink><TopNav
                   to="/about"
@@ -33,9 +38,9 @@ class WelcomeNavbar extends React.Component{
           </Nav>
         </Collapse>
       </Navbar>
+      </Col>
     </div>
     )
-  }
 }
 
 export default WelcomeNavbar
