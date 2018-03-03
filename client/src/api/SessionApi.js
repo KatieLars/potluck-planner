@@ -14,6 +14,6 @@ class SessionApi {
   }).catch(error => {
     return error;
   });
-}
+}}
 
 export default SessionApi
