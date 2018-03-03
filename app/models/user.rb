@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :guestships, foreign_key: :guest_id
   has_many :potlucks #these are the potlucks the user hosts
-  has_many :recipes, through: :potlucks
+  has_many :recipes
   has_many :friendships
   has_many :friends, through: :friendships
   has_many :potluck_recipes
