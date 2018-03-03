@@ -7,6 +7,8 @@ Rails.application.routes.draw do
      resources :guestships
      resources :friendships
      resources :recipes
-     resources :sessions
+
+     post '/signin' => "sessions#create"
+     delete '/signout' => "sessions#destroy", as: 'signout'
    end
 end
