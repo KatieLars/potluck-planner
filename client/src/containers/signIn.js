@@ -24,7 +24,7 @@ handleChange(event){
 
 handleSubmit(event) {
   event.preventDefault()
-  //this.props.actions.signinUser(this.state.credentials);
+  this.props.actions.signIn(this.state.credentials);
   console.log(this.state)
 }
 
