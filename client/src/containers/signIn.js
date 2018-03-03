@@ -24,7 +24,7 @@ handleChange(event){
 
 handleSubmit(event) {
   event.preventDefault()
-  this.props.actions.loginUser(this.state.credentials);
+  //this.props.actions.signinUser(this.state.credentials);
   console.log(this.state)
 }
 
@@ -60,4 +60,4 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(sessionActions, dispatch)
   };
 }
-export default connect(null, mapDispatchToProps)(SignIn)
+export default connect(null, mapDispatchToProps)(signIn)
