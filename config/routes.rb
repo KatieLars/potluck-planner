@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  post 'user_token' => 'user_token#create'
-   scope '/api' do
+
+   namespace :api do
+     namespace :v1 do
      resources :potlucks
      resources :users
      mount Knock::Engine => "/knock"
@@ -11,4 +12,6 @@ Rails.application.routes.draw do
      post '/signin' => "sessions#create"
      delete '/signout' => "sessions#destroy", as: 'signout'
    end
+ end
+
 end
