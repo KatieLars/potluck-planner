@@ -3,6 +3,27 @@ import {Form, FormGroup, Col, Row, Container, Button, Label, Input} from 'reacts
 
 
 class SignIn extends Component {
+  constructor() {
+    super()
+    this.state = {
+      credentials: {
+        password: "",
+        email: "",
+      }
+    }
+  }
+
+handleChange(event){
+  const field = event.target.name;
+  const credentials = this.state.credentials;
+  credentials[field] = event.target.value;
+  return this.setState({credentials: credentials})
+  }
+
+handleSubmit(event) {
+  event.preventDefault()
+  this.props.actions.signIn(this.state.credentials);
+}
 
 render() {
 return(
