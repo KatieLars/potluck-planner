@@ -1,7 +1,4 @@
-module Api
-  module V1
-    class Friendships < ApplicationController
-  
-    end
-  end
+
+class Friendships < ApplicationController
+
 end

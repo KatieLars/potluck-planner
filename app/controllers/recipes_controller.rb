@@ -1,9 +1,3 @@
-module Api
-  module V1
+class RecipesController < ApplicationController
 
-    class RecipesController < ApplicationController
-
-
-    end
-  end
 end
