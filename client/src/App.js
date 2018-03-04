@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Routes} from 'react-router-dom'
 import WelcomeNavbar from './components/welcomeNavbar'
+import Home from './components/home'
 
 
 class App extends Component {
