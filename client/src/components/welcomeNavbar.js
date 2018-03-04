@@ -8,40 +8,38 @@ class WelcomeNavbar extends Component {
       <div>
       <Navbar className="navbar navbar-expand-lg bg-dark" toggleable>
           <NavbarToggler />
-            <NavbarBrand style={lightText} ><h3>Potluck Planner</h3></NavbarBrand>
+            <NavbarBrand style={LightText} ><h3>Potluck Planner</h3></NavbarBrand>
               <Container>
               <Collapse navbar>
                 <Nav className="mr-auto ml-auto" navbar>
                   <NavItem>
-                    <NavLink><TopNav
+                    <NavLink><Link
                       to="/"
                       exact
-                    >Home</TopNav></NavLink>
+                    >Home</Link></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink><TopNav
+                    <NavLink><Link
                         to="/about"
                         exact
-                      >About</TopNav></NavLink>
+                      >About</Link></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink><TopNav
+                    <NavLink><Link
                         to="/signup"
                         exact
-                      >Sign Up</TopNav></NavLink>
+                      >Sign Up</Link></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink><TopNav
+                    <NavLink><Link
                         to="/signin"
                         exact
-                      >Sign In</TopNav></NavLink>
+                      >Sign In</Link></NavLink>
                   </NavItem>
                 </Nav>
-
               </Collapse>
-          </Container>
-            </Navbar>
-
+            </Container>
+          </Navbar>
       </div>
     )
   }
