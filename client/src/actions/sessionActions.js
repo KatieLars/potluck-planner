@@ -8,7 +8,7 @@ export function signInSuccess() {
 export function signIn(credentials) {
   return function(dispatch) {
     return sessionApi.signIn(credentials).then(response => {
-      console.log(response.jwt)})
+      console.log(response)})
   };
 }
 
