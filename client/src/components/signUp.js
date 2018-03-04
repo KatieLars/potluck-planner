@@ -62,4 +62,9 @@ return(
   }
 }
 
-export default SignIn
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(sessionActions, dispatch)
+  };
+}
+export default connect(null, mapDispatchToProps)(SignUp)
