@@ -8,10 +8,10 @@ class Home extends Component {
   render() {
     return(
       <div>
-        <Jumbotron style={{textAlign: "center"}}>
-          <h1>Welcome</h1>
+        <Jumbotron style={{textAlign: "center"}} >
+          <h1>Potluck Planner</h1>
           <p className="lead"><em>What's happening, who's coming, and what's to eat!</em></p>
-          <hr class="my-4"/>
+          <hr className="my-4"/>
           <p>Set a date. Invite friends. Bring food. And track it all.</p>
           <Button><Link to="/about">Learn More</Link></Button>
         </Jumbotron>
