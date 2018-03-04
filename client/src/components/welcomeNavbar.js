@@ -1,48 +1,50 @@
-import React, { Component } from 'react'
-import { NavLink as TopNav } from 'react-router-dom'
-import { Container, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
-import "./welcomeNavbar.css"
+import React from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
-class WelcomeNavbar extends Component {
+class WelcomeNavbar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
   render() {
-    return(
+    return (
       <div>
-      <Navbar className="navbar navbar-expand-lg bg-dark" toggleable>
-          <NavbarToggler />
-            <NavbarBrand className="brand" ><h3>Potluck Planner</h3></NavbarBrand>
-              <Container>
-              <Collapse navbar>
-                <Nav className="mr-auto ml-auto" navbar>
-                  <NavItem>
-                    <NavLink><TopNav
-                      to="/"
-                      exact
-                    >Home</TopNav></NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink><TopNav
-                        to="/about"
-                        exact
-                      >About</TopNav></NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink><TopNav
-                        to="/signup"
-                        exact
-                      >Sign Up</TopNav></NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink><TopNav
-                        to="/signin"
-                        exact
-                      >Sign In</TopNav></NavLink>
-                  </NavItem>
-                </Nav>
-              </Collapse>
-            </Container>
-          </Navbar>
+        <Navbar color="faded" light expand="md">
+          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/components/">Components</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
       </div>
-    )
+    );
   }
 }
 
