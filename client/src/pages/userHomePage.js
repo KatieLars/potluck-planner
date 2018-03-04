@@ -9,3 +9,5 @@ class UserHomePage extends Component {
     )
   }
 }
+
+export default UserHomePage
