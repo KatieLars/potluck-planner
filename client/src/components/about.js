@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Col, Row, Button, Jumbotron } from 'reactstrap'
-import { Link } from 'react-router-dom'
-
-
+import { Container, Col, Row, Jumbotron } from 'reactstrap'
 
 class About extends Component {
   render() {
