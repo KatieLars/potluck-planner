@@ -1,6 +1,6 @@
 class SessionApi {
   static signIn(credentials) {
-    const request = new Request('http://localhost:3000/knock/auth_token', {
+    const request = new Request('http://localhost:3001/knock/auth_token', {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'
