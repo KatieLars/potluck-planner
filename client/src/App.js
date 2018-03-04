@@ -13,7 +13,7 @@ class App extends Component {
             <WelcomeNavbar />
             <Route path="/about" component={About}/>
             <Route exact path="/" component={Home}/>
-            <Route path="/signin" component={SignIn}
+            <Route path="/signin" component={SignIn}/>
           </div>
         </Router>
       </div>
