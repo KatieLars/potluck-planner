@@ -3,6 +3,7 @@ import {Form, FormGroup, Col, Row, Container, Button, Label, Input} from 'reacts
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as sessionActions from '../actions/sessionActions'
+import {BrowserRouter} from 'react-router';
 
 class SignIn extends Component {
   constructor() {
@@ -25,6 +26,9 @@ handleChange(event){
 handleSubmit(event) {
   event.preventDefault()
   this.props.actions.signIn(this.state.credentials);
+  const {history} = this.props
+  history.push('/home')
+
 }
 
 render() {
