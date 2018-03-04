@@ -4,7 +4,7 @@ class Potluck < ApplicationRecord#may need foreign keys specified
   has_many :guests, through: :guestships #people that are invited
   has_many :potluck_recipes
   has_many :recipes, through: :potluck_recipes
-  has_manys :potluck_attendees #people that are coming
+  has_many :potluck_attendees #people that are coming
 
 
 end

@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :friends, through: :friendships
   has_many :potluck_recipes
-  belongs_to :potluck_attendees
+  has_many :potluck_attendees
 
   def guest_potlucks #returns a list of potlucks where the person is a guest
     self.guestships.collect {|p| p.potluck}

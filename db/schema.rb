@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20180303024506) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "potluck_attendees", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "potluck_id"
+  end
+
   create_table "potluck_recipes", force: :cascade do |t|
     t.integer "potluck_id"
     t.integer "recipe_id"
@@ -53,11 +58,6 @@ ActiveRecord::Schema.define(version: 20180303024506) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-  end
-
-  create_table "table_potluck_attendees", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "potluck_id"
   end
 
   create_table "users", force: :cascade do |t|
