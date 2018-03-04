@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
+import { Button, Jumbotron } from 'reactstrap'
+import { Link } from 'react-router-dom'
+
 
 
 class Home extends Component {
   render() {
     return(
       <div>
-        <h1>Hello World!</h1>
+        <Jumbotron style={{textAlign: "center"}}>
+          <h1>Welcome</h1>
+          <p className="lead"><em>What's happening, who's coming, and what's to eat!</em></p>
+          <hr class="my-4"/>
+          <p>Set a date. Invite friends. Bring food. And track it all.</p>
+          <Button><Link to="/about">Learn More</Link></Button>
+        </Jumbotron>
       </div>
     )
   }
