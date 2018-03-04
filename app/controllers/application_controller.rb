@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include Knock::Authenticable
+  before_action :authenticate_api_v1_user
 
 
   private
