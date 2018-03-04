@@ -1,40 +1,41 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink as TopNav } from 'react-router-dom'
 import { Container, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
-import LightText from "./welcomeNavbar.css"
+import "./welcomeNavbar.css"
+
 class WelcomeNavbar extends Component {
   render() {
     return(
       <div>
       <Navbar className="navbar navbar-expand-lg bg-dark" toggleable>
           <NavbarToggler />
-            <NavbarBrand style={LightText} ><h3>Potluck Planner</h3></NavbarBrand>
+            <NavbarBrand className="brand" ><h3>Potluck Planner</h3></NavbarBrand>
               <Container>
               <Collapse navbar>
                 <Nav className="mr-auto ml-auto" navbar>
                   <NavItem>
-                    <NavLink><Link
+                    <NavLink><TopNav
                       to="/"
                       exact
-                    >Home</Link></NavLink>
+                    >Home</TopNav></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink><Link
+                    <NavLink><TopNav
                         to="/about"
                         exact
-                      >About</Link></NavLink>
+                      >About</TopNav></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink><Link
+                    <NavLink><TopNav
                         to="/signup"
                         exact
-                      >Sign Up</Link></NavLink>
+                      >Sign Up</TopNav></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink><Link
+                    <NavLink><TopNav
                         to="/signin"
                         exact
-                      >Sign In</Link></NavLink>
+                      >Sign In</TopNav></NavLink>
                   </NavItem>
                 </Nav>
               </Collapse>
