@@ -7,7 +7,7 @@ export function signInSuccess() {
 
 export function signIn(credentials) {
   return function(dispatch) {
-    return sessionApi.signin(credentials).then(response => {
+    return sessionApi.signIn(credentials).then(response => {
       sessionStorage.setItem('jwt', response.jwt);
       dispatch(signInSuccess());
     }).catch(error => {
