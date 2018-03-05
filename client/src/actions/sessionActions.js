@@ -16,7 +16,6 @@ export function signIn(credentials) {
 }}
 
 export function signOut() {
-  return function(dispatch) {
-    
-  }
+  sessionStorage.removeItem('jwt');
+  return {type: types.LOG_OUT_SUCCESS}
 }
