@@ -8,10 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <div>
-            <WelcomeNavbar />
-            {Routes}
-          </div>
+          <Routes />
         </Router>
       </div>
     );
@@ -19,5 +16,3 @@ class App extends Component {
 }
 
 export default App;
-
-    // <Route path="/signup" component={SignUp}/>
