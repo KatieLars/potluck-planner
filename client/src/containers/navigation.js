@@ -6,6 +6,7 @@ import UserNavbar from '../components/userNavbar'
 class Navigation extends Component {
 
   render() {
+
     if(this.props.logged_in){
       return(
         <UserNavbar />
@@ -19,7 +20,7 @@ class Navigation extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {logged_in: state.session};
+  return {logged_in: state.sessions};
 }
 
 export default connect(mapStateToProps, null)(Navigation)

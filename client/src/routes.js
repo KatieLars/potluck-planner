@@ -24,7 +24,7 @@ requireAuth(nextState, replace){
       <Route path="/about" component={About}/>
       <Route exact path="/" component={Home}/>
       <Route path="/home" component={UserHomePage}
-        onEnter={this.requireAuth()}/>
+        onEnter={this.requireAuth}/>
     </div>
   )}
 }
