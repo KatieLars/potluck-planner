@@ -6,7 +6,27 @@ import SignIn from './components/signIn'
 import UserHomePage from './pages/userHomePage'
 import Navigation from './containers/navigation'
 import { connect } from 'react-redux'
-import PrivateRoute from './privateRoute'
+
+
+const checkAuth = (token) => {
+  if(!token) {
+    return false
+  }else{
+    return true
+  }
+}
+
+const PrivateRoute = ({component: Component, token, ...rest}) => {
+  return (
+  <Route {...rest} render={(props) => {
+    checkAuth(token) ? (
+      <Component {...props} />
+    )
+      : (<Redirect to={{pathname: '/signin', state: {from: props.location}}} />
+    }
+  />)
+  )
+}}
 
 class Routes extends Component {
 
@@ -19,7 +39,7 @@ class Routes extends Component {
       <Route exact path="/" component={Home}/>
       <Route path="/signin" component={SignIn} />
       <Route path="/about" component={About}/>
-      <PrivateRoute authenticated={!!sessionStorage.jwt} path="/home" component={UserHomePage}
+      <PrivateRoute token={sessionStorage.jwt} path="/home" component={UserHomePage}
         />
       </Switch>
     </div>
