@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { NavLink as TopNav } from 'react-router-dom'
 
-const WelcomeNavbar = () => {
+class WelcomeNavbar extends Component {
+  render() {
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
@@ -26,6 +27,6 @@ const WelcomeNavbar = () => {
         </Nav>
       </Navbar>
     </div>
-)}
+)}}
 
 export default WelcomeNavbar
