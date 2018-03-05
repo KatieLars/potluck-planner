@@ -1,4 +1,4 @@
 
-class Guestships < ApplicationController
+class GuestshipsController < ApplicationController
 
 end

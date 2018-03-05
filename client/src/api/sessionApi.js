@@ -15,6 +15,22 @@ class SessionApi {
       return error;
     });
   }
+
+  static signUp(info) {
+    const request= new Request('http://localhost:3000/users', {
+      method: "POST",
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify(info)
+    })
+
+    return fetch(request).then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
+  }
 }
 
 export default SessionApi;

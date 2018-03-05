@@ -15,6 +15,15 @@ export function signIn(credentials) {
       });
 }}
 
+export function signUp(info) {
+  return function(dispatch) {
+    return sessionApi.signUp(info).then(response => {
+      console.log(response)
+    }
+    )
+  }
+}
+
 export function signOut() {
   sessionStorage.removeItem('jwt');
   return {type: types.LOG_OUT_SUCCESS}

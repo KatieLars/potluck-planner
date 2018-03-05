@@ -5,6 +5,7 @@ import About from './components/about'
 import SignIn from './components/signIn'
 import UserHomePage from './pages/userHomePage'
 import Navigation from './containers/navigation'
+import SignUp from './components/signUp'
 import { connect } from 'react-redux'
 
 
