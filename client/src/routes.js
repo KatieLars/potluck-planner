@@ -14,12 +14,14 @@ class Routes extends Component {
   render() {
     return(
     <div>
+      <Switch>
       <Navigation />
       <Route path="/signin" component={SignIn} />
       <Route path="/about" component={About}/>
       <Route exact path="/" component={Home}/>
       <PrivateRoute authenticated={!!sessionStorage.jwt} path="/home" component={UserHomePage}
         />
+      </Switch>
     </div>
   )}
 }

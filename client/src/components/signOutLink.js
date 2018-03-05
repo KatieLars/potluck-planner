@@ -1,11 +1,15 @@
 import {Link, withRouter, BrowserRouter } from 'react-router-dom'
-import React from 'react'
+import React, { Component } from 'react'
 
 const history = withRouter({history})
 
-const SignOutLink = history => (
+class SignOutLink extends Component {
+  render() {
     debugger
-    <Link to="#" onClick={(event, history) => {this.signOut(event, history)}}>Sign Out</Link>
-  )
+    return (
+      <Link to="#" onClick={(event, history) => {this.props.signOut(event, history)}}>Sign Out</Link>
+    )
+  }
 
+}
   export default SignOutLink

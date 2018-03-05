@@ -4,22 +4,23 @@ import { NavLink as TopNav, Link, BrowserRouter, withRouter } from 'react-router
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux'
 import * as sessionActions from '../actions/sessionActions'
-import SignOutLink from './signOutLink'
+
 
  class UserNavbar extends Component {
 
-  signOut = (event, history) => {
+  signOut = (event) => {
     event.preventDefault()
+  
     this.props.actions.signOut()
-    debugger
-    history.push("/")
+
   }
 
   render() {
+
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
-      <NavbarBrand><SignOutLink signOut={this.signOut}/></NavbarBrand>
+      <NavbarBrand><Link to="#" onClick={(event) => this.signOut(event)}>Sign Out</Link></NavbarBrand>
         <Nav navbar className="list-unstyled ml-auto" >
           <NavItem>
             <NavLink>

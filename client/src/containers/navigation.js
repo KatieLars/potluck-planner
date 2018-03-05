@@ -2,8 +2,11 @@ import React, { Component }  from 'react';
 import { connect } from 'react-redux'
 import WelcomeNavbar from '../components/welcomeNavbar'
 import UserNavbar from '../components/userNavbar'
+import {BrowserRouter, withRouter} from 'react-router-dom'
 
 class Navigation extends Component {
+
+
 
   render() {
 
