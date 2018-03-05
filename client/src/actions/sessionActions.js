@@ -26,7 +26,6 @@ export function signIn(credentials) {
 export function signUp(info) {
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
-      debugger
       sessionApi.signIn({email: response.email, password: response.password});
       dispatch(newUserSuccess(response));
       }).catch(error => {
