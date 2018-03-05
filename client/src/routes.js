@@ -4,7 +4,7 @@ import Home from './components/home'
 import About from './components/about'
 import SignIn from './components/signIn'
 import UserHomePage from './pages/userHomePage'
-import Navigation from './components/navigation'
+import Navigation from './containers/navigation'
 
 class Routes extends Component {
 
