@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { NavLink as TopNav } from 'react-router-dom'
 
-class WelcomeNavbar extends React.Component {
+class Navigation extends React.Component {
 
   render() {
     return (
@@ -32,4 +32,4 @@ class WelcomeNavbar extends React.Component {
   }
 }
 
-export default WelcomeNavbar
+export default Navigation
