@@ -5,6 +5,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux'
 import * as sessionActions from '../actions/sessionActions'
 
+const primaryText = {
+  color: "primary"
+}
 
  class UserNavbar extends Component {
 
@@ -17,7 +20,7 @@ import * as sessionActions from '../actions/sessionActions'
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
-      <NavbarBrand onClick={(event) => this.signOut(event)}>Sign Out</NavbarBrand>
+      <NavbarBrand style={{primaryText}} onClick={(event) => this.signOut(event)}>Sign Out</NavbarBrand>
         <Nav navbar className="list-unstyled ml-auto" >
           <NavItem>
             <NavLink>
