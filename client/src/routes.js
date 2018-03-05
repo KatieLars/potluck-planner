@@ -12,14 +12,13 @@ class Routes extends Component {
 
 
   render() {
-    debugger
     return(
     <div>
       <Navigation />
       <Route path="/signin" component={SignIn} />
       <Route path="/about" component={About}/>
       <Route exact path="/" component={Home}/>
-      <PrivateRoute authenticated={sessionStorage.jwt} path="/home" component={UserHomePage}
+      <PrivateRoute authenticated={!!sessionStorage.jwt} path="/home" component={UserHomePage}
         />
     </div>
   )}
