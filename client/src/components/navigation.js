@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { NavLink as TopNav } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class Navigation extends React.Component {
 
@@ -32,4 +33,8 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation
+function mapStateToProps(state, ownProps) {
+  return {logged_in: state.session};
+}
+
+export connect(mapStateToProps, null)(Navigation)
