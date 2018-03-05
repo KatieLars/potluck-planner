@@ -10,9 +10,9 @@ import * as sessionActions from '../actions/sessionActions'
 
   signOut = (event) => {
     event.preventDefault()
-  
     this.props.actions.signOut()
-
+    const {history} = this.props
+    history.push('/home')
   }
 
   render() {
