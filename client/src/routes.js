@@ -18,7 +18,6 @@ const checkAuth = (token) => {
 }
 
 const PrivateRoute = ({component: Component, token, ...rest}) => {
-  debugger
   return (
   <Route {...rest} render={(props) => {
     checkAuth(token) ? (

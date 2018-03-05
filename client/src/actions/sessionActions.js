@@ -2,7 +2,14 @@ import * as types from './actionTypes';
 import sessionApi from '../api/sessionApi';
 
 export function signInSuccess() {
-  return {type: types.SIGN_IN_SUCCESS}
+  return {type: types.SIGN_IN_SUCCESS
+  }
+}
+
+export function newUserSuccess(user) {
+  return {type: types.NEW_USER_SUCCESS,
+          user: user,
+  }
 }
 
 
@@ -19,8 +26,9 @@ export function signIn(credentials) {
 export function signUp(info) {
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
-      sessionStorage.setItem('jwt', response.jwt);
-      dispatch(signInSuccess());
+      debugger
+      sessionApi.signIn({email: response.email, password: response.password});
+      dispatch(newUserSuccess(response));
       }).catch(error => {
       throw(error);
       });
