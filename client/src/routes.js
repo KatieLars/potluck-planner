@@ -5,10 +5,11 @@ import About from './components/about'
 import SignIn from './components/signIn'
 import UserHomePage from './pages/userHomePage'
 import Navigation from './containers/navigation'
+import { Redirect } from 'react-router-dom'
 
 class Routes extends Component {
 
-const PrivateRoute = ({component: Component, session, ...rest}) => {
+privateRoute = ({component: Component, session, ...rest}) => {
     return (
       <Route
         {...rest}
@@ -27,7 +28,7 @@ const PrivateRoute = ({component: Component, session, ...rest}) => {
       <Route path="/about" component={About}/>
       <Route exact path="/" component={Home}/>
       <Route path="/home" component={UserHomePage}
-        onEnter={this.PrivateRoute}/>
+        />
     </div>
   )}
 }
