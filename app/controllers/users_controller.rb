@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     def create #create a new user then log them in
       @user = User.new(user_params)
       if @user.save
-        redirect_to user_token_path({auth: {email: user_params[:user][:email], password: user_params[:user][:password]})
+        redirect_to user_token_path({auth: {email: user_params[:email], password: user_params[:password]}})
       else
         @errors = @user.errors.full_messages
         render json:@errors
