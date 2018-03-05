@@ -7,7 +7,7 @@ class Navigation extends React.Component {
   render() {
     if(this.props.logged_in){
       return(
-
+        <UserNavbar />
       )
     }else{
       return (

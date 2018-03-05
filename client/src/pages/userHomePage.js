@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
+import Navigation from '../containers/navigation'
 
 class UserHomePage extends Component {
   render() {
