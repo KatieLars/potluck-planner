@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import WelcomeNavbar from '../components/welcomeNavbar'
+import UserNavbar from '../components/userNavbar'
 
 class Navigation extends React.Component {
 
