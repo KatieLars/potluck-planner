@@ -4,6 +4,7 @@ import { NavLink as TopNav, Link, BrowserRouter, withRouter } from 'react-router
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux'
 import * as sessionActions from '../actions/sessionActions'
+import SignOutLink from './signOutLink'
 
  class UserNavbar extends Component {
 
@@ -14,14 +15,11 @@ import * as sessionActions from '../actions/sessionActions'
     history.push("/")
   }
 
-  const SignOutLink = withRouter({history}) => (
-    <Link to="#" onClick={(event, history) => {this.signOut(event, history)}}>Sign Out</Link>
-  )
   render() {
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
-      <NavbarBrand><SignOutLink/></NavbarBrand>
+      <NavbarBrand><SignOutLink signOut={this.signOut}/></NavbarBrand>
         <Nav navbar className="list-unstyled ml-auto" >
           <NavItem>
             <NavLink>
