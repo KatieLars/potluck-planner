@@ -14,3 +14,9 @@ export function signIn(credentials) {
       throw(error);
       });
 }}
+
+export function signOut() {
+  return function(dispatch) {
+    
+  }
+}

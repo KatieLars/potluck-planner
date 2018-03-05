@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 
   const signOut = (event) => {
     event.preventDefault()
-    this.props.signOut()
+    this.props.actions.signOut()
   }
 
   render() {
@@ -48,4 +48,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default UserNavbar
+export default connect(null, mapDispatchToProps)(UserNavbar)
