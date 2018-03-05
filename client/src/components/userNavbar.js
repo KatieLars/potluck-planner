@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Navbar, Nav, NavItem, NavLink, NavbarBrand } from 'reactstrap';
+import { Navbar, Nav, NavItem, NavLink, NavbarBrand, Button } from 'reactstrap';
 import { NavLink as TopNav, Link, BrowserRouter } from 'react-router-dom'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux'
@@ -10,16 +10,14 @@ import * as sessionActions from '../actions/sessionActions'
 
   signOut = (event) => {
     event.preventDefault()
-    const {history} = this.props
     this.props.actions.signOut()
-    history.push("/")
   }
 
   render() {
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
-      <NavbarBrand><Link onClick={(event) => this.signOut(event)}>Sign Out</Link></NavbarBrand>
+      <NavbarBrand onClick={(event) => this.signOut(event)}>Sign Out</NavbarBrand>
         <Nav navbar className="list-unstyled ml-auto" >
           <NavItem>
             <NavLink>
