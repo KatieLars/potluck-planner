@@ -8,12 +8,9 @@ export function signInSuccess() {
 export function signIn(credentials) {
   return function(dispatch) {
     return sessionApi.signIn(credentials).then(response => {
-      console.log(response)})
-  };
-}
-
-// sessionStorage.setItem('jwt', response.jwt);
-// dispatch(signInSuccess());
-// }).catch(error => {
-// throw(error);
-// });
+      sessionStorage.setItem('jwt', response.jwt);
+      dispatch(signInSuccess());
+      }).catch(error => {
+      throw(error);
+      });
+}}
