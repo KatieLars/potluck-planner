@@ -1,14 +1,17 @@
 import React, { Component} from 'react';
 import { Navbar, Nav, NavItem, NavLink, NavbarBrand } from 'reactstrap';
-import { NavLink as TopNav, Link} from 'react-router-dom'
+import { NavLink as TopNav, Link, BrowserRouter } from 'react-router-dom'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux'
+
 
  class UserNavbar extends Component {
 
   const signOut = (event) => {
     event.preventDefault()
+    const {history} = this.props
     this.props.actions.signOut()
+    history.push("/")
   }
 
   render() {
