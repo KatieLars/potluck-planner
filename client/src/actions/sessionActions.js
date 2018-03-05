@@ -8,7 +8,7 @@ export function signInSuccess() {
 
 export function newUserSuccess(user) {
   return {type: types.NEW_USER_SUCCESS,
-          user: user,
+          user: user
   }
 }
 
@@ -26,7 +26,6 @@ export function signIn(credentials) {
 export function signUp(info) {
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
-      sessionApi.signIn({email: response.email, password: response.password});
       dispatch(newUserSuccess(response));
       }).catch(error => {
       throw(error);

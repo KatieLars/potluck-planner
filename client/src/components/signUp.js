@@ -64,7 +64,7 @@ return(
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(sessionActions, dispatch)
   };
