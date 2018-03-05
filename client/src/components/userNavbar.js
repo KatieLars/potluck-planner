@@ -1,26 +1,27 @@
 import React, { Component} from 'react';
 import { Navbar, Nav, NavItem, NavLink, NavbarBrand, Button } from 'reactstrap';
-import { NavLink as TopNav, Link, BrowserRouter } from 'react-router-dom'
+import { NavLink as TopNav, Link, BrowserRouter, withRouter } from 'react-router-dom'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux'
 import * as sessionActions from '../actions/sessionActions'
 
-const primaryText = {
-  color: "primary"
-}
-
  class UserNavbar extends Component {
 
-  signOut = (event) => {
+  signOut = (event, history) => {
     event.preventDefault()
     this.props.actions.signOut()
+    debugger
+    history.push("/")
   }
 
+  const SignOutLink = withRouter({history}) => (
+    <Link to="#" onClick={(event, history) => {this.signOut(event, history)}}>Sign Out</Link>
+  )
   render() {
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
-      <NavbarBrand style={{primaryText}} onClick={(event) => this.signOut(event)}>Sign Out</NavbarBrand>
+      <NavbarBrand><SignOutLink/></NavbarBrand>
         <Nav navbar className="list-unstyled ml-auto" >
           <NavItem>
             <NavLink>
