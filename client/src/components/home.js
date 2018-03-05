@@ -10,6 +10,7 @@ class Home extends Component {
       <div>
         <Jumbotron style={{textAlign: "center"}} >
           <h1>Potluck Planner</h1>
+          <p>{this.props.user.email}</p>
           <p className="lead"><em>What's happening, who's coming, and what's to eat!</em></p>
           <hr className="my-4"/>
           <p>Set a date. Invite friends. Bring food. And track it all.</p>
