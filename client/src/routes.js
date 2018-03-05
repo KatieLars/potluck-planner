@@ -8,13 +8,16 @@ import Navigation from './containers/navigation'
 
 class Routes extends Component {
 
-requireAuth(nextState, replace){
-    if (!sessionStorage.jwt) {
-      replace({
-        pathname: '/signin',
-        state: { nextPathname: nextState.location.pathname }
-      })
-    }}
+const PrivateRoute = ({component: Component, session, ...rest}) => {
+    return (
+      <Route
+        {...rest}
+        render={(props) => session === true
+          ? <Component {...props} />
+          : <Redirect to={{pathname: '/signin', state: {from: props.location}}} />}
+      />
+    )
+  }
 
   render() {
     return(
@@ -24,7 +27,7 @@ requireAuth(nextState, replace){
       <Route path="/about" component={About}/>
       <Route exact path="/" component={Home}/>
       <Route path="/home" component={UserHomePage}
-        onEnter={this.requireAuth}/>
+        onEnter={this.PrivateRoute}/>
     </div>
   )}
 }

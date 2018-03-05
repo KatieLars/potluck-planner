@@ -1,13 +1,21 @@
 import React, { Component} from 'react';
 import { Navbar, Nav, NavItem, NavLink, NavbarBrand } from 'reactstrap';
-import { NavLink as TopNav } from 'react-router-dom'
+import { NavLink as TopNav, Link} from 'react-router-dom'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux'
 
  class UserNavbar extends Component {
+
+  const signOut = (event) => {
+    event.preventDefault()
+    this.props.signOut()
+  }
+
   render() {
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
-      <NavbarBrand><TopNav to="/:user_id/signout">Sign Out</TopNav></NavbarBrand>
+      <NavbarBrand><Link onClick={(event) => signOut(event))}>Sign Out</TopNav></NavbarBrand>
         <Nav navbar className="list-unstyled ml-auto" >
           <NavItem>
             <NavLink>
@@ -33,5 +41,11 @@ import { NavLink as TopNav } from 'react-router-dom'
       </Navbar>
     </div>
 )}}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(sessionActions, dispatch)
+  };
+}
 
 export default UserNavbar
