@@ -17,16 +17,17 @@ const checkAuth = (token) => {
 }
 
 const PrivateRoute = ({component: Component, token, ...rest}) => {
+  debugger
   return (
   <Route {...rest} render={(props) => {
     checkAuth(token) ? (
       <Component {...props} />
     )
-      : (<Redirect to={{pathname: '/signin', state: {from: props.location}}} />
+      : (<Redirect to={{pathname: '/signin', state: {from: props.location}}} />)
     }
+  }
   />)
-  )
-}}
+}//last brace
 
 class Routes extends Component {
 
@@ -39,7 +40,7 @@ class Routes extends Component {
       <Route exact path="/" component={Home}/>
       <Route path="/signin" component={SignIn} />
       <Route path="/about" component={About}/>
-      <PrivateRoute token={sessionStorage.jwt} path="/home" component={UserHomePage}
+      <Route path="/home" component={UserHomePage}
         />
       </Switch>
     </div>
@@ -48,5 +49,5 @@ class Routes extends Component {
 
 export default Routes
 
-// <PrivateRoute authenticated={this.props.authenticated} path="/home" component={UserHomePage}
+// <PrivateRoute token={sessionStorage.jwt} path="/home" component={UserHomePage}
 //   />
