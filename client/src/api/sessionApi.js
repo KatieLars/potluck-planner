@@ -22,7 +22,7 @@ class SessionApi {
       headers: new Headers({
         'Content-Type': 'application/json'
       }),
-      body: JSON.stringify(info)
+      body: JSON.stringify({user: info})
     })
 
     return fetch(request).then(response => {
