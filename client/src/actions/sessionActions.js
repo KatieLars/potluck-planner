@@ -13,7 +13,6 @@ export function newUserSuccess(user) {
   }
 }
 
-
 export function signIn(credentials) {
   return function(dispatch) {
     return sessionApi.signIn(credentials).then(response => {
