@@ -8,7 +8,6 @@ class SessionApi {
       body: JSON.stringify({auth: credentials})
     });
 
-debugger
     return fetch(request).then(response => {
       return response.json();
     }).catch(error => {
@@ -37,12 +36,14 @@ debugger
     const request = new Request('http://localhost:3001/find_user', {
       method: "POST",
       headers: new Headers({
+        'Content-Type': 'application/json',
         "Authorization": `Bearer ${sessionStorage.jwt}`
       }),
       body: JSON.stringify({user: credentials})
     })
 
     return fetch(request).then(response => {
+      debugger
       return response.json();
     }).catch(error => {
       return error;
