@@ -5,7 +5,8 @@ import {BrowserRouter} from 'react-router-dom'
 export default function usersReducer(state = initialState.user, action) {
     switch(action.type) {
     case types.NEW_USER_SUCCESS:
-      return {...state, user: action.user}
+      const newState = {...state, user: action.user}
+      return newState
     default:
       return state;
   }
