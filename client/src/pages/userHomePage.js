@@ -5,12 +5,12 @@ import Navigation from '../containers/navigation'
 class UserHomePage extends Component {
 
 componentWillMount() {
-  
-}
-propsCheck = () => {
 
+}
+
+propsCheck = () => {
   if (this.props.user) {
-    debugger
+
     return <p>{this.props.user.username}</p>
   }
 }
@@ -27,7 +27,7 @@ propsCheck = () => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state
   }}
 
 export default connect(mapStateToProps, null)(UserHomePage)

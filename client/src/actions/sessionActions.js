@@ -18,7 +18,7 @@ export function signIn(credentials) {
     return sessionApi.signIn(credentials).then(response => {
       sessionStorage.setItem('jwt', response.jwt);
       dispatch(signInSuccess());
-      }).catch(error => {
+    }).catch(error => {
       throw(error);
       });
 }}
@@ -27,6 +27,7 @@ export function signUp(info) {
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
       dispatch(newUserSuccess(response));
+      this.props.history.push("/home")
       }).catch(error => {
       throw(error);
       });
