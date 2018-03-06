@@ -41,7 +41,7 @@ export function signIn(credentials) {
       });
 }}
 
-export function signUp(info) {
+export function signUp(info) { //creates a user
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
       dispatch(newUserSuccess(response));
