@@ -14,7 +14,7 @@ export function signInSuccess(credentials) {
 }
 
 export function oldUserSuccess(user) {
-  return {type: types.SIGN_IN_SUCCESS,
+  return {type: types.FOUND_USER,
           user: user
   }
 }

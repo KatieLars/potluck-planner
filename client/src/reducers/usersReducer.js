@@ -6,7 +6,8 @@ export default function usersReducer(state = initialState.user, action) {
     switch(action.type) {
     case types.NEW_USER_SUCCESS:
       return {...state, user: action.user}
-    case types.SIGN_IN_SUCCESS:
+    case types.FOUND_USER:
+    debugger
       return {...state, user: action.user}
     default:
       return state;

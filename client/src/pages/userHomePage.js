@@ -8,6 +8,7 @@ import * as sessionActions from '../actions/sessionActions'
 class UserHomePage extends Component {
 
   componentWillMount() {
+    debugger
      if(this.props.user.users.user) {
        const credentials = {email: this.props.user.users.user.email, password: this.props.user.users.user.password }
        this.props.actions.signIn(credentials)
