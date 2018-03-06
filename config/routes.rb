@@ -5,6 +5,6 @@ Rails.application.routes.draw do
        resources :guestships
        resources :friendships
        resources :recipes
-       get 'find_user' => 'users#find'
+       post 'find_user' => 'users#find'
 
 end
