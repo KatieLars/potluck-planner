@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import Navigation from '../containers/navigation'
 
 class UserHomePage extends Component {
-  render() { 
+  render() {
     return(
       <div>
         <h1>You are logged in!</h1>
+        <p>{this.props.user}</p>
       </div>
     )
   }
@@ -14,8 +15,7 @@ class UserHomePage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    testState: state
-  };
-}
+    user: state.user
+  }
 
 export default connect(mapStateToProps, null)(UserHomePage)
