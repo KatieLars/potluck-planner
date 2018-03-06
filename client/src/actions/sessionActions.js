@@ -25,6 +25,17 @@ export function newUserSuccess(user) {
   }
 }
 
+export function signUpSuccess(info) {
+  return function(dispatch) {
+    return sessionApi.signIn(info).then(response => {
+      dispatch(newUserSuccess(response));
+      history.push("/home")
+    }).catch(error => {
+      throw(error)
+    })
+  }
+}
+
 export function foundUser(user) {
   return {type: types.FOUND_USER,
           user: user
@@ -41,15 +52,10 @@ export function signIn(credentials) {
       });
 }}
 
-
-
-
-
 export function signUp(info) { //creates a user
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
-      dispatch(newUserSuccess(response));
-      history.push("/home")
+      dispatch(signUpSuccess(info));
     }).catch(error => {
       throw(error);
       });
