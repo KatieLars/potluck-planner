@@ -27,7 +27,7 @@ export function signUp(info) {
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
       dispatch(newUserSuccess(response));
-      this.props.history.push("/home")
+      
       }).catch(error => {
       throw(error);
       });
