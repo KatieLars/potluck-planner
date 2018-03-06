@@ -32,6 +32,11 @@ class SessionApi {
     });
   }
 
+  // static getUserInfo(credentials) {
+  //   const request = new Request('http://localhost:3001/users', {
+  //     method: "GET"
+  //   })
+  // }
 }
 
 export default SessionApi;

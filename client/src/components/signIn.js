@@ -25,7 +25,7 @@ handleChange(event){
 
 handleSubmit(event) {
   event.preventDefault()
-  this.props.actions.getUserInfo(this.state.credentials);
+  this.props.actions.signIn(this.state.credentials);
 }
 
 render() {
