@@ -5,6 +5,7 @@ import Navigation from '../containers/navigation'
 class UserHomePage extends Component {
 
   render() {
+    debugger
     return(
       <div>
         <h1>You are logged in!</h1>
