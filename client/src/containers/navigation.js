@@ -21,7 +21,7 @@ class Navigation extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {logged_in: state.session};
+  return {logged_in: state.sessions};
 }
 
 export default connect(mapStateToProps, null)(Navigation)

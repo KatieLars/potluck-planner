@@ -2,12 +2,12 @@ import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 import {BrowserRouter} from 'react-router-dom'
 
-export default function usersReducer(state = initialState, action) {
+export default function usersReducer(state = initialState.user, action) {
     switch(action.type) {
     case types.NEW_USER_SUCCESS:
       return {...state, user: action.user}
     case types.FOUND_USER:
-      return {...state, user: action.user, session: !!sessionStorage.jwt}
+      return {...state, user: action.user}
     default:
       return state;
   }
