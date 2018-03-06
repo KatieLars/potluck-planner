@@ -13,6 +13,12 @@ export function newUserSuccess(user) {
   }
 }
 
+export function foundUser(user) {
+  return {type: types.FOUND_USER,
+          user: user
+  }
+}
+
 export function signIn(credentials) {
   return function(dispatch) {
     return sessionApi.signIn(credentials).then(response => {
