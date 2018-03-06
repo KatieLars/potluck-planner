@@ -34,6 +34,14 @@ export function signUp(info) {
   }
 }
 
+export function getUserInfo(token) {
+  return function(dispatch) {
+    return sessionApi.userInfo(token).then(response => {
+
+    })
+  }
+}
+
 export function signOut() {
   sessionStorage.removeItem('jwt');
   return {type: types.LOG_OUT_SUCCESS}
