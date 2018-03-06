@@ -12,8 +12,12 @@ export function signInSuccess(credentials) {
     })
   }
 }
-  // return {type: types.SIGN_IN_SUCCESS}
 
+export function oldUserSuccess(user) {
+  return {type: types.SIGN_IN_SUCCESS,
+          user: user
+  }
+}
 
 export function newUserSuccess(user) {
   return {type: types.NEW_USER_SUCCESS,
