@@ -31,6 +31,7 @@ class SessionApi {
       return error;
     });
   }
+
 }
 
 export default SessionApi;

@@ -34,12 +34,9 @@ export function signUp(info) {
   }
 }
 
-export function getUserInfo(token) {
-  return function(dispatch) {
-    return sessionApi.userInfo(token).then(response => {
+export function getUserInfo() {
+  debugger
 
-    })
-  }
 }
 
 export function signOut() {

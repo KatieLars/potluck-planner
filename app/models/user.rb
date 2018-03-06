@@ -20,6 +20,5 @@ class User < ApplicationRecord
     self.total_potlucks.collect {|r| r.recipes}.flatten
   end
 
-   def self.from_token_request(request)
-   end
+  
 end
