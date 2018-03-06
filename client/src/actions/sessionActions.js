@@ -34,9 +34,15 @@ export function signUp(info) {
   }
 }
 
-export function getUserInfo() {
-  debugger
-
+export function getUserInfo(credentials) {
+  return function(dispatch) {
+    return sessionApi.getUserInfo(credentials).then(response => {
+      dispatch(foundUser(response));
+      history.push('/home')
+    }).catch(error => {
+      throw(error)
+    })
+  }
 }
 
 export function signOut() {
