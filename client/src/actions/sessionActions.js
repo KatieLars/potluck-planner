@@ -27,8 +27,8 @@ export function signUp(info) {
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
       dispatch(newUserSuccess(response));
-      history.push("/home");
-      }).catch(error => {
+      history.push("/home")
+    }).catch(error => {
       throw(error);
       });
   }

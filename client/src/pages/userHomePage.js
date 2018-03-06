@@ -6,7 +6,7 @@ import * as sessionActions from '../actions/sessionActions'
 
 class UserHomePage extends Component {
 
-  componentDidRender() {
+  componentWillMount() {
     const credentials = {email: this.props.user.users.user.email, password: this.props.user.users.user.password }
     this.props.actions.signIn(credentials)
   }
