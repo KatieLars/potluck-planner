@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import Navigation from '../containers/navigation'
+import {bindActionCreators} from 'redux';
+import * as sessionActions from '../actions/sessionActions'
 
 class UserHomePage extends Component {
 
+  componentDidRender() {
+    const credentials = {email: this.props.user.users.user.email, password: this.props.user.users.user.password }
+    this.props.actions.signIn(credentials)
+  }
+
   render() {
-    debugger
     return(
       <div>
         <h1>You are logged in!</h1>
@@ -20,4 +26,10 @@ const mapStateToProps = (state) => {
     user: state
   }}
 
-export default connect(mapStateToProps, null)(UserHomePage)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(sessionActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserHomePage)

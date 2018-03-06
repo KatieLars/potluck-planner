@@ -8,7 +8,7 @@ export function signInSuccess() {
 }
 
 export function newUserSuccess(user) {
-  return {type: types.SIGN_IN_SUCCESS,
+  return {type: types.NEW_USER_SUCCESS,
           user: user
   }
 }
