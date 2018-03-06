@@ -17,6 +17,7 @@ export function newUserSuccess(user) {
 export function signIn(credentials) {
   return function(dispatch) {
     return sessionApi.signIn(credentials).then(response => {
+      debugger
       sessionStorage.setItem('jwt', response.jwt);
       dispatch(signInSuccess());
     }).catch(error => {
@@ -28,7 +29,6 @@ export function signUp(info) {
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
       dispatch(newUserSuccess(response));
-      debugger
       history.push("/home");
       }).catch(error => {
       throw(error);
@@ -40,3 +40,5 @@ export function signOut() {
   sessionStorage.removeItem('jwt');
   return {type: types.LOG_OUT_SUCCESS}
 }
+
+//sessionApi.signIn({email: response.email, password: response.password});
