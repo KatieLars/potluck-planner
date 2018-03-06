@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
+  validates :email, uniqueness: true
+  validates :email, presence: true
+  validates :password, presence: true
   has_many :guestships, foreign_key: :guest_id
   has_many :potlucks #these are the potlucks the user hosts
   has_many :recipes
@@ -20,5 +23,5 @@ class User < ApplicationRecord
     self.total_potlucks.collect {|r| r.recipes}.flatten
   end
 
-  
+
 end

@@ -25,9 +25,7 @@ handleChange(event){
 
 handleSubmit(event) {
   event.preventDefault()
-  this.props.actions.signIn(this.state.credentials);
-  const {history} = this.props
-  history.push('/home')
+  this.props.actions.getUserInfo(this.state.credentials);
 }
 
 render() {
