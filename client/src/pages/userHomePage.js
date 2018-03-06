@@ -4,18 +4,7 @@ import Navigation from '../containers/navigation'
 
 class UserHomePage extends Component {
 
-componentWillMount() {
-
-}
-
-propsCheck = () => {
-  if (this.props.user) {
-
-    return <p>{this.props.user.username}</p>
-  }
-}
   render() {
-debugger
     return(
       <div>
         <h1>You are logged in!</h1>
