@@ -6,8 +6,6 @@ import {BrowserRouter, withRouter} from 'react-router-dom'
 
 class Navigation extends Component {
 
-
-
   render() {
 
     if(this.props.logged_in){
