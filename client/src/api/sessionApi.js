@@ -8,7 +8,7 @@ class SessionApi {
       body: JSON.stringify({auth: credentials})
     });
 
-
+debugger
     return fetch(request).then(response => {
       return response.json();
     }).catch(error => {
@@ -33,9 +33,10 @@ class SessionApi {
   }
 
   static getUserInfo(credentials) {
+
     const request = new Request('http://localhost:3001/find_user', {
       method: "POST",
-      headers: new Headers ({
+      headers: new Headers({
         "Authorization": `Bearer ${sessionStorage.jwt}`
       }),
       body: JSON.stringify({user: credentials})

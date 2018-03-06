@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     def find
       @user = User.find_by(email: params[:user][:email])
-      binding.pry
+
       if @user
         render json:@user
       else
