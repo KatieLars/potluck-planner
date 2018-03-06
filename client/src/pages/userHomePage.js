@@ -4,6 +4,7 @@ import Navigation from '../containers/navigation'
 
 class UserHomePage extends Component {
   render() {
+    debugger
     return(
       <div>
         <h1>You are logged in!</h1>
@@ -15,7 +16,7 @@ class UserHomePage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
-  }
+    user: state
+  }}
 
 export default connect(mapStateToProps, null)(UserHomePage)

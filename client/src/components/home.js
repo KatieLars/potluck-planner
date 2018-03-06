@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Jumbotron } from 'reactstrap'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
 
 
 class Home extends Component {
