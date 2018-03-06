@@ -15,11 +15,11 @@ propsCheck = () => {
   }
 }
   render() {
-
+debugger
     return(
       <div>
         <h1>You are logged in!</h1>
-        {this.propsCheck()}
+        <p>{this.props.user.users.user.username}</p>
       </div>
     )
   }

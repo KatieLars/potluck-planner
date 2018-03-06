@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import sessionApi from '../api/sessionApi';
+import history from '../history'
 
 export function signInSuccess() {
   return {type: types.SIGN_IN_SUCCESS
@@ -27,7 +28,7 @@ export function signUp(info) {
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
       dispatch(newUserSuccess(response));
-      
+      history.push("/home")
       }).catch(error => {
       throw(error);
       });

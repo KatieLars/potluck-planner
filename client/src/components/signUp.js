@@ -27,7 +27,7 @@ handleChange(event){
 handleSubmit(event) {
   event.preventDefault()
   this.props.actions.signUp(this.state.info);
-  debugger
+
   // const{history} = this.props
   // history.pushState("/home")
 }
