@@ -8,7 +8,7 @@ export function signInSuccess() {
 }
 
 export function newUserSuccess(user) {
-  return {type: types.NEW_USER_SUCCESS,
+  return {type: types.SIGN_IN_SUCCESS,
           user: user
   }
 }
@@ -17,7 +17,6 @@ export function newUserSuccess(user) {
 export function signIn(credentials) {
   return function(dispatch) {
     return sessionApi.signIn(credentials).then(response => {
-      debugger
       sessionStorage.setItem('jwt', response.jwt);
       dispatch(signInSuccess());
     }).catch(error => {
