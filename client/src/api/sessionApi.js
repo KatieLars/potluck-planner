@@ -33,14 +33,14 @@ class SessionApi {
   }
 
   static getUserInfo(credentials) {
-    const request = new Request('http://localhost:3001/users', {
+    const request = new Request('http://localhost:3001/find_user', {
       method: "GET",
       headers: new Headers ({
         "Authorization": `Bearer ${sessionStorage.jwt}`
       }),
       body: JSON.stringify({user: credentials})
     })
-    
+
     return fetch(request).then(response => {
       return response.json();
     }).catch(error => {
