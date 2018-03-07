@@ -4,6 +4,20 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as sessionActions from '../actions/sessionActions'
 import {BrowserRouter} from 'react-router-dom';
+import peeledOrange from "../images/peeledOrange.jpg"
+
+const formStyle ={
+  paddingTop: "150px",
+  color: "white"
+}
+
+const formBackground = {
+  paddingLeft: "450px",
+  backgroundImage: "url(" + peeledOrange + ")",
+  backgroundSize: "cover",
+  height: "100vh",
+  width: "100%",
+}
 
 class SignIn extends Component {
   constructor() {
@@ -30,11 +44,10 @@ handleSubmit(event) {
 
 render() {
 return(
-    <Container>
-      <Row style={{paddingTop: "25px"}}>
-        <Col className="col-4"></Col>
-        <Col className="col-4">
+    <Container style={formBackground} >
+      <Row style={formStyle}>
           <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
+            <h1>Sign In</h1><br></br>
             <FormGroup>
               <Label for="email">Email</Label>
               <Input type="email" name="email" id="email" />
@@ -45,8 +58,6 @@ return(
             </FormGroup>
             <Button>Submit</Button>
           </Form>
-        </Col>
-        <Col className="col-4"></Col>
         </Row>
       </Container>
     )
