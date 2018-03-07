@@ -8,8 +8,10 @@ export default function usersReducer(state = initialState.user, action) {
       return {...state, user: action.user}
     case types.FOUND_USER:
       return {...state, user: action.user}
+    case types.UPDATE_USER:
+      return {...state, user: action.user}
     case types.LOG_OUT_SUCCESS:
-      return {...state, user: {}} 
+      return {...state, user: {}}
     default:
       return state;
   }
