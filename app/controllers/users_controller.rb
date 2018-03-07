@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       @user = User.find_by_id(params[:user][:id])
       clean_params = user_params.reject { |k, v| v.blank? }
       @user.update(clean_params)
+      binding.pry
       render json:@user
     end
 

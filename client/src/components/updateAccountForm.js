@@ -53,7 +53,7 @@ return(
               <Input type="text" name="image" id="image" placeholder={image} />
             </FormGroup>
             <FormGroup>
-              <Label for="password">Enter New Password or Conform Current Password</Label>
+              <Label for="password">Enter New or Confirm Current Password</Label>
               <h6><em>This field cannot be blank</em></h6>
               <Input type="password" name="password" id="password" />
             </FormGroup>
