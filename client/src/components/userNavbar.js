@@ -14,7 +14,7 @@ import * as sessionActions from '../actions/sessionActions'
   }
 
   render() {
-    const userId= this.props.users.user.id
+
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
