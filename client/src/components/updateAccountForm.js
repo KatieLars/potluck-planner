@@ -27,6 +27,7 @@ class UpdateAccountForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
+    debugger
     this.props.actions.updateUser(this.state.info);
   }
 
@@ -54,11 +55,11 @@ return(
             </FormGroup>
             <FormGroup>
               <Label for="password">New Password</Label>
-              <Input type="password" name="newPassword" id="password" />
+              <Input type="password" name="password" id="password" />
             </FormGroup>
             <FormGroup>
               <Label for="passwordConfirmation">Confirm New Password</Label>
-              <Input type="password" name="newPasswordConfirmation" id="newPasswordConfirmation" />
+              <Input type="password" name="passwordConfirmation" id="passwordConfirmation" />
             </FormGroup>
             <Button>Submit</Button>
           </Form>

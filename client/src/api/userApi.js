@@ -1,10 +1,11 @@
 class UserApi {
   static updateUser(info) {
-    const request = new Request('http://localhost:3001/', {
+    debugger
+    const request = new Request(`http://localhost:3001/users/${info.id}`, {
       method: 'PATCH',
       headers: new Headers({
         'Content-Type': 'application/json',
-        "Authentication": `Bearer ${sessionStorage.jwt}`
+        'Authorization': `Bearer ${sessionStorage.jwt}`,
       }),
       body: JSON.stringify({user: info})
     });
