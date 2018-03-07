@@ -17,8 +17,7 @@ class UsersController < ApplicationController
     end
 
     def update
-      binding.pry
-      @user = User.find_by(params[:user][:id])
+      @user = User.find_by_id(params[:user][:id])
       @user.update(user_params)
       render json:@user
     end
