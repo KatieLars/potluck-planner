@@ -16,6 +16,12 @@ class UsersController < ApplicationController
       end
     end
 
+    def update
+      @user = User.find_by(params[:user][:id])
+      @user.update(user_params)
+      render json:@user
+    end
+
     def find
       @user = User.find_by(email: params[:user][:email])
       if @user
