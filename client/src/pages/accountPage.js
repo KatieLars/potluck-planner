@@ -34,5 +34,4 @@ const mapStateToProps = (state) => {
     user: state
   }}
 
-
 export default connect(mapStateToProps, null)(AccountPage)

@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import {Form, FormGroup, Col, Row, Container, Button, Label, Input} from 'reactstrap'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import * as userActions from '../actions/userActions'
 
 class UpdateAccountForm extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       info: {
+        id: this.props.user.users.user.id
         password: "",
         passwordConfirmation: "",
         username: "",
@@ -70,7 +72,7 @@ return(
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(sessionActions, dispatch)
+    actions: bindActionCreators(userActions, dispatch)
   };
 }
 
