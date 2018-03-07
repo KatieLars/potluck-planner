@@ -48,7 +48,7 @@ class Routes extends Component {
       <Route path="/home" component={UserHomePage}/>
       <Route exact path="/account/update" component={UpdateAccountForm}/>
       <Route path="/account" component={AccountPage}/>
-      <Route path="/friends" component={FriendsPage}/>
+      <Route exact path="/friends" component={FriendsPage}/>
       <Route path="/friends/add" component={AddFriends} />
       </Switch>
     </div>
