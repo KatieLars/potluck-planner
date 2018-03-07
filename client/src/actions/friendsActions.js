@@ -1,10 +1,11 @@
 import * as types from './actionTypes';
-import FriendApi from '../api/friendApi';
+import UserApi from '../api/userApi';
 import history from '../history'
 
 export function getNotFriends(userId) { //gets all users who are NOT friends
   return function(dispatch) {
-    return UserApi.updateUser(info).then(response => {
+    return UserApi.getNotFriends(userId).then(response => {
+      
       dispatch(updateUserSuccess(response));
       history.push("/account")
     }).catch(error => {
@@ -13,8 +14,8 @@ export function getNotFriends(userId) { //gets all users who are NOT friends
   }
 }
 
-export function getNotFriendsSuccess(user) {
-  return {type: types.UPDATE_USER,
-          user: user
+export function getNotFriendsSuccess(notFriends) {
+  return {type: types.NOT_FRIENDS,
+          notFriends: notFriends
   }
 }

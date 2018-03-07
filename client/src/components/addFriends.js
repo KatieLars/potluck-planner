@@ -13,7 +13,7 @@ class AddFriends extends Component {
   }
 
   componentWillMount() { //may need to use componentDidMount
-    this.props.actions.getNotFriends(userId)
+    this.props.actions.getNotFriends(this.state.userId)
   }
 
   render() {
