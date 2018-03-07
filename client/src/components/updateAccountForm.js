@@ -27,7 +27,6 @@ class UpdateAccountForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    debugger
     this.props.actions.updateUser(this.state.info);
   }
 

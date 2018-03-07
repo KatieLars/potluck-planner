@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 
     def update
       @user = User.find_by_id(params[:user][:id])
-      @user.update(user_params)
+      clean_params = user_params.reject { |k, v| v.blank? }
+      @user.update(clean_params)
       render json:@user
     end
 

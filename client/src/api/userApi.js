@@ -1,6 +1,5 @@
 class UserApi {
   static updateUser(info) {
-    debugger
     const request = new Request(`http://localhost:3001/users/${info.id}`, {
       method: 'PATCH',
       headers: new Headers({
