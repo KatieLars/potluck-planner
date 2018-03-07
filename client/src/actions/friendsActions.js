@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 import FriendApi from '../api/friendApi';
 import history from '../history'
 
-export function updateUser(info) {
+export function getNotFriends(userId) { //gets all users who are NOT friends
   return function(dispatch) {
     return UserApi.updateUser(info).then(response => {
       dispatch(updateUserSuccess(response));

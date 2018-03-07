@@ -5,10 +5,17 @@ import {connect} from 'react-redux'
 import * as friendsActions from '../actions/friendsActions'
 
 class AddFriends extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      userId = this.props.user.users.user.id,
+    }
+  }
 
   componentWillMount() {
     this.props.actions.getNotFriends()
   }
+  
   render() {
     return(
       <div>
@@ -26,4 +33,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default AddFriends
+const mapStateToProps = (state) => {
+  return {
+    user: state
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddFriends)
