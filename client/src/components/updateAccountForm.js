@@ -25,10 +25,13 @@ handleChange(event){
 
 handleSubmit(event) {
   event.preventDefault()
-  this.props.actions.signIn(this.state.credentials);
+  this.props.actions.updateUser(this.state.credentials);
 }
 
 render() {
+  const username = this.props.user.users.user.username
+  const email = this.props.user.users.user.email
+  const image = this.props.user.users.user.image
 return(
     <Container>
       <Row style={{paddingTop: "25px"}}>
@@ -36,12 +39,24 @@ return(
         <Col className="col-4">
           <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
             <FormGroup>
+              <Label for="username">Username</Label>
+              <Input type="text" name="username" id="username" placeholder={username} />
+            </FormGroup
+            <FormGroup>
               <Label for="email">Email</Label>
-              <Input type="email" name="email" id="email" />
+              <Input type="email" name="email" id="email" placeholder={email} />
             </FormGroup>
             <FormGroup>
-              <Label for="password">Password</Label>
-              <Input type="password" name="password" id="password" />
+              <Label for="image">Image</Label>
+              <Input type="text" name="image" id="image" placeholder={image} />
+            </FormGroup>
+            <FormGroup>
+              <Label for="password">New Password</Label>
+              <Input type="password" name="newPassword" id="password" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="passwordConfirmation">Confirm New Password</Label>
+              <Input type="password" name="newPasswordConfirmation" id="newPasswordConfirmation" />
             </FormGroup>
             <Button>Submit</Button>
           </Form>
