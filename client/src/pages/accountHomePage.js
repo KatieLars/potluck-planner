@@ -3,16 +3,10 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as sessionActions from '../actions/sessionActions'
 import { Jumbotron, Container } from 'reactstrap'
-import stillLife from '../images/stillLife.jpg'
 
-const backgroundImage = {
-  backgroundImage: "url(" + stillLife + ")",
-  height: "100vh",
-  textAlign: "center",
-  color: "white",
-}
 
-class UserHomePage extends Component {
+class AccountPage extends Component {
+  
   render() {
      const username = this.props.user.users.user.username
      const email = this.props.user.users.user.email
