@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-// import {bindActionCreators} from 'redux';
-// import * as sessionActions from '../actions/sessionActions'
+import {bindActionCreators} from 'redux';
+import * as userActions from '../actions/userActions'
 import { Button, Col, Row, Container } from 'reactstrap'
 import {Link} from 'react-router-dom'
 
@@ -21,7 +21,7 @@ class AccountPage extends Component {
               <h3>{username}</h3>
               <img src={image}/>
               <p><em>Email: </em>{email}</p>
-              <Button><Link to="/update-account">Update Account</Link></Button>
+              <Button><Link to="/account/update">Update Account</Link></Button>
             </Col>
             <Col className="col-3"></Col>
           </Row>
@@ -36,10 +36,10 @@ const mapStateToProps = (state) => {
     user: state
   }}
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     actions: bindActionCreators(sessionActions, dispatch)
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(userActions, dispatch)
+  }
+}
 
-export default connect(mapStateToProps, null)(AccountPage)
+export default connect(mapStateToProps, mapDispatchToProps)(AccountPage)

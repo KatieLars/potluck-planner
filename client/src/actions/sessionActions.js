@@ -12,6 +12,7 @@ export function signInSuccess(credentials) {
     })
   }
 }
+
 export function foundUser(user) {
   return {type: types.FOUND_USER,
           user: user
