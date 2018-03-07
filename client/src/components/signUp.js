@@ -3,6 +3,20 @@ import {Form, FormGroup, Col, Row, Container, Button, Label, Input} from 'reacts
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as sessionActions from '../actions/sessionActions'
+import tonyCuranaj from '../images/tonyCuranaj.jpg'
+
+const formStyle ={
+  paddingTop: "150px",
+  color: "white"
+}
+
+const formBackground = {
+  paddingLeft: "450px",
+  backgroundImage: "url(" + tonyCuranaj + ")",
+  backgroundSize: "cover",
+  height: "100vh",
+  width: "100%",
+}
 
 class SignUp extends Component {
   constructor() {
@@ -31,11 +45,10 @@ handleSubmit(event) {
 
 render() {
 return(
-    <Container>
-      <Row style={{paddingTop: "25px"}}>
-        <Col className="col-4"></Col>
-        <Col className="col-4">
+  <Container style={formBackground} >
+    <Row style={formStyle}>
           <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
+            <h1>Sign Up</h1><br></br>
             <FormGroup>
               <Label for="username">Username</Label>
               <Input type="username" name="username" id="username" />
@@ -54,8 +67,6 @@ return(
             </FormGroup>
             <Button>Submit</Button>
           </Form>
-        </Col>
-        <Col className="col-4"></Col>
         </Row>
       </Container>
     )
