@@ -3,7 +3,10 @@ import {connect} from 'react-redux';
 import { Button, Col, Row, Container } from 'reactstrap'
 import {Link} from 'react-router-dom'
 
-
+const imageStyle ={
+  height: "30%",
+  paddingBottom: "20px"
+}
 class AccountPage extends Component {
 
   render() {
@@ -17,7 +20,7 @@ class AccountPage extends Component {
             <Col className="col-3"></Col>
             <Col className="col-6">
               <h3>{username}</h3>
-              <img src={image}/>
+              <img src={image} style={imageStyle}/>
               <p><em>Email: </em>{email}</p>
               <Button><Link to="/account/update">Update Account</Link></Button>
             </Col>
