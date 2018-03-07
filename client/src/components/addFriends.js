@@ -7,15 +7,15 @@ import * as friendsActions from '../actions/friendsActions'
 class AddFriends extends Component {
   constructor(props) {
     super(props);
-    this.state ={
+    this.state = {
       userId = this.props.user.users.user.id,
     }
   }
 
-  componentWillMount() {
-    this.props.actions.getNotFriends()
+  componentWillMount() { //may need to use componentDidMount
+    this.props.actions.getNotFriends(userId)
   }
-  
+
   render() {
     return(
       <div>

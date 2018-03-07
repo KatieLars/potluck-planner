@@ -13,7 +13,7 @@ export function getNotFriends(userId) { //gets all users who are NOT friends
   }
 }
 
-export function updateUserSuccess(user) {
+export function getNotFriendsSuccess(user) {
   return {type: types.UPDATE_USER,
           user: user
   }
