@@ -1,14 +1,19 @@
 import React, {Component} from 'react'
 import FriendsList from '../components/friendsList'
-import {Button} from 'reactstrap'
+import { Button} from 'reactstrap'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 
 class FriendsPage extends Component {
 
   componentWillMount() {
+    this.actions.getFriends()
     //makes a get request to Friendships/index to get friends
   }
 
   handleClick(event) {
+    event.preventDefault()
+    this.props.actions.getUsers()
     //this will make an get request and produce a pop up window with a list of allusers
     //will need a redirect in action to popup
   }
@@ -19,7 +24,7 @@ class FriendsPage extends Component {
       return(
         <div>
           <friendsList friends={this.props.friends}/>
-          <Button onClick={(event) => handleClick(event)}>
+          <Button onClick={(event) => handleClick(event)}>Add Friends</Button>
         </div>
       )
     }else {
@@ -34,7 +39,13 @@ class FriendsPage extends Component {
 
 }
 
-export default FriendsPage
+const mapDispatchToProps = (dispatch) => {
+  return {
+      actions: bindActionCreators(friendsActions, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(FriendsPage)
 
 //this page must:
   //display all friends

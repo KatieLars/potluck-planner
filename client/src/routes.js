@@ -9,7 +9,7 @@ import SignUp from './components/signUp'
 import AccountPage from './pages/accountPage'
 import UpdateAccountForm from './components/updateAccountForm'
 import FriendsPage from './pages/friendsPage'
-import addFriends from './components/addFriends'
+import AddFriends from './components/addFriends'
 import { connect } from 'react-redux'
 
 
@@ -49,7 +49,7 @@ class Routes extends Component {
       <Route exact path="/account/update" component={UpdateAccountForm}/>
       <Route path="/account" component={AccountPage}/>
       <Route path="/friends" component={FriendsPage}/>
-      <Route path="/friends/add-friends" component={addFriends} />
+      <Route path="/friends/add" component={AddFriends} />
       </Switch>
     </div>
   )}
