@@ -8,7 +8,7 @@ import history from '../history.js'
 class FriendsPage extends Component {
 
   componentWillMount() {
-    this.props.actions.getFriends()
+    //this.props.actions.getFriends()
     //makes a get request to Friendships/index to get friends
   }
 
@@ -29,7 +29,7 @@ getModal(event) {
       return(
         <div>
           <h1>Be friendly!</h1>
-          <Button onClick={this.toggle}>Add Friends</Button>
+          <Button onClick={(event)=> this.getModal(event)}>Add Friends</Button>
         </div>
       )
     }
@@ -37,19 +37,19 @@ getModal(event) {
 
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-      actions: bindActionCreators(friendsActions, dispatch)
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//       actions: bindActionCreators(friendsActions, dispatch)
+//   }
+// }
 
-const mapStateToProps = (state) => {
-  return {
-    friends: state
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     friends: state
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsPage)
+export default FriendsPage
 
 //this page must:
   //display all friends

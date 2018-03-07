@@ -1,20 +1,28 @@
 import React, {Component} from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import * as friendsActions from '../actions/friendsActions'
 
 class AddFriends extends Component {
 
   componentWillMount() {
-    //will grab a list of all users minus those who are already friends
+    this.props.actions.getNotFriends()
   }
   render() {
     return(
       <div>
-        <Modal>
+        <Modal isOpen="true">
           <ModalHeader>Hello!</ModalHeader>
         </Modal>
       </div>
     )
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      actions: bindActionCreators(friendsActions, dispatch)
   }
 }
 
