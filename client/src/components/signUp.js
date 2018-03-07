@@ -6,7 +6,7 @@ import * as sessionActions from '../actions/sessionActions'
 import tonyCuranaj from '../images/tonyCuranaj.jpg'
 
 const formStyle ={
-  paddingTop: "150px",
+  paddingTop: "65px",
   color: "white"
 }
 
