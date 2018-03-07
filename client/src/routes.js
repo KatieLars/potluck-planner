@@ -7,6 +7,7 @@ import UserHomePage from './pages/userHomePage'
 import Navigation from './containers/navigation'
 import SignUp from './components/signUp'
 import AccountPage from './pages/accountPage'
+import UpdateAccountForm from './components/updateAccountForm'
 import { connect } from 'react-redux'
 
 
@@ -44,7 +45,7 @@ class Routes extends Component {
       <Route path="/about" component={About}/>
       <Route path="/home" component={UserHomePage}/>
       <Route path="/account" component={AccountPage}/>
-      <Route path="/account/update" component={updateAccountForm}
+      <Route path="/account/update" component={UpdateAccountForm}/>
       </Switch>
     </div>
   )}

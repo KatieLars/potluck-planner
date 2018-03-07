@@ -5,7 +5,7 @@ import history from '../history'
 export function updateUser(info) {
   return function(dispatch) {
     return UserApi.updateUser(info).then(response => {
-      dispatch(updateUser(response));
+      dispatch(updateUserSuccess(response));
       history.push("/account")
     }).catch(error => {
       throw(error)
@@ -13,7 +13,7 @@ export function updateUser(info) {
   }
 }
 
-export function updateUser(user) {
+export function updateUserSuccess(user) {
   return {type: types.UPDATE_USER,
           user: user
   }

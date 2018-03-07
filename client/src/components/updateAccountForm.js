@@ -9,7 +9,7 @@ class UpdateAccountForm extends Component {
     super(props)
     this.state = {
       info: {
-        id: this.props.user.users.user.id
+        id: this.props.user.users.user.id,
         password: "",
         passwordConfirmation: "",
         username: "",
@@ -43,7 +43,7 @@ return(
             <FormGroup>
               <Label for="username">Username</Label>
               <Input type="text" name="username" id="username" placeholder={username} />
-            </FormGroup
+            </FormGroup>
             <FormGroup>
               <Label for="email">Email</Label>
               <Input type="email" name="email" id="email" placeholder={email} />
@@ -76,9 +76,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-const mapStateToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
     user: state
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateAccountForm);
