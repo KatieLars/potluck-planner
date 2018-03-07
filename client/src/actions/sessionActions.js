@@ -12,6 +12,11 @@ export function signInSuccess(credentials) {
     })
   }
 }
+export function foundUser(user) {
+  return {type: types.FOUND_USER,
+          user: user
+  }
+}
 
 export function oldUserSuccess(user) {
   return {type: types.FOUND_USER,
@@ -19,27 +24,8 @@ export function oldUserSuccess(user) {
   }
 }
 
-export function newUserSuccess(user) {
-  return {type: types.NEW_USER_SUCCESS,
-          user: user
-  }
-}
-
-export function signUpSuccess(info) {
-  return function(dispatch) {
-    return sessionApi.signIn(info).then(response => {
-      dispatch(newUserSuccess(response));
-      history.push("/home")
-    }).catch(error => {
-      throw(error)
-    })
-  }
-}
-
-export function foundUser(user) {
-  return {type: types.FOUND_USER,
-          user: user
-  }
+export function newUserSuccess() {
+  return {type: types.NEW_USER_SUCCESS}
 }
 
 export function signIn(credentials) {
@@ -55,27 +41,15 @@ export function signIn(credentials) {
 export function signUp(info) { //creates a user
   return function(dispatch) {
     return sessionApi.signUp(info).then(response => {
-      dispatch(signUpSuccess(info));
+      const credentials = {email: response.email, password: response.password}
+      dispatch(signIn(credentials))
     }).catch(error => {
       throw(error);
       });
   }
 }
 
-// export function getUserInfo(credentials) {
-//   return function(dispatch) {
-//     return sessionApi.getUserInfo(credentials).then(response => {
-//       dispatch(foundUser(response));
-//       history.push('/home')
-//     }).catch(error => {
-//       throw(error)
-//     })
-//   }
-// }
-
 export function signOut() {
   sessionStorage.removeItem('jwt');
   return {type: types.LOG_OUT_SUCCESS}
 }
-
-//sessionApi.signIn({email: response.email, password: response.password});
