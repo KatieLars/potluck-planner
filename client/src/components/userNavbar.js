@@ -14,7 +14,7 @@ import * as sessionActions from '../actions/sessionActions'
   }
 
   render() {
-
+    const userId= this.props.users.user.id
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
@@ -22,22 +22,22 @@ import * as sessionActions from '../actions/sessionActions'
         <Nav navbar className="list-unstyled ml-auto" >
           <NavItem>
             <NavLink>
-              <TopNav to="/:user_id/potlucks">Your Potlucks</TopNav>
+              <TopNav to="/potlucks">Your Potlucks</TopNav>
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink>
-              <TopNav to="/:user_id/recipes">Your Recipes</TopNav>
+              <TopNav to="/recipes">Your Recipes</TopNav>
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink>
-              <TopNav to="/:user_id/friends">Friends</TopNav>
+              <TopNav to="/friends">Friends</TopNav>
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink>
-              <TopNav to="/:user_id/account">Account</TopNav>
+              <TopNav to="/account">Account</TopNav>
             </NavLink>
           </NavItem>
         </Nav>
@@ -51,4 +51,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(null, mapDispatchToProps)(UserNavbar)
+const mapStateToProps = (state) => {
+  return {
+    user: state
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserNavbar)

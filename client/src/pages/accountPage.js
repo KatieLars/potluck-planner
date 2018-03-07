@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as sessionActions from '../actions/sessionActions'
+// import {bindActionCreators} from 'redux';
+// import * as sessionActions from '../actions/sessionActions'
 import { Button, Col, Row, Container } from 'reactstrap'
 
 
@@ -20,6 +20,7 @@ class AccountPage extends Component {
               <h3>{username}</h3>
               <img src={image}/>
               <p><em>Email: </em>{email}</p>
+            </Col>
             <Col className="col-3"></Col>
           </Row>
         </Container>
