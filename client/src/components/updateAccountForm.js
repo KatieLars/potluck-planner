@@ -16,17 +16,17 @@ class UpdateAccountForm extends Component {
     }
   }
 
-handleChange(event){
-  const field = event.target.name;
-  const credentials = this.state.credentials;
-  credentials[field] = event.target.value;
-  return this.setState({info: info})
+  handleChange(event){
+    const field = event.target.name;
+    const info = this.state.info;
+    info[field] = event.target.value;
+    return this.setState({info: info})
   }
 
-handleSubmit(event) {
-  event.preventDefault()
-  this.props.actions.updateUser(this.state.credentials);
-}
+  handleSubmit(event) {
+    event.preventDefault()
+    this.props.actions.updateUser(this.state.info);
+  }
 
 render() {
   const username = this.props.user.users.user.username
