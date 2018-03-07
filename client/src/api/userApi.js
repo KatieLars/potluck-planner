@@ -1,5 +1,5 @@
 class UserApi {
-  static signIn(credentials) {
+  static updateUser(info) {
     const request = new Request('http://localhost:3001/user_token', {
       method: 'POST',
       headers: new Headers({

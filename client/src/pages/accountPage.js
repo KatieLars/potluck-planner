@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as userActions from '../actions/userActions'
 import { Button, Col, Row, Container } from 'reactstrap'
 import {Link} from 'react-router-dom'
 
@@ -36,10 +34,5 @@ const mapStateToProps = (state) => {
     user: state
   }}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators(userActions, dispatch)
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(AccountPage)
+export default connect(mapStateToProps, null)(AccountPage)
