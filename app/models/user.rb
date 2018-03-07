@@ -23,5 +23,11 @@ class User < ApplicationRecord
     self.total_potlucks.collect {|r| r.recipes}.flatten
   end
 
+  def self.not_friends #grabs all users who are NOT also friends
+    where.not("id IN (?) OR id IN (?)", self.friends.pluck(:friend_id), self.all.pluck(:id))
+    #grabs all friends of user
+    #compares that to list of users
+
+  end
 
 end

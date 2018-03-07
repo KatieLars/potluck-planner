@@ -34,6 +34,10 @@ class UsersController < ApplicationController
       end
     end
 
+    def get_not_friends
+      @user = User.find_by_id(params[:id])
+    end
+
 
   private
 
