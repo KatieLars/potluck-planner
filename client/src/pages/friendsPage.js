@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import friendsList from '../components/friendsList'
+import FriendsList from '../components/friendsList'
 import {Button} from 'reactstrap'
 
 class FriendsPage extends Component {
@@ -34,7 +34,7 @@ class FriendsPage extends Component {
 
 }
 
-export default
+export default FriendsPage
 
 //this page must:
   //display all friends
