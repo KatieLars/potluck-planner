@@ -31,7 +31,7 @@ class AddFriends extends Component {
   render() {
     return(
       <div>
-        <Modal isOpen="true">
+        <Modal isOpen="true" style={{paddingTop: "50px"}}>
           <ModalHeader>Select Friends</ModalHeader>
           <ModalBody><NotFriendsList /></ModalBody>
           <ModalFooter>

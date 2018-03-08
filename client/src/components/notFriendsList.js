@@ -18,7 +18,7 @@ class NotFriendsList extends Component {
       return this.state.notFriends.map((friend) => (
         <FormGroup check>
          <Label check>
-           <Input type="checkbox" />{' '}
+           <Input type="checkbox" value={friend.id} />{' '}
            {friend.username}
          </Label>
        </FormGroup>
