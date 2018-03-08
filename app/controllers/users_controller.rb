@@ -34,8 +34,8 @@ class UsersController < ApplicationController
       end
     end
 
-    def get_not_friends
-      user = User.find_by_id(params[:id])
+    def not_friends
+      user = User.find_by_id(params[:user_id])
       @others = user.not_friends
       response json:@others
     end
