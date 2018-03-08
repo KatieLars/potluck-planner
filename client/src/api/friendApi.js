@@ -15,6 +15,18 @@ class FriendApi {
       return error;
     });
   }
+
+  static getFriends(userId) {
+
+  }
+
+  static addFriends(userId) {
+
+  }
+
+  static removeFriends(userId) {
+    
+  }
 }
 
 export default FriendApi
