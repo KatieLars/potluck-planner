@@ -9,7 +9,8 @@ class NotFriendsList extends Component {
 
   //iterate over props passed in and return username and thumbnail image
 notFriendsCheckbox() {
-    return this.props.not_friends.map((friend) => {
+  debugger
+    return this.props.notFriends.map((friend) => {
       return (
         <Input type="checkbox" value={friend.id} style={imageStyle}>
             <img src={friend.image} className="img-thumbnail"/>{friend.username}
