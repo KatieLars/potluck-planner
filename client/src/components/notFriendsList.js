@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Input, Form, FormGroup}
+import {Input, Form, FormGroup} from 'reactstrap'
 
 const imageStyle = {
   width: "10%",
@@ -8,8 +8,8 @@ const imageStyle = {
 class NotFriendsList extends Component {
 
   //iterate over props passed in and return username and thumbnail image
-  const notFriendsCheckbox = () => {
-    this.props.not_friends.map((friend) => {
+notFriendsCheckbox() {
+    return this.props.not_friends.map((friend) => {
       return (
         <Input type="checkbox" value={friend.id} style={imageStyle}>
             <img src={friend.image} className="img-thumbnail"/>{friend.username}
@@ -18,11 +18,13 @@ class NotFriendsList extends Component {
     })
   }
 
+
+
   render() {
 
     return (
       <div>
-        {notFriendsCheckbox}
+        {this.notFriendsCheckbox()}
       </div>
     )
   }

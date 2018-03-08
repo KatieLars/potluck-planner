@@ -5,9 +5,9 @@ import history from '../history'
 export function getNotFriends(userId) { //gets all users who are NOT friends
   return function(dispatch) {
     return UserApi.getNotFriends(userId).then(response => {
-      
-      dispatch(updateUserSuccess(response));
-      history.push("/account")
+
+      dispatch(getNotFriendsSuccess(response));
+    
     }).catch(error => {
       throw(error)
     })

@@ -41,6 +41,7 @@ class AddFriends extends Component {
           <ModalFooter>
             <Button onClick={(event) => this.addFriendsHandler(event)}>Add Friends</Button>
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
+          </ModalFooter>
         </Modal>
       </div>
     )
