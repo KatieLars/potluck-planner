@@ -17,4 +17,15 @@ export function getNotFriendsSuccess(notFriends) {
   return {type: types.NOT_FRIENDS,
           notFriends: notFriends
   }
+
+  export function getFriends(userId) {
+    return function(dispatch) {
+      return FriendApi.getFriends(userId).then(response => {
+        dispatch(getFriendsSuccess(response));
+      }).catch(error => {
+        throw(error)
+      })
+    }
+  }
+  
 }
