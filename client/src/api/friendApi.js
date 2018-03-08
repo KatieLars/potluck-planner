@@ -16,16 +16,16 @@ class FriendApi {
     });
   }
 
-  static getFriends(userId) {
+  static getFriends(userId) { //get current friends
 
   }
 
-  static addFriends(userId) {
+  static addFriends(userId) { //post new friends to database
 
   }
 
-  static removeFriends(userId) {
-    
+  static removeFriends(userId) { //delete friendships
+
   }
 }
 

@@ -4,11 +4,18 @@ import { Button} from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import history from '../history.js'
+import * as friendsActions from '../actions/friendsActions'
 
 class FriendsPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      friends: []
+    }
+  }
 
   componentWillMount() {
-    // this.props.actions.getFriends()
+     this.props.actions.getFriends()
     // makes a get request to Friendships/index to get friends
   }
 
@@ -21,7 +28,7 @@ getModal(event) {
     if (this.props.friends) {
       return(
         <div>
-          <friendsList friends={this.props.friends}/>
+          <friendsList friends={this.state.friends}/>
           <Button onClick={(event)=> this.getModal(event)}>Add Friends</Button>
         </div>
       )
@@ -37,19 +44,19 @@ getModal(event) {
 
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//       actions: bindActionCreators(friendsActions, dispatch)
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+      actions: bindActionCreators(friendsActions, dispatch)
+  }
+}
 
-// const mapStateToProps = (state) => {
-//   return {
-//     friends: state
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    friends: state
+  }
+}
 
-export default FriendsPage
+export default connect(mapStateToProps, mapDispatchToProps)(FriendsPage)
 
 //this page must:
   //display all friends
