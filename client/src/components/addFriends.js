@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as friendsActions from '../actions/friendsActions'
 import NotFriendsList from './notFriendsList'
+import history from '../history'
 
 class AddFriends extends Component {
   constructor(props) {
@@ -24,6 +25,11 @@ class AddFriends extends Component {
   addFriendsHandler(event) {
     event.preventDefault()
     //adds friends to state, makes a post request to API
+  }
+
+  cancel(event) {
+    event.preventDefault()
+    history.push("/friends")
   }
 
   render() {
