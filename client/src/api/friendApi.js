@@ -17,14 +17,27 @@ class FriendApi {
   }
 
   static getFriends(userId) { //get current friends
+    const request = new Request(`http://localhost:3001/users/${info.id}`, {
+      method: 'PATCH',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.jwt}`,
+      }),
+      body: JSON.stringify({user: info})
+    });
 
+    return fetch(request).then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
   }
 
   static addFriends(userId) { //post new friends to database
 
   }
 
-  static removeFriends(userId) { //delete friendships
+  static removeFriends(userId) { //delete friends
 
   }
 }

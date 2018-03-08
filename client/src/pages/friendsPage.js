@@ -10,13 +10,13 @@ class FriendsPage extends Component {
   constructor() {
     super();
     this.state = {
+      userId: this.props.user.users.user.id,
       friends: []
     }
   }
 
   componentWillMount() {
-     this.props.actions.getFriends()
-    // makes a get request to Friendships/index to get friends
+     this.props.actions.getFriends(this.state.userId)
   }
 
 getModal(event) {

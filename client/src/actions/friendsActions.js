@@ -1,6 +1,7 @@
 import * as types from './actionTypes';
 import UserApi from '../api/userApi';
 import history from '../history'
+import FriendApi from './api/friendApi'
 
 export function getNotFriends(userId) { //gets all users who are NOT friends
   return function(dispatch) {
