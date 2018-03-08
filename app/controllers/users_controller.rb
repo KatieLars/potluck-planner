@@ -20,7 +20,6 @@ class UsersController < ApplicationController
       @user = User.find_by_id(params[:user][:id])
       clean_params = user_params.reject { |k, v| v.blank? }
       @user.update(clean_params)
-      binding.pry
       render json:@user
     end
 
@@ -35,10 +34,8 @@ class UsersController < ApplicationController
     end
 
     def not_friends
-      user = User.find_by_id(params[:user_id])
-      @others = user.not_friends
-      binding.pry
-      response json:@others
+      @user = User.find_by_id(params[:user_id])
+      render json:@user
     end
 
 

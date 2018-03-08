@@ -1,9 +1,10 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :password, :email, :username, :image
+  attributes :id, :password, :email, :username, :image, :other_users
   has_many :friendships
   has_many :friends, through: :friendships
 
-  def not_friends #grabs all users who are NOT also friends
-    User.all.reject{|user| user.id == object.id} - object.friends
+
+  def other_users #grabs all users who are NOT also friends
+    object.not_friends
   end
 end
