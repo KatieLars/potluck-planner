@@ -17,7 +17,7 @@ class UserApi {
   }
 
   static getNotFriends(userId) {
-    const request = new Request(`http://localhost:3001/users/${userId}/not_friends`, {
+    const request = new Request(`http://localhost:3001/${userId}/not_friends`, {
       method: "GET",
       headers: new Headers({
         'Content-Type': 'application/json',

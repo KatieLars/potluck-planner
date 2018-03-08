@@ -6,6 +6,6 @@ Rails.application.routes.draw do
        resources :friendships
        resources :recipes
        post 'find_user' => 'users#find'
-       get 'not_friends' => 'users#not_friends'
+       get '/:user_id/not_friends' => 'users#not_friends'
 
 end
