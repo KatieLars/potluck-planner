@@ -12,11 +12,10 @@ class AddFriends extends Component {
     this.state = {
       userId: this.props.user.users.user.id,
       notFriends: [],
-      newFriends: [],
     }
   }
 
-  componentWillMount() { //may need to use componentDidMount
+  componentWillMount() {
     this.setState = {
       notFriends: this.props.actions.getNotFriends(this.state.userId)
   }

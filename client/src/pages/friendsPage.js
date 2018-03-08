@@ -8,8 +8,8 @@ import history from '../history.js'
 class FriendsPage extends Component {
 
   componentWillMount() {
-    //this.props.actions.getFriends()
-    //makes a get request to Friendships/index to get friends
+    // this.props.actions.getFriends()
+    // makes a get request to Friendships/index to get friends
   }
 
 getModal(event) {
