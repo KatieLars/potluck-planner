@@ -37,7 +37,7 @@ class AddFriends extends Component {
       <div>
         <Modal isOpen="true">
           <ModalHeader>Select Friends</ModalHeader>
-          <ModalBody><NotFriendsList /></ModalBody>
+          <ModalBody><NotFriendsList notFriends={this.state.notFriends}/></ModalBody>
           <ModalFooter>
             <Button onClick={(event) => this.addFriendsHandler(event)}>Add Friends</Button>
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
