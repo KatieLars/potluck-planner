@@ -11,15 +11,12 @@ class AddFriends extends Component {
     super(props);
     this.state = {
       userId: this.props.user.users.user.id,
-      notFriends: [],
     }
   }
 
   componentWillMount() {
-    this.setState = {
-      notFriends: this.props.actions.getNotFriends(this.state.userId)
-  }
-}
+     this.props.actions.getNotFriends(this.state.userId)
+   }
 
   addFriendsHandler(event) {
     event.preventDefault()
@@ -36,7 +33,7 @@ class AddFriends extends Component {
       <div>
         <Modal isOpen="true">
           <ModalHeader>Select Friends</ModalHeader>
-          <ModalBody><NotFriendsList notFriends={this.state.notFriends}/></ModalBody>
+          <ModalBody><NotFriendsList /></ModalBody>
           <ModalFooter>
             <Button onClick={(event) => this.addFriendsHandler(event)}>Add Friends</Button>
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
@@ -53,7 +50,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => { //not sure we need this code
   return {
     user: state
   }

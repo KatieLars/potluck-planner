@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Input, Form, FormGroup} from 'reactstrap'
+import {connect} from 'react-redux'
 
 const imageStyle = {
   width: "10%",
@@ -7,7 +8,6 @@ const imageStyle = {
 
 class NotFriendsList extends Component {
 
-  //iterate over props passed in and return username and thumbnail image
 notFriendsCheckbox() {
   debugger
     return this.props.notFriends.map((friend) => {
@@ -19,10 +19,7 @@ notFriendsCheckbox() {
     })
   }
 
-
-
   render() {
-
     return (
       <div>
         {this.notFriendsCheckbox()}
@@ -31,4 +28,10 @@ notFriendsCheckbox() {
   }
 }
 
-export default NotFriendsList
+const mapStateToProps = (state) => { //not sure we need this code
+  return {
+    notFriends: state
+  }
+}
+
+export default connect(mapStateToProps, null)(NotFriendsList)
