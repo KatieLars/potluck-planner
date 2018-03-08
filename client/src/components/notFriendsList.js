@@ -7,17 +7,23 @@ const imageStyle = {
 }
 
 class NotFriendsList extends Component {
-
-notFriendsCheckbox() {
-  debugger
-    return this.props.notFriends.map((friend) => {
-      return (
-        <Input type="checkbox" value={friend.id} style={imageStyle}>
-            <img src={friend.image} className="img-thumbnail"/>{friend.username}
-         </Input>
-      )
-    })
+  constructor(props) {
+    super(props);
+    this.state = {
+      notFriends: this.props.notFriends.users.user.other_users
+    }
   }
+
+  notFriendsCheckbox() {
+    debugger
+      return this.state.notFriends.map((friend) => {
+        return (
+          <Input type="checkbox" value={friend.id} style={imageStyle}>
+              <img src={friend.image} className="img-thumbnail"/>{friend.username}
+           </Input>
+        )
+      })
+    }
 
   render() {
     return (
