@@ -29,6 +29,7 @@ class AddFriends extends Component {
   }
 
   render() {
+    debugger
     return(
       <div>
         <Modal isOpen="true">

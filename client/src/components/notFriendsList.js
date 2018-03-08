@@ -9,7 +9,7 @@ const imageStyle = {
 class NotFriendsList extends Component {
 
 notFriendsCheckbox() {
-  debugger
+
     return this.props.notFriends.map((friend) => {
       return (
         <Input type="checkbox" value={friend.id} style={imageStyle}>
