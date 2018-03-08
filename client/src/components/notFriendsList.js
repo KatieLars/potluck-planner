@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Input, InputGroup, InputGroupAddOn, InputGroupText, Label} from 'reactstrap'
+import {Label, Form, FormGroup, Input} from 'reactstrap'
 import {connect} from 'react-redux'
 
 const imageStyle = {
@@ -16,14 +16,12 @@ class NotFriendsList extends Component {
 
   notFriendsCheckbox() {
       return this.state.notFriends.map((friend) => (
-        <InputGroup>
-          <InputGroupAddon addonType="append">
-            <InputGroupText>
-              <Input addon type="checkbox" value={friend.id} />
-            </InputGroupText>
-          </InputGroupAddon>
-          <Label for={friend.id}>{friend.username}</Label>
-        </InputGroup>
+        <FormGroup check>
+         <Label check>
+           <Input type="checkbox" />{' '}
+           Check me out
+         </Label>
+       </FormGroup>
       )
     )}
   // notFriendsCheckbox() {
