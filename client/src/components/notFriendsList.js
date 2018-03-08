@@ -19,20 +19,11 @@ class NotFriendsList extends Component {
         <FormGroup check>
          <Label check>
            <Input type="checkbox" />{' '}
-           Check me out
+           {friend.username}
          </Label>
        </FormGroup>
       )
     )}
-  // notFriendsCheckbox() {
-  //     return this.state.notFriends.map((friend) => {
-  //       return (
-  //         <Input type="checkbox" value={friend.id} style={imageStyle}>
-  //             <img src={friend.image} className="img-thumbnail"/>{friend.username}
-  //          </Input>
-  //       )
-  //     })
-  //   }
 
   render() {
     return (
