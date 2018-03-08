@@ -7,16 +7,16 @@ import history from '../history.js'
 import * as friendsActions from '../actions/friendsActions'
 
 class FriendsPage extends Component {
-  constructor() {
-    super();
-    this.state = {
-      userId: this.props.user.users.user.id,
-      friends: []
-    }
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     userId: this.props,
+  //     friends: []
+  //   }
+  // }
 
   componentWillMount() {
-     this.props.actions.getFriends(this.state.userId)
+     // this.props.actions.getFriends(this.state.userId)
   }
 
 getModal(event) {
@@ -25,6 +25,7 @@ getModal(event) {
 }
 
   render() {
+    debugger
     if (this.props.friends) {
       return(
         <div>

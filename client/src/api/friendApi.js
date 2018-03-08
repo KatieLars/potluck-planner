@@ -1,13 +1,12 @@
 class FriendApi {
 
   static getFriends(userId) { //get current friends
-    const request = new Request(`http://localhost:3001/users/${info.id}`, {
-      method: 'PATCH',
+    const request = new Request(`http://localhost:3001/users/${userId}`, {
+      method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.jwt}`,
-      }),
-      body: JSON.stringify({user: info})
+      })
     });
 
     return fetch(request).then(response => {

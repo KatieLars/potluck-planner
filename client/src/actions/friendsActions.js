@@ -1,7 +1,7 @@
 import * as types from './actionTypes';
 import UserApi from '../api/userApi';
 import history from '../history'
-import FriendApi from './api/friendApi'
+import FriendApi from '../api/friendApi'
 
 export function getNotFriends(userId) { //gets all users who are NOT friends
   return function(dispatch) {
@@ -17,8 +17,9 @@ export function getNotFriendsSuccess(notFriends) {
   return {type: types.NOT_FRIENDS,
           notFriends: notFriends
   }
+}
 
-  export function getFriends(userId) {
+export function getFriends(userId) {
     return function(dispatch) {
       return FriendApi.getFriends(userId).then(response => {
         dispatch(getFriendsSuccess(response));
@@ -28,11 +29,9 @@ export function getNotFriendsSuccess(notFriends) {
     }
   }
 
-  export function getFriendsSuccess(friends) {
+export function getFriendsSuccess(friends) {
     return {
       type: types.FRIENDS_FOUND,
       friends: friends
     }
   }
-
-}
