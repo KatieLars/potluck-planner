@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as friendsActions from '../actions/friendsActions'
+import NotFriendsList from './notFriendsList'
 
 class AddFriends extends Component {
   constructor(props) {
@@ -18,10 +19,11 @@ class AddFriends extends Component {
     this.setState = {
       notFriends: this.props.actions.getNotFriends(this.state.userId)
   }
+}
 
   addFriendsHandler(event) {
     event.preventDefault()
-
+    //adds friends to state, makes a post request to API
   }
 
   render() {
@@ -29,9 +31,10 @@ class AddFriends extends Component {
       <div>
         <Modal isOpen="true">
           <ModalHeader>Select Friends</ModalHeader>
-          <ModalBody></ModalBody>
+          <ModalBody><NotFriendsList /></ModalBody>
           <ModalFooter>
-            <Button onClick={(event) => this.addFriendsHandler(event)}>Add Friends<
+            <Button onClick={(event) => this.addFriendsHandler(event)}>Add Friends</Button>
+            <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
         </Modal>
       </div>
     )
