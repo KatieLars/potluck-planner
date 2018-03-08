@@ -19,8 +19,8 @@ class NotFriendsList extends Component {
         <FormGroup check>
          <Label check>
            <Input type="checkbox" value={friend.id} />{' '}
-           {friend.username}
-         </Label>
+            <img src={friend.image} className="img-thumbnail" style={imageStyle}/>{' '}{friend.username}
+         </Label><br></br>
        </FormGroup>
       )
     )}
