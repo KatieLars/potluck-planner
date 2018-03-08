@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     def not_friends
       user = User.find_by_id(params[:user_id])
       @others = user.not_friends
+      binding.pry
       response json:@others
     end
 
