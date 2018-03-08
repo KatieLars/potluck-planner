@@ -27,5 +27,12 @@ export function getNotFriendsSuccess(notFriends) {
       })
     }
   }
-  
+
+  export function getFriendsSuccess(friends) {
+    return {
+      type: types.FRIENDS_FOUND,
+      friends: friends
+    }
+  }
+
 }
