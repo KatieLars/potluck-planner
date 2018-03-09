@@ -1,11 +1,11 @@
 import * as types from './actionTypes';
 import FriendApi from '../api/friendApi';
 import history from '../history'
-import FriendApi from '../api/friendApi'
+
 
 export function removeFriends(friendIds, userId) {
   return function(dispatch) {
-    return FriendApi.removeFriends(friend_ids).then(response => {
+    return FriendApi.removeFriends(friendIds).then(response => {
       //api request should send a new list of friends
       dispatch(removeFriendsSuccess(response));
     }).catch(error => {
@@ -16,7 +16,7 @@ export function removeFriends(friendIds, userId) {
 
 export function removeFriendsSuccess(newList) {
   return{
-    types.REMOVE_FRIEND,
+    type: types.REMOVE_FRIEND,
     friends: newList
   }
 }

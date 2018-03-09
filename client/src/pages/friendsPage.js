@@ -14,12 +14,12 @@ class FriendsPage extends Component {
     }
   }
 
-componentShouldUpdate() {
+shouldComponentUpdate() {
 
 }
 
-componentWillUpdated() {
-  
+componentWillUpdate() {
+
 }
 
 getModal(event) {
@@ -36,12 +36,12 @@ handleChange(event){
 
 removeFriends(event) {
   event.preventDefault();
-  debugger
   this.props.actions.removeFriends(this.state.friendshipIds)
 }
 
   render() {
     const friends = this.props.friends.users.user.friends
+    const friendships = this.props.friends.users.user.friendships
     if (friends) {
       return(
         <div>
@@ -51,7 +51,7 @@ removeFriends(event) {
             <Col className="col-4" style={{paddingTop: "100px"}}>
               <h1>Friends!</h1>
             </Col>
-              <FriendsList friends={friends}/>
+              <FriendsList friends={friends} friendships={friendships}/>
             </Row>
             <Row>
               <Col className="col-4"></Col>

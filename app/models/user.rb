@@ -28,5 +28,12 @@ class User < ApplicationRecord
     User.all.reject{|user| user.id == self.id} - self.friends
   end
 
+  def friends_with_friendships
+    friendships.collect do |friendship|
+      {friendship: friendship.id, friend: User.find_by_id(friend_id)}
+    end
+    #return: [{friend: <friend1>, friendship: <friendship_id>}]
+  end
+
 
 end

@@ -9,6 +9,7 @@ const imageStyle = {
 class FriendsList extends Component {
 
 friendsList() {
+  debugger
   return this.props.friends.map((friend) => (
       <FormGroup check style={{paddingLeft: "4.5rem"}}>
        <Label check>
