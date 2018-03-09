@@ -40,9 +40,9 @@ removeFriends(event) {
 }
 
   render() {
-    debugger
+
     const friendships = this.props.friends.users.user.friends_with_friendships
-    if (friends) {
+    if (friendships) {
       return(
         <div>
           <Form onChange={(event)=> this.handleChange(event)}>

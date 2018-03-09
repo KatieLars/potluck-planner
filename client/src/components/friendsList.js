@@ -9,12 +9,12 @@ const imageStyle = {
 class FriendsList extends Component {
 
 friendsList() {
-  debugger //this should iterate over the friends and friendships array
-  return this.props.friends.map((friend) => (
+
+  return this.props.friendships.map((friendship) => (
       <FormGroup check style={{paddingLeft: "4.5rem"}}>
        <Label check>
-         <Input type="checkbox" value={friend.id} />{' '}
-          <img src={friend.image} className="img-thumbnail" style={imageStyle}/>{' '}{friend.username}
+         <Input type="checkbox" value={friendship.friendship} />{' '}
+          <img src={friendship.friend.image} className="img-thumbnail" style={imageStyle}/>{' '}{friendship.friend.username}
        </Label><br></br>
      </FormGroup>
     )

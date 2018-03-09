@@ -20,8 +20,8 @@ class FriendApi {
 
   }
 
-  static removeFriends(friendIds, userId) { //delete friends
-
+  static removeFriends(friendshipIds) {
+    const request = new Request(`http://localhost:3001/friendships`)
   }
 }
 
