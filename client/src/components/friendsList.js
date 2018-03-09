@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import {Button, FormGroup, Input, Label} from 'reactstrap'
 
 const imageStyle = {
-  width: "10%",
+  width: "100px",
+  height: "100px"
 }
 
 class FriendsList extends Component {
 
 friendsList() {
   return this.props.friends.map((friend) => (
-      <FormGroup check>
+      <FormGroup check style={{paddingLeft: "4.5rem"}}>
        <Label check>
          <Input type="checkbox" value={friend.id} />{' '}
           <img src={friend.image} className="img-thumbnail" style={imageStyle}/>{' '}{friend.username}
@@ -17,11 +18,6 @@ friendsList() {
      </FormGroup>
     )
   )}
-
-removeFriends(event) {
-  event.preventDefault()
-  //removes friends
-}
 
   render() {
     return (

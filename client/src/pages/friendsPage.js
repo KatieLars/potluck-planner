@@ -1,23 +1,12 @@
 import React, {Component} from 'react'
 import FriendsList from '../components/friendsList'
-import { Button} from 'reactstrap'
+import { Button, Container, Col, Row} from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import history from '../history.js'
 import * as friendsActions from '../actions/friendsActions'
 
 class FriendsPage extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     userId: this.props,
-  //     friends: []
-  //   }
-  // }
-
-  componentWillMount() { //may need to change to a should hook
-     // this.props.actions.getFriends(this.state.userId)
-  }
 
 getModal(event) {
   event.preventDefault()
@@ -25,14 +14,23 @@ getModal(event) {
 }
 
   render() {
-    const friends = this.props.friends.users.user.other_users
-
+    const friends = this.props.friends.users.user.friends
     if (friends) {
       return(
         <div>
-          <FriendsList friends={friends}/>
-          <Button onClick={(event)=> this.getModal(event)}>Add Friends</Button>
-          <Button onClick={(event) => this.removeFriends(event)}>Remove Friend</Button>
+          <Container style={{paddingTop: "15px"}}>
+            <Row >
+            <Col className="col-4" style={{paddingTop: "100px"}}>
+              <h1>Friends!</h1>
+            </Col>
+              <FriendsList friends={friends}/>
+            </Row>
+            <Row>
+              <Col className="col-4"></Col>
+                <Button onClick={(event)=> this.getModal(event)}>Add Friends</Button>
+                <Button onClick={(event) => this.removeFriends(event)}>Remove Friend</Button>
+            </Row>
+          </Container>
         </div>
       )
     }else {
