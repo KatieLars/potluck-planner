@@ -6,7 +6,7 @@ const imageStyle = {
 }
 
 class FriendsList extends Component {
-  
+
 friendsList() {
   debugger
   return this.props.friends.map((friend) => (
@@ -19,12 +19,10 @@ friendsList() {
     )
   )}
 
-
 removeFriends(event) {
   event.preventDefault()
   //removes friends
 }
-
 
   render() {
     return (

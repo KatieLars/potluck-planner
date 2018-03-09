@@ -28,7 +28,6 @@ getModal(event) {
     const friends = this.props.friends.users.user.other_users
 
     if (friends) {
-      debugger
       return(
         <div>
           <FriendsList friends={friends}/>
@@ -61,8 +60,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FriendsPage)
-
-//this page must:
-  //display all friends
-  //offer the option to unfriend
-  //add friends
