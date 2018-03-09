@@ -14,6 +14,14 @@ class FriendsPage extends Component {
     }
   }
 
+componentShouldUpdate() {
+
+}
+
+componentWillUpdated() {
+  
+}
+
 getModal(event) {
   event.preventDefault()
   history.push('/friends/add')
