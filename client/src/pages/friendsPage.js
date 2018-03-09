@@ -18,9 +18,9 @@ class FriendsPage extends Component {
     return(this.state.friendshipIds !== nextState.friendshipIds)
  }
 
-componentWillUpdate() {
+componentWillUpdate(nextProps) {
   debugger
-  this.props.friends.users.user.friends_with_friendship
+  this.props.friends.users.user.friends_with_friendship = this.nextProps.friends.users.user.friends_with_friendship
 }
 
 getModal(event) {
