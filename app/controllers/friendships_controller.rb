@@ -1,7 +1,7 @@
 
 class FriendshipsController < ApplicationController
 
-  def end_friendships#destroys multiple friendships
+  def end_friendships#returns new friendships hashs
     params[:friendship].each do |friendship|
       Friendship.destroy(friendship)
     end

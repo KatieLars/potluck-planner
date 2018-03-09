@@ -5,9 +5,7 @@ import history from '../history'
 
 export function removeFriends(friendshipIds) {
   return function(dispatch) {
-    return FriendApi.removeFriends(friendshipIds).then(response => {
-      debugger
-      //api request should send a new list of friends
+    return FriendApi.removeFriends(friendshipIds).then(response => 
       dispatch(removeFriendsSuccess(response));
     }).catch(error => {
       throw(error)
