@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import {Button, FormGroup, Input, Label} from 'reactstrap'
 
+const imageStyle = {
+  width: "10%",
+}
+
 class FriendsList extends Component {
+  
 friendsList() {
   debugger
   return this.props.friends.map((friend) => (
@@ -13,7 +18,7 @@ friendsList() {
      </FormGroup>
     )
   )}
-}
+
 
 removeFriends(event) {
   event.preventDefault()
