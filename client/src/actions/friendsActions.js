@@ -1,7 +1,17 @@
 import * as types from './actionTypes';
-import UserApi from '../api/userApi';
+import FriendApi from '../api/friendApi';
 import history from '../history'
 import FriendApi from '../api/friendApi'
+
+export function removeFriends(friend_ids) {
+  return function(dispatch) {
+    return FriendApi.removeFriends(friend_ids).then(response => {
+      dispatch(removeFriendsSuccess(response));
+    }).catch(error => {
+      throw(error)
+    })
+  }
+}
 
 //NONE OF THESE ARE BEING USED--ALL INFO GATHERED BY ORIGINAL USER API CALL
 // export function getNotFriends(userId) { //gets all users who are NOT friends
