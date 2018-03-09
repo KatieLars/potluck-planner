@@ -30,9 +30,8 @@ class User < ApplicationRecord
 
   def friends_with_friendships
     friendships.collect do |friendship|
-      {friendship: friendship.id, friend: User.find_by_id(friend_id)}
+      {friendship: friendship.id, friend: User.find_by_id(friendship.friend_id)}
     end
-    #return: [{friend: <friend1>, friendship: <friendship_id>}]
   end
 
 
