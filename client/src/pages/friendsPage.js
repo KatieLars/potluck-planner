@@ -14,8 +14,9 @@ class FriendsPage extends Component {
     }
   }
 
-  shouldComponentUpdate(nextState) {
-    return(this.state.friendshipIds !== nextState.friendshipIds)
+  shouldComponentUpdate(nextProps, nextState) {
+    debugger
+    return(this.props.friends.friend.friends_with_friendship)
  }
 
 componentWillUpdate(nextProps) {
@@ -41,7 +42,6 @@ removeFriends(event) {
 
   render() {
     const friendships = this.props.friends.users.user.friends_with_friendships
-    debugger
     if (friendships.length != 0) {
       return(
         <div>
