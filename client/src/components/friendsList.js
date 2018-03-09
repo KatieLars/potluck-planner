@@ -8,7 +8,6 @@ const imageStyle = {
 class FriendsList extends Component {
 
 friendsList() {
-  debugger
   return this.props.friends.map((friend) => (
       <FormGroup check>
        <Label check>
@@ -28,7 +27,6 @@ removeFriends(event) {
     return (
       <div>
         {this.friendsList()}
-        <Button onClick={(event) => this.removeFriends(event)}/>
       </div>
     )
   }

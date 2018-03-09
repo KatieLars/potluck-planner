@@ -32,10 +32,10 @@ getModal(event) {
         <div>
           <FriendsList friends={friends}/>
           <Button onClick={(event)=> this.getModal(event)}>Add Friends</Button>
+          <Button onClick={(event) => this.removeFriends(event)}>Remove Friend</Button>
         </div>
       )
     }else {
-      debugger
       return(
         <div>
           <h1>Be friendly!</h1>
