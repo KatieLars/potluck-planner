@@ -15,7 +15,7 @@ class AddFriends extends Component {
   }
 
   componentWillMount() {
-     this.props.actions.getNotFriends(this.state.userId)
+     // this.props.actions.getNotFriends(this.state.userId)
    }
 
   addFriendsHandler(event) {
@@ -29,6 +29,7 @@ class AddFriends extends Component {
   }
 
   render() {
+    debugger
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
