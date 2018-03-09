@@ -15,9 +15,10 @@ class FriendsPage extends Component {
   }
 
 // shouldComponentUpdate() {
+//   debugger
 //
 // }
-// 
+//
 // componentWillUpdate() {
 //
 // }
