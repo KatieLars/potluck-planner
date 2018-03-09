@@ -22,7 +22,7 @@ getModal(event) {
 handleChange(event){
   event.preventDefault();
   this.setState({
-    friend_ids: [...this.state.friends, event.target.value]
+    friend_ids: [...this.state.friend_ids, event.target.value]
   })
   }
 
