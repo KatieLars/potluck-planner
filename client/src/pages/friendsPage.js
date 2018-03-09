@@ -15,7 +15,7 @@ class FriendsPage extends Component {
   //   }
   // }
 
-  componentWillMount() {
+  componentWillMount() { //may need to change to a should hook
      // this.props.actions.getFriends(this.state.userId)
   }
 
@@ -26,7 +26,7 @@ getModal(event) {
 
   render() {
     const friends = this.props.friends.users.user.other_users
-    debugger
+
     if (friends) {
       return(
         <div>
