@@ -7,7 +7,6 @@ export function removeFriends(friendshipIds) {
   return function(dispatch) {
     return FriendApi.removeFriends(friendshipIds).then(response => {
       dispatch(removeFriendsSuccess(response));
-      history.push("/friends")
     }).catch(error => {
       throw(error)
     })

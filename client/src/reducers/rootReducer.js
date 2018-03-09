@@ -5,8 +5,8 @@ import usersReducer from './usersReducer'
 import friendsReducer from './friendsReducer'
 
 export default combineReducers({
-  friends: friendsReducer,
-  users: usersReducer,
-  potlucks: potlucksReducer,
-  sessions: sessionsReducer,
+  friends,
+  users,
+  potlucks,
+  sessions
 });
