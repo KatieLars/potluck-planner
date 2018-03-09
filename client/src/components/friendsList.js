@@ -9,7 +9,7 @@ const imageStyle = {
 class FriendsList extends Component {
 
 friendsList() {
-  debugger
+  debugger //this should iterate over the friends and friendships array
   return this.props.friends.map((friend) => (
       <FormGroup check style={{paddingLeft: "4.5rem"}}>
        <Label check>

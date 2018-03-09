@@ -40,8 +40,8 @@ removeFriends(event) {
 }
 
   render() {
-    const friends = this.props.friends.users.user.friends
-    const friendships = this.props.friends.users.user.friendships
+    debugger
+    const friendships = this.props.friends.users.user.friends_with_friendships
     if (friends) {
       return(
         <div>
@@ -51,7 +51,7 @@ removeFriends(event) {
             <Col className="col-4" style={{paddingTop: "100px"}}>
               <h1>Friends!</h1>
             </Col>
-              <FriendsList friends={friends} friendships={friendships}/>
+              <FriendsList friendships={friendships}/>
             </Row>
             <Row>
               <Col className="col-4"></Col>
