@@ -37,19 +37,19 @@ export function removeFriendsSuccess(newList) {
 //   }
 // }
 //
-// export function getFriends(userId) {
-//     return function(dispatch) {
-//       return FriendApi.getFriends(userId).then(response => {
-//         dispatch(getFriendsSuccess(response));
-//       }).catch(error => {
-//         throw(error)
-//       })
-//     }
-//   }
+export function getFriends(userId) {
+    return function(dispatch) {
+      return FriendApi.getFriends(userId).then(response => {
+        dispatch(getFriendsSuccess(response));
+      }).catch(error => {
+        throw(error)
+      })
+    }
+  }
 //
-// export function getFriendsSuccess(friends) {
-//     return {
-//       type: types.FRIENDS_FOUND,
-//       friends: friends
-//     }
-//   }
+export function getFriendsSuccess(friends) {
+    return {
+      type: types.FRIENDS_FOUND,
+      friends: friends
+    }
+  }

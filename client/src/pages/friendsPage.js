@@ -14,14 +14,14 @@ class FriendsPage extends Component {
     }
   }
 
-// shouldComponentUpdate() {
-//   debugger
-//
-// }
-//
-// componentWillUpdate() {
-//
-// }
+  shouldComponentUpdate(nextState) {
+    return(this.state.friendshipIds !== nextState.friendshipIds)
+ }
+
+componentWillUpdate() {
+  debugger
+  this.props.friends.users.user.friends_with_friendship
+}
 
 getModal(event) {
   event.preventDefault()
@@ -42,6 +42,7 @@ removeFriends(event) {
 
   render() {
     const friendships = this.props.friends.users.user.friends_with_friendships
+    debugger
     if (friendships.length != 0) {
       return(
         <div>
