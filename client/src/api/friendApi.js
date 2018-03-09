@@ -21,8 +21,8 @@ class FriendApi {
   }
 
   static removeFriends(friendshipIds) {
-    const request = new Request(`http://localhost:3001/friendships/destroy_multiple`, {
-      method: 'DELETE',
+    const request = new Request(`http://localhost:3001/friendships/end_friendships`, {
+      method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.jwt}`,
@@ -36,7 +36,7 @@ class FriendApi {
       return error;
     });
   }
-  
+
 }
 
 export default FriendApi

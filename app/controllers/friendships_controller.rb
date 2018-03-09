@@ -1,7 +1,8 @@
 
 class FriendshipsController < ApplicationController
 
-  def destroy_multiple #destroys multiple friendships
+  def end_friendships#destroys multiple friendships
+    current_user
     binding.pry
   end
 
