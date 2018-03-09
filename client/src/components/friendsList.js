@@ -1,22 +1,31 @@
 import React, { Component } from 'react'
+import {Button, FormGroup, Input, Label} from 'reactstrap'
 
 class FriendsList extends Component {
 friendsList() {
   debugger
-      return this.props.friends.map((friend) => (
-        <FormGroup check>
-         <Label check>
-           <Input type="checkbox" value={friend.id} />{' '}
-            <img src={friend.image} className="img-thumbnail" style={imageStyle}/>{' '}{friend.username}
-         </Label><br></br>
-       </FormGroup>
-      )
-    )}
+  return this.props.friends.map((friend) => (
+      <FormGroup check>
+       <Label check>
+         <Input type="checkbox" value={friend.id} />{' '}
+          <img src={friend.image} className="img-thumbnail" style={imageStyle}/>{' '}{friend.username}
+       </Label><br></br>
+     </FormGroup>
+    )
+  )}
+}
+
+removeFriends(event) {
+  event.preventDefault()
+  //removes friends
+}
+
 
   render() {
     return (
       <div>
         {this.friendsList()}
+        <Button onClick={(event) => this.removeFriends(event)}/>
       </div>
     )
   }
