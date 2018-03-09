@@ -28,13 +28,15 @@ getModal(event) {
     const friends = this.props.friends.users.user.other_users
 
     if (friends) {
+      debugger
       return(
         <div>
-          <friendsList friends={friends}/>
+          <FriendsList friends={friends}/>
           <Button onClick={(event)=> this.getModal(event)}>Add Friends</Button>
         </div>
       )
     }else {
+      debugger
       return(
         <div>
           <h1>Be friendly!</h1>
