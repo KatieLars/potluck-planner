@@ -9,8 +9,9 @@ import * as friendsActions from '../actions/friendsActions'
 class FriendsPage extends Component {
   constructor(){
     super();
-    this.state=
-      friends: []
+    this.state= {
+      friend_ids: []
+    }
   }
 
 getModal(event) {
@@ -19,9 +20,16 @@ getModal(event) {
 }
 
 handleChange(event){
-
-
+  event.preventDefault();
+  this.setState({
+    friend_ids: [...this.state.friends, event.target.value]
+  })
   }
+
+removeFriends(event) {
+  event.preventDefault();
+  debugger
+}
 
   render() {
     const friends = this.props.friends.users.user.friends
