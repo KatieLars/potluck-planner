@@ -19,8 +19,7 @@ class FriendsPage extends Component {
  }
 
 componentWillUpdate(nextProps) {
-  debugger
-  this.props.friends.users.user.friends_with_friendship = this.nextProps.friends.users.user.friends_with_friendship
+  this.props.friends.users.user.friends_with_friendship = nextProps.friends.users.user.friends_with_friendship
 }
 
 getModal(event) {
