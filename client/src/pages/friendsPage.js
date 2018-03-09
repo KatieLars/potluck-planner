@@ -10,7 +10,7 @@ class FriendsPage extends Component {
   constructor(){
     super();
     this.state= {
-      friendIds: []
+      friendshipIds: []
     }
   }
 
@@ -22,14 +22,14 @@ getModal(event) {
 handleChange(event){
   event.preventDefault();
   this.setState({
-    friendIds: [...this.state.friendIds, event.target.value]
+    friendshipIds: [...this.state.friendshipIds, event.target.value]
   })
   }
 
 removeFriends(event) {
   event.preventDefault();
   debugger
-  this.props.actions.removeFriends(this.state.friendIds, this.state.userId)
+  this.props.actions.removeFriends(this.state.friendshipIds)
 }
 
   render() {
