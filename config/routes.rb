@@ -7,5 +7,5 @@ Rails.application.routes.draw do
        resources :recipes
        post 'find_user' => 'users#find'
        get '/:user_id/not_friends' => 'users#not_friends'
-
+       delete '/friendships/destroy_multiple' => 'friendships#destroy_multiple'
 end
