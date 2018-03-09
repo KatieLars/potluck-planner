@@ -14,13 +14,13 @@ class FriendsPage extends Component {
     }
   }
 
-shouldComponentUpdate() {
-
-}
-
-componentWillUpdate() {
-
-}
+// shouldComponentUpdate() {
+//
+// }
+// 
+// componentWillUpdate() {
+//
+// }
 
 getModal(event) {
   event.preventDefault()
