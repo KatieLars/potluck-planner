@@ -20,7 +20,7 @@ class FriendApi {
 
   }
 
-  static removeFriends(userId) { //delete friends
+  static removeFriends(friend_ids) { //delete friends
 
   }
 }
