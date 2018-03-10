@@ -40,6 +40,7 @@ removeFriends(event) {
 }
 
   render() {
+    debugger
     if(this.props.friends) {
       return(
         <div>
