@@ -34,7 +34,11 @@ class AddFriends extends Component {
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
           <ModalHeader>Select Friends</ModalHeader>
-          <ModalBody><FriendsList friendships={this.props.friendships}/></ModalBody>
+          <ModalBody>
+            <Form>
+              <FriendsList friendships={this.props.friendships}/>
+            </Form>
+          </ModalBody>
           <ModalFooter>
             <Button onClick={(event) => this.addFriendsHandler(event)}>Add Friends</Button>
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
