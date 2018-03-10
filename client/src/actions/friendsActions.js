@@ -20,9 +20,9 @@ export function removeFriendsSuccess(updatedList) {
   }
 }
 
-export function addFriends(newFriendshipsIds) { //returns updated lists with new friends added
+export function addFriends(newFriendIds) { //returns updated lists with new friends added
   return function(dispatch) {
-    return FriendApi.addFriends(newFriendshipsIds).then(response => {
+    return FriendApi.addFriends(newFriendIds).then(response => {
       dispatch(addFriendsSuccess(response));
     }).catch(error => {
       throw(error)
