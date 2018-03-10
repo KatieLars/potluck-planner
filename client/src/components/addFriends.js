@@ -36,14 +36,15 @@ class AddFriends extends Component {
   }
 
   render() {
-
+    debugger
+    if(this.props.newFriends) {
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
           <ModalHeader>Select Friends</ModalHeader>
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
-              <FriendsList friendships={this.props.friendships}/>
+              <FriendsList friendships={this.props.newFriends}/>
             </Form>
           </ModalBody>
           <ModalFooter>
@@ -53,6 +54,14 @@ class AddFriends extends Component {
         </Modal>
       </div>
     )
+  }else{
+    return(
+      <div>
+        <h1>You are friends with all the friends!</h1>
+        <Button onClick={(event) => this.cancel(event)}>Return to Friends!</Button>
+      </div>
+    )
+  }
   }
 }
 
@@ -62,7 +71,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const mapStateToProps = (state) => { //not sure we need this code
+const mapStateToProps = (state) => {
   debugger
   return {
     friends: state
