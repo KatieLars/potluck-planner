@@ -1,7 +1,7 @@
 class FriendApi {
 
   static getFriends(userId) { //get current friends
-    const request = new Request(`http://localhost:3001/users/${userId}`, {
+    const request = new Request(`http://localhost:3001/users/${userId}/friends`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',

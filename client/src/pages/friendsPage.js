@@ -10,16 +10,22 @@ class FriendsPage extends Component {
   constructor(){
     super();
     this.state= {
+      userId: this.props.friends.users.user.id,
       friendshipIds: []
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+componentWillMount() {
+  debugger
+  this.props.actions.getFriends()
+}
+
+shouldComponentUpdate(nextProps, nextState) {
 
  }
 
 componentWillUpdate(nextProps) {
-  this.props.friends.users.user.friends_with_friendship = nextProps.friends.users.user.friends_with_friendship
+  //this.props.friends.users.user.friends_with_friendship = nextProps.friends.users.user.friends_with_friendship
 }
 
 getModal(event) {
@@ -39,8 +45,7 @@ removeFriends(event) {
   this.props.actions.removeFriends(this.state.friendshipIds)
 }
 
-  render() {
-    debugger
+  render() { // this needs to be a stable return state
     const friendships = this.props.friends.users.user.friends_with_friendships
     if (friendships.length != 0) {
       return(
