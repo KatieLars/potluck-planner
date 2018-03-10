@@ -18,13 +18,9 @@ componentWillMount() {
   this.props.actions.getFriends()
 }
 
-// shouldComponentUpdate(nextProps, nextState) {
-//
-//  }
-//
-// componentWillUpdate(nextProps) {
-//   //this.props.friends.users.user.friends_with_friendship = nextProps.friends.users.user.friends_with_friendship
-// }
+shouldComponentUpdate(nextProps, nextState) { //true if change of friends
+  return(this.props.friends != nextProps.friends)
+ }
 
 getModal(event) {
   event.preventDefault()

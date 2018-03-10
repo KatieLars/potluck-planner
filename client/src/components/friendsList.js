@@ -5,7 +5,7 @@ const imageStyle = {
   width: "100px",
   height: "100px"
 }
-
+//takes a prop of friendships
 class FriendsList extends Component {
 
 friendsList() {
