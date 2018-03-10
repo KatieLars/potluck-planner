@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Label, Form, FormGroup, Input} from 'reactstrap'
 import {connect} from 'react-redux'
+import PotluckCard from './potluckCard'
 
 class PotlucksList extends Component {
 
@@ -19,4 +20,4 @@ class PotlucksList extends Component {
   }
 }
 
-export default NewFriendsList
+export default PotlucksList
