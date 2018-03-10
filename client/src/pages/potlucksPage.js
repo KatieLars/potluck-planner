@@ -12,29 +12,17 @@ componentWillMount() {
 }
 
 shouldComponentUpdate(nextProps, nextState) { //true if change of friends
-  return(this.props.friends != nextProps.friends)
+  return(this.props.potlucks != nextProps.potlucks)
  }
 
-getModal(event) {
-  event.preventDefault()
-  history.push('/friends/add')
-}
-
-handleChange(event){
+deletePotluck(event) {
   event.preventDefault();
-  this.setState({
-    friendshipIds: [...this.state.friendshipIds, event.target.value]
-  })
-  }
-
-removeFriends(event) {
-  event.preventDefault();
-  this.props.actions.removeFriends(this.state.friendshipIds)
+  this.props.actions.deletePotluck()
 }
 
   render() {
 
-    if(this.props.friends) {
+    if(this.props.potlucks) {
       return(
         <div>
           <Form onChange={(event)=> this.handleChange(event)}>
