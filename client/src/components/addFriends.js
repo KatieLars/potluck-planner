@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reacts
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as friendsActions from '../actions/friendsActions'
-import FriendsList from './friendsList'
+import NewFriendsList from './newfriendsList'
 import history from '../history'
 
 class AddFriends extends Component {
@@ -36,15 +36,15 @@ class AddFriends extends Component {
   }
 
   render() {
-    debugger
-    if(this.props.newFriends) {
+
+    if(this.props.newFriends){
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
           <ModalHeader>Select Friends</ModalHeader>
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
-
+              <NewFriendsList newFriends={this.props.newFriends}/>
             </Form>
           </ModalBody>
           <ModalFooter>
@@ -55,13 +55,13 @@ class AddFriends extends Component {
       </div>
     )
   }else{
-    return(
-      <div>
-        <h1>You are friends with all the friends!</h1>
-        <Button onClick={(event) => this.cancel(event)}>Return to Friends!</Button>
-      </div>
-    )
-  }
+      return(
+        <div>
+          <h1>You are friends with all the friends!</h1>
+          <Button onClick={(event) => this.cancel(event)}>Return to Friends!</Button>
+        </div>
+      )
+    }
   }
 }
 
@@ -72,7 +72,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  debugger
   if(state.friends.friends){
     return {
       newFriends: state.friends.friends.notFriends
@@ -84,5 +83,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddFriends)
-
-  //<FriendsList friendships={this.props.newFriends}/>

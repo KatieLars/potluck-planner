@@ -6,16 +6,16 @@ const imageStyle = {
   width: "10%",
 }
 
-class NotFriendsList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notFriends: this.props.notFriends.users.user.other_users
-    }
-  }
+class NewFriendsList extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     notFriends: this.props.notFriends.users.user.other_users
+  //   }
+  // }
 
-  notFriendsCheckbox() {
-      return this.state.notFriends.map((friend) => (
+  newFriendsCheckbox() {
+      return this.props.newFriends.map((friend) => (
         <FormGroup check>
          <Label check>
            <Input type="checkbox" value={friend.id} />{' '}
@@ -28,16 +28,16 @@ class NotFriendsList extends Component {
   render() {
     return (
       <div>
-        {this.notFriendsCheckbox()}
+        {this.newFriendsCheckbox()}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => { //not sure we need this code
-  return {
-    notFriends: state
-  }
-}
+// const mapStateToProps = (state) => { //not sure we need this code
+//   return {
+//     notFriends: state
+//   }
+// }
 
-export default connect(mapStateToProps, null)(NotFriendsList)
+export default NewFriendsList
