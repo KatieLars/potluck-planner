@@ -44,7 +44,7 @@ class AddFriends extends Component {
           <ModalHeader>Select Friends</ModalHeader>
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
-              <FriendsList friendships={this.props.newFriends}/>
+
             </Form>
           </ModalBody>
           <ModalFooter>
@@ -73,9 +73,16 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   debugger
-  return {
-    friends: state
-  }
+  if(state.friends.friends){
+    return {
+      newFriends: state.friends.friends.notFriends
+    }}else {
+      return {
+        state
+      }
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddFriends)
+
+  //<FriendsList friendships={this.props.newFriends}/>
