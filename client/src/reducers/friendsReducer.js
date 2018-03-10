@@ -5,7 +5,7 @@ import {BrowserRouter} from 'react-router-dom'
 export default function friendsReducer(state = initialState.friends, action) {
     switch(action.type) {
     case types.NOT_FRIENDS:
-      return {...state, friends: {notFriends: action.notFriends.other_users}}
+      return {...state, friends: {notFriends: action.notFriends}}
     case types.REMOVE_FRIENDS:
       return {...state, friends: {friends: action.friends}}
     case types.FRIENDS_FOUND:
