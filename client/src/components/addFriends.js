@@ -34,7 +34,7 @@ class AddFriends extends Component {
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
           <ModalHeader>Select Friends</ModalHeader>
-          <ModalBody><NotFriendsList /></ModalBody>
+          <ModalBody><FriendsList friendships={this.props.friendships}/></ModalBody>
           <ModalFooter>
             <Button onClick={(event) => this.addFriendsHandler(event)}>Add Friends</Button>
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
@@ -53,7 +53,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => { //not sure we need this code
   return {
-    user: state
+
   }
 }
 
