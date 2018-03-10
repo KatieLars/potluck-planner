@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as friendsActions from '../actions/friendsActions'
@@ -10,7 +10,7 @@ class AddFriends extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notFriendsIds = [],
+      notFriendshipsIds = [],
     }
   }
 
@@ -21,6 +21,13 @@ class AddFriends extends Component {
   addFriendsHandler(event) {
     event.preventDefault()
     //adds friends to state, makes a post request to API
+  }
+
+  handleChange(event) {
+    event.preventDefault()
+    this.setState({
+      notFriendshipsIds: [...this.state.friendshipIds, event.target.value]
+    })
   }
 
   cancel(event) {
@@ -35,7 +42,7 @@ class AddFriends extends Component {
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
           <ModalHeader>Select Friends</ModalHeader>
           <ModalBody>
-            <Form>
+            <Form onChange={(event)=> this.handleChange(event)}>
               <FriendsList friendships={this.props.friendships}/>
             </Form>
           </ModalBody>
