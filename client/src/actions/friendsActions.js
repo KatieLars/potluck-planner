@@ -37,9 +37,10 @@ export function removeFriendsSuccess(newList) {
 //   }
 // }
 //
-export function getFriends(userId) {
+export function getFriends() {
     return function(dispatch) {
-      return FriendApi.getFriends(userId).then(response => {
+      return FriendApi.getFriends().then(response => {
+        debugger
         dispatch(getFriendsSuccess(response));
       }).catch(error => {
         throw(error)

@@ -10,23 +10,21 @@ class FriendsPage extends Component {
   constructor(){
     super();
     this.state= {
-      userId: this.props.friends.users.user.id,
       friendshipIds: []
     }
   }
 
 componentWillMount() {
-  debugger
   this.props.actions.getFriends()
 }
-
-shouldComponentUpdate(nextProps, nextState) {
-
- }
-
-componentWillUpdate(nextProps) {
-  //this.props.friends.users.user.friends_with_friendship = nextProps.friends.users.user.friends_with_friendship
-}
+// 
+// shouldComponentUpdate(nextProps, nextState) {
+//
+//  }
+//
+// componentWillUpdate(nextProps) {
+//   //this.props.friends.users.user.friends_with_friendship = nextProps.friends.users.user.friends_with_friendship
+// }
 
 getModal(event) {
   event.preventDefault()

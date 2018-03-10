@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
     render json:@newFriendships
   end
 
-  def get_friends
+  def friends
     @friends = current_user.friends
     render json:@friends
   end
