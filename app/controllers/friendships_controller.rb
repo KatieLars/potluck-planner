@@ -10,7 +10,7 @@ class FriendshipsController < ApplicationController
   end
 
   def friends
-    @friends = current_user.friends
+    @friends = current_user.friends_with_friendships
     render json:@friends
   end
 end

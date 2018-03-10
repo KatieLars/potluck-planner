@@ -11,7 +11,7 @@ class FriendsList extends Component {
 friendsList() {
 
   return this.props.friendships.map((friendship) => (
-      <FormGroup check key={friendship.frinedship} style={{paddingLeft: "4.5rem"}}>
+      <FormGroup check key={friendship.friendship} style={{paddingLeft: "4.5rem"}}>
        <Label check>
          <Input type="checkbox" value={friendship.friendship} />{' '}
           <img src={friendship.friend.image} className="img-thumbnail" style={imageStyle}/>{' '}{friendship.friend.username}

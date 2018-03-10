@@ -86,7 +86,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    friends: state
+    friends: state.friends.friends
   }
 }
 
