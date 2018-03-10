@@ -15,8 +15,7 @@ class FriendshipsController < ApplicationController
   end
 
   def not_friends
-    user = User.find_by_id(params[:user_id])
-    @not_friends = user.not_friends
+    @not_friends = current_user.not_friends
     render json:@not_friends
   end
 end
