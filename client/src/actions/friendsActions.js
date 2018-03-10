@@ -57,7 +57,6 @@ export function getNotFriendsSuccess(notFriends) {
 export function getFriends() { //list of all friends
     return function(dispatch) {
       return FriendApi.getFriends().then(response => {
-        debugger
         dispatch(getFriendsSuccess(response));
       }).catch(error => {
         throw(error)
