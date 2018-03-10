@@ -20,9 +20,9 @@ export function removeFriendsSuccess(newList) {
   }
 }
 
-export function getNotFriends(userId) { //gets all users who are NOT friends
+export function getNotFriends() { //gets all users who are NOT friends
   return function(dispatch) {
-    return FriendApi.getNotFriends(userId).then(response => {
+    return FriendApi.getNotFriends().then(response => {
       dispatch(getNotFriendsSuccess(response));
     }).catch(error => {
       throw(error)
