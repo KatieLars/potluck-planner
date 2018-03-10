@@ -20,18 +20,11 @@ class FriendshipsController < ApplicationController
   end
 
   def add_friends #adds a series of friends based on IDs
-    binding.pry
     params[:newFriends].each do |friend_id|
       Friendship.create(user_id: current_user.id, friend_id: friend_id)
     end
     @updatedList = current_user.friends_with_friendships
     render json:@updatedList
   end
-
-  # private
-  #
-  # # def friendship_params
-  # #   params.require(:friendship).permit(:newFriends => [], :friend_id, :user_id)
-  # # end
 
 end
