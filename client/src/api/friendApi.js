@@ -16,7 +16,7 @@ class FriendApi {
     });
   }
 
-  static getNotFriends(userId) {
+  static getNotFriends() { //gets all users who are not friends
     const request = new Request(`http://localhost:3001/${userId}/not_friends`, {
       method: "GET",
       headers: new Headers({

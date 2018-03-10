@@ -33,12 +33,6 @@ class UsersController < ApplicationController
       end
     end
 
-    def not_friends
-      @user = User.find_by_id(params[:user_id])
-      render json:@user
-    end
-
-
   private
 
     def user_params
