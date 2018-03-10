@@ -40,7 +40,6 @@ export function removeFriendsSuccess(newList) {
 export function getFriends() {
     return function(dispatch) {
       return FriendApi.getFriends().then(response => {
-        debugger
         dispatch(getFriendsSuccess(response));
       }).catch(error => {
         throw(error)

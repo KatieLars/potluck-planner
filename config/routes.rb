@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
        post 'user_token' => 'user_token#create'
+       get '/friendships/friends'=> 'friendships#friends'
        resources :potlucks
        resources :users
        resources :guestships
        resources :friendships
        resources :recipes
-       get '/friendships/friends'=> 'friendships#friends'
        post 'find_user' => 'users#find'
        get '/:user_id/not_friends' => 'users#not_friends'
        post '/friendships/end_friendships' => 'friendships#end_friendships'
