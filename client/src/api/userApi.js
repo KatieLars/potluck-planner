@@ -16,21 +16,6 @@ class UserApi {
     });
   }
 
-  static getNotFriends(userId) {
-    const request = new Request(`http://localhost:3001/${userId}/not_friends`, {
-      method: "GET",
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${sessionStorage.jwt}`,
-      })
-    })
-
-    return fetch(request).then(response => {
-      return response.json();
-    }).catch(error => {
-      return error;
-    });
-  }
 }
 
 export default UserApi
