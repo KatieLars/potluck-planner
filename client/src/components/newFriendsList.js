@@ -7,12 +7,6 @@ const imageStyle = {
 }
 
 class NewFriendsList extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     notFriends: this.props.notFriends.users.user.other_users
-  //   }
-  // }
 
   newFriendsCheckbox() {
       return this.props.newFriends.map((friend) => (
@@ -33,11 +27,5 @@ class NewFriendsList extends Component {
     )
   }
 }
-
-// const mapStateToProps = (state) => { //not sure we need this code
-//   return {
-//     notFriends: state
-//   }
-// }
 
 export default NewFriendsList

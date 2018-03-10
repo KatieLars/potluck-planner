@@ -20,7 +20,7 @@ class AddFriends extends Component {
 
   addFriendsHandler(event) {
     event.preventDefault()
-    //adds friends to state, makes a post request to API
+    this.props.actions.addFriends(this.state.notFriendshipsIds)
   }
 
   handleChange(event) {
@@ -36,7 +36,6 @@ class AddFriends extends Component {
   }
 
   render() {
-    debugger
     if(this.props.newFriends){
     return(
       <div>
@@ -84,8 +83,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddFriends)
-
-// }else {
-//   return {
-//     state
-//   }

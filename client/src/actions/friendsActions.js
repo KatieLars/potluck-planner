@@ -3,7 +3,7 @@ import FriendApi from '../api/friendApi';
 import history from '../history'
 
 
-export function removeFriends(friendshipIds) {
+export function removeFriends(friendshipIds) { //delete friendships--returns updated list of friends
   return function(dispatch) {
     return FriendApi.removeFriends(friendshipIds).then(response => {
       dispatch(removeFriendsSuccess(response));
@@ -13,10 +13,27 @@ export function removeFriends(friendshipIds) {
   }
 }
 
-export function removeFriendsSuccess(newList) {
+export function removeFriendsSuccess(updatedList) {
   return{
     type: types.REMOVE_FRIENDS,
-    friends: newList
+    friends: updatedList
+  }
+}
+
+export function addFriends(newFriendshipsIds) { //returns updated lists with new friends added
+  return function(dispatch) {
+    return FriendApi.addFriends(newFriendshipsIds).then(response => {
+      dispatch(addFriendsSuccess(response));
+    }).catch(error => {
+      throw(error)
+    })
+  }
+}
+}
+
+export function addFriendsSuccess(updatedList) {
+  return{ type: types.ADD_FRIENDS,
+    friends: updatedList
   }
 }
 
@@ -36,7 +53,7 @@ export function getNotFriendsSuccess(notFriends) {
   }
 }
 
-export function getFriends() {
+export function getFriends() { //list of all friends
     return function(dispatch) {
       return FriendApi.getFriends().then(response => {
         dispatch(getFriendsSuccess(response));
