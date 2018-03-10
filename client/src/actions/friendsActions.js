@@ -30,7 +30,7 @@ export function addFriends(newFriendIds) { //returns updated lists with new frie
     })
   }
 }
-}
+
 
 export function addFriendsSuccess(updatedList) {
   return{ type: types.ADD_FRIENDS,

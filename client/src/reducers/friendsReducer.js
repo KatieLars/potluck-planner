@@ -9,7 +9,7 @@ export default function friendsReducer(state = initialState.friends, action) {
       return {...state, friends: {friends: action.friends}}
     case types.FRIENDS_FOUND:
       return {...state, friends: {friends: action.friends}}
-    case type.ADD_FRIENDS:
+    case types.ADD_FRIENDS:
       return {...state, friends: {friends: action.friends}}
     default:
       return state;
