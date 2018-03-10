@@ -10,14 +10,14 @@ class FriendsPage extends Component {
   constructor(){
     super();
     this.state= {
-      friendshipIds: []
+      friendshipIds: [],
     }
   }
 
 componentWillMount() {
   this.props.actions.getFriends()
 }
-//
+
 // shouldComponentUpdate(nextProps, nextState) {
 //
 //  }
@@ -43,10 +43,8 @@ removeFriends(event) {
   this.props.actions.removeFriends(this.state.friendshipIds)
 }
 
-  render() { // this needs to be a stable return state
-    debugger
-    const friendships = this.props.friends.users.user.friends_with_friendships
-    if (friendships.length != 0) {
+  render() {
+    if(this.props.friends) {
       return(
         <div>
           <Form onChange={(event)=> this.handleChange(event)}>
@@ -55,7 +53,7 @@ removeFriends(event) {
             <Col className="col-4" style={{paddingTop: "100px"}}>
               <h1>Friends!</h1>
             </Col>
-              <FriendsList friendships={friendships}/>
+              <FriendsList friendships={this.props.friends}/>
             </Row>
             <Row>
               <Col className="col-4"></Col>
@@ -69,8 +67,8 @@ removeFriends(event) {
     }else {
       return(
         <div>
-          <h1>Be friendly!</h1>
-          <Button onClick={(event)=> this.getModal(event)}>Add Friends</Button>
+          <h1>Be Friendly!</h1>
+          <Button>Add Friends</Button>
         </div>
       )
     }
@@ -85,9 +83,15 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    friends: state.friends.friends
+  if(state.friends.friends){
+    return {
+      friends: state.friends.friends.friends
+    }}else {
+      return {
+        state
+      }
+    }
   }
-}
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(FriendsPage)
