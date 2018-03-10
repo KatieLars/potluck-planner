@@ -10,7 +10,7 @@ class AddFriends extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notFriendshipsIds: [],
+      newFriendIds: [],
     }
   }
 
@@ -20,13 +20,13 @@ class AddFriends extends Component {
 
   addFriendsHandler(event) {
     event.preventDefault()
-    this.props.actions.addFriends(this.state.notFriendshipsIds)
+    this.props.actions.addFriends(this.state.newFriendIds)
   }
 
   handleChange(event) {
     event.preventDefault()
     this.setState({
-      notFriendshipsIds: [...this.state.notFriendshipIds, event.target.value]
+      newFriendIds: [...this.state.newFriendIds, event.target.value]
     })
   }
 

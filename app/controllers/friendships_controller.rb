@@ -9,13 +9,19 @@ class FriendshipsController < ApplicationController
     render json:@newFriendships
   end
 
-  def friends
+  def friends #list of current friends for a user
     @friends = current_user.friends_with_friendships
     render json:@friends
   end
 
-  def not_friends
+  def not_friends #list of current users who are NOT friends
     @not_friends = current_user.not_friends
     render json:@not_friends
   end
+
+  def add_friends #adds a series of friends based on IDs
+    #creates friendships and returns a series of friends
+    params[:newFriends]
+  end
+
 end
