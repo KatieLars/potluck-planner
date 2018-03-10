@@ -8,6 +8,8 @@ export default function friendsReducer(state = initialState.friends, action) {
       return {...state, friends: {notFriends: action.notFriends.other_users}}
     case types.REMOVE_FRIENDS:
       return {...state, friends: {friends: action.friends}}
+    case types.FRIENDS_FOUND:
+      return {...state, friends: {friends: action.friends}}
     default:
       return state;
   }
