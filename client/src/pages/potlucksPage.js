@@ -3,6 +3,7 @@ import { Button, Container, Col, Row, Form} from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import history from '../history.js'
+import * as potlucksActions from '../actions/potlucksActions'
 
 class PotlucksPage extends Component {
 
