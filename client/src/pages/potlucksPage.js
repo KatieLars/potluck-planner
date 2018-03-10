@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import history from '../history.js'
 import * as potlucksActions from '../actions/potlucksActions'
+import PotlucksList from '../components/potlucksList'
 
 class PotlucksPage extends Component {
 
@@ -25,29 +26,13 @@ deletePotluck(event) {
     if(this.props.potlucks) {
       return(
         <div>
-          <Form onChange={(event)=> this.handleChange(event)}>
-          <Container style={{paddingTop: "15px"}}>
-            <Row >
-            <Col className="col-4" style={{paddingTop: "100px"}}>
-              <h1>Friends!</h1>
-            </Col>
-              <FriendsList friendships={this.props.friends}/>
-            </Row>
-            <Row>
-              <Col className="col-4"></Col>
-                <Button onClick={(event)=> this.getModal(event)}>Add Friends</Button>
-                <Button onClick={(event) => this.removeFriends(event)}>Remove Friend</Button>
-            </Row>
-          </Container>
-        </Form>
+          <PotlucksList potlucks={this.props.potlucks} />
+          //should render a series of potlucks cards, 3 across
         </div>
       )
-    }else {
+    }else{
       return(
-        <div>
-          <h1>Be Friendly!</h1>
-          <Button>Add Friends</Button>
-        </div>
+
       )
     }
   }
