@@ -41,14 +41,14 @@ deletePotluck(event) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      actions: bindActionCreators(friendsActions, dispatch)
+      actions: bindActionCreators(potlucksActions, dispatch)
   }
 }
 
 const mapStateToProps = (state) => {
-  if(state.friends.friends){
+  if(state.potlucks.potlucks){
     return {
-      friends: state.friends.friends.friends
+      potlucks: state.potlucks.potlucks.potlucks
     }}else {
       return {
         state
@@ -57,4 +57,4 @@ const mapStateToProps = (state) => {
   }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsPage)
+export default connect(mapStateToProps, mapDispatchToProps)(PotlucksPage)
