@@ -1,6 +1,5 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
-import {BrowserRouter} from 'react-router-dom'
 
 export default function friendsReducer(state = initialState.friends, action) {
     switch(action.type) {
@@ -9,6 +8,8 @@ export default function friendsReducer(state = initialState.friends, action) {
     case types.REMOVE_FRIENDS:
       return {...state, friends: {friends: action.friends}}
     case types.FRIENDS_FOUND:
+      return {...state, friends: {friends: action.friends}}
+    case type.ADD_FRIENDS:
       return {...state, friends: {friends: action.friends}}
     default:
       return state;
