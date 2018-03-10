@@ -24,6 +24,7 @@ export function addFriends(newFriendIds) { //returns updated lists with new frie
   return function(dispatch) {
     return FriendApi.addFriends(newFriendIds).then(response => {
       dispatch(addFriendsSuccess(response));
+      history.push("/friends")
     }).catch(error => {
       throw(error)
     })
