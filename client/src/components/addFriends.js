@@ -3,19 +3,19 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as friendsActions from '../actions/friendsActions'
-import NotFriendsList from './notFriendsList'
+import FriendsList from './friendsList'
 import history from '../history'
 
 class AddFriends extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: this.props.user.users.user.id,
+      notFriendsIds = [],
     }
   }
 
   componentWillMount() {
-     // this.props.actions.getNotFriends(this.state.userId)
+     this.props.actions.getNotFriends()
    }
 
   addFriendsHandler(event) {
@@ -52,8 +52,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => { //not sure we need this code
+  debugger
   return {
-
+    friends: state
   }
 }
 
