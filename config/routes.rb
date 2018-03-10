@@ -5,7 +5,7 @@ Rails.application.routes.draw do
        resources :guestships
        resources :friendships
        resources :recipes
-       get '/friendships/:user_id'=> 'friendships#get_friends'
+       get '/friendships/friends'=> 'friendships#friends'
        post 'find_user' => 'users#find'
        get '/:user_id/not_friends' => 'users#not_friends'
        post '/friendships/end_friendships' => 'friendships#end_friendships'
