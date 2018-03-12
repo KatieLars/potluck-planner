@@ -1,8 +1,8 @@
 class PotlucksController < ApplicationController
 
   def index
-    @potlucks = Potluck.all
-    render json: @potlucks
+    @total_potlucks = current_user.total_potlucks
+    render json: @total_potlucks
   end
 
 end

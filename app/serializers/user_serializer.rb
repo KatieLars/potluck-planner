@@ -2,6 +2,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :password, :email, :username, :image, :other_users, :friends_with_friendships
   has_many :friendships
   has_many :friends, through: :friendships
+  has_many :potlucks
 
   def other_users #grabs all users who are NOT also friends
     object.not_friends
