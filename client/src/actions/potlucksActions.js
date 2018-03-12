@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import FriendApi from '../api/friendApi';
+import PotluckApi from '../api/friendApi';
 import history from '../history'
 
 
@@ -31,7 +31,7 @@ export function createPotluck(newPotluck) { //returns updated lists with new fri
 }
 
 export function createPotluckSuccess(updatedList) {
-  return{ type: types.ADD_FRIENDS,
+  return{ type: types.CREATE_POTLUCK,
     potlucks: updatedList
   }
 }
@@ -65,7 +65,7 @@ export function getPotlucksSuccess(potlucks) {
   }
 
   export function updatePotluckSuccess(potluck) {
-    return {type: types.UPDATE_USER,
+    return {type: types.UPDATE_POTLUCK,
             potluck: potluck
     }
   }
