@@ -1,6 +1,6 @@
 class PotluckApi {
 
-  static getPotlucks() { //get current friends
+  static getPotlucks() { //get potlucks
     const request = new Request('http://localhost:3001/potlucks', {
       method: 'GET',
       headers: new Headers({
