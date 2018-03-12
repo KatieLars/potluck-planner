@@ -36,7 +36,7 @@ export function createPotluckSuccess(updatedList) {
   }
 }
 
-export function getPotlucks() { //list of all potlucks
+export function getPotlucks() { //list of all potlucks user created or has been invited too
     return function(dispatch) {
       return PotluckApi.getPotlucks().then(response => {
         dispatch(getPotlucksSuccess(response));
