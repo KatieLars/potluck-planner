@@ -9,15 +9,15 @@ Potluck.create(user_id: 1, name: "dinner", description: "noms", happening: "03/0
 Potluck.create(user_id: 1, name: "wine tasting", description: "absorb", happening: "05/31/2019", location: "union hall")
 Potluck.create(user_id: 2, name: "potlucky", description: "epitome", happening: "04/12/2009", location: "home")
 
-Recipes.create(user_id: 1, difficulty: "easy", url: "www.recipe.com", name: "Recipe")
-Recipes.create(user_id: 1, difficulty: "hard", url: "www.hardrecipe.com", name: "Hard Recipe")
-Recipes.create(user_id: 2, difficulty: "normal", url: "www.normalrecipe.com", name: "Normal Recipe")
-Recipes.create(user_id: 2, difficulty: "easy", url: "www.easyrecipe.com", name: "Easy Recipe")
+Recipe.create(user_id: 1, difficulty: "easy", url: "www.recipe.com", name: "Recipe")
+Recipe.create(user_id: 1, difficulty: "hard", url: "www.hardrecipe.com", name: "Hard Recipe")
+Recipe.create(user_id: 2, difficulty: "normal", url: "www.normalrecipe.com", name: "Normal Recipe")
+Recipe.create(user_id: 2, difficulty: "easy", url: "www.easyrecipe.com", name: "Easy Recipe")
 
-User.first.friendship.create(friend_id: 2)
-User.first.friendship.create(friend_id: 3)
+User.first.friendships.create(friend_id: 2)
+User.first.friendships.create(friend_id: 3)
 
-User.first.guestships.create(potluck_id: 4)
+User.first.guestships.create(potluck_id: 5)
 User.second.guestships.create(potluck_id: 2)
 User.second.guestships.create(potluck_id: 3)
 
