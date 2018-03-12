@@ -10,6 +10,8 @@ import AccountPage from './pages/accountPage'
 import UpdateAccountForm from './components/updateAccountForm'
 import FriendsPage from './pages/friendsPage'
 import AddFriends from './components/addFriends'
+import PotlucksPage from './pages/potlucksPage'
+import NewPotluckForm from './components/newPotluckForm'
 import { connect } from 'react-redux'
 
 
@@ -50,12 +52,19 @@ class Routes extends Component {
       <Route path="/account" component={AccountPage}/>
       <Route exact path="/friends" component={FriendsPage}/>
       <Route path="/friends/add" component={AddFriends} />
+      <Route exact path="/potlucks" component={PotlucksPage}/>
+      <Route path="/potlucks/new" component={NewPotluckForm} />
+
       </Switch>
     </div>
   )}
 }
 
 export default Routes
+
+//<Route path="/potlucks/:potluckId" component={PotluckPage}/>
+//<Route path="/potlucks/:potluckId/update" component={UpdatePotluckForm}/>
+
 
 // <PrivateRoute token={sessionStorage.jwt} path="/home" component={UserHomePage}
 //   />
