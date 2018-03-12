@@ -70,13 +70,8 @@ return(
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(userActions, dispatch)
+    actions: bindActionCreators(potlucksActions, dispatch)
   };
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(UpdateAccountForm);
+export default connect(null, mapDispatchToProps)(NewPotluckForm);
