@@ -8,8 +8,8 @@ class NewPotluckForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      info: {
-        userId: this.props.user.id,
+      potluck: {
+        userId: this.props.id,
         location: "",
         happening: "",
         guestIds: [],
@@ -29,13 +29,15 @@ class NewPotluckForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.actions.updateUser(this.state.info);
+    this.props.actions.createPotluck(this.state.potluck);
+  }
+
+  getModal(event) {
+    event.preventDefault()
+    history.push("/potlucks/new/invite")
   }
 
 render() {
-  const username = this.props.user.users.user.username
-  const email = this.props.user.users.user.email
-  const image = this.props.user.users.user.image
 return(
     <Container>
       <Row style={{paddingTop: "25px"}}>
@@ -43,25 +45,26 @@ return(
         <Col className="col-4">
           <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
             <FormGroup>
-              <Label for="username">Username</Label>
-              <Input type="text" name="username" id="username" placeholder={username} />
+              <Label for="name">Name</Label>
+              <Input type="text" name="name" id="name" placeholder={name} />
             </FormGroup>
             <FormGroup>
-              <Label for="email">Email</Label>
-              <Input type="email" name="email" id="email" placeholder={email} />
+              <Label for="location">Location</Label>
+              <Input type="location" name="location" id="location" placeholder={location} />
+            </FormGroup>
+              <Label for="happening">When</Label>
+              <Input type="datetime" name="happening" id="happening" placeholder={happening} />
             </FormGroup>
             <FormGroup>
               <Label for="image">Image</Label>
               <Input type="text" name="image" id="image" placeholder={image} />
             </FormGroup>
             <FormGroup>
-              <Label for="password">Enter New or Confirm Current Password</Label>
-              <h6><em>This field cannot be blank</em></h6>
-              <Input type="password" name="password" id="password" />
+              <Label for="description">Description</Label>
+              <Input type="text" name="description" id="description" />
             </FormGroup>
             <FormGroup>
-              <Label for="passwordConfirmation">Confirm New Password</Label>
-              <Input type="password" name="passwordConfirmation" id="passwordConfirmation" />
+              <Button onClick={(event) => this.getModal(event)}>Invite Friends</Button>
             </FormGroup>
             <Button>Submit</Button>
           </Form>
