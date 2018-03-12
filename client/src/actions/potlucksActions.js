@@ -3,28 +3,27 @@ import FriendApi from '../api/friendApi';
 import history from '../history'
 
 
-export function removeFriends(friendshipIds) { //delete friendships--returns updated list of friends
+export function cancelPotluck(potluckId) { //delete friendships--returns updated list of friends
   return function(dispatch) {
-    return FriendApi.removeFriends(friendshipIds).then(response => {
-      dispatch(removeFriendsSuccess(response));
+    return PotluckApi.cancelPotluck(potluckId).then(response => {
+      dispatch(cancelPotlucksSuccess(response));
     }).catch(error => {
       throw(error)
     })
   }
 }
 
-export function removeFriendsSuccess(updatedList) {
+export function cancelPotlucksSuccess(updatedList) {
   return{
-    type: types.REMOVE_FRIENDS,
-    friends: updatedList
+    type: types.CANCEL_POTLUCK,
+    potlucks: updatedList
   }
 }
 
-export function addFriends(newFriendIds) { //returns updated lists with new friends added
+export function createPotluck() { //returns updated lists with new friends added
   return function(dispatch) {
-    return FriendApi.addFriends(newFriendIds).then(response => {
-      dispatch(addFriendsSuccess(response));
-      history.push("/friends")
+    return PotluckApi.createPotluck().then(response => {
+      dispatch(createPotluckSuccess(response));
     }).catch(error => {
       throw(error)
     })
@@ -32,41 +31,25 @@ export function addFriends(newFriendIds) { //returns updated lists with new frie
 }
 
 
-export function addFriendsSuccess(updatedList) {
+export function createPotluckSuccess(updatedList) {
   return{ type: types.ADD_FRIENDS,
-    friends: updatedList
+    potlucks: updatedList
   }
 }
 
-export function getNotFriends() { //gets all users who are NOT friends
-  return function(dispatch) {
-    return FriendApi.getNotFriends().then(response => {
-      dispatch(getNotFriendsSuccess(response));
-    }).catch(error => {
-      throw(error)
-    })
-  }
-}
-
-export function getNotFriendsSuccess(notFriends) {
-  return {type: types.NOT_FRIENDS,
-          notFriends: notFriends
-  }
-}
-
-export function getFriends() { //list of all friends
+export function getPotlucks() { //list of all friends
     return function(dispatch) {
-      return FriendApi.getFriends().then(response => {
-        dispatch(getFriendsSuccess(response));
+      return PotluckApi.getPotlucks().then(response => {
+        dispatch(getPotlucksSuccess(response));
       }).catch(error => {
         throw(error)
       })
     }
   }
 //
-export function getFriendsSuccess(friends) {
+export function getPotlucksSuccess(potlucks) {
     return {
-      type: types.FRIENDS_FOUND,
-      friends: friends
+      type: types.POTLUCKS_FOUND,
+      potlucks: potlucks
     }
   }

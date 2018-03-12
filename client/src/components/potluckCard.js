@@ -6,7 +6,7 @@ class PotluckCard extends Component {
 
 handleClick(event, potluckId) => { //opens show page
   event.preventDefault()
-  history.push(`potlucks/potluckId`)
+  history.push(`potlucks/${potluckId}`)
 }
 
   render() {
