@@ -49,6 +49,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
+  debugger
   if(state.potlucks.potlucks){
     return {
       potlucks: state.potlucks.potlucks.potlucks

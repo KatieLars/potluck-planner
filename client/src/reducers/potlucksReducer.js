@@ -3,8 +3,7 @@ import initialState from './initialState';
 
 export default (state = initialState.potlucks , action) => {
   switch(action.type) {
-    case types.POTLUCKS_FOUND:
-    debugger
+    case types.POTLUCKS_FOUND:r
       return {...state, potlucks: action.potlucks}
     default:
       return state
