@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import {Form, FormGroup, Col, Row, Container, Button, Label, Input} from 'reactstrap'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as userActions from '../actions/userActions'
+import * as potlucksActions from '../actions/potlucksActions'
 
-class UpdateAccountForm extends Component {
+class NewPotluckForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
       info: {
-        id: this.props.user.users.user.id,
-        password: "",
-        passwordConfirmation: "",
-        username: "",
-        email: "",
+        userId: this.props.user.id,
+        location: "",
+        happening: "",
+        guestIds: [],
+        description: "",
+        image: "",
+        name: ""
       }
     }
   }
