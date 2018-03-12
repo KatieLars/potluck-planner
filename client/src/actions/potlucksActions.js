@@ -20,16 +20,15 @@ export function cancelPotlucksSuccess(updatedList) {
   }
 }
 
-export function createPotluck() { //returns updated lists with new friends added
+export function createPotluck(newPotluck) { //returns updated lists with new friends added
   return function(dispatch) {
-    return PotluckApi.createPotluck().then(response => {
+    return PotluckApi.createPotluck(newPotluck).then(response => {
       dispatch(createPotluckSuccess(response));
     }).catch(error => {
       throw(error)
     })
   }
 }
-
 
 export function createPotluckSuccess(updatedList) {
   return{ type: types.ADD_FRIENDS,
@@ -51,5 +50,22 @@ export function getPotlucksSuccess(potlucks) {
     return {
       type: types.POTLUCKS_FOUND,
       potlucks: potlucks
+    }
+  }
+
+  export function updatePotlucks(info) {
+    return function(dispatch) {
+      return PotluckApi.updatePotluck(info).then(response => {
+        dispatch(updatePotluckSuccess(response));
+        history.push(`/potlucks/${response.id}`)
+      }).catch(error => {
+        throw(error)
+      })
+    }
+  }
+
+  export function updatePotluckSuccess(potluck) {
+    return {type: types.UPDATE_USER,
+            potluck: potluck
     }
   }
