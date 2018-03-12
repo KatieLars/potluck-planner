@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Container, Col, Row, Form} from 'reactstrap'
+import { Button, Container, Col, Row} from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import history from '../history.js'
@@ -16,9 +16,9 @@ shouldComponentUpdate(nextProps, nextState) { //true if change of friends
   return(this.props.potlucks != nextProps.potlucks)
  }
 
-deletePotluck(event) {
-  event.preventDefault();
-  this.props.actions.deletePotluck()
+handleClick(event) {
+  event.preventDefault()
+  history.push("/potlucks/new")
 }
 
   render() {
@@ -32,7 +32,10 @@ deletePotluck(event) {
       )
     }else{
       return(
-
+        <div>
+          <h1>No Potlucks!</h1>
+          <Button onClick={(event) => this.handleClick(event)}>Create a Potluck</Button>
+        </div>
       )
     }
   }
