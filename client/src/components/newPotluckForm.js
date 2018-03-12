@@ -12,7 +12,6 @@ class NewPotluckForm extends Component {
         userId: this.props.id,
         location: "",
         happening: "",
-        guestIds: [],
         description: "",
         image: "",
         name: ""
@@ -32,11 +31,6 @@ class NewPotluckForm extends Component {
     this.props.actions.createPotluck(this.state.potluck);
   }
 
-  getModal(event) {
-    event.preventDefault()
-    history.push("/potlucks/new/invite")
-  }
-
 render() {
 return(
     <Container>
@@ -46,27 +40,25 @@ return(
           <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
             <FormGroup>
               <Label for="name">Name</Label>
-              <Input type="text" name="name" id="name" placeholder={name} />
+              <Input type="text" name="name" id="name" />
             </FormGroup>
             <FormGroup>
               <Label for="location">Location</Label>
-              <Input type="location" name="location" id="location" placeholder={location} />
+              <Input type="location" name="location" id="location" />
             </FormGroup>
+            <FormGroup>
               <Label for="happening">When</Label>
-              <Input type="datetime" name="happening" id="happening" placeholder={happening} />
+              <Input type="datetime" name="happening" id="happening" />
             </FormGroup>
             <FormGroup>
               <Label for="image">Image</Label>
-              <Input type="text" name="image" id="image" placeholder={image} />
+              <Input type="text" name="image" id="image"/>
             </FormGroup>
             <FormGroup>
               <Label for="description">Description</Label>
               <Input type="text" name="description" id="description" />
             </FormGroup>
-            <FormGroup>
-              <Button onClick={(event) => this.getModal(event)}>Invite Friends</Button>
-            </FormGroup>
-            <Button>Submit</Button>
+            <Button>Create</Button>
           </Form>
         </Col>
         <Col className="col-4"></Col>

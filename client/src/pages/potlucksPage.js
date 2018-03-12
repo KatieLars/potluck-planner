@@ -18,7 +18,7 @@ shouldComponentUpdate(nextProps, nextState) { //true if change of friends
 
 handleClick(event) {
   event.preventDefault()
-  history.push("/potlucks/new")
+  // history.push("/potlucks/new")
 }
 
   render() {

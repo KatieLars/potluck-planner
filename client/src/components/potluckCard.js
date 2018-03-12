@@ -4,9 +4,9 @@ import history from '../history.js'
 
 class PotluckCard extends Component {
 
-handleClick(event, potluckId) => { //opens show page
+handleClick(event){ //opens show page
   event.preventDefault()
-  history.push(`potlucks/${potluckId}`)
+  history.push(`potlucks/${this.props.potluck.id}`)
 }
 
   render() {
@@ -21,7 +21,7 @@ handleClick(event, potluckId) => { //opens show page
               <p>Location: {this.props.potluck.location}</p>
               {this.props.potluck.description}
             </CardText>
-            <Button onClick={(event, this.props.potluck.id)=> this.handleClick(event, this.props.potluck.id)}>More Info</Button>
+            <Button onClick={(event)=> this.handleClick(event)}>More Info</Button>
           </CardBody>
       </Card>
       </div>
