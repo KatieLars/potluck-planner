@@ -6,7 +6,7 @@ import * as friendsActions from '../actions/friendsActions'
 import FriendsList from './friendsList'
 import history from '../history'
 
-class AddFriends extends Component {
+class InviteFriends extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,7 @@ class AddFriends extends Component {
 
   inviteFriendsHandler(event) {
     event.preventDefault()
-
+    //creates guestships
   }
 
   handleChange(event) {
@@ -32,18 +32,18 @@ class AddFriends extends Component {
 
   cancel(event) {
     event.preventDefault()
-    history.push("/potlucks/new")
+  //redirects to potluck show page
   }
 
   render() {
-    if(this.props.friends){
+    if(this.props.friendships){
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
           <ModalHeader>Select Friends</ModalHeader>
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
-              <FriendsList friends={this.props.friends}/>
+              <FriendsList friendships={this.props.friendships}/>
             </Form>
           </ModalBody>
           <ModalFooter>
@@ -82,4 +82,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddFriends)
+export default connect(mapStateToProps, mapDispatchToProps)(InviteFriends)
