@@ -25,5 +25,5 @@ User.first.potluck_attendees.create(potluck_id: 4)
 User.second.potluck_attendees.create(potluck_id: 2)
 
 User.first.potluck_recipes.create(recipe_id: 4, potluck_id: 1)
-User.first.potluck_recipes.create(recipe_id: 2, potluck_id: 4)
+User.first.potluck_recipes.create(recipe_id: 2, potluck_id: 5)
 User.second.potluck_recipes.create(recipe_id: 3, potluck_id: 2)
