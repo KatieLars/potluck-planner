@@ -1,8 +1,13 @@
 import React, {Component} from 'react'
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap'
-import {connect} from 'react-redux'
+import history from '../history.js'
 
 class PotluckCard extends Component {
+
+handleClick(event, potluckId) => { //opens show page
+  event.preventDefault()
+  history.push(`potlucks/potluckId`)
+}
 
   render() {
     return (
@@ -16,7 +21,7 @@ class PotluckCard extends Component {
               <p>Location: {this.props.potluck.location}</p>
               {this.props.potluck.description}
             </CardText>
-            <Button>More Info</Button>
+            <Button onClick={(event, this.props.potluck.id)=> this.handleClick(event, this.props.potluck.id)}>More Info</Button>
           </CardBody>
       </Card>
       </div>
@@ -24,4 +29,4 @@ class PotluckCard extends Component {
   }
 }
 
-export default NewFriendsList
+export default PotluckCard
