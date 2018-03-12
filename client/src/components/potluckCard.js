@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap'
+import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap'
 import history from '../history.js'
+
+const cardStyle ={
+  width: "30vw",
+  display: "inline-block"
+}
 
 class PotluckCard extends Component {
 
@@ -11,8 +16,7 @@ handleClick(event){ //opens show page
 
   render() {
     return (
-      <div>
-      <Card>
+      <Card style={{display: "inline-block"}}>
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
           <CardBody>
             <CardTitle>{this.props.potluck.name}</CardTitle>
@@ -24,7 +28,6 @@ handleClick(event){ //opens show page
             <Button onClick={(event)=> this.handleClick(event)}>More Info</Button>
           </CardBody>
       </Card>
-      </div>
     )
   }
 }
