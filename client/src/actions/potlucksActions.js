@@ -47,9 +47,7 @@ export function getPotlucks() { //list of all potlucks user created or has been 
   }
 //
 export function getPotlucksSuccess(potlucks) {
-  debugger
     return {
-
       type: types.POTLUCKS_FOUND,
       potlucks: potlucks
     }

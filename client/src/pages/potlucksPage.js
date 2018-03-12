@@ -22,7 +22,6 @@ handleClick(event) {
 }
 
   render() {
-
     if(this.props.potlucks) {
       return(
         <div>
@@ -49,10 +48,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  debugger
-  if(state.potlucks.potlucks){
+  if(state.potlucks){
     return {
-      potlucks: state.potlucks.potlucks.potlucks
+      potlucks: state.potlucks.potlucks
     }}else {
       return {
         state
