@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import PotluckApi from '../api/friendApi';
+import PotluckApi from '../api/potluckApi';
 import history from '../history'
 
 
@@ -47,7 +47,9 @@ export function getPotlucks() { //list of all potlucks user created or has been 
   }
 //
 export function getPotlucksSuccess(potlucks) {
+  debugger
     return {
+
       type: types.POTLUCKS_FOUND,
       potlucks: potlucks
     }
