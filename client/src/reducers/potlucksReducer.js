@@ -6,7 +6,8 @@ export default (state = initialState.potlucks , action) => {
     case types.POTLUCKS_FOUND:
       return {...state, potlucks: action.potlucks}
     case types.CREATE_POTLUCK:
-      return {potlucks: [...state.potlucks, action.newPotluck]}
+
+      return {...state, potlucks: [...state, action.newPotluck]}
     default:
       return state
     }
