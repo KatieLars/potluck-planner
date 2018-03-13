@@ -8,16 +8,23 @@ class PotluckShow extends Component {
   render() {
     return (
       <div>
-        {this.props.potluck.name}
+        <h1>{this.props.potluck.name}</h1>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const potluck = state.potlucks.find(potluck => {
-    return potluck.id == ownProps.match.params.potluckId
-  })
+  if(state.potlucks.potlucks){
+    const potluck = state.potlucks.potlucks.find(potluck => {
+      return potluck.id == ownProps.match.params.id
+    })
+    return {potluck: potluck}
+  }else{
+    return {
+      state
+    }
+  }
 }
 
 export default connect(mapStateToProps, null)(PotluckShow)
