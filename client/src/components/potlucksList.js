@@ -13,15 +13,16 @@ class PotlucksList extends Component {
 
   render() {
     return (
-      <div>
-        <Container>
-          <div className="card-deck">
-            {this.potlucksCards()}
-          </div>
-        </Container>
+      <div className="col d-flex justify-content-center">
+        <CardDeck style={{margin: "10px"}}>
+          {this.potlucksCards()}
+        </CardDeck>
       </div>
+
     )
   }
 }
 
 export default PotlucksList
+
+//className="col d-flex justify-content-center"

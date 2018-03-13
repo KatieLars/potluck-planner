@@ -5,6 +5,13 @@ import {connect} from 'react-redux'
 import history from '../history.js'
 import * as potlucksActions from '../actions/potlucksActions'
 import PotlucksList from '../components/potlucksList'
+import stillLife from '../images/stillLife.jpg'
+
+const homeBackground = {
+  backgroundImage: "url(" + stillLife + ")",
+  height: "100vh",
+
+}
 
 class PotlucksPage extends Component {
 
@@ -24,9 +31,8 @@ handleClick(event) {
   render() {
     if(this.props.potlucks) {
       return(
-        <div>
+        <div style={homeBackground} >
           <PotlucksList potlucks={this.props.potlucks} />
-          //should render a series of potlucks cards, 3 across
         </div>
       )
     }else{
