@@ -5,4 +5,20 @@ class PotlucksController < ApplicationController
     render json: @total_potlucks
   end
 
+  def create
+    @potluck = Potluck.new(potluck_params)
+    if @potluck.save
+      render json: @potluck
+    else
+      @errors = @potluck.errors.full_messages
+      render json:@errors
+    end
+  end
+
+  private
+
+  def potluck_params
+    params.require(:potluck).permit(:image, :time, :date, :location, :user_id, :name, :description)
+  end
+
 end
