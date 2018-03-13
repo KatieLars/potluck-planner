@@ -24,5 +24,3 @@ class PotlucksList extends Component {
 }
 
 export default PotlucksList
-
-//className="col d-flex justify-content-center"

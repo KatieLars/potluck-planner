@@ -20,9 +20,19 @@ import * as sessionActions from '../actions/sessionActions'
     <Navbar className="navbar navbar-expand-lg bg-dark" >
       <NavbarBrand><Link to="#" onClick={(event) => this.signOut(event)}>Sign Out</Link></NavbarBrand>
         <Nav navbar className="list-unstyled ml-auto" >
+        <NavItem>
+          <NavLink>
+            <TopNav to="/potlucks/new">New Potluck</TopNav>
+          </NavLink>
+        </NavItem>
           <NavItem>
             <NavLink>
               <TopNav to="/potlucks">Your Potlucks</TopNav>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink>
+              <TopNav to="/recipes/new">New Recipe</TopNav>
             </NavLink>
           </NavItem>
           <NavItem>
