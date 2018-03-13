@@ -16,11 +16,15 @@ export const POTLUCKS_FOUND = "POTLUCKS_FOUND"
 export const UPDATE_POTLUCK ="UPDATE_POTLUCK" //only if you are user
 
 export const CREATE_RECIPE = "CREATE_RECIPE"
-export const DELETE_RECIPE = "DELETE_RECIPE"
-export const UPDATE_RECIPE = "UPDATE_RECIPE"
+export const DELETE_RECIPE = "DELETE_RECIPE" //only if you are user
+export const UPDATE_RECIPE = "UPDATE_RECIPE" //only if you are user
 export const RECIPES_FOUND = "RECIPES_FOUND"
 
 export const ATTEND_POTLUCK = "ATTEND_POTLUCK" //creates potluck attendee
 export const NOT_COMING = "NOT_COMING" //destroys potluck attendee
+
 export const BRING_RECIPE = "BRING_RECIPE" //creates potluck recipe
 export const DONT_BRING_RECIPE = "DONT_BRING_RECIPE" //destroys potluck recipe
+
+export const INVITE_GUESTS = "INVITE_GUESTS" //creates guestships
+export const UNINVITE_GUESTS = "UNINVITE_GUESTS" //destroys guestships
