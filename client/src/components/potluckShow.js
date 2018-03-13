@@ -9,6 +9,11 @@ const imageStyle ={
   paddingBottom: "20px"
 }
 
+const containerStyle = {
+  marginLeft: "100px",
+  marginRight: "100px"
+}
+
 class PotluckShow extends Component {
 
   getAttendees(event) { //modal
@@ -23,17 +28,9 @@ class PotluckShow extends Component {
   render() {
     return (
       <div>
-        <Container style={{textAlign: "center"}}>
+        <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
-            <Col className="col-3">
             <PotluckCard potluck={this.props.potluck}/>
-            <Button onClick={(event) => {this.inviteGuests(event)}}>Invite Guests</Button>
-            <Button onClick={(event) => {this.getAttendees(event)}}>See Who is Coming</Button>
-            </Col>
-            <Col className="col-9">
-
-            </Col>
-
           </Row>
         </Container>
       </div>
@@ -61,3 +58,6 @@ export default connect(mapStateToProps, null)(PotluckShow)
 // <h3>{this.props.potluck.location}</h3>
 // <p><em>{this.props.potluck.date}</em>{this.props.potluck.time}</p>
 // <p>{this.props.potluck.description}</p>
+
+// <Button onClick={(event) => {this.inviteGuests(event)}}>Invite Guests</Button>
+// <Button onClick={(event) => {this.getAttendees(event)}}>See Who is Coming</Button>
