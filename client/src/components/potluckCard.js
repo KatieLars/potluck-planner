@@ -16,7 +16,7 @@ handleClick(event){ //opens show page
 
   render() {
     return (
-      <Card className="mx-auto" >
+      <Card className="mx-auto" style={{opacity: "0.75"}} >
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
           <CardBody>
             <CardTitle>{this.props.potluck.name}</CardTitle>
