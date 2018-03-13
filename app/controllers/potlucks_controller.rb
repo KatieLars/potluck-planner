@@ -15,6 +15,12 @@ class PotlucksController < ApplicationController
     end
   end
 
+  def update
+  end
+
+  def destroy
+  end
+
   private
 
   def potluck_params
