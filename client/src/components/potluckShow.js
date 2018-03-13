@@ -29,8 +29,6 @@ class PotluckShow extends Component {
             <PotluckCard potluck={this.props.potluck}/>
             <Button onClick={(event) => {this.inviteGuests(event)}}>Invite Guests</Button>
             <Button onClick={(event) => {this.getAttendees(event)}}>See Who is Coming</Button>
-            <Button>Suggest Recipes</Button>
-            <Button>Create A New Recipe</Button>
             </Col>
             <Col className="col-9">
 

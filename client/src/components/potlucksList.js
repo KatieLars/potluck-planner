@@ -17,7 +17,6 @@ class PotlucksList extends Component {
     )}
 
   render() {
-    debugger
     return (
       <CardDeck style={cardDecks}>
         {this.potlucksCards()}

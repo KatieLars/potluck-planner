@@ -29,7 +29,6 @@ handleClick(event) {
 }
 
   render() {
-    debugger
     if(this.props.potlucks) {
       return(
         <div style={homeBackground}  >

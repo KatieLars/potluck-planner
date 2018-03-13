@@ -19,6 +19,7 @@ handleClick(event){ //opens show page
 }
 
   render() {
+    debugger
     return (
       <Card style={subtitleStyle} >
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
@@ -37,7 +38,12 @@ handleClick(event){ //opens show page
               </CardFooter>
             ) : (
               <CardHeader>
-                <Button onClick={(event)=> this.handleClick(event)}>More Info</Button>
+                <Nav pills>
+                  <NavItem>Invite Guests</NavItem>
+                  <NavItem>See Who Is Coming</NavItem>
+                  <NavItem>Suggest Recipes</NavItem>
+                  <NavItem>Create a Recipe</NavItem>
+                </Nav>
               </CardHeader>
             )}
           </CardBody>
@@ -46,8 +52,5 @@ handleClick(event){ //opens show page
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  debugger
-}
 
-export default connect(mapStateToProps, null)(PotluckCard)
+export default PotluckCard
