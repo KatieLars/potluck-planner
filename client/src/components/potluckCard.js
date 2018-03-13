@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink} from 'reactstrap'
+import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
@@ -10,6 +10,10 @@ const subtitleStyle = {
   width: "30vw",
   display: "inline-block",
   marginTop: "1.25rem"
+}
+
+const navBarStyle = {
+  textAlign: "center"
 }
 
 class PotluckCard extends Component {
@@ -26,10 +30,12 @@ handleClick(event){ //opens show page
         null
       ):(
         <CardHeader>
-          <Nav pills className="inline">
-            <NavItem><NavLink href="#">Invite Guests</NavLink></NavItem>
-            <NavItem><NavLink href="#">See Who Is Coming</NavLink></NavItem>
-          </Nav>
+          <Navbar nav >
+            <Nav navbar >
+              <span><NavLink href="#" style={{display: "inline-block"}} >Invite Guests</NavLink>
+              <NavLink href="#" style={{display: "inline-block"}} >See Who Is Coming</NavLink></span>
+            </Nav>
+          </Navbar>
         </CardHeader>
       )}
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
