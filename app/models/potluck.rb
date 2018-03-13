@@ -6,5 +6,11 @@ class Potluck < ApplicationRecord#may need foreign keys specified
   has_many :recipes, through: :potluck_recipes
   has_many :potluck_attendees #people that are coming
 
+  def format_date
+    self.date.strftime("%A %B%e, %Y")
+  end
 
+  def format_time
+    self.time.strftime("%l:%M %P")
+  end
 end

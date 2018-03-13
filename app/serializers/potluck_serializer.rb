@@ -3,10 +3,14 @@ class PotluckSerializer < ActiveModel::Serializer
   belongs_to :user
 
   def format_date
-    object.date.strftime("%A %B %e, %Y")
+    if object.date
+      object.format_date
+    end
   end
 
   def format_time
-    object.time.strftime("%l:%M %P")
+    if object.date
+      object.format_time
+    end
   end
 end
