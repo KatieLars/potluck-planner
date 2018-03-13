@@ -3,7 +3,7 @@ import {Label, FormGroup, Input, Col} from 'reactstrap'
 
 const PotluckForm = () => {
   return(
-    <Col className="col-4" style={{padding: "0px"}}>
+    <Col className="col-4" style={{marginLeft: "25px"}}>
     <FormGroup>
       <Label for="name">Name</Label>
       <Input type="text" name="name" id="name" />

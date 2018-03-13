@@ -7,7 +7,12 @@ import PotluckForm from './potluckForm'
 
 const leftColStyle = {
   paddingTop: "100px",
-  paddingLeft: "0px"
+  
+}
+
+const containerStyle = {
+  marginLeft: "100px",
+  paddingTop: "15px"
 }
 
 class NewPotluckForm extends Component {
@@ -41,7 +46,7 @@ render() {
 return(
       <div>
         <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
-          <Container style={{paddingTop: "15px"}}>
+          <Container style={containerStyle}>
             <Row >
               <Col className="col-4" style={leftColStyle}>
                 <h1>New Potluck!</h1>
