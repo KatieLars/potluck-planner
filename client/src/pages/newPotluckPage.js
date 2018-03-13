@@ -15,12 +15,12 @@ const containerStyle = {
   paddingTop: "15px"
 }
 
-class NewPotluckForm extends Component {
+class NewPotluckPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
       potluck: {
-        userId: this.props.id,
+        userId: this.props.userId,
         location: "",
         happening: "",
         description: "",
@@ -32,9 +32,9 @@ class NewPotluckForm extends Component {
 
   handleChange(event){
     const field = event.target.name;
-    const info = this.state.info;
-    info[field] = event.target.value;
-    return this.setState({info: info})
+    const potluck = this.state.potluck;
+    potluck[field] = event.target.value;
+    return this.setState({potluck: potluck})
   }
 
   handleSubmit(event) {
@@ -70,4 +70,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(null, mapDispatchToProps)(NewPotluckForm);
+const mapStateToProps = (state) => {
+  return {
+    userId: state.users.user.id
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewPotluckPage);
