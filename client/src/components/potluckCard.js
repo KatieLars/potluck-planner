@@ -39,4 +39,8 @@ handleClick(event){ //opens show page
   }
 }
 
+const mapStateToProps = (state, ownProps) => {
+  debugger
+}
+
 export default PotluckCard

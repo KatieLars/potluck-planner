@@ -11,11 +11,11 @@ const imageStyle ={
 
 class PotluckShow extends Component {
 
-  getAttendees(event) => { //modal
+  getAttendees(event) { //modal
     event.preventDefault()
     history.push(`/potlucks/${this.props.potluck.id}/attendees`)
   }
-  inviteGuests(event) => { //modal
+  inviteGuests(event) { //modal
     event.preventDefault()
     history.push(`/potlucks/${this.props.potluck.id}/guests`)
   }
@@ -25,19 +25,17 @@ class PotluckShow extends Component {
       <div>
         <Container style={{textAlign: "center"}}>
           <Row style={{paddingTop: "25px"}}>
-            <Col className="col-3"></Col>
-            <Col className="col-6">
-              <h1>{this.props.potluck.name}</h1>
-              <img src={this.props.potluck.image} style={imageStyle}/>
-              <h3>{this.props.potluck.location}</h3>
-              <p><em>{this.props.potluck.date}</em>{this.props.potluck.time}</p>
-              <p>{this.props.potluck.description}</p>
-              <Button onClick={(event) => {this.inviteGuests(event)}}>Invite Guests</Button>
-              <ButtononClick={(event) => {this.getAttendees(event)}}>See Who is Coming</Button>
-              <Button>Suggest Recipes</Button> //modal with checkboxes
-              <Button>Create A New Recipe</Button> //modal to create a new recipe
+            <Col className="col-3">
+            <PotluckCard potluck={this.props.potluck}/>
+            <Button onClick={(event) => {this.inviteGuests(event)}}>Invite Guests</Button>
+            <Button onClick={(event) => {this.getAttendees(event)}}>See Who is Coming</Button>
+            <Button>Suggest Recipes</Button>
+            <Button>Create A New Recipe</Button>
             </Col>
-            <Col className="col-3"></Col>
+            <Col className="col-9">
+
+            </Col>
+
           </Row>
         </Container>
       </div>
@@ -59,3 +57,9 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps, null)(PotluckShow)
+
+// <h1>{this.props.potluck.name}</h1>
+// <img src={this.props.potluck.image} style={imageStyle}/>
+// <h3>{this.props.potluck.location}</h3>
+// <p><em>{this.props.potluck.date}</em>{this.props.potluck.time}</p>
+// <p>{this.props.potluck.description}</p>
