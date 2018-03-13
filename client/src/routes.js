@@ -13,6 +13,7 @@ import AddFriends from './components/addFriends'
 import PotlucksPage from './pages/potlucksPage'
 import NewPotluckPage from './pages/newPotluckPage'
 import NewRecipeForm from './components/newRecipeForm'
+import PotluckShow from './components/potluckShow'
 import { connect } from 'react-redux'
 
 
@@ -56,6 +57,7 @@ class Routes extends Component {
       <Route exact path="/potlucks" component={PotlucksPage}/>
       <Route path="/potlucks/new" component={NewPotluckPage} />
       <Route path="/recipes/new" component={NewRecipeForm}/>
+      <Route path="/potlucks/:id" component={PotluckShow}/>
 
       </Switch>
     </div>
