@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button} from 'reactstrap'
+import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem} from 'reactstrap'
 import history from '../history.js'
+import {connect} from 'react-redux'
 
 const subtitleStyle = {
   opacity: "0.60",
@@ -30,9 +31,15 @@ handleClick(event){ //opens show page
               <p>Location: {this.props.potluck.location}</p>
               {this.props.potluck.description}
             </CardText>
-            <CardFooter>
-              <Button onClick={(event)=> this.handleClick(event)}>More Info</Button>
-            </CardFooter>
+            {this.props.url ? (
+              <CardFooter>
+                <Button onClick={(event)=> this.handleClick(event)}>More Info</Button>
+              </CardFooter>
+            ) : (
+              <CardHeader>
+                <Button onClick={(event)=> this.handleClick(event)}>More Info</Button>
+              </CardHeader>
+            )}
           </CardBody>
       </Card>
     )
@@ -43,4 +50,4 @@ const mapStateToProps = (state, ownProps) => {
   debugger
 }
 
-export default PotluckCard
+export default connect(mapStateToProps, null)(PotluckCard)

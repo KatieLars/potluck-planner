@@ -12,11 +12,12 @@ class PotlucksList extends Component {
 
   potlucksCards() {
       return this.props.potlucks.map((potluck) => (
-        <PotluckCard potluck={potluck} />
+        <PotluckCard potluck={potluck} url={this.props.url}/>
       )
     )}
 
   render() {
+    debugger
     return (
       <CardDeck style={cardDecks}>
         {this.potlucksCards()}

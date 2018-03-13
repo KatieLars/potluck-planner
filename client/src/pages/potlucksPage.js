@@ -29,10 +29,11 @@ handleClick(event) {
 }
 
   render() {
+    debugger
     if(this.props.potlucks) {
       return(
         <div style={homeBackground}  >
-          <PotlucksList potlucks={this.props.potlucks} />
+          <PotlucksList potlucks={this.props.potlucks} url={this.props.match.url} />
         </div>
       )
     }else{
