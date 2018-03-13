@@ -10,7 +10,17 @@ export const FRIENDS_FOUND = "FRIENDS_FOUNDS"
 export const REMOVE_FRIENDS = "REMOVE_FRIENDS"
 export const ADD_FRIENDS = "ADD_FRIENDS"
 
-export const CANCEL_POTLUCK = "CANCEL_POTLUCK"
+export const CANCEL_POTLUCK = "CANCEL_POTLUCK" //only if you are user
 export const CREATE_POTLUCK = "CREATE_POTLUCK"
 export const POTLUCKS_FOUND = "POTLUCKS_FOUND"
-export const UPDATE_POTLUCK ="UPDATE_POTLUCK"
+export const UPDATE_POTLUCK ="UPDATE_POTLUCK" //only if you are user
+
+export const CREATE_RECIPE = "CREATE_RECIPE"
+export const DELETE_RECIPE = "DELETE_RECIPE"
+export const UPDATE_RECIPE = "UPDATE_RECIPE"
+export const RECIPES_FOUND = "RECIPES_FOUND"
+
+export const ATTEND_POTLUCK = "ATTEND_POTLUCK" //creates potluck attendee
+export const NOT_COMING = "NOT_COMING" //destroys potluck attendee
+export const BRING_RECIPE = "BRING_RECIPE" //creates potluck recipe
+export const DONT_BRING_RECIPE = "DONT_BRING_RECIPE" //destroys potluck recipe
