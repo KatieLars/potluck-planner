@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Label, Form, FormGroup, Input, Container, Row, CardDeck} from 'reactstrap'
+import {Label, Form, FormGroup, Input, Container, Row, CardColumns} from 'reactstrap'
 import {connect} from 'react-redux'
 import PotluckCard from './potluckCard'
 
@@ -13,14 +13,12 @@ class PotlucksList extends Component {
 
   render() {
     return (
-      <div className="col d-flex justify-content-center">
-        <CardDeck style={{margin: "10px"}}>
-          {this.potlucksCards()}
-        </CardDeck>
-      </div>
-
+      <CardColumns className="col justify-content-center" style={{marginTop: "15px"}}>
+        {this.potlucksCards()}
+      </CardColumns>
     )
   }
 }
 
 export default PotlucksList
+//className="col d-flex justify-content-center"

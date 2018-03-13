@@ -2,14 +2,11 @@ import React, {Component} from 'react'
 import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button} from 'reactstrap'
 import history from '../history.js'
 
-const cardStyle ={
-  width: "30vw",
-  display: "inline-block",
-}
-
 const subtitleStyle = {
   opacity: "0.60",
-  textAlign: "center"
+  textAlign: "center",
+  width: "30vw",
+
 }
 
 class PotluckCard extends Component {

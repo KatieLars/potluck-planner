@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Container, Col, Row} from 'reactstrap'
+import { Button, Container, Col, Row, CardColumns} from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import history from '../history.js'
@@ -31,9 +31,9 @@ handleClick(event) {
   render() {
     if(this.props.potlucks) {
       return(
-        <div style={homeBackground} >
-          <PotlucksList potlucks={this.props.potlucks} />
-        </div>
+        
+            <PotlucksList potlucks={this.props.potlucks} />
+
       )
     }else{
       return(
