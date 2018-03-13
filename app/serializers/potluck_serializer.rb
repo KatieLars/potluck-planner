@@ -13,4 +13,5 @@ class PotluckSerializer < ActiveModel::Serializer
       object.format_time
     end
   end
+  
 end
