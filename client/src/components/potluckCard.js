@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem} from 'reactstrap'
+import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 const subtitleStyle = {
   opacity: "0.60",
@@ -19,9 +20,18 @@ handleClick(event){ //opens show page
 }
 
   render() {
-    debugger
     return (
       <Card style={subtitleStyle} >
+      {this.props.url ? (
+        null
+      ):(
+        <CardHeader>
+          <Nav pills className="inline">
+            <NavItem><NavLink href="#">Invite Guests</NavLink></NavItem>
+            <NavItem><NavLink href="#">See Who Is Coming</NavLink></NavItem>
+          </Nav>
+        </CardHeader>
+      )}
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
           <CardBody>
             <CardTitle>{this.props.potluck.name}</CardTitle>
@@ -37,14 +47,12 @@ handleClick(event){ //opens show page
                 <Button onClick={(event)=> this.handleClick(event)}>More Info</Button>
               </CardFooter>
             ) : (
-              <CardHeader>
+              <CardFooter>
                 <Nav pills>
-                  <NavItem>Invite Guests</NavItem>
-                  <NavItem>See Who Is Coming</NavItem>
-                  <NavItem>Suggest Recipes</NavItem>
-                  <NavItem>Create a Recipe</NavItem>
-                </Nav>
-              </CardHeader>
+                  <NavItem><NavLink href="#">Suggest Recipes</NavLink></NavItem>
+                  <NavItem><NavLink href="#">Create a Recipe</NavLink></NavItem>
+                  </Nav>
+              </CardFooter>
             )}
           </CardBody>
       </Card>
