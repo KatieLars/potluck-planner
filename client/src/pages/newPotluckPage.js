@@ -3,11 +3,11 @@ import {Form, FormGroup, Col, Row, Container, Button, Label, Input} from 'reacts
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as potlucksActions from '../actions/potlucksActions'
-import PotluckForm from './potluckForm'
+import PotluckForm from '../components/potluckForm'
 
 const leftColStyle = {
   paddingTop: "100px",
-  
+
 }
 
 const containerStyle = {
