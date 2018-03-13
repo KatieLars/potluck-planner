@@ -3,10 +3,10 @@ User.create(username: "Pip", password: "pippity", email: "pip@pip.com")
 User.create(username: "Peep", password: "bigpeep", email: "peep@peep.com")
 User.create(username: "Stubbs", password: "stubbs", email: "stubbs@stubss.com")
 
-Potluck.create(user_id: 1, name: "picnic", description: "funtimes", date: "07/08/2019", time: "5 pm" location: "field")
-Potluck.create(user_id: 1, name: "birthday", description: "celebrate", date: "06/12/2018", time: "12 pm" location: "resto")
+Potluck.create(user_id: 1, name: "picnic", description: "funtimes", date: "07/08/2019", time: "5 pm", location: "field")
+Potluck.create(user_id: 1, name: "birthday", description: "celebrate", date: "06/12/2018", time: "12 pm", location: "resto")
 Potluck.create(user_id: 1, name: "dinner", description: "noms", date: "03/04/2018", time: "4 pm", location: "Sam's", canceled: true)
-Potluck.create(user_id: 1, name: "wine tasting", description: "absorb", date: "05/31/2019", time: "2 pm" location: "union hall")
+Potluck.create(user_id: 1, name: "wine tasting", description: "absorb", date: "05/31/2019", time: "2 pm", location: "union hall")
 Potluck.create(user_id: 2, name: "potlucky", description: "epitome", date: "01/02/2018", time: "7 pm", location: "home")
 
 Recipe.create(user_id: 1, difficulty: "easy", url: "www.recipe.com", name: "Recipe")
