@@ -7,7 +7,7 @@ class Potluck < ApplicationRecord#may need foreign keys specified
   has_many :potluck_attendees #people that are coming
 
   def format_date
-    self.date.strftime("%A %B%e, %Y")
+    date.strptime("%m/%d/%Y")
   end
 
   def format_time
