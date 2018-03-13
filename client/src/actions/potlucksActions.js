@@ -23,7 +23,6 @@ export function cancelPotlucksSuccess(updatedList) {
 export function createPotluck(newPotluck) { //alert and return to potlucks page
   return function(dispatch) {
     return PotluckApi.createPotluck(newPotluck).then(response => {
-      debugger
       dispatch(createPotluckSuccess(response));
     }).catch(error => {
       throw(error)
@@ -31,9 +30,9 @@ export function createPotluck(newPotluck) { //alert and return to potlucks page
   }
 }
 
-export function createPotluckSuccess(updatedList) {
+export function createPotluckSuccess(newPotluck) {
   return{ type: types.CREATE_POTLUCK,
-    potlucks: updatedList
+    newPotluck: newPotluck
   }
 }
 
