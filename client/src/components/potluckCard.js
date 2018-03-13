@@ -40,5 +40,3 @@ handleClick(event){ //opens show page
 }
 
 export default PotluckCard
-
-//className="mx-auto"
