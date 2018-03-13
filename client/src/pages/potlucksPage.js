@@ -10,7 +10,7 @@ import stillLife from '../images/stillLife.jpg'
 const homeBackground = {
   backgroundImage: "url(" + stillLife + ")",
   height: "100vh",
-
+  textAlign: "center"
 }
 
 class PotlucksPage extends Component {
@@ -31,9 +31,9 @@ handleClick(event) {
   render() {
     if(this.props.potlucks) {
       return(
-        
-            <PotlucksList potlucks={this.props.potlucks} />
-
+        <div style={homeBackground}  >
+          <PotlucksList potlucks={this.props.potlucks} />
+        </div>
       )
     }else{
       return(

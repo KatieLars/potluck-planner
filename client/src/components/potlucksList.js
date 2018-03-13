@@ -1,7 +1,12 @@
 import React, {Component} from 'react'
-import {Label, Form, FormGroup, Input, Container, Row, CardColumns} from 'reactstrap'
+import {Label, Form, FormGroup, Input, Container, Row, CardDeck} from 'reactstrap'
 import {connect} from 'react-redux'
 import PotluckCard from './potluckCard'
+
+const cardDecks = {
+  columnGap: "1rem",
+  columnCount: "3"
+}
 
 class PotlucksList extends Component {
 
@@ -13,9 +18,9 @@ class PotlucksList extends Component {
 
   render() {
     return (
-      <CardColumns className="col justify-content-center" style={{marginTop: "15px"}}>
+      <CardDeck style={cardDecks}>
         {this.potlucksCards()}
-      </CardColumns>
+      </CardDeck>
     )
   }
 }
