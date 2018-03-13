@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
-import {Label, FormGroup, Input} from 'reactstrap'
+import {Label, FormGroup, Input, Col} from 'reactstrap'
 
-export const PotluckForm = () => {
+const PotluckForm = () => {
   return(
+    <Col className="col-4" style={{padding: "0px"}}>
     <FormGroup>
       <Label for="name">Name</Label>
       <Input type="text" name="name" id="name" />
@@ -27,5 +28,8 @@ export const PotluckForm = () => {
       <Label for="image">Image</Label>
       <Input type="text" name="image" id="image"/>
     </FormGroup>
+    </Col>
   )
 }
+
+export default PotluckForm

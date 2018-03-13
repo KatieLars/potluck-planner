@@ -6,9 +6,7 @@ import * as potlucksActions from '../actions/potlucksActions'
 import PotluckForm from './potluckForm'
 
 const leftColStyle = {
-  paddingTop: "15px",
-  marginRight: "15px",
-  textAlign: "left",
+  paddingTop: "100px",
   paddingLeft: "0px"
 }
 
@@ -45,7 +43,7 @@ return(
         <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
           <Container style={{paddingTop: "15px"}}>
             <Row >
-              <Col className="col-4" style={{paddingTop: "100px"}}>
+              <Col className="col-4" style={leftColStyle}>
                 <h1>New Potluck!</h1>
               </Col>
               <PotluckForm />
