@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import {Form, FormGroup, Col, Row, Container, Button, Label, Input} from 'reactstrap'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as potlucksActions from '../actions/potlucksActions'
+import * as recipesActions from '../actions/recipesActions'
 
-class NewPotluckForm extends Component {
+class NewRecipeForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      potluck: {
-        userId: this.props.id,
-        location: "",
-        happening: "",
-        description: "",
-        image: "",
-        name: ""
+      recipe: {
+        userId: this.props.user.id,
+        name: "",
+        difficulty: "",
+        url: "",
+        image: ""
       }
     }
   }
@@ -28,7 +27,7 @@ class NewPotluckForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.actions.createPotluck(this.state.potluck);
+    this.props.actions.createRecipe(this.state.recipe);
   }
 
 render() {
@@ -42,21 +41,34 @@ return(
               <Label for="name">Name</Label>
               <Input type="text" name="name" id="name" />
             </FormGroup>
-            <FormGroup>
-              <Label for="location">Location</Label>
-              <Input type="location" name="location" id="location" />
+            <FormGroup className="form-check-inline">
+              <Label check>Difficulty: </Label>
+            </FormGroup>
+            <FormGroup className="form-check-inline">
+              <Label check>
+                <Input type="radio" name="easy" />{' '}
+                Easy
+              </Label>
+            </FormGroup>
+            <FormGroup className="form-check-inline">
+              <Label check>
+                <Input type="radio" name="moderate" />{' '}
+                Moderate
+              </Label>
+            </FormGroup>
+            <FormGroup className="form-check-inline">
+              <Label check>
+                <Input type="radio" name="hard" />{' '}
+                Hard
+              </Label>
             </FormGroup>
             <FormGroup>
-              <Label for="happening">When</Label>
-              <Input type="datetime" name="happening" id="happening" />
+              <Label for="url">URL:</Label>
+              <Input type="text" name="url" id="url" />
             </FormGroup>
             <FormGroup>
               <Label for="image">Image</Label>
               <Input type="text" name="image" id="image"/>
-            </FormGroup>
-            <FormGroup>
-              <Label for="description">Description</Label>
-              <Input type="text" name="description" id="description" />
             </FormGroup>
             <Button>Create</Button>
           </Form>
