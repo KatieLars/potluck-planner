@@ -20,7 +20,7 @@ class NewPotluckPage extends Component {
     super(props)
     this.state = {
       potluck: {
-        userId: this.props.userId,
+        user_id: this.props.userId,
         location: "",
         happening: "",
         description: "",

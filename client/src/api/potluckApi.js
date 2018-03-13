@@ -23,7 +23,7 @@ class PotluckApi {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.jwt}`,
       }),
-      body: JSON.stringify({newPotluck: newPotluck})
+      body: JSON.stringify({potluck: newPotluck})
     });
 
     return fetch(request).then(response => {
