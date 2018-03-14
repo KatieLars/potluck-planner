@@ -3,7 +3,9 @@ class UserSerializer < ActiveModel::Serializer
   has_many :friendships
   has_many :friends, through: :friendships
   has_many :potlucks
-
+  has_many :potluck_recipes
+  has_many :recipes, through: :potluck_recipes
+  
   def other_users #grabs all users who are NOT also friends
     object.not_friends
   end
