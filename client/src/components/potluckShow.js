@@ -16,15 +16,6 @@ const containerStyle = {
 
 class PotluckShow extends Component {
 
-  getAttendees(event) { //modal
-    event.preventDefault()
-    history.push(`/potlucks/${this.props.potluck.id}/attendees`)
-  }
-  inviteGuests(event) { //modal
-    event.preventDefault()
-    history.push(`/potlucks/${this.props.potluck.id}/guests`)
-  }
-
   render() {
     return (
       <div>

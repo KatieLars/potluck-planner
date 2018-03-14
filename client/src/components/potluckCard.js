@@ -43,8 +43,6 @@ getPotluckAttendees(event) {
   history.push(`/potlucks/${this.props.potluck.id}/attendees`)
 }
 
-potluckAttend
-
   render() {
     return (
       <Card style={subtitleStyle} >

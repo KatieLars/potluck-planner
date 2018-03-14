@@ -14,6 +14,7 @@ import PotlucksPage from './pages/potlucksPage'
 import NewPotluckPage from './pages/newPotluckPage'
 import NewRecipeForm from './components/newRecipeForm'
 import PotluckShow from './components/potluckShow'
+import
 import { connect } from 'react-redux'
 
 
@@ -58,7 +59,11 @@ class Routes extends Component {
       <Route path="/potlucks/new" component={NewPotluckPage} />
       <Route path="/recipes/new" component={NewRecipeForm}/>
       <Route path="/potlucks/:id" component={PotluckShow}/>
-
+      <Route path="/potlucks/:id/guests/invite" component={InviteGuests}/>
+      <Route path="/potlucks/:id/guests" component={GuestList}/>
+      <Route path="/potlucks/:id/recipes" component={PotluckRecipes}/>
+      <Route path="/potlucks/:id/recipes/new" component={NewRecipe}/>
+      <Route path="/potlucks/:id/recipes/select" component={SelectPotluckRecipes}/>
       </Switch>
     </div>
   )}
