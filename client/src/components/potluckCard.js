@@ -88,7 +88,7 @@ cancelPotluck(event) {
                     <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</NavLink>
                   </span>
                   <span>
-                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck/NavLink>
+                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck</NavLink>
                     <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</NavLink>
                   </span>
                 </Nav>

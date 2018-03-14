@@ -18,9 +18,10 @@ class GuestList extends Component {
         potluckId: this.props.potluck.id //needed to create or destroy guestships
     }
   }
+}
 
-  componentWillMount() { //grabs all friends who aren't already guests
-     this.props.actions.getGuests()
+  componentWillMount() {
+     //this.props.actions.getGuests()
    }
 
   cancel(event) {
@@ -93,4 +94,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default InviteGuests
+export default GuestList

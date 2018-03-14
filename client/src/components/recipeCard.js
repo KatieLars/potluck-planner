@@ -95,7 +95,7 @@ potluckLink() {
             <CardSubtitle style={{fontSize: "0.7em"}}>Difficulty: {this.props.recipe.difficulty}</CardSubtitle>
             <CardText>
               <p></p>
-              <CardLink href=`${this.props.recipe.url}`>Get Recipe</CardLink>
+              <CardLink href={this.props.recipe.url}>Get Recipe</CardLink>
             </CardText>
             {this.currentPotluck()}
           </CardBody>

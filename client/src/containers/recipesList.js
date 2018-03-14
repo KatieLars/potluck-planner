@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Button, FormGroup, Input, Label} from 'reactstrap'
+import {Button, FormGroup, Input, Label, CardDeck} from 'reactstrap'
 import RecipeCard from '../components/recipeCard'
 
 const cardDecks = {
@@ -26,4 +26,4 @@ recipesCards() {
   }
 }
 
-export default FriendsList
+export default RecipesList

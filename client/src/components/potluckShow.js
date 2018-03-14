@@ -38,6 +38,7 @@ class PotluckShow extends Component {
 //if the recipe is chosen it gets a user id
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   if(state.potlucks.potlucks){
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.id
