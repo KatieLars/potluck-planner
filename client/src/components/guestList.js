@@ -28,7 +28,7 @@ class GuestList extends Component {
     //history.push to potluck show page
   }
 
-  uninviteGuest(event) {
+  uninviteGuests(event) {
     event.preventDefault()
     this.props.actions.uninviteGuests(this.state.uninvitedGuests)
   }
@@ -39,6 +39,11 @@ class GuestList extends Component {
       uninvitedGuestIds: [...this.state.uninviteGuests.uninvitedGuestIds, event.target.value]
     })
   }
+
+inviteGuests(event){
+  event.preventDefault()
+  history.push(`/potlucks/${this.props.potluck.id}/guests/invite`)
+}
 
   render() {
     if(this.props.guests){
@@ -52,7 +57,7 @@ class GuestList extends Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button onClick={(event) => this.uninviteGuest(event)}>Uninvite Guests</Button>
+            <Button onClick={(event) => this.uninviteGuests(event)}>Uninvite Guests</Button>
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
           </ModalFooter>
         </Modal>
@@ -62,9 +67,9 @@ class GuestList extends Component {
       return(
         <div>
           <Modal isOpen="true" style={{paddingTop: "50px"}}>
-            <ModalHeader>You are friends with all the friends!</ModalHeader>
+            <ModalHeader>No Guests!</ModalHeader>
             <ModalBody>
-              <Button onClick={(event) => this.cancel(event)}>Return to Friends!</Button>
+              <Button onClick={(event) => this.inviteGuests(event)}>Return to Friends!</Button>
             </ModalBody>
           </Modal>
         </div>
