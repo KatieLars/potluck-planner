@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 
 const subtitleStyle = {
   opacity: "0.60",
@@ -14,7 +13,7 @@ const subtitleStyle = {
 
 class PotluckCard extends Component {
 
-handleClick(event){ //opens show page
+potluckShowPage(event){ //opens show page
   event.preventDefault()
   history.push(`/potlucks/${this.props.potluck.id}`)
 }
@@ -29,6 +28,23 @@ selectRecipes(event) {
   history.push(`/potlucks/${this.props.potluck.id}/recipes/select`)
 }
 
+inviteGuests(event) {
+  event.preventDefault()
+  history.push(`/potlucks/${this.props.potluck.id}/guests/invite`)
+}
+
+getGuests(event) {
+  event.preventDefault()
+  history.push(`/potlucks/${this.props.potluck.id}/guests`)
+}
+
+getPotluckAttendees(event) {
+  event.preventDefault()
+  history.push(`/potlucks/${this.props.potluck.id}/attendees`)
+}
+
+potluckAttend
+
   render() {
     return (
       <Card style={subtitleStyle} >
@@ -38,8 +54,10 @@ selectRecipes(event) {
         <CardHeader className="col d-flex justify-content-center">
           <Navbar nav >
             <Nav navbar >
-              <span><NavLink href="#" style={{display: "inline-block"}} >Invite Guests</NavLink>
-              <NavLink href="#" style={{display: "inline-block"}} >See Who Is Coming</NavLink></span>
+              <span>
+                <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.getGuests(event)}>Guest List</NavLink>
+                <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</NavLink>
+              </span>
             </Nav>
           </Navbar>
         </CardHeader>
@@ -56,13 +74,13 @@ selectRecipes(event) {
             </CardText>
             {this.props.url ? (
               <CardFooter>
-                <Button onClick={(event)=> this.handleClick(event)}>More Info</Button>
+                <Button onClick={(event)=> this.potluckShowPage(event)}>More Info</Button>
               </CardFooter>
             ) : (
               <CardFooter className="col d-flex justify-content-center">
               <Navbar nav >
                 <Nav navbar >
-                  <span><NavLink href="#" style={{display: "inline-block"}} >Suggest Recipes</NavLink>
+                  <span><NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</NavLink>
                   <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</NavLink></span>
                 </Nav>
               </Navbar>
