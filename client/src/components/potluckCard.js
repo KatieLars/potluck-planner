@@ -18,32 +18,27 @@ potluckShowPage(event){ //opens show page
   history.push(`/potlucks/${this.props.potluck.id}`)
 }
 
-createARecipe(event){
+createARecipe(event){ //creates a recipe
   event.preventDefault()
   history.push(`/potlucks/${this.props.potluck.id}/recipes/new`)
 }
 
-selectRecipes(event) {
+selectRecipes(event) {//select a recipe--creates potluck recipe
   event.preventDefault()
   history.push(`/potlucks/${this.props.potluck.id}/recipes/select`)
 }
 
-inviteGuests(event) {
+inviteGuests(event) { //invite guests from friends
   event.preventDefault()
   history.push(`/potlucks/${this.props.potluck.id}/guests/invite`)
 }
 
-getGuests(event) {
+getGuests(event) { //gets guests and sorts them according to rsvp
   event.preventDefault()
   history.push(`/potlucks/${this.props.potluck.id}/guests`)
 }
 
-getPotluckAttendees(event) {
-  event.preventDefault()
-  history.push(`/potlucks/${this.props.potluck.id}/attendees`)
-}
-
-updatePotluck(event) {
+updatePotluck(event) { //update basic potluck info
   event.preventDefault()
   history.push(`/potlucks/${this.props.potluck.id}/edit`)
 }
