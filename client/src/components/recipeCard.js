@@ -22,22 +22,35 @@ deleteRecipe(event) {
   event.preventDefault()
   //direct API delete, and pushes back to recipe index page
 }
+
+currentPotluck() {
+  if(this.props.currentPotluck) {
+    this.claimedRecipe()
+  }else{
+    this.recipeInfo()
+  }
+}
 //needs to work with regular recipes index and potluckrecipes
-claimedRecipe() {
-  //if potluckRecipes exists and current user id is the same as user_id
+claimedRecipe() { //call if recipe card is associated with current potluck
+  //if potluckRecipes exists and current user id is the same as user_id (user has claimed)
   if(this.props.potluckRecipe && this.props.potluckRecipe.userId == this.props.user.id) {
     return(
       <CardFooter>
-        <Button>Do Not Bring Me!</Button>
+        <Button>Fine. Reject Me.</Button>
       </CardFooter>
   )}else if(this.props.potluckRecipe && this.props.potluckRecipe.userId != null){
     return(
       <CardFooter className="col d-flex justify-content-center">
         <strong>I am Taken!</strong>
       </CardFooter>
-  )}else if {//in case there is no potluckRecipe at all
+  )}
+}
+
+recipeInfo() {
+  if(this.props.potluckRecipe && this.props.potluckRecipe.userId == this.props.user.id) {//any user potluck recipes match this recipe
     return(
       <CardFooter className="col d-flex justify-content-center">
+        <strong>You brought this to </strong><Link>{POTLUCK NAME}</Link>
       </CardFooter>
   )}
 }
@@ -69,7 +82,7 @@ claimedRecipe() {
               <p>Location: {this.props.potluck.location}</p>
               {this.props.potluck.description}
             </CardText>
-            {this.claimedRecipe()}
+            {this.currentPotluck()}
           </CardBody>
       </Card>
     )

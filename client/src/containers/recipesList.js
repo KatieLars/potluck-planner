@@ -6,12 +6,13 @@ const cardDecks = {
   columnGap: "1rem",
   columnCount: "3"
 }
+//Prop: current_potluck
 //recipe_with_claimant_id : {recipe: RECIPE OBJECT, potluck_recipe: CORRESPONDING POTLUCK RECIPE}
 class RecipesList extends Component {
 
 recipesCards() {
   return this.props.recipes.map((recipe) => (
-    <RecipeCard recipe={recipe}/>
+    <RecipeCard recipe={recipe} currentPotluck={this.props.currentPotluck} />
   )
 )}
 
