@@ -44,11 +44,6 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(mapStateToProps, null)(PotluckShow)
 
-// <h1>{this.props.potluck.name}</h1>
-// <img src={this.props.potluck.image} style={imageStyle}/>
-// <h3>{this.props.potluck.location}</h3>
-// <p><em>{this.props.potluck.date}</em>{this.props.potluck.time}</p>
-// <p>{this.props.potluck.description}</p>
 
 // <Button onClick={(event) => {this.inviteGuests(event)}}>Invite Guests</Button>
 // <Button onClick={(event) => {this.getAttendees(event)}}>See Who is Coming</Button>
