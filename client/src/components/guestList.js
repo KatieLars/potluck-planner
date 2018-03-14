@@ -69,7 +69,7 @@ inviteGuests(event){
           <Modal isOpen="true" style={{paddingTop: "50px"}}>
             <ModalHeader>No Guests!</ModalHeader>
             <ModalBody>
-              <Button onClick={(event) => this.inviteGuests(event)}>Return to Friends!</Button>
+              <Button onClick={(event) => this.inviteGuests(event)}>Extend that Invite</Button>
             </ModalBody>
           </Modal>
         </div>
