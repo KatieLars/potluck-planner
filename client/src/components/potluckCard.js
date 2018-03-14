@@ -43,6 +43,16 @@ getPotluckAttendees(event) {
   history.push(`/potlucks/${this.props.potluck.id}/attendees`)
 }
 
+updatePotluck(event) {
+  event.preventDefault()
+  history.push(`/potlucks/${this.props.potluck.id}/edit`)
+}
+
+cancelPotluck(event) {
+  event.preventDefault()
+  //should go directly to API and cancel potluck
+}
+
   render() {
     return (
       <Card style={subtitleStyle} >
@@ -78,8 +88,14 @@ getPotluckAttendees(event) {
               <CardFooter className="col d-flex justify-content-center">
               <Navbar nav >
                 <Nav navbar >
-                  <span><NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</NavLink>
-                  <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</NavLink></span>
+                  <span>
+                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</NavLink>
+                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</NavLink>
+                  </span>
+                  <span>
+                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck/NavLink>
+                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</NavLink>
+                  </span>
                 </Nav>
               </Navbar>
               </CardFooter>
