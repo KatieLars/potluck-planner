@@ -75,7 +75,7 @@ potluckLink() {
   render() {
     return (
       <Card style={subtitleStyle} >
-      {this.props.recipe.userId == this.props.user.id ? (
+      {this.props.recipe.user_id == this.props.user.id ? (
         <CardHeader className="col d-flex justify-content-center">
           <Navbar nav >
             <Nav navbar >

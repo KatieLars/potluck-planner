@@ -26,7 +26,7 @@ class PotluckShow extends Component {
               <PotluckCard potluck={this.props.potluck}/>
             </Col>
             <Col className="col-9">
-              <RecipesList recipes={this.props.potluckRecipes}/>
+              <RecipesList recipes={this.props.potluck.recipes} currentPotluck={this.props.potluck} />
             </Col>
           </Row>
         </Container>
@@ -38,7 +38,6 @@ class PotluckShow extends Component {
 //if the recipe is chosen it gets a user id
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   if(state.potlucks.potlucks){
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.id
