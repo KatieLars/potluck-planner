@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PotluckCard from './potluckCard'
-import {Container, Row, Col, Button} from 'reactstrap'
+import {Container, Row, Col, Button, CardDeck} from 'reactstrap'
 import history from '../history'
 import RecipesList from '../containers/recipesList'
 
@@ -11,8 +11,13 @@ const imageStyle ={
 }
 
 const containerStyle = {
-  marginLeft: "100px",
-  marginRight: "100px"
+  marginLeft: "50px",
+  marginRight: "50px"
+}
+
+const cardDecks = {
+  columnGap: "1rem",
+  columnCount: "3"
 }
 
 class PotluckShow extends Component {
@@ -22,12 +27,10 @@ class PotluckShow extends Component {
       <div>
         <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
-            <Col className="col-3">
+            <CardDeck style={cardDecks}>
               <PotluckCard potluck={this.props.potluck}/>
-            </Col>
-            <Col className="col-9">
               <RecipesList recipes={this.props.potluck.recipes} currentPotluck={this.props.potluck} />
-            </Col>
+            </CardDeck>
           </Row>
         </Container>
       </div>
