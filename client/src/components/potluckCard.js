@@ -69,6 +69,7 @@ cancelPotluck(event) {
               <p>Location: {this.props.potluck.location}</p>
               {this.props.potluck.description}
             </CardText>
+          </CardBody>
             {this.props.url ? (
               <CardFooter>
                 <Button onClick={(event)=> this.potluckShowPage(event)}>More Info</Button>
@@ -76,16 +77,13 @@ cancelPotluck(event) {
             ) : (
               <CardFooter className="col d-flex justify-content-center">
                   <span>
-                    <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</CardLink>
-                    <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</CardLink>
-                  </span>
-                  <span>
+                    <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</CardLink>
+                    <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.createARecipe(event)} >Create Recipe</CardLink>
                     <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck</CardLink>
                     <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</CardLink>
                   </span>
               </CardFooter>
             )}
-          </CardBody>
       </Card>
     )
   }
@@ -93,7 +91,8 @@ cancelPotluck(event) {
 
 
 export default PotluckCard
-
+//className="col d-flex justify-content-center"
+//style={{display: "inline-block"}}
 // <Navbar nav >
 //   <Nav navbar >
 //     <span>
