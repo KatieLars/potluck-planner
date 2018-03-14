@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import PotluckCard from './potluckCard'
 import {Container, Row, Col, Button} from 'reactstrap'
 import history from '../history'
+import RecipesList from '../containers/recipesList'
 
 const imageStyle ={
   height: "30%",
@@ -25,7 +26,7 @@ class PotluckShow extends Component {
               <PotluckCard potluck={this.props.potluck}/>
             </Col>
             <Col className="col-9">
-              <RecipeList recipes={this.props.potluckRecipes}/>
+              <RecipesList recipes={this.props.potluckRecipes}/>
             </Col>
           </Row>
         </Container>
