@@ -14,7 +14,11 @@ import PotlucksPage from './pages/potlucksPage'
 import NewPotluckPage from './pages/newPotluckPage'
 import NewRecipeForm from './components/newRecipeForm'
 import PotluckShow from './components/potluckShow'
-import
+import InviteGuests from './components/inviteGuests'
+import GuestList from './components/guestList'
+import PotluckRecipes from './components/potluckRecipes'
+import NewRecipe from './components/newRecipe'
+import SelectPotluckRecipes from './components/selectPotluckRecipes'
 import { connect } from 'react-redux'
 
 
