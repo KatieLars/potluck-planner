@@ -17,12 +17,9 @@ Recipe.create(user_id: 2, difficulty: "easy", url: "www.easyrecipe.com", name: "
 User.first.friendships.create(friend_id: 2)
 User.first.friendships.create(friend_id: 3)
 
-User.first.guestships.create(potluck_id: 5)
-User.second.guestships.create(potluck_id: 2)
-User.second.guestships.create(potluck_id: 3)
-
-User.first.potluck_attendees.create(potluck_id: 4)
-User.second.potluck_attendees.create(potluck_id: 2)
+User.first.guestships.create(potluck_id: 5, rsvp: "Going")
+User.second.guestships.create(potluck_id: 2, rsvp: "Going")
+User.second.guestships.create(potluck_id: 3, rsvp: "Maybe")
 
 User.first.potluck_recipes.create(recipe_id: 4, potluck_id: 1)
 User.first.potluck_recipes.create(recipe_id: 2, potluck_id: 5)
