@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
+import { CardLink, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
 
@@ -55,14 +55,8 @@ cancelPotluck(event) {
         null
       ):(
         <CardHeader className="col d-flex justify-content-center">
-          <Navbar nav >
-            <Nav navbar >
-              <span>
-                <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.getGuests(event)}>Guest List</NavLink>
-                <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</NavLink>
-              </span>
-            </Nav>
-          </Navbar>
+          <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.getGuests(event)}>Guest List</CardLink>
+          <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
         </CardHeader>
       )}
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
@@ -81,18 +75,14 @@ cancelPotluck(event) {
               </CardFooter>
             ) : (
               <CardFooter className="col d-flex justify-content-center">
-              <Navbar nav >
-                <Nav navbar >
                   <span>
-                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</NavLink>
-                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</NavLink>
+                    <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</CardLink>
+                    <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</CardLink>
                   </span>
                   <span>
-                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck</NavLink>
-                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</NavLink>
+                    <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck</CardLink>
+                    <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</CardLink>
                   </span>
-                </Nav>
-              </Navbar>
               </CardFooter>
             )}
           </CardBody>
@@ -103,3 +93,25 @@ cancelPotluck(event) {
 
 
 export default PotluckCard
+
+// <Navbar nav >
+//   <Nav navbar >
+//     <span>
+//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</NavLink>
+//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</NavLink>
+//     </span>
+//     <span>
+//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck</NavLink>
+//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</NavLink>
+//     </span>
+//   </Nav>
+// </Navbar>
+
+// <Navbar nav >
+//   <Nav navbar >
+//     <span>
+//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.getGuests(event)}>Guest List</NavLink>
+//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</NavLink>
+//     </span>
+//   </Nav>
+// </Navbar>

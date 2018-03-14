@@ -89,11 +89,7 @@ potluckLink() {
           <CardBody>
             <CardTitle>{this.props.recipe.name}</CardTitle>
             <CardSubtitle style={{fontSize: "0.7em"}}>Difficulty: {this.props.recipe.difficulty}</CardSubtitle>
-            <Navbar nav>
-              <Nav navbar>
-                <NavLink href={this.props.recipe.url}>Get Recipe</NavLink>
-              </Nav>
-            </Navbar>
+            <CardLink href={this.props.recipe.url}>Get Recipe</CardLink>
           </CardBody>
         {this.currentPotluck()}
       </Card>
@@ -102,16 +98,3 @@ potluckLink() {
 }
 
 export default RecipeCard
-//
-// <Navbar nav >
-//   <Nav navbar >
-//     <span>
-// </span>
-// </Nav>
-// </Navbar>
-//onClick={(event) => this.editRecipe(event)}
-// ):(
-//   null
-// )
-// {this.props.recipe.user_id == this.props.user.id ? (
-//className="col d-flex justify-content-center"
