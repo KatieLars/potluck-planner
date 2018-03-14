@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Label, Form, FormGroup, Input} from 'reactstrap'
-import {connect} from 'react-redux'
+import {Label, FormGroup, Input} from 'reactstrap'
 
 const imageStyle = {
   width: "10%",
