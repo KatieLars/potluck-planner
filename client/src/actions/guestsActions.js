@@ -3,19 +3,19 @@ import GuestApi from '../api/guestApi';
 import history from '../history'
 
 
-export function removeFriends(friendshipIds) { //delete friendships--returns updated list of friends
+export function uninviteGuests(uninvitedGuests) { //delete friendships--returns updated list of friends
   return function(dispatch) {
-    return FriendApi.removeFriends(friendshipIds).then(response => {
-      dispatch(removeFriendsSuccess(response));
+    return GuestApi.deleteGuestships(uninvitedGuests).then(response => {
+      dispatch(uninviteGuestsSuccess(updatedGuestList));
     }).catch(error => {
       throw(error)
     })
   }
 }
 
-export function removeFriendsSuccess(updatedList) {
+export function uninviteGuestsSuccess(updatedGuestList) {
   return{
-    type: types.REMOVE_FRIENDS,
-    friends: updatedList
+    type: types.UNINVITE_GUESTS,
+    guests: updatedGuestsList
   }
 }
