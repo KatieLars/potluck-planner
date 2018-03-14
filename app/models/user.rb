@@ -20,8 +20,12 @@ class User < ApplicationRecord
     self.guest_potlucks.push(self.potlucks).flatten
   end
 
-  def total_recipes #all recipes from host and guest potlucks
-    self.total_potlucks.collect {|r| r.recipes}.flatten
+  def list_potluck_recipes
+    self.potluck_recipes.collect {|potluck_recipe| potluck_recipe.recipe}
+  end
+
+  def total_user_recipes #recipes user created as well as brought
+    (self.recipes + self.list_potluck_recipes).uniq
   end
 
   def not_friends #grabs all users who are NOT also friends

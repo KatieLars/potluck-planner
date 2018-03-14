@@ -24,6 +24,11 @@ deleteRecipe(event) {
   //direct API delete, and pushes back to recipe index page
 }
 
+deleteUserFromPotluckRecipe(event) {
+  event.preventDefault()
+  //api call that deletes user_id from potluckRecipe
+}
+
 currentPotluck() {
   if(this.props.currentPotluck) {
     this.claimedRecipe()
@@ -32,12 +37,12 @@ currentPotluck() {
   }
 }
 
-claimedRecipe() { //for recipe already a potluckRecipe with currentPotluck
+claimedRecipe() { //for currentPotluck
   //if potluckRecipes exists and current user id is the same as user_id (user has claimed)
   if(this.props.potluckRecipe && this.props.potluckRecipe.userId == this.props.user.id) {
     return(
       <CardFooter>
-        <Button>Fine. Reject Me.</Button>
+        <Button onClick={(event) => {this.deleteUserFromPotluckRecipe(event)}}>Fine. Reject Me.</Button>
       </CardFooter>
   )}else if(this.props.potluckRecipe && this.props.potluckRecipe.userId != null){
     return(
@@ -51,7 +56,7 @@ recipeInfo() {
   if(this.props.potluckRecipe && this.props.potluckRecipe.userId == this.props.user.id) {//any user potluck recipes match this recipe
     return(
       <CardFooter className="col d-flex justify-content-center">
-        <strong>You brought this to </strong>{this.potluckLink()}
+        <strong>You brought this to {this.potluckLink()}</strong>
       </CardFooter>
   )}
 }
@@ -60,9 +65,10 @@ potluckLink() {
   //needs to find potluck in state based on potluckRecipe id given in props
   //const foundPotluck = this.props.potlucks.find(potluck => {
   //return potluck.id == this.props.potluckRecipe.potluck_id})
-})
+//})
   //<Link to="/potlucks/${foundPotluck.id}">{foundPotluck.name}</Link>
 }
+
 
   render() {
     return (
