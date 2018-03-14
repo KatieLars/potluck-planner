@@ -31,6 +31,7 @@ class GuestList extends Component {
   uninviteGuests(event) {
     event.preventDefault()
     this.props.actions.uninviteGuests(this.state.uninvitedGuests)
+    //alert and redirect back to Potluck show page
   }
 
   handleChange(event) {
