@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import { Row, Col, Card, CardImgOverlay, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
+import { CardLink, Row, Col, Card, CardImgOverlay, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
+import Link from 'react-router-dom'
 
 const subtitleStyle = {
   opacity: "0.60",
@@ -86,7 +87,7 @@ potluckLink() {
             <CardSubtitle style={{fontSize: "0.7em"}}>Difficulty: {this.props.recipe.difficulty}</CardSubtitle>
             <CardText>
               <p></p>
-              <CardLink>
+              <CardLink>{}
               <p><em>{this.props.potluck.format_time}</em></p>
               <p>Location: {this.props.potluck.location}</p>
               {this.props.potluck.description}
