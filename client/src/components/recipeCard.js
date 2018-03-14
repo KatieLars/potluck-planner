@@ -50,24 +50,13 @@ deleteRecipe(event) {
               <p>Location: {this.props.potluck.location}</p>
               {this.props.potluck.description}
             </CardText>
-            {this.props.url ? (
+            {this.props.potluckRecipes && this.props.potluckRecipes.userid == this.props.user.id ? (
               <CardFooter>
-                <Button onClick={(event)=> this.potluckShowPage(event)}>More Info</Button>
+                <Button>Don't Bring Me!</Button>
               </CardFooter>
             ) : (
               <CardFooter className="col d-flex justify-content-center">
-              <Navbar nav >
-                <Nav navbar >
-                  <span>
-                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</NavLink>
-                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</NavLink>
-                  </span>
-                  <span>
-                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck/NavLink>
-                    <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</NavLink>
-                  </span>
-                </Nav>
-              </Navbar>
+                <Button>Bring Me!</Button>
               </CardFooter>
             )}
           </CardBody>
