@@ -22,6 +22,25 @@ deleteRecipe(event) {
   event.preventDefault()
   //direct API delete, and pushes back to recipe index page
 }
+//needs to work with regular recipes index and potluckrecipes
+claimedRecipe() {
+  //if potluckRecipes exists and current user id is the same as user_id
+  if(this.props.potluckRecipes && this.props.potluckRecipes.userId == this.props.user.id) {
+    return(
+      <CardFooter>
+        <Button>Do Not Bring Me!</Button>
+      </CardFooter>
+  )}else if(this.props.potluckRecipes && this.props.potluckRecipes.userId != null){
+    return(
+      <CardFooter className="col d-flex justify-content-center">
+        <strong>I am Taken!</strong>
+      </CardFooter>
+  )}else {//in case there is no potluckRecipe at all
+    return(
+      <CardFooter className="col d-flex justify-content-center">
+      </CardFooter>
+  )}
+}
 
   render() {
     return (
