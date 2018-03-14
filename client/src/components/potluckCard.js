@@ -12,15 +12,21 @@ const subtitleStyle = {
   marginTop: "1.25rem"
 }
 
-const navBarStyle = {
-  textAlign: "center"
-}
-
 class PotluckCard extends Component {
 
 handleClick(event){ //opens show page
   event.preventDefault()
-  history.push(`potlucks/${this.props.potluck.id}`)
+  history.push(`/potlucks/${this.props.potluck.id}`)
+}
+
+createARecipe(event){
+  event.preventDefault()
+  history.push(`/potlucks/${this.props.potluck.id}/recipes/new`)
+}
+
+selectRecipes(event) {
+  event.preventDefault()
+  history.push(`/potlucks/${this.props.potluck.id}/recipes/select`)
 }
 
   render() {
@@ -57,7 +63,7 @@ handleClick(event){ //opens show page
               <Navbar nav >
                 <Nav navbar >
                   <span><NavLink href="#" style={{display: "inline-block"}} >Suggest Recipes</NavLink>
-                  <NavLink href="#" style={{display: "inline-block"}} >Create a Recipe</NavLink></span>
+                  <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</NavLink></span>
                 </Nav>
               </Navbar>
               </CardFooter>
