@@ -33,15 +33,17 @@ deleteUserFromPotluckRecipe(event) {
 
 currentPotluck() {
   if(this.props.currentPotluck) {
+
     this.claimedRecipe()
   }else{
     this.recipeInfo()
   }
 }
-
-claimedRecipe() { //for currentPotluck
+//when we get recipes for potlucks, I want all recipes to be formatted the same
+claimedRecipe() { //for currentPotluck--should test that a recipe is taken or not by the user
+  debugger
   //if potluckRecipes exists and current user id is the same as user_id (user has claimed)
-  if(this.props.potluckRecipe && this.props.potluckRecipe.userId == this.props.user.id) {
+  if(this.props.recipe && this.props.potluckRecipe.userId == this.props.user.id) {
     return(
       <CardFooter>
         <Button onClick={(event) => {this.deleteUserFromPotluckRecipe(event)}}>Fine. Reject Me.</Button>

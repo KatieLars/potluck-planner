@@ -89,28 +89,4 @@ cancelPotluck(event) {
   }
 }
 
-
 export default PotluckCard
-//className="col d-flex justify-content-center"
-//style={{display: "inline-block"}}
-// <Navbar nav >
-//   <Nav navbar >
-//     <span>
-//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</NavLink>
-//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.createARecipe(event)} >Create a Recipe</NavLink>
-//     </span>
-//     <span>
-//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck</NavLink>
-//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</NavLink>
-//     </span>
-//   </Nav>
-// </Navbar>
-
-// <Navbar nav >
-//   <Nav navbar >
-//     <span>
-//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.getGuests(event)}>Guest List</NavLink>
-//       <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</NavLink>
-//     </span>
-//   </Nav>
-// </Navbar>
