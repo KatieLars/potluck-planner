@@ -29,7 +29,7 @@ handleClick(event){ //opens show page
       {this.props.url ? (
         null
       ):(
-        <CardHeader>
+        <CardHeader className="col d-flex justify-content-center">
           <Navbar nav >
             <Nav navbar >
               <span><NavLink href="#" style={{display: "inline-block"}} >Invite Guests</NavLink>
@@ -53,11 +53,13 @@ handleClick(event){ //opens show page
                 <Button onClick={(event)=> this.handleClick(event)}>More Info</Button>
               </CardFooter>
             ) : (
-              <CardFooter>
-                <Nav pills>
-                  <NavItem><NavLink href="#">Suggest Recipes</NavLink></NavItem>
-                  <NavItem><NavLink href="#">Create a Recipe</NavLink></NavItem>
-                  </Nav>
+              <CardFooter className="col d-flex justify-content-center">
+              <Navbar nav >
+                <Nav navbar >
+                  <span><NavLink href="#" style={{display: "inline-block"}} >Suggest Recipes</NavLink>
+                  <NavLink href="#" style={{display: "inline-block"}} >Create a Recipe</NavLink></span>
+                </Nav>
+              </Navbar>
               </CardFooter>
             )}
           </CardBody>
