@@ -13,4 +13,10 @@ class Potluck < ApplicationRecord#may need foreign keys specified
   def format_time
     self.time.strftime("%l:%M %P")
   end
+
+  def format_recipes_with_claimant_id #returns array of hashes for each recipe with claimant Id
+    self.potluck_recipes.collect do |potluck_recipe|
+      {recipe: potluck_recipe.recipe, claimant_id: potluck_recipe.user_id}
+    end
+  end
 end
