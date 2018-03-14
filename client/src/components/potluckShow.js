@@ -25,7 +25,7 @@ class PotluckShow extends Component {
               <PotluckCard potluck={this.props.potluck}/>
             </Col>
             <Col className="col-9">
-              <RecipeList recipes={this.props.recipes}/>
+              <RecipeList recipes={this.props.potluckRecipes}/>
             </Col>
           </Row>
         </Container>
@@ -33,6 +33,8 @@ class PotluckShow extends Component {
     )
   }
 }
+//when a recipe is added to potluck, it is a potluck recipe.
+//if the recipe is chosen it gets a user id
 
 const mapStateToProps = (state, ownProps) => {
   if(state.potlucks.potlucks){
