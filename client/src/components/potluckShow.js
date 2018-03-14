@@ -29,7 +29,7 @@ class PotluckShow extends Component {
           <Row style={{paddingTop: "25px"}}>
             <CardDeck style={cardDecks}>
               <PotluckCard potluck={this.props.potluck}/>
-              <RecipesList recipes={this.props.potluck.recipes} currentPotluck={this.props.potluck} />
+              <RecipesList recipes={this.props.potluck.potluck_recipes_claimed} currentPotluck={this.props.potluck} />
             </CardDeck>
           </Row>
         </Container>
