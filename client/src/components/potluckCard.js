@@ -13,7 +13,7 @@ const subtitleStyle = {
 
 class PotluckCard extends Component {
 
-potluckShowPage(event){ //opens show page
+potluckShowPage(event){ //opens show page DONE
   event.preventDefault()
   history.push(`/potlucks/${this.props.potluck.id}`)
 }

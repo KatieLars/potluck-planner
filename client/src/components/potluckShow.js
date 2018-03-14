@@ -21,7 +21,12 @@ class PotluckShow extends Component {
       <div>
         <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
-            <PotluckCard potluck={this.props.potluck}/>
+            <Col className="col-3">
+              <PotluckCard potluck={this.props.potluck}/>
+            </Col>
+            <Col className="col-9">
+              <RecipeList recipes={this.props.recipes}/>
+            </Col>
           </Row>
         </Container>
       </div>
