@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
+import { Row, Col, Card, CardImgOverlay, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
 
@@ -30,8 +30,8 @@ currentPotluck() {
     this.recipeInfo()
   }
 }
-//needs to work with regular recipes index and potluckrecipes
-claimedRecipe() { //call if recipe card is associated with current potluck
+
+claimedRecipe() { //for recipe already a potluckRecipe with currentPotluck
   //if potluckRecipes exists and current user id is the same as user_id (user has claimed)
   if(this.props.potluckRecipe && this.props.potluckRecipe.userId == this.props.user.id) {
     return(
@@ -50,9 +50,17 @@ recipeInfo() {
   if(this.props.potluckRecipe && this.props.potluckRecipe.userId == this.props.user.id) {//any user potluck recipes match this recipe
     return(
       <CardFooter className="col d-flex justify-content-center">
-        <strong>You brought this to </strong><Link>{POTLUCK NAME}</Link>
+        <strong>You brought this to </strong>{this.potluckLink()}
       </CardFooter>
   )}
+}
+
+potluckLink() {
+  //needs to find potluck in state based on potluckRecipe id given in props
+  //const foundPotluck = this.props.potlucks.find(potluck => {
+  //return potluck.id == this.props.potluckRecipe.potluck_id})
+})
+  //<Link to="/potlucks/${foundPotluck.id}">{foundPotluck.name}</Link>
 }
 
   render() {
@@ -72,12 +80,13 @@ recipeInfo() {
       ):(
         null
       )}
-        <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
+        <CardImgOverlay src={this.props.recipe.image} alt="Potluck Image" />
           <CardBody>
-            <CardTitle>{this.props.potluck.name}</CardTitle>
-            <CardSubtitle style={{fontSize: "0.7em"}}>{this.props.potluck.format_date}</CardSubtitle>
+            <CardTitle>{this.props.recipe.name}</CardTitle>
+            <CardSubtitle style={{fontSize: "0.7em"}}>Difficulty: {this.props.recipe.difficulty}</CardSubtitle>
             <CardText>
               <p></p>
+              <CardLink>
               <p><em>{this.props.potluck.format_time}</em></p>
               <p>Location: {this.props.potluck.location}</p>
               {this.props.potluck.description}

@@ -12,7 +12,7 @@ class RecipesList extends Component {
 
 recipesCards() {
   return this.props.recipes.map((recipe) => (
-    <RecipeCard recipe={recipe} currentPotluck={this.props.currentPotluck} />
+    <RecipeCard recipe={recipe} currentPotluck={this.props.currentPotluck} potlucks={this.props.potlucks} />
   )
 )}
 
