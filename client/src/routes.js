@@ -58,10 +58,10 @@ class Routes extends Component {
       <Route exact path="/potlucks" component={PotlucksPage}/>
       <Route path="/potlucks/new" component={NewPotluckPage} />
       <Route path="/recipes/new" component={NewRecipeForm}/>
-      <Route path="/potlucks/:id" component={PotluckShow}/>
+      <Route exact path="/potlucks/:id" component={PotluckShow}/>
       <Route path="/potlucks/:id/guests/invite" component={InviteGuests}/>
-      <Route path="/potlucks/:id/guests" component={GuestList}/>
-      <Route path="/potlucks/:id/recipes" component={PotluckRecipes}/>
+      <Route exact path="/potlucks/:id/guests" component={GuestList}/>
+      <Route exact path="/potlucks/:id/recipes" component={PotluckRecipes}/>
       <Route path="/potlucks/:id/recipes/new" component={NewRecipe}/>
       <Route path="/potlucks/:id/recipes/select" component={SelectPotluckRecipes}/>
       </Switch>
@@ -70,9 +70,6 @@ class Routes extends Component {
 }
 
 export default Routes
-
-//<Route path="/potlucks/:potluckId" component={PotluckPage}/>
-//<Route path="/potlucks/:potluckId/update" component={UpdatePotluckForm}/>
 
 
 // <PrivateRoute token={sessionStorage.jwt} path="/home" component={UserHomePage}
