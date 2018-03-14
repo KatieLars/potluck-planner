@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { CardLink, Row, Col, Card, CardImgOverlay, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
+import { CardLink, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
 import Link from 'react-router-dom'
@@ -75,33 +75,43 @@ potluckLink() {
   render() {
     return (
       <Card style={subtitleStyle} >
-      {this.props.recipe.user_id == this.props.user.id ? (
-        <CardHeader className="col d-flex justify-content-center">
-          <Navbar nav >
-            <Nav navbar >
-              <span>
-                <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.editRecipe(event)}>Edit Recipe</NavLink>
-                <NavLink href="#" style={{display: "inline-block"}} onClick={(event) => this.deleteRecipe(event)}>Delete Recipe</NavLink>
-              </span>
-            </Nav>
-          </Navbar>
-        </CardHeader>
-      ):(
-        null
-      )}
-        <CardImgOverlay src={this.props.recipe.image} alt="Potluck Image" />
+      {(this.props.recipe.user_id == this.props.user.id) ? (
+          <CardHeader className="col d-flex justify-content-center">
+            <CardLink href="#"  style={{display: "inline-block"}} onClick={(event) => this.editRecipe(event)} >Edit Recipe</CardLink>
+            <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.deleteRecipe(event)}>Delete Recipe</CardLink>
+          </CardHeader>
+        ):(
+          <CardHeader>
+          </CardHeader>
+        )
+      }
+        <CardImg top width="100%" src={this.props.recipe.image} alt="Potluck Image" />
           <CardBody>
             <CardTitle>{this.props.recipe.name}</CardTitle>
             <CardSubtitle style={{fontSize: "0.7em"}}>Difficulty: {this.props.recipe.difficulty}</CardSubtitle>
-            <CardText>
-              <p></p>
-              <CardLink href={this.props.recipe.url}>Get Recipe</CardLink>
-            </CardText>
-            {this.currentPotluck()}
+            <Navbar nav>
+              <Nav navbar>
+                <NavLink href={this.props.recipe.url}>Get Recipe</NavLink>
+              </Nav>
+            </Navbar>
           </CardBody>
+        {this.currentPotluck()}
       </Card>
     )
   }
 }
 
 export default RecipeCard
+//
+// <Navbar nav >
+//   <Nav navbar >
+//     <span>
+// </span>
+// </Nav>
+// </Navbar>
+//onClick={(event) => this.editRecipe(event)}
+// ):(
+//   null
+// )
+// {this.props.recipe.user_id == this.props.user.id ? (
+//className="col d-flex justify-content-center"

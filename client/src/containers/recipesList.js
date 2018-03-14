@@ -13,7 +13,7 @@ const cardDecks = {
 //recipe_with_claimant_id : {recipe: RECIPE OBJECT, potluck_recipe: CORRESPONDING POTLUCK RECIPE}
 class RecipesList extends Component {
 
-recipeCards() { 
+recipeCards() {
   return this.props.recipes.map((recipe) => (
     <RecipeCard recipe={recipe} currentPotluck={this.props.currentPotluck} potlucks={this.props.potlucks} user={this.props.user} />
   )
@@ -22,9 +22,10 @@ recipeCards() {
 
   render() {
     return (
-      <CardDeck style={cardDecks}>
+      <div>
         {this.recipeCards()}
-      </CardDeck>
+      </div>
+
     )
   }
 }
