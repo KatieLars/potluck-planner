@@ -80,7 +80,7 @@ inviteGuests(event){
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      actions: bindActionCreators(friendsActions, dispatch)
+      actions: bindActionCreators(guestsActions, dispatch)
   }
 }
 
