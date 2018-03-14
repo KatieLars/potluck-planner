@@ -22,11 +22,13 @@ editRecipe(event) {
 deleteRecipe(event) {
   event.preventDefault()
   //direct API delete, and pushes back to recipe index page
+  //recipe recipe list is updated if this happens
 }
 
 deleteUserFromPotluckRecipe(event) {
   event.preventDefault()
   //api call that deletes user_id from potluckRecipe
+  //make sure that recipe list is updated if this happens
 }
 
 currentPotluck() {
@@ -102,4 +104,4 @@ potluckLink() {
   }
 }
 
-export default PotluckCard
+export default RecipeCard

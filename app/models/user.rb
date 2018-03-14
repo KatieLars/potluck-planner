@@ -25,6 +25,7 @@ class User < ApplicationRecord
   end
 
   def total_user_recipes #recipes user created as well as brought
+    #this should be used as index
     (self.recipes + self.list_potluck_recipes).uniq
   end
 
