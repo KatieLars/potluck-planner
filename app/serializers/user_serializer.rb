@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :password, :email, :username, :image, :other_users, :friends_with_friendships, :new_recipes, :cooked_recipes
+  attributes :id, :password, :email, :username, :image, :other_users, :friends_with_friendships, :new_recipes, :total_recipes, :cooked_recipes
   has_many :friendships
   has_many :friends, through: :friendships
   has_many :potlucks
@@ -20,6 +20,10 @@ class UserSerializer < ActiveModel::Serializer
 
   def new_recipes #created not cooked
     object.user_created_not_cooked
+  end
+
+  def total_recipes #created and/or cooked
+    object.total_user_recipes
   end
 
 end

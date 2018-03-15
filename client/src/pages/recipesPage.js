@@ -58,7 +58,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  debugger
   if(state.users.user){
     return {
       newRecipes: state.users.user.recipes.new_recipes,

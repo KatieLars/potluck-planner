@@ -36,4 +36,4 @@ class RecipeApi {
 
 }
 
-export default PotluckApi
+export default RecipeApi
