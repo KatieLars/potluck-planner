@@ -1,7 +1,30 @@
 import React, {Component} from 'react'
 import {Button, CardHeader, Card, CardLink, CardFooter} from 'reactstrap'
 import RecipeCard from '../components/recipeCard'
+
 class RecipePotluck extends Component {
+
+  editRecipe(event) {
+    event.preventDefault()
+    history.push(`/recipes/${this.props.recipe.id}/edit`)
+  }
+
+  deleteRecipe(event) {
+    event.preventDefault()
+    //direct API delete, and pushes back to recipe index page
+    //recipe recipe list is updated if this happens
+  }
+
+  deleteUserFromPotluckRecipe(event) {
+    event.preventDefault()
+    //api call that deletes user_id from potluckRecipe
+    //make sure that recipe list is updated if this happens
+  }
+
+  cookRecipe(event) {
+    event.preventDefault()
+    //adds user_id to correct potluck_recipe and re-renders the potluck show page
+  }
 
   render() {
     let bottom = null
