@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Button, FormGroup, Input, Label, CardDeck} from 'reactstrap'
-import RecipeCard from '../components/recipeCard'
+import RecipePotluck from './recipePotluck'
+import RecipeIndex from './recipeIndex'
 import {connect} from 'react-redux'
 
 const cardDecks = {
@@ -14,13 +15,20 @@ const cardDecks = {
 class RecipesList extends Component {
 
 recipeCards() {
-  return this.props.recipes.map((recipe) => (
-    <RecipeCard recipe={recipe} currentPotluck={this.props.currentPotluck} potlucks={this.props.potlucks} user={this.props.user} />
-  )
-)}
+  if(this.props.currentPotluck){
+    return this.props.recipes.map((recipe) => (
+      <RecipePotluck recipe={recipe} currentPotluck={this.props.currentPotluck} potlucks={this.props.potlucks} user={this.props.user} />
+    ))
+  }else{
+    return this.props.recipes.map((recipe) => (
+      <RecipeIndex recipe={recipe} user={this.props.user}/>
+    ))
+  }
+}
 
 
   render() {
+
     return (
       <div>
         {this.recipeCards()}

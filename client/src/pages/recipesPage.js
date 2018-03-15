@@ -29,10 +29,9 @@ handleClick(event) {
 }
 
   render() { //shows all recipes a user brought or created
-    debugger
     if(this.props.user.total_recipes) {
       return(
-        <div style={homeBackground} >
+        <div >
           <h3>New-to-You Recipes</h3>
           <RecipesList recipes={this.props.newRecipes} url={this.props.match.url} />
           <hr className="my-4"/>

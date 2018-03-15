@@ -31,42 +31,41 @@ deleteUserFromPotluckRecipe(event) {
   //make sure that recipe list is updated if this happens
 }
 
-potluckLink() {
-  //needs to find potluck in state based on potluckRecipe id given in props
-  //const foundPotluck = this.props.potlucks.find(potluck => {
-  //return potluck.id == this.props.potluckRecipe.potluck_id})
-//})
-  //<Link to="/potlucks/${foundPotluck.id}">{foundPotluck.name}</Link>
-}
+// potluckLink() {
+//   //needs to find potluck in state based on potluckRecipe id given in props
+//   //const foundPotluck = this.props.potlucks.find(potluck => {
+//   //return potluck.id == this.props.potluckRecipe.potluck_id})
+// //})
+//   //<Link to="/potlucks/${foundPotluck.id}">{foundPotluck.name}</Link>
+// }
 
 
   render() {
 
-    let bottom = null
-    let top = null
+     let bottom = null
+     let top = null
 
-    if(this.props.currentPotluck) {
-      if(this.props.recipe && this.props.recipe.claimant_id == this.props.user.id) {
-        bottom = <Button onClick={(event) => {this.deleteUserFromPotluckRecipe(event)}}>Fine. Reject Me.</Button>
-      }else if(this.props.recipe && this.props.recipe.claimant_id != null) {
-        bottom =  <strong>I am Taken!</strong>
-      }
-    }else{
-      return null
-    }
+    // if(this.props.currentPotluck) {
+    //   if(this.props.recipe && this.props.recipe.claimant_id == this.props.user.id) {
+    //     bottom = <Button onClick={(event) => {this.deleteUserFromPotluckRecipe(event)}}>Fine. Reject Me.</Button>
+    //   }else if(this.props.recipe && this.props.recipe.claimant_id != null) {
+    //     bottom =  <strong>I am Taken!</strong>
+    //   }
+    // }else{
+    //   return null
+    // }
+debugger
+      // if(this.props.recipe.user_id == this.props.user.id || this.props.recipe.recipe && this.props.recipe.recipe.user_id == this.props.user.id) {
+      //   top = (
+      //   <CardHeader className="col d-flex justify-content-center">
+      //     <CardLink href="#"  style={{display: "inline-block"}} onClick={(event) => this.editRecipe(event)} >Edit Recipe</CardLink>
+      //     <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.deleteRecipe(event)}>Delete Recipe</CardLink>
+      //   </CardHeader>
+      // )}else {
+      //   top = <CardHeader></CardHeader>
+      // }
+debugger
 
-      if(this.props.recipe.user_id == this.props.user.id || this.props.recipe.recipe && this.props.recipe.recipe.user_id == this.props.user.id) {
-        top = (
-        <CardHeader className="col d-flex justify-content-center">
-          <CardLink href="#"  style={{display: "inline-block"}} onClick={(event) => this.editRecipe(event)} >Edit Recipe</CardLink>
-          <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.deleteRecipe(event)}>Delete Recipe</CardLink>
-        </CardHeader>
-      )}else {
-        top = <CardHeader></CardHeader>
-      }
-
-
-//problem--need condition for this.props.recipe.recipe to get around claimant_id structure
     return (
       <Card style={subtitleStyle} >
         {top}
