@@ -30,9 +30,9 @@ export function createRecipe(newRecipe) { //alert and return to potlucks page
   }
 }
 
-export function createPotluckSuccess(newPotluck) {
-  return{ type: types.CREATE_POTLUCK,
-    newPotluck: newPotluck
+export function createRecipeSuccess(newRecipe {
+  return{ type: types.CREATE_RECIPE,
+    newRecipe : newRecipe
   }
 }
 
