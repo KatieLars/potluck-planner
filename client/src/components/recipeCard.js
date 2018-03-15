@@ -82,7 +82,3 @@ potluckLink() {
 }
 
 export default RecipeCard
-
-// <CardFooter className="col d-flex justify-content-center">
-//   <Button onClick={(event) => {this.deleteUserFromPotluckRecipe(event)}}>Fine. Reject Me.</Button>
-// </CardFooter>
