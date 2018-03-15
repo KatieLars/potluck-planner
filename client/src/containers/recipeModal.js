@@ -10,7 +10,34 @@ import RecipeForm from '../components/recipeForm'
 //
 //this modal should call the Recipe form component, but have a button to update
 class RecipeModal extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      recipe: {
+        // userId: this.props.user.id,
+        name: "",
+        difficulty: "",
+        url: "",
+        image: ""
+      }
+    }
+  }
+
+  handleChange(event){
+    const field = event.target.name;
+    const recipe = this.state.recipe;
+    recipe[field] = event.target.value;
+    return this.setState({recipe: recipe})
+  }
   render() {
+    let lastButton = null
+    
+    if(this.props.recipe) {
+      lastButton = <Button onClick={(event) => this.updateRecipeHandler(event)}>Update Recipe</Button>
+    }else{
+      lastButton = <Button onClick={(event)} => this.createRecipeHandler(event)}>Create Recipe</Button>
+    }
+
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
