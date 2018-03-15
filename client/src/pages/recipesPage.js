@@ -32,10 +32,11 @@ handleClick(event) {
     if(this.props.recipes) {
       return(
         <div style={homeBackground} >
-          <h1>New-to-You Recipes</h1>
+          <h3>New-to-You Recipes</h3>
           <RecipesList recipes={this.props.newRecipes} url={this.props.match.url} />
           <hr className="my-4"/>
-          <RecipesList recipes=
+          <h3>Cooked Recipes</h3>
+          <RecipesList recipes={this.props.cookedRecipes} url={this.props.match.url} />
         </div>
       )
     }else{
