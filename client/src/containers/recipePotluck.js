@@ -44,7 +44,7 @@ class RecipePotluck extends Component {
      }else if(this.props.recipe.claimant_id != null) {
        bottom =  <strong>I am Taken!</strong>
      }else{
-       bottom = <Button onClick{(event) => this.cookRecipe(event)}>Cook Me!</Button>
+       bottom = <Button onClick={(event) => this.cookRecipe(event)}>Cook Me!</Button>
      }
 //top
      if (this.props.recipe.recipe.user_id == this.props.user.id) {

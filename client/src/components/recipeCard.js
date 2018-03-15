@@ -12,7 +12,7 @@ class RecipeCard extends Component {
             <CardSubtitle style={{fontSize: "0.7em"}}>Difficulty: {this.props.recipe.difficulty}</CardSubtitle>
             <CardLink href={this.props.recipe.url}>Get Recipe</CardLink>
           </CardBody>
-        </div>
+      </div>
     )
   }
 }
