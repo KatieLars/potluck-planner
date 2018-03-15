@@ -20,25 +20,23 @@ import history from '../history'
 //   }
 // }
 //
-// export function createPotluck(newPotluck) { //alert and return to potlucks page
-//   return function(dispatch) {
-//     return PotluckApi.createPotluck(newPotluck).then(response => {
-//       dispatch(createPotluckSuccess(response));
-//       debugger
-//       history.push(`/potlucks/${response.id}`)
-//     }).catch(error => {
-//       throw(error)
-//     })
-//   }
-// }
-//
-// export function createPotluckSuccess(newPotluck) {
-//   return{ type: types.CREATE_POTLUCK,
-//     newPotluck: newPotluck
-//   }
-// }
+export function createRecipe(newRecipe) { //alert and return to potlucks page
+  return function(dispatch) {
+    return RecipeApi.createRecipe(newRecipe).then(response => {
+      dispatch(createRecipeSuccess(response));
+    }).catch(error => {
+      throw(error)
+    })
+  }
+}
 
-export function getRecipes() { //list of all potlucks user created or has been invited too
+export function createPotluckSuccess(newPotluck) {
+  return{ type: types.CREATE_POTLUCK,
+    newPotluck: newPotluck
+  }
+}
+
+export function getRecipes() {
     return function(dispatch) {
       return RecipeApi.getRecipes().then(response => {
         dispatch(getRecipesSuccess(response));
