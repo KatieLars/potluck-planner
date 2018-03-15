@@ -13,7 +13,7 @@ class RecipeModal extends Component {
   constructor(props) { //remeber to handle null values in api call for update
     super(props)
     this.state = {
-      recipe: {
+      newRecipe: {
         user_id: this.props.user.id,
         name: "",
         difficulty: "",
@@ -25,19 +25,19 @@ class RecipeModal extends Component {
 
   handleChange(event){
     const field = event.target.name;
-    const recipe = this.state.recipe;
-    recipe[field] = event.target.value;
-    return this.setState({recipe: recipe})
+    const newRecipe = this.state.recipe;
+    newRecipe[field] = event.target.value;
+    return this.setState({newRecipe: newRecipe})
   }
 
   createRecipeHandler(event) {
     event.preventDefault()
-    this.props.actions.createRecipe(this.state.recipe);
+    this.props.actions.createRecipe(this.state.newRecipe);
   }
 
   updateRecipeHandler(event) {
     event.preventDefault()
-    //this.props.actions.updateRecipe(this.state.recipe)
+    //this.props.actions.updateRecipe(this.state.newRecipe)
   }
 
   render() {
