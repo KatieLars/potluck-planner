@@ -9,9 +9,6 @@ const cardDecks = {
   columnCount: "3"
 }
 
-//currentPotluck={this.props.currentPotluck} potlucks={this.props.potlucks}
-//Prop: current_potluck
-//recipe_with_claimant_id : {recipe: RECIPE OBJECT, potluck_recipe: CORRESPONDING POTLUCK RECIPE}
 class RecipesList extends Component {
 
 recipeCards() {
@@ -26,14 +23,11 @@ recipeCards() {
   }
 }
 
-
   render() {
-
     return (
       <div>
         {this.recipeCards()}
       </div>
-
     )
   }
 }
