@@ -23,6 +23,7 @@ import history from '../history'
 export function createRecipe(newRecipe) { //alert and return to potlucks page
   return function(dispatch) {
     return RecipeApi.createRecipe(newRecipe).then(response => {
+      debugger
       dispatch(createRecipeSuccess(response));
     }).catch(error => {
       throw(error)

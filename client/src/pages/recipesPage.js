@@ -17,6 +17,7 @@ class RecipesPage extends Component {
 
 componentWillMount() {
   this.props.actions.getRecipes()
+  debugger
 }
 
 // shouldComponentUpdate(nextProps, nextState) { //true if change of friends
@@ -29,11 +30,11 @@ handleClick(event) {
 }
 
   render() { //shows all recipes a user brought or created
-    if(this.props.user.total_recipes) {
+    if(this.props.recipes) {
       return(
         <div >
           <h3>New-to-You Recipes</h3>
-          <RecipesList recipes={this.props.newRecipes} url={this.props.match.url} />
+          <RecipesList recipes={this.props.recipes.newRecipes} url={this.props.match.url} />
           <hr className="my-4"/>
           <h3>Cooked Recipes</h3>
           <RecipesList recipes={this.props.cookedRecipes} url={this.props.match.url} />

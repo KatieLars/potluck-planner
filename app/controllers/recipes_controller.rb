@@ -1,18 +1,14 @@
 class RecipesController < ApplicationController
 
   def index #all recipes to select from even unrelated to viewer
-    @recipes = {
+    recipes = {
       user_recipes: {
-        cooked_recipes: {
-          current_user.cooked_recipes
-        },
-        new_recipes: {
-          current_user.new_recipes
-        },
-        allRecipes: Recipe.all
-      }
+        cooked_recipes: current_user.list_potluck_recipes,
+        new_recipes: current_user.user_created_not_cooked
+      },
+      allRecipes: Recipe.all
     }
-    render json:@recipes
+    render json:recipes
   end
 
   def create
