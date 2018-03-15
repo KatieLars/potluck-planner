@@ -58,7 +58,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 //
 const mapStateToProps = (state) => {
-  debugger
   if(state.recipes) {
     return {
       recipes: state.recipes
@@ -69,13 +68,6 @@ const mapStateToProps = (state) => {
     }
   }
 }
-
-//   if(state.users.user){
-//
-//     return {
-//       newRecipes: state.users.user.new_recipes,
-//       cookedRecipes: state.users.user.cooked_recipes,
-//       user: state.users.user
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesPage)
