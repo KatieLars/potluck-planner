@@ -1,7 +1,10 @@
 export default {
   recipes: {
-    newRecipes: [],
-    cookedRecipes: []
+    userRecipes: {
+      newRecipes: [],
+      cookedRecipes: []
+    },
+    allRecipes: []
   },
   friends: [],
   potlucks: [],
