@@ -15,9 +15,9 @@ const homeBackground = {
 //index page for all user recipes
 class RecipesPage extends Component {
 
-componentWillMount() {
-  this.props.actions.getRecipes()
-}
+// componentWillMount() {
+//   this.props.actions.getRecipes()
+// }
 
 // shouldComponentUpdate(nextProps, nextState) { //true if change of friends
 //   return(this.props.potlucks != nextProps.potlucks)
@@ -31,8 +31,11 @@ handleClick(event) {
   render() { //shows all recipes a user brought or created
     if(this.props.recipes) {
       return(
-        <div style={homeBackground}  >
-          <RecipesList recipes={this.props.recipes} url={this.props.match.url} />
+        <div style={homeBackground} >
+          <h1>New-to-You Recipes</h1>
+          <RecipesList recipes={this.props.newRecipes} url={this.props.match.url} />
+          <hr className="my-4"/>
+          <RecipesList recipes=
         </div>
       )
     }else{
@@ -54,9 +57,12 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  if(state.recipes){
+  debugger
+  if(state.users.user){
     return {
-      recipes: state.recipes.recipes
+      newRecipes: state.users.user.recipes.new_recipes,
+      cookedRecipes: state.users.user.recipes.cooked_recipes,
+      user: state.users.user
     }}else {
       return {
         state
