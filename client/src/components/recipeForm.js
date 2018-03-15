@@ -1,5 +1,12 @@
 import React, {Component} from 'react'
 
+//rendered in:
+  //RecipeModal
+    //update recipe from recipe index
+    //update recipe from potluck show
+    //create recipe from potluck show
+  //NewRecipePage
+//can take a recipe as props for placeholder values
 class RecipeForm extends Component {
   render() {
     return (
