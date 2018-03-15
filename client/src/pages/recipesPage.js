@@ -28,7 +28,7 @@ handleClick(event) {
   history.push("/recipes/new")
 }
 
-  render() {
+  render() { //shows all recipes a user brought or created
     if(this.props.recipes) {
       return(
         <div style={homeBackground}  >

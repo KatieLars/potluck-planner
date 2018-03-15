@@ -20,13 +20,17 @@ class User < ApplicationRecord
     self.guest_potlucks.push(self.potlucks).flatten
   end
 
-  def list_potluck_recipes
+  def list_potluck_recipes #user cooked only (but may have also created)
     self.potluck_recipes.collect {|potluck_recipe| potluck_recipe.recipe}
   end
 
-  def total_user_recipes #recipes user created as well as brought
+  def total_user_recipes #recipes user created as well as cooked
     #this should be used as index
     (self.recipes + self.list_potluck_recipes).uniq
+  end
+
+  def user_created_not_cooked #recipes user created but did not cook
+    self.recipes - self.list_potluck_recipes
   end
 
   def not_friends #grabs all users who are NOT also friends
