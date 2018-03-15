@@ -14,16 +14,18 @@ class UserSerializer < ActiveModel::Serializer
     object.friends_with_friendships
   end
 
-  def cooked_recipes
-    object.list_potluck_recipes
-  end
-
-  def new_recipes #created not cooked
-    object.user_created_not_cooked
-  end
-
-  def total_recipes #created and/or cooked
-    object.total_user_recipes
-  end
+  # def cooked_recipes
+  #   object.list_potluck_recipes
+  # end
+  #
+  # def new_recipes #created not cooked
+  #   object.user_created_not_cooked
+  # end
+  #
+  # def total_recipes #created and/or cooked
+  #   object.total_user_recipes
+  # end
 
 end
+
+# :new_recipes, :total_recipes, :cooked_recipes
