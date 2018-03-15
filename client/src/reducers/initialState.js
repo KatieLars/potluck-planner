@@ -1,4 +1,5 @@
 export default {
+  recipes: [],
   friends: [],
   potlucks: [],
   user: {},
