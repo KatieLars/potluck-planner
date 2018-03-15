@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import RecipeForm from '../components/recipeForm'
 import * as recipesActions from '../actions/recipesActions'
+import history from '../history'
 
 class NewRecipePage extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class NewRecipePage extends Component {
   handleSubmit(event) {
     event.preventDefault()
     this.props.actions.createRecipe(this.state.recipe);
+    history.push("/recipes")
   }
 
 render() {
