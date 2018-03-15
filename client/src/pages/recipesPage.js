@@ -29,7 +29,7 @@ handleClick(event) {
 }
 
   render() { //shows all recipes a user brought or created
-    if(this.props.recipes.userRecipes.totalRecipes.first) {
+    if(this.props.recipes) {
       return(
         <div >
           <h3>New-to-You Recipes</h3>
@@ -59,7 +59,7 @@ const mapDispatchToProps = (dispatch) => {
 //
 const mapStateToProps = (state) => {
   debugger
-  if(state.recipes.userRecipes.totalRecipes.first) {
+  if(state.recipes) {
     return {
       recipes: state.recipes
     }
