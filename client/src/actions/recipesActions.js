@@ -39,6 +39,7 @@ export function createRecipeSuccess(newRecipe) {
 export function getRecipes() {
     return function(dispatch) {
       return RecipeApi.getRecipes().then(response => {
+        debugger
         dispatch(getRecipesSuccess(response));
       }).catch(error => {
         throw(error)
@@ -47,6 +48,7 @@ export function getRecipes() {
   }
 // //
 export function getRecipesSuccess(recipes) {
+  debugger
     return {
       type: types.RECIPES_FOUND,
       recipes: recipes

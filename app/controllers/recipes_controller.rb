@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
         cooked_recipes: current_user.list_potluck_recipes,
         new_recipes: current_user.user_created_not_cooked
       },
-      allRecipes: Recipe.all
+      all_recipes: Recipe.all
     }
     render json:recipes
   end

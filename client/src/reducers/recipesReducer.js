@@ -2,6 +2,7 @@ import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
 export default (state = initialState.recipes , action) => {
+  debugger
   switch(action.type) {
     case types.RECIPES_FOUND:
     debugger

@@ -56,21 +56,19 @@ const mapDispatchToProps = (dispatch) => {
       actions: bindActionCreators(recipesActions, dispatch)
   }
 }
-
+//
 const mapStateToProps = (state) => {
-  debugger
-  if(state.users.user){
-
-    return {
-      newRecipes: state.users.user.new_recipes,
-      cookedRecipes: state.users.user.cooked_recipes,
-      user: state.users.user
-    }}else {
       return {
-        state
+        recipes: state.recipes
       }
-    }
   }
+
+//   if(state.users.user){
+//
+//     return {
+//       newRecipes: state.users.user.new_recipes,
+//       cookedRecipes: state.users.user.cooked_recipes,
+//       user: state.users.user
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesPage)
