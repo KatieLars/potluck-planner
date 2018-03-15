@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
     recipes = {
       user_recipes: {
         cooked_recipes: current_user.list_potluck_recipes,
-        new_recipes: current_user.user_created_not_cooked
+        new_recipes: current_user.user_created_not_cooked,
+        total_recipes: current_user.total_user_recipes
       },
       all_recipes: Recipe.all
     }

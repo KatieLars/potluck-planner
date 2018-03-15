@@ -59,10 +59,16 @@ const mapDispatchToProps = (dispatch) => {
 //
 const mapStateToProps = (state) => {
   debugger
-      return {
-        recipes: state.recipes
-      }
+  if(state.recipes) {
+    return {
+      recipes: state.recipes
+    }
+  }else{
+    return{
+      state
+    }
   }
+}
 
 //   if(state.users.user){
 //

@@ -39,7 +39,6 @@ export function createRecipeSuccess(newRecipe) {
 export function getRecipes() {
     return function(dispatch) {
       return RecipeApi.getRecipes().then(response => {
-        debugger
         dispatch(getRecipesSuccess(response));
       }).catch(error => {
         throw(error)
