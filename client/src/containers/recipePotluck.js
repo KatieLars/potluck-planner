@@ -1,6 +1,15 @@
 import React, {Component} from 'react'
 import {Button, CardHeader, Card, CardLink, CardFooter} from 'reactstrap'
 import RecipeCard from '../components/recipeCard'
+import history from '../history'
+
+const subtitleStyle = {
+  opacity: "0.60",
+  textAlign: "center",
+  width: "30vw",
+  display: "inline-block",
+  marginTop: "1.25rem"
+}
 
 class RecipePotluck extends Component {
 
@@ -38,7 +47,7 @@ class RecipePotluck extends Component {
        bottom = <Button onClick{(event) => this.cookRecipe(event)}>Cook Me!</Button>
      }
 //top
-     if this.props.recipe.recipe.user_id == this.props.user.id) {
+     if (this.props.recipe.recipe.user_id == this.props.user.id) {
        top = (
        <CardHeader className="col d-flex justify-content-center">
          <CardLink href="#"  style={{display: "inline-block"}} onClick={(event) => this.editRecipe(event)} >Edit Recipe</CardLink>
