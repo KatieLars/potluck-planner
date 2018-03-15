@@ -12,7 +12,7 @@ import FriendsPage from './pages/friendsPage'
 import AddFriends from './components/addFriends'
 import PotlucksPage from './pages/potlucksPage'
 import NewPotluckPage from './pages/newPotluckPage'
-import NewRecipeForm from './components/newRecipeForm'
+import NewRecipePage from './pages/newRecipePage'
 import PotluckShow from './components/potluckShow'
 import InviteGuests from './components/inviteGuests'
 import GuestList from './components/guestList'
@@ -63,7 +63,7 @@ class Routes extends Component {
       <Route exact path="/potlucks" component={PotlucksPage}/>
       <Route path="/potlucks/new" component={NewPotluckPage} />
       <Route exact path="/recipes" component={RecipesPage}/>
-      <Route path="/recipes/new" component={NewRecipeForm}/>
+      <Route path="/recipes/new" component={NewRecipePage}/>
       <Route exact path="/potlucks/:id" component={PotluckShow}/>
       <Route path="/potlucks/:id/guests/invite" component={InviteGuests}/>
       <Route exact path="/potlucks/:id/guests" component={GuestList}/>

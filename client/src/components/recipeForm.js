@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {FormGroup, Label, Input} from 'reactstrap'
 
 //rendered in:
   //RecipeModal
@@ -19,18 +20,20 @@ class RecipeForm extends Component {
           <Label>Difficulty: </Label>
         </FormGroup>
         <FormGroup check className="form-check-inline">
-          <Input type="radio" name="easy" value="easy" {this.props.recipe.difficulty == "easy" ? (checked) : (null)}/>
+          <Label check active={this.props.recipe.difficulty == "easy" ? (true) : (false)}>
+          <Input type="radio" name="easy" value="easy" />
           Easy
+          </Label>
         </FormGroup>
         <FormGroup check className="form-check-inline">
-          <Label check>
-          <Input type="radio" name="moderate" value="moderate" {this.props.recipe.difficulty == "moderate" ? (checked) : (null)/>
+          <Label check active={this.props.recipe.difficulty == "moderate" ? (true) : (false)}>
+          <Input type="radio" name="moderate" value="moderate" />
           Moderate
           </Label>
         </FormGroup>
         <FormGroup check className="form-check-inline">
-          <Label check>
-          <Input type="radio" name="hard" value="hard" {this.props.recipe.difficulty == "hard" ? (checked) : (null)/>
+          <Label check active={this.props.recipe.difficulty == "hard" ? (true) : (false)}>
+          <Input type="radio" name="hard" value="hard" />
           Hard
           </Label>
         </FormGroup>

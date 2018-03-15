@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import RecipeForm from '../components/recipeForm'
 // import * as recipesActions from '../actions/recipesActions'
 
-class NewRecipePageextends Component {
+class NewRecipePage extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -55,4 +55,4 @@ return(
 //   };
 // }
 
-export default NewRecipeForm
+export default NewRecipePage
