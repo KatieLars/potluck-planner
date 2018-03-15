@@ -42,6 +42,7 @@ potluckLink() {
 
   render() {
     let bottom = null
+    let top = null
 
     if(this.props.currentPotluck) {
       if(this.props.recipe && this.props.recipe.claimant_id == this.props.user.id) {
@@ -52,20 +53,22 @@ potluckLink() {
     }else{
       return null
     }
+    if(this.props.recipe.recipe) {
+      if(this.props.recipe.recipe.user_id == this.props.user.id || this.props.recipe.user_id == this.props.user.id) {
+        top = (
+        <CardHeader className="col d-flex justify-content-center">
+          <CardLink href="#"  style={{display: "inline-block"}} onClick={(event) => this.editRecipe(event)} >Edit Recipe</CardLink>
+          <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.deleteRecipe(event)}>Delete Recipe</CardLink>
+        </CardHeader>
+      )}else {
+        top = <CardHeader></CardHeader>
+      }
+    }
 
 //problem--need condition for this.props.recipe.recipe to get around claimant_id structure
     return (
       <Card style={subtitleStyle} >
-      {(this.props.recipe.recipe.user_id == this.props.user.id) ? (
-          <CardHeader className="col d-flex justify-content-center">
-            <CardLink href="#"  style={{display: "inline-block"}} onClick={(event) => this.editRecipe(event)} >Edit Recipe</CardLink>
-            <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.deleteRecipe(event)}>Delete Recipe</CardLink>
-          </CardHeader>
-        ):(
-          <CardHeader>
-          </CardHeader>
-        )
-      }
+        {top}
         <CardImg top width="100%" src={this.props.recipe.recipe.image} alt="Potluck Image" />
           <CardBody>
             <CardTitle>{this.props.recipe.recipe.name}</CardTitle>
