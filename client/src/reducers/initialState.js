@@ -2,7 +2,8 @@ export default {
   recipes: {
     userRecipes: {
       newRecipes: [],
-      cookedRecipes: []
+      cookedRecipes: [],
+      totalUserRecipes: []
     },
     allRecipes: []
   },

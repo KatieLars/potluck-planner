@@ -59,7 +59,7 @@ const mapDispatchToProps = (dispatch) => {
 //
 const mapStateToProps = (state) => {
   debugger
-  if(state.recipes) {
+  if(state.recipes.userRecipes.totalUserRecipes.first) {
     return {
       recipes: state.recipes
     }
