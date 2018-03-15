@@ -31,39 +31,6 @@ deleteUserFromPotluckRecipe(event) {
   //make sure that recipe list is updated if this happens
 }
 
-currentPotluck() {
-  if(this.props.currentPotluck) {
-
-    this.claimedRecipe()
-  }else{
-    this.recipeInfo()
-  }
-}
-//when we get recipes for potlucks, I want all recipes to be formatted the same
-claimedRecipe() { //for currentPotluck--should test that a recipe is taken or not by the user
-  //if potluckRecipes exists and current user id is the same as claimant_id (user has claimed)
-  if(this.props.recipe && this.props.recipe.claimant_id == this.props.user.id) {
-    return(
-      <CardFooter className="col d-flex justify-content-center">
-        <Button onClick={(event) => {this.deleteUserFromPotluckRecipe(event)}}>Fine. Reject Me.</Button>
-      </CardFooter>
-  )}else if(this.props.potluckRecipe && this.props.recipe.claimant_id != null){
-    return(
-      <CardFooter className="col d-flex justify-content-center">
-        <strong>I am Taken!</strong>
-      </CardFooter>
-  )}
-}
-
-recipeInfo() {
-  if(this.props.potluckRecipe && this.props.potluckRecipe.userId == this.props.user.id) {//any user potluck recipes match this recipe
-    return(
-      <CardFooter className="col d-flex justify-content-center">
-        <strong>You brought this to {this.potluckLink()}</strong>
-      </CardFooter>
-  )}
-}
-
 potluckLink() {
   //needs to find potluck in state based on potluckRecipe id given in props
   //const foundPotluck = this.props.potlucks.find(potluck => {
@@ -74,9 +41,23 @@ potluckLink() {
 
 
   render() {
+    let bottom = null
+
+    if(this.props.currentPotluck) {
+      if(this.props.recipe && this.props.recipe.claimant_id == this.props.user.id) {
+        bottom = <Button onClick={(event) => {this.deleteUserFromPotluckRecipe(event)}}>Fine. Reject Me.</Button>
+      }else if(this.props.recipe && this.props.recipe.claimant_id != null) {
+        bottom =  <strong>I am Taken!</strong>
+      }
+    }else{
+      if(this.props.recipe && this.props.recipe.claimant_id == this.props.user.id)
+        bottom = <strong>You brought this to {this.potluckLink()}</strong>
+    }
+
+
     return (
       <Card style={subtitleStyle} >
-      {(this.props.recipe.user_id == this.props.user.id) ? (
+      {(this.props.recipe.recipe.user_id == this.props.user.id) ? (
           <CardHeader className="col d-flex justify-content-center">
             <CardLink href="#"  style={{display: "inline-block"}} onClick={(event) => this.editRecipe(event)} >Edit Recipe</CardLink>
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.deleteRecipe(event)}>Delete Recipe</CardLink>
@@ -86,16 +67,22 @@ potluckLink() {
           </CardHeader>
         )
       }
-        <CardImg top width="100%" src={this.props.recipe.image} alt="Potluck Image" />
+        <CardImg top width="100%" src={this.props.recipe.recipe.image} alt="Potluck Image" />
           <CardBody>
-            <CardTitle>{this.props.recipe.name}</CardTitle>
-            <CardSubtitle style={{fontSize: "0.7em"}}>Difficulty: {this.props.recipe.difficulty}</CardSubtitle>
-            <CardLink href={this.props.recipe.url}>Get Recipe</CardLink>
+            <CardTitle>{this.props.recipe.recipe.name}</CardTitle>
+            <CardSubtitle style={{fontSize: "0.7em"}}>Difficulty: {this.props.recipe.recipe.difficulty}</CardSubtitle>
+            <CardLink href={this.props.recipe.recipe.url}>Get Recipe</CardLink>
           </CardBody>
-        {this.currentPotluck()}
+          <CardFooter>
+            {bottom}
+          </CardFooter>
       </Card>
     )
   }
 }
 
 export default RecipeCard
+
+// <CardFooter className="col d-flex justify-content-center">
+//   <Button onClick={(event) => {this.deleteUserFromPotluckRecipe(event)}}>Fine. Reject Me.</Button>
+// </CardFooter>
