@@ -12,12 +12,12 @@ const homeBackground = {
   height: "100vh",
   textAlign: "center"
 }
-//index page for all user recipes
+//index problem: sorting cooked and uncooked recipes
 class RecipesPage extends Component {
 
-// componentWillMount() {
-//   this.props.actions.getRecipes()
-// }
+componentWillMount() {
+  this.props.actions.getRecipes()
+}
 
 // shouldComponentUpdate(nextProps, nextState) { //true if change of friends
 //   return(this.props.potlucks != nextProps.potlucks)

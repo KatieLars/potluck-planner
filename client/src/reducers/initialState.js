@@ -1,5 +1,8 @@
 export default {
-  recipes: [],
+  recipes: {
+    newRecipes: [],
+    cookedRecipes: []
+  },
   friends: [],
   potlucks: [],
   user: {},
