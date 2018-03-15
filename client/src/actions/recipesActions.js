@@ -48,7 +48,6 @@ export function getRecipes() {
   }
 // //
 export function getRecipesSuccess(recipes) {
-  debugger
     return {
       type: types.RECIPES_FOUND,
       recipes: recipes

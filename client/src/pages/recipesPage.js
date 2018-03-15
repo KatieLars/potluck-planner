@@ -58,6 +58,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 //
 const mapStateToProps = (state) => {
+  debugger
       return {
         recipes: state.recipes
       }
