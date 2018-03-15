@@ -13,34 +13,34 @@ class RecipeForm extends Component {
       <div>
         <FormGroup>
           <Label for="name">Name</Label>
-          <Input type="text" name="name" id="name" />
+          <Input type="text" name="name" id="name" placeholder={this.props.recipe.name} />
         </FormGroup>
         <FormGroup check className="form-check-inline">
           <Label>Difficulty: </Label>
         </FormGroup>
         <FormGroup check className="form-check-inline">
-          <Input type="radio" name="easy" value="easy"/>
+          <Input type="radio" name="easy" value="easy" {this.props.recipe.difficulty == "easy" ? (checked) : (null)}/>
           Easy
         </FormGroup>
         <FormGroup check className="form-check-inline">
           <Label check>
-          <Input type="radio" name="moderate" value="moderate" />
+          <Input type="radio" name="moderate" value="moderate" {this.props.recipe.difficulty == "moderate" ? (checked) : (null)/>
           Moderate
           </Label>
         </FormGroup>
         <FormGroup check className="form-check-inline">
           <Label check>
-          <Input type="radio" name="hard" value="hard"/>
+          <Input type="radio" name="hard" value="hard" {this.props.recipe.difficulty == "hard" ? (checked) : (null)/>
           Hard
           </Label>
         </FormGroup>
         <FormGroup>
           <Label for="url">URL:</Label>
-          <Input type="text" name="url" id="url" />
+          <Input type="text" name="url" id="url" placeholder={this.props.recipe.url} />
         </FormGroup>
         <FormGroup>
           <Label for="image">Image</Label>
-          <Input type="text" name="image" id="image"/>
+          <Input type="text" name="image" id="image" placeholder={this.props.recipe.image}/>
         </FormGroup>
       </div>
     )

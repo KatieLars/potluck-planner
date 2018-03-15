@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import {Modal, ModalHeader, Form, ModalFooter, Button}
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-//this modal can be called to: 
+import RecipeForm from '../components/recipeForm'
+//this modal can be called to:
 //   create a recipe from potluck show page
 //   update a recipe from potluck show page
 //   update a recipe from recipe index page
