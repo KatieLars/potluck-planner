@@ -3,7 +3,7 @@ export default {
     userRecipes: {
       newRecipes: [],
       cookedRecipes: [],
-      totalUserRecipes: []
+      totalRecipes: []
     },
     allRecipes: []
   },
