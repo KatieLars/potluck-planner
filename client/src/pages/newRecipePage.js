@@ -3,7 +3,7 @@ import {Form, FormGroup, Col, Row, Container, Button, Label, Input} from 'reacts
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import RecipeForm from '../components/recipeForm'
-// import * as recipesActions from '../actions/recipesActions'
+import * as recipesActions from '../actions/recipesActions'
 
 class NewRecipePage extends Component {
   constructor(props) {
@@ -21,9 +21,9 @@ class NewRecipePage extends Component {
 
   handleChange(event){
     const field = event.target.name;
-    const info = this.state.info;
-    info[field] = event.target.value;
-    return this.setState({info: info})
+    const recipe = this.state.recipe;
+    recipe[field] = event.target.value;
+    return this.setState({recipe: recipe})
   }
 
   handleSubmit(event) {
@@ -49,10 +49,10 @@ return(
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     actions: bindActionCreators(potlucksActions, dispatch)
-//   };
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(recipesActions, dispatch)
+  };
+}
 
-export default NewRecipePage
+export default connect(null, mapDispatchToProps)(NewRecipePage)

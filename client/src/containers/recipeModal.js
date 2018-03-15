@@ -17,7 +17,7 @@ class RecipeModal extends Component {
           <ModalHeader>Select Friends</ModalHeader>
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
-              <RecipeForm recipe={this.props.recipe}/>
+              <RecipeForm recipe={this.props.recipe ? (this.props.recipe) : (null)}/>
             </Form>
           </ModalBody>
           <ModalFooter>

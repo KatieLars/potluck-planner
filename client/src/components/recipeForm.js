@@ -14,36 +14,36 @@ class RecipeForm extends Component {
       <div>
         <FormGroup>
           <Label for="name">Name</Label>
-          <Input type="text" name="name" id="name" placeholder={this.props.recipe.name} />
+          <Input type="text" name="name" id="name" placeholder={this.props.recipe ? (this.props.recipe.name) : (null)} />
         </FormGroup>
         <FormGroup check className="form-check-inline">
           <Label>Difficulty: </Label>
         </FormGroup>
         <FormGroup check className="form-check-inline">
-          <Label check active={this.props.recipe.difficulty == "easy" ? (true) : (false)}>
-          <Input type="radio" name="easy" value="easy" />
+          <Label check active={this.props.recipe ? (this.props.recipe.difficulty == "easy" ? (true) : (false)) : (null)}>
+          <Input type="radio" name="difficulty" value="easy" />
           Easy
           </Label>
         </FormGroup>
         <FormGroup check className="form-check-inline">
-          <Label check active={this.props.recipe.difficulty == "moderate" ? (true) : (false)}>
-          <Input type="radio" name="moderate" value="moderate" />
+          <Label check active={this.props.recipe ? (this.props.recipe.difficulty == "moderate" ? (true) : (false)) : (null)}>
+          <Input type="radio" name="difficulty" value="moderate" />
           Moderate
           </Label>
         </FormGroup>
         <FormGroup check className="form-check-inline">
-          <Label check active={this.props.recipe.difficulty == "hard" ? (true) : (false)}>
-          <Input type="radio" name="hard" value="hard" />
+          <Label check active={this.props.recipe ? (this.props.recipe.difficulty == "hard" ? (true) : (false)) : (null)}>
+          <Input type="radio" name="difficulty" value="hard" />
           Hard
           </Label>
         </FormGroup>
         <FormGroup>
           <Label for="url">URL:</Label>
-          <Input type="text" name="url" id="url" placeholder={this.props.recipe.url} />
+          <Input type="text" name="url" id="url" placeholder={this.props.recipe ? (this.props.recipe.url) : (null)} />
         </FormGroup>
         <FormGroup>
           <Label for="image">Image</Label>
-          <Input type="text" name="image" id="image" placeholder={this.props.recipe.image}/>
+          <Input type="text" name="image" id="image" placeholder={this.props.recipe ? (this.props.recipe.image) : (null)}/>
         </FormGroup>
       </div>
     )
