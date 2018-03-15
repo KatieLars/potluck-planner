@@ -10,11 +10,11 @@ import RecipeForm from '../components/recipeForm'
 //
 //this modal should call the Recipe form component, but have a button to update
 class RecipeModal extends Component {
-  constructor(props) {
+  constructor(props) { //remeber to handle null values in api call for update
     super(props)
     this.state = {
       recipe: {
-        // userId: this.props.user.id,
+        user_id: this.props.user.id,
         name: "",
         difficulty: "",
         url: "",
@@ -29,9 +29,20 @@ class RecipeModal extends Component {
     recipe[field] = event.target.value;
     return this.setState({recipe: recipe})
   }
+
+  createRecipeHandler(event) {
+    event.preventDefault()
+    this.props.actions.createRecipe(this.state.recipe);
+  }
+
+  updateRecipeHandler(event) {
+    event.preventDefault()
+    //this.props.actions.updateRecipe(this.state.recipe)
+  }
+
   render() {
     let lastButton = null
-    
+
     if(this.props.recipe) {
       lastButton = <Button onClick={(event) => this.updateRecipeHandler(event)}>Update Recipe</Button>
     }else{
@@ -48,7 +59,7 @@ class RecipeModal extends Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button onClick={(event) => this.updateRecipeHandler(event)}>Update Recipe</Button>
+            {lastButton}
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
           </ModalFooter>
         </Modal>
