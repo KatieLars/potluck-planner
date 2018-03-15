@@ -29,7 +29,8 @@ handleClick(event) {
 }
 
   render() { //shows all recipes a user brought or created
-    if(this.props.recipes) {
+    debugger
+    if(this.props.user.total_recipes) {
       return(
         <div style={homeBackground} >
           <h3>New-to-You Recipes</h3>
@@ -59,9 +60,10 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   if(state.users.user){
+
     return {
-      newRecipes: state.users.user.recipes.new_recipes,
-      cookedRecipes: state.users.user.recipes.cooked_recipes,
+      newRecipes: state.users.user.new_recipes,
+      cookedRecipes: state.users.user.cooked_recipes,
       user: state.users.user
     }}else {
       return {

@@ -50,8 +50,7 @@ potluckLink() {
         bottom =  <strong>I am Taken!</strong>
       }
     }else{
-      if(this.props.recipe && this.props.recipe.claimant_id == this.props.user.id)
-        bottom = <strong>You brought this to {this.potluckLink()}</strong>
+      return null
     }
 
 
