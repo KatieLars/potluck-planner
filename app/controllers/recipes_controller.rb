@@ -5,4 +5,14 @@ class RecipesController < ApplicationController
     render json:@recipes
   end
 
+  def create
+    @recipe = current_user.recipes.build(recipe_params)
+    if @recipe.save
+      render json:@recipe
+    else
+      @errors = @potluck.errors.full_messages
+      render json:@errors
+    end
+  end
+
 end
