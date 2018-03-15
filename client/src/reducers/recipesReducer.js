@@ -7,7 +7,7 @@ export default (state = initialState.recipes , action) => {
     debugger
       return {...state, recipes: action.recipes}
     case types.CREATE_RECIPES:
-      return {...state, recipes: [...state, action.newRecipe]}
+      return {...state, recipes: [...state.recipes.userRecipes.newRecipes, action.newRecipe ]}
     default:
       return state
     }

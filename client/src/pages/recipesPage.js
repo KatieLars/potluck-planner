@@ -17,7 +17,6 @@ class RecipesPage extends Component {
 
 componentWillMount() {
   this.props.actions.getRecipes()
-  debugger
 }
 
 // shouldComponentUpdate(nextProps, nextState) { //true if change of friends
@@ -59,6 +58,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
+  debugger
   if(state.users.user){
 
     return {
