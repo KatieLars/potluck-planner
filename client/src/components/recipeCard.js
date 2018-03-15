@@ -53,7 +53,7 @@ potluckLink() {
       return null
     }
 
-
+//problem--need condition for this.props.recipe.recipe to get around claimant_id structure
     return (
       <Card style={subtitleStyle} >
       {(this.props.recipe.recipe.user_id == this.props.user.id) ? (
