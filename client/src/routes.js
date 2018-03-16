@@ -69,6 +69,7 @@ class Routes extends Component {
       <Route path="/potlucks/:id/guests/invite" component={InviteGuests}/>
       <Route exact path="/potlucks/:id/guests" component={GuestList}/>
       <Route exact path="/potlucks/:id/recipes" component={PotluckRecipes}/>
+      <Route path="/potlucks/:potluckId/recipes/:recipeId" component={RecipeModal} />
       <Route path="/potlucks/:id/recipes/new" component={RecipeModal}/>
       <Route path="/potlucks/:id/recipes/select" component={SelectPotluckRecipes}/>
       </Switch>

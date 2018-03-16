@@ -15,7 +15,7 @@ class RecipePotluck extends Component {
 
   editRecipe(event) {
     event.preventDefault()
-    history.push(`/recipes/${this.props.recipe.recipe.id}/edit`)
+    history.push(`/potlucks/${this.props.currentPotluck.id}/recipes/${this.props.recipe.recipe.id}/edit`)
   }
 
   deleteRecipe(event) {
@@ -59,7 +59,7 @@ class RecipePotluck extends Component {
     return(
       <Card style={subtitleStyle} >
           {top}
-        <RecipeCard recipe={this.props.recipe.recipe} potluck={this.props.currentPotluck}/>
+        <RecipeCard recipe={this.props.recipe.recipe} currentPotluck={this.props.currentPotluck}/>
         <CardFooter>
           {bottom}
         </CardFooter>
