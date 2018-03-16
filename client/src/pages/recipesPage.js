@@ -19,9 +19,14 @@ componentWillMount() {
   this.props.actions.getRecipes()
 }
 
-// shouldComponentUpdate(nextProps, nextState) { //true if change of friends
-//   return(this.props.potlucks != nextProps.potlucks)
-//  }
+shouldComponentUpdate(nextProps, nextState) { //true if change of recipes
+  return(this.props.recipes !== nextProps.recipes)
+ }
+
+ // componentWillUpdate(nextProps, nextState) {
+ //   debugger
+ //   nextProps.actions.getRecipes()
+ // }
 
 handleClick(event) {
   event.preventDefault()

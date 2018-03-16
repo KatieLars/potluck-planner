@@ -21,7 +21,7 @@ class RecipeModal extends Component {
         difficulty: "",
         url: "",
         image: "",
-        id: this.props.recipe ? (this.props.recipe.id) : ""
+        id: this.props.recipe ? (this.props.recipe.id) : "",
         potluckId: this.props.currentPotluck ? (this.props.currentPotluck.id) : ""
       }
     }
