@@ -9,7 +9,7 @@ export default (state = initialState.potlucks , action) => {
     case types.POTLUCKS_FOUND:
       let recipeCollection = []
       action.potlucks.map(potluck=> {recipeCollection.push(potluck.recipes)})
-      return {...state, potlucks: action.potlucks.potlucks, allPotluckRecipes: flatten(recipeCollection) }
+      return {...state, potlucks: action.potlucks, allPotluckRecipes: flatten(recipeCollection) }
     case types.CREATE_POTLUCK:
       return {...state, potlucks: [...state, action.newPotluck]}
     default:
