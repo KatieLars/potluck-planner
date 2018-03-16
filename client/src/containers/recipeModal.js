@@ -15,7 +15,7 @@ class RecipeModal extends Component {
     super(props)
     this.state = {
       newRecipe: {
-        user_id: this.props.user.id,
+        userId: this.props.user.id,
         name: "",
         difficulty: "",
         url: "",
@@ -71,12 +71,11 @@ class RecipeModal extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   if(state.recipes){
-    debugger
     const recipe = state.recipes.userRecipes.totalRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.id
     })
     if(recipe){
-      return {recipe: recipe}
+      return {recipe: recipe, user: state.users.user}
     }else{
       return state
     }
@@ -92,9 +91,5 @@ const mapDispatchToProps = (dispatch) => {
       actions: bindActionCreators(recipesActions, dispatch)
   }
 }
-
-//need map state to props to get recipe. State will be conditional because button could
-//be pushed from recipeIndex (state.recipe.recipes) or from RecipeIndex, which involves claimaint_id
-//Will have to use OwnProps to get single recipe information from params
 
 export default connect(mapStateToProps, null)(RecipeModal)
