@@ -59,7 +59,7 @@ class RecipePotluck extends Component {
     return(
       <Card style={subtitleStyle} >
           {top}
-        <RecipeCard recipe={this.props.recipe.recipe}/>
+        <RecipeCard recipe={this.props.recipe.recipe} potluck={this.props.currentPotluck}/>
         <CardFooter>
           {bottom}
         </CardFooter>
