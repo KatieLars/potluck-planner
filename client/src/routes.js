@@ -17,7 +17,7 @@ import PotluckShow from './components/potluckShow'
 import InviteGuests from './components/inviteGuests'
 import GuestList from './components/guestList'
 import PotluckRecipes from './components/potluckRecipes'
-import NewRecipe from './components/newRecipe'
+import RecipeModal from './containers/recipeModal'
 import SelectPotluckRecipes from './components/selectPotluckRecipes'
 import RecipesPage from './pages/recipesPage'
 import { connect } from 'react-redux'
@@ -64,11 +64,12 @@ class Routes extends Component {
       <Route path="/potlucks/new" component={NewPotluckPage} />
       <Route exact path="/recipes" component={RecipesPage}/>
       <Route path="/recipes/new" component={NewRecipePage}/>
+      <Route path="/recipes/:id/edit" component={RecipeModal}
       <Route exact path="/potlucks/:id" component={PotluckShow}/>
       <Route path="/potlucks/:id/guests/invite" component={InviteGuests}/>
       <Route exact path="/potlucks/:id/guests" component={GuestList}/>
       <Route exact path="/potlucks/:id/recipes" component={PotluckRecipes}/>
-      <Route path="/potlucks/:id/recipes/new" component={NewRecipe}/>
+      <Route path="/potlucks/:id/recipes/new" component={RecipeModal}/>
       <Route path="/potlucks/:id/recipes/select" component={SelectPotluckRecipes}/>
       </Switch>
     </div>

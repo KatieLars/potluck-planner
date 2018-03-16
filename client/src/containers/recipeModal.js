@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Modal, ModalHeader, Form, ModalFooter, Button}
+import {Modal, ModalHeader, Form, ModalFooter, Button} from 'reactstrap'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import RecipeForm from '../components/recipeForm'
