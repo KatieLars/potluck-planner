@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :password, :email, :username, :image, :other_users, :friends_with_friendships
+  attributes :id, :password, :email, :username, :image, :other_users, :total_potluck_recipes, :friends_with_friendships
   has_many :friendships
   has_many :friends, through: :friendships
   has_many :potlucks
@@ -14,6 +14,9 @@ class UserSerializer < ActiveModel::Serializer
     object.friends_with_friendships
   end
 
+  def total_potluck_recipes #all recipes from all potlucks associated with user
+    object.total_potluck_recipes
+  end
   # def cooked_recipes
   #   object.list_potluck_recipes
   # end

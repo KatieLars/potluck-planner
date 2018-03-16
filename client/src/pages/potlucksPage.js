@@ -29,6 +29,7 @@ handleClick(event) {
 }
 
   render() {
+
     if(this.props.potlucks) {
       return(
         <div style={homeBackground}  >
@@ -54,6 +55,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
+  debugger
   if(state.potlucks.potlucks[0]){
     return {
       potlucks: state.potlucks.potlucks
