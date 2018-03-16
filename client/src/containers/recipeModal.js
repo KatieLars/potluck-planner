@@ -71,10 +71,15 @@ class RecipeModal extends Component {
 const mapStateToProps = (state, ownProps) => {
   debugger
   if(state.recipes){
+    debugger
     const recipe = state.recipes.userRecipes.totalRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.id
     })
-    return {recipe: recipe}
+    if(recipe){
+      return {recipe: recipe}
+    }else{
+      return state
+    }
   }else{
     return {
       state
