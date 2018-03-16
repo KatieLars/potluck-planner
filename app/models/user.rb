@@ -16,7 +16,7 @@ class User < ApplicationRecord
     self.guestships.collect {|p| p.potluck}
   end
 
-  def total_potlucks #returns a list of total potlucks
+  def total_potlucks #returns a list of total potlucks (created and invited)
     self.guest_potlucks.push(self.potlucks).flatten
   end
 
