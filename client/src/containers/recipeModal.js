@@ -3,6 +3,7 @@ import {Modal, ModalHeader, Form, ModalFooter, Button, ModalBody} from 'reactstr
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import RecipeForm from '../components/recipeForm'
+import * as recipesActions from '../actions/recipesActions'
 //this modal can be called to:
 //   create a recipe from potluck show page
 //   update a recipe from potluck show page
@@ -69,7 +70,6 @@ class RecipeModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   if(state.recipes){
     debugger
     const recipe = state.recipes.userRecipes.totalRecipes.find(recipe => {
@@ -84,6 +84,12 @@ const mapStateToProps = (state, ownProps) => {
     return {
       state
     }
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      actions: bindActionCreators(recipesActions, dispatch)
   }
 }
 
