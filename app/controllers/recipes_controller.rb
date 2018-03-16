@@ -22,6 +22,13 @@ class RecipesController < ApplicationController
     end
   end
 
+  def update
+    @recipe = Recipe.find_by_id(params[:recipe][:id])
+    clean_params = recipe_params.reject { |k, v| v.blank? }
+    @recipe.update(clean_params)
+    render json:@recipe
+  end
+
   private
 
   def recipe_params

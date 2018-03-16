@@ -33,6 +33,23 @@ class RecipeApi {
     });
   }
 
+  static updateRecipe(recipe) { //get potlucks
+    const request = new Request(`http://localhost:3001/recipes/${recipe.id}`, {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.jwt}`,
+      }),
+      body: JSON.stringify({recipe: recipe})
+    });
+
+    return fetch(request).then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
+  }
+
 
 }
 
