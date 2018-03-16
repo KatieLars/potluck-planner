@@ -52,7 +52,7 @@ class RecipeModal extends Component {
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
-          <ModalHeader>Select Friends</ModalHeader>
+          <ModalHeader></ModalHeader>
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
               <RecipeForm recipe={this.props.recipe ? (this.props.recipe) : (null)}/>
@@ -68,8 +68,22 @@ class RecipeModal extends Component {
   }
 }
 
+const mapStateToProps = (state, ownProps) => {
+  debugger
+  if(state.recipes){
+    const recipe = state.recipes.userRecipes.totalRecipes.find(recipe => {
+      return recipe.id == ownProps.match.params.id
+    })
+    return {recipe: recipe}
+  }else{
+    return {
+      state
+    }
+  }
+}
+
 //need map state to props to get recipe. State will be conditional because button could
 //be pushed from recipeIndex (state.recipe.recipes) or from RecipeIndex, which involves claimaint_id
 //Will have to use OwnProps to get single recipe information from params
 
-export default RecipeModal
+export default connect(mapStateToProps, null)(RecipeModal)
