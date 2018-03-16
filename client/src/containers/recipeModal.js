@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Modal, ModalHeader, Form, ModalFooter, Button} from 'reactstrap'
+import {Modal, ModalHeader, Form, ModalFooter, Button, ModalBody} from 'reactstrap'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import RecipeForm from '../components/recipeForm'
@@ -46,7 +46,7 @@ class RecipeModal extends Component {
     if(this.props.recipe) {
       lastButton = <Button onClick={(event) => this.updateRecipeHandler(event)}>Update Recipe</Button>
     }else{
-      lastButton = <Button onClick={(event)} => this.createRecipeHandler(event)}>Create Recipe</Button>
+      lastButton = <Button onClick={(event) => this.createRecipeHandler(event)}>Create Recipe</Button>
     }
 
     return(
