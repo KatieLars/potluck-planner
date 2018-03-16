@@ -8,7 +8,10 @@ export default {
     allRecipes: []
   },
   friends: [],
-  potlucks: [],
+  potlucks: {
+    potlucks: [],
+    allPotluckRecipes: []
+  },
   user: {},
   session: !!sessionStorage.jwt
 }
