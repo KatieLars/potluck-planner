@@ -11,6 +11,7 @@ const cardDecks = {
 class PotlucksList extends Component {
 
   potlucksCards() {
+  
       return this.props.potlucks.map((potluck) => (
         <PotluckCard potluck={potluck} url={this.props.url}/>
       )
