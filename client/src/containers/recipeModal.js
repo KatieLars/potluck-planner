@@ -26,7 +26,7 @@ class RecipeModal extends Component {
 
   handleChange(event){
     const field = event.target.name;
-    const newRecipe = this.state.recipe;
+    const newRecipe = this.state.newRecipe;
     newRecipe[field] = event.target.value;
     return this.setState({newRecipe: newRecipe})
   }
@@ -38,7 +38,7 @@ class RecipeModal extends Component {
 
   updateRecipeHandler(event) {
     event.preventDefault()
-    //this.props.actions.updateRecipe(this.state.newRecipe)
+    this.props.actions.updateRecipe(this.state.newRecipe)
   }
 
   render() {

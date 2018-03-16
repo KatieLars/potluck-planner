@@ -9,9 +9,9 @@ import {FormGroup, Label, Input} from 'reactstrap'
   //NewRecipePage
 //can take a recipe as props for placeholder values
 class RecipeForm extends Component {
-  debugger
-  isChecked(difficulty) {
-    this.props.recipe ? (`this.props.recipe.${difficulty}` == "easy" ? (true) : (false)) : (null)
+
+isChecked(difficulty){
+    this.props.recipe.difficulty == `${difficulty}` ? ("active") : (null)
   }
 
   render() {
@@ -25,8 +25,8 @@ class RecipeForm extends Component {
           <Label>Difficulty: </Label>
         </FormGroup>
         <FormGroup check className="form-check-inline">
-          <Label check active={this.isChecked("easy")}>
-          <Input type="radio" name="difficulty" value="easy" />
+          <Label check >
+          <Input type="radio" name="difficulty" value="easy" checked={this.props.recipe ? (this.isChecked("easy")) : (null)}/>
           Easy
           </Label>
         </FormGroup>

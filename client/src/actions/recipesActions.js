@@ -53,19 +53,18 @@ export function getRecipesSuccess(recipes) {
     }
   }
 //
-//   export function updatePotlucks(info) {
-//     return function(dispatch) {
-//       return PotluckApi.updatePotluck(info).then(response => {
-//         dispatch(updatePotluckSuccess(response));
-//         history.push(`/potlucks/${response.id}`)
-//       }).catch(error => {
-//         throw(error)
-//       })
-//     }
-//   }
-//
-//   export function updatePotluckSuccess(potluck) {
-//     return {type: types.UPDATE_POTLUCK,
-//             potluck: potluck
-//     }
-//   }
+  export function updateRecipe(info) {
+    return function(dispatch) {
+      return RecipeApi.updateRecipe(info).then(response => {
+        dispatch(updatePotluckSuccess(response));
+      }).catch(error => {
+        throw(error)
+      })
+    }
+  }
+
+  export function updatePotluckSuccess(potluck) {
+    return {type: types.UPDATE_RECIPE,
+          recipe: recipe
+    }
+  }
