@@ -33,7 +33,7 @@ class RecipeApi {
     });
   }
 
-  static updateRecipe(recipe) { //get potlucks
+  static updateRecipe(recipe) { 
     const request = new Request(`http://localhost:3001/recipes/${recipe.id}`, {
       method: 'PATCH',
       headers: new Headers({

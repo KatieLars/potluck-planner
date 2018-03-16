@@ -23,18 +23,18 @@ import history from '../history'
 export function createRecipe(newRecipe) { //alert and return to potlucks page
   return function(dispatch) {
     return RecipeApi.createRecipe(newRecipe).then(response => {
-      dispatch(createRecipeSuccess(response));
+      dispatch(getRecipes());
     }).catch(error => {
       throw(error)
     })
   }
 }
 
-export function createRecipeSuccess(newRecipe) {
-  return{ type: types.CREATE_RECIPE,
-    newRecipe : newRecipe
-  }
-}
+// export function createRecipeSuccess(newRecipe) {
+//   return{ type: types.CREATE_RECIPE,
+//     newRecipe : newRecipe
+//   }
+// }
 
 export function getRecipes() {
     return function(dispatch) {
@@ -56,22 +56,22 @@ export function getRecipesSuccess(recipes) {
   export function updateRecipe(info) { //recipe updateRecipe
     return function(dispatch) {
       return RecipeApi.updateRecipe(info).then(response => {
-        dispatch(updateRecipeSuccess());
-      }).catch(error => {
-        throw(error)
-      })
-    }
-  }
-
-  export function updateRecipeSuccess() { //calls get recipes to update recipe list
-    return function(dispatch) {
-      return RecipeApi.getRecipes().then(response => {
         dispatch(getRecipes());
       }).catch(error => {
         throw(error)
       })
     }
   }
+
+  // export function updateRecipeSuccess() { //calls get recipes to update recipe list
+  //   return function(dispatch) {
+  //     return RecipeApi.getRecipes().then(response => {
+  //       dispatch(getRecipes());
+  //     }).catch(error => {
+  //       throw(error)
+  //     })
+  //   }
+  // }
 
   // export function updatePotluckSuccess(potluck) {
   //   return {type: types.UPDATE_RECIPE,
