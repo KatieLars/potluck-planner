@@ -70,7 +70,8 @@ class RecipeModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  if(state.recipes.allRecipes.first){ //if coming from index page or has recipes available
+  //START HERE: PROBLEM WITH UPDATING RECIPE(RECIPE NOT FOUND)
+  if(state.recipes.allRecipes[0]){ //if coming from index page or has recipes available
      const recipe = state.recipes.allRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.id
     })
@@ -92,4 +93,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, null)(RecipeModal)
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeModal)
