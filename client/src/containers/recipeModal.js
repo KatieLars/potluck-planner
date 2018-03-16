@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import RecipeForm from '../components/recipeForm'
 import * as recipesActions from '../actions/recipesActions'
+import history from '../history'
 //this modal can be called to:
 //   create a recipe from potluck show page
 //   update a recipe from potluck show page
@@ -21,6 +22,7 @@ class RecipeModal extends Component {
         url: "",
         image: "",
         id: this.props.recipe ? (this.props.recipe.id) : ""
+        potluckId: this.props.currentPotluck ? (this.props.currentPotluck.id) : ""
       }
     }
   }
@@ -40,6 +42,11 @@ class RecipeModal extends Component {
   updateRecipeHandler(event) {
     event.preventDefault()
     this.props.actions.updateRecipe(this.state.newRecipe)
+    if(this.props.currentPotluck) {
+      history.push(`/potlucks/${this.props.currentPotluck.id}`)
+    }else {
+      history.push('/recipes')
+    }
   }
 
   render() {
