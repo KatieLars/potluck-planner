@@ -77,11 +77,11 @@ const mapStateToProps = (state, ownProps) => {
     if(recipe){
       return {recipe: recipe, user: state.users.user}
     }else{
-      return state
+      return {user: state.user.user}
     }
   }else{
     return {
-      state
+      user: state.user.user
     }
   }
 }
