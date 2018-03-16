@@ -22,6 +22,10 @@ const cardDecks = {
 
 class PotluckShow extends Component {
 
+  shouldComponentUpdate(nextProps, nextState) {
+    //component should update if this.props.potluck changes
+  }
+
   render() {
     return (
       <div>

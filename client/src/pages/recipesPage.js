@@ -23,17 +23,12 @@ shouldComponentUpdate(nextProps, nextState) { //true if change of recipes
   return(this.props.recipes !== nextProps.recipes)
  }
 
- // componentWillUpdate(nextProps, nextState) {
- //   debugger
- //   nextProps.actions.getRecipes()
- // }
-
 handleClick(event) {
   event.preventDefault()
   history.push("/recipes/new")
 }
 
-  render() { //shows all recipes a user brought or created
+  render() {
     if(this.props.recipes) {
       return(
         <div >
@@ -61,7 +56,7 @@ const mapDispatchToProps = (dispatch) => {
       actions: bindActionCreators(recipesActions, dispatch)
   }
 }
-//
+
 const mapStateToProps = (state) => {
   if(state.recipes) {
     return {
@@ -73,6 +68,5 @@ const mapStateToProps = (state) => {
     }
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesPage)
