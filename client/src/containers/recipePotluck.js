@@ -15,7 +15,7 @@ class RecipePotluck extends Component {
 
   editRecipe(event) {
     event.preventDefault()
-    history.push(`/recipes/${this.props.recipe.id}/edit`)
+    history.push(`/recipes/${this.props.recipe.recipe.id}/edit`)
   }
 
   deleteRecipe(event) {
@@ -56,7 +56,7 @@ class RecipePotluck extends Component {
      )}else {
        top = <CardHeader></CardHeader>
      }
-
+debugger
     return(
       <Card style={subtitleStyle} >
           {top}
