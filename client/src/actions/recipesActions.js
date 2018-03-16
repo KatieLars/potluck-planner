@@ -63,8 +63,19 @@ export function getRecipesSuccess(recipes) {
     }
   }
 
-  export function updatePotluckSuccess(potluck) {
-    return {type: types.UPDATE_RECIPE,
-          recipe: recipe
+  export function updatePotlucksSuccess(credentials) {
+    return function(dispatch) {
+      return RecipeApi.getRecipes(credentials).then(response => {
+        dispatch(gerRecipesSuccess(response));
+        history.push("/home")
+      }).catch(error => {
+        throw(error)
+      })
     }
   }
+
+  // export function updatePotluckSuccess(potluck) {
+  //   return {type: types.UPDATE_RECIPE,
+  //         recipe: recipe
+  //   }
+  // }
