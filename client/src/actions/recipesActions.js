@@ -53,21 +53,20 @@ export function getRecipesSuccess(recipes) {
     }
   }
 //
-  export function updateRecipe(info) {
+  export function updateRecipe(info) { //recipe updateRecipe
     return function(dispatch) {
       return RecipeApi.updateRecipe(info).then(response => {
-        dispatch(updatePotluckSuccess(response));
+        dispatch(updateRecipeSuccess());
       }).catch(error => {
         throw(error)
       })
     }
   }
 
-  export function updatePotlucksSuccess(credentials) {
+  export function updateRecipeSuccess() { //calls get recipes to update recipe list
     return function(dispatch) {
-      return RecipeApi.getRecipes(credentials).then(response => {
-        dispatch(gerRecipesSuccess(response));
-        history.push("/home")
+      return RecipeApi.getRecipes().then(response => {
+        dispatch(getRecipes());
       }).catch(error => {
         throw(error)
       })
