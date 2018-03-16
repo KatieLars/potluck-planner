@@ -43,4 +43,10 @@ class User < ApplicationRecord
     end
   end
 
+  def total_potluck_recipes #all recipes from all potlucks associated with user
+    self.potlucks.collect do |potluck|
+      potluck.recipes.collect {|recipe| recipe}
+    end
+  end
+
 end

@@ -1,7 +1,10 @@
 class PotlucksController < ApplicationController
 
   def index #hosted potlucks and potlucks for which you are invited
-    @total_potlucks = current_user.total_potlucks
+    total_potlucks = { #potlucks, plus total amount of potluck recipes
+      potlucks: current_user.total_potlucks,
+      total_potluck_recipes: current_user.total_potlucks_recipes
+    }
     render json: @total_potlucks
   end
 

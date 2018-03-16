@@ -70,22 +70,22 @@ class RecipeModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  if(state.recipes){
-    const recipe = state.recipes.userRecipes.totalRecipes.find(recipe => {
+  if(state.recipes.allRecipes.first){ //if coming from index page or has recipes available
+     const recipe = state.recipes.allRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.id
     })
     if(recipe){
       return {recipe: recipe, user: state.users.user}
     }else{
-      return {user: state.user.user}
+      return {user: state.users.user}
     }
   }else{
     return {
-      user: state.user.user
+      user: state.users.user
     }
   }
 }
-
+//problem: getting recipe info from params if accessed from potluck showpage
 const mapDispatchToProps = (dispatch) => {
   return {
       actions: bindActionCreators(recipesActions, dispatch)
