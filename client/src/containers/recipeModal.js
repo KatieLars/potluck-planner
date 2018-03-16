@@ -19,7 +19,8 @@ class RecipeModal extends Component {
         name: "",
         difficulty: "",
         url: "",
-        image: ""
+        image: "",
+        recipeId: this.props.recipe ? (this.props.recipe.id) : ""
       }
     }
   }

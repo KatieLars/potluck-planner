@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
   end
 
   def update
+    binding.pry
     @recipe = Recipe.find_by_id(params[:recipe][:id])
     clean_params = recipe_params.reject { |k, v| v.blank? }
     @recipe.update(clean_params)

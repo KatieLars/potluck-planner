@@ -55,6 +55,7 @@ export function getRecipesSuccess(recipes) {
 //
   export function updateRecipe(info) { //recipe updateRecipe
     return function(dispatch) {
+      debugger
       return RecipeApi.updateRecipe(info).then(response => {
         dispatch(updateRecipeSuccess());
       }).catch(error => {
