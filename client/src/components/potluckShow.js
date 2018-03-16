@@ -23,6 +23,7 @@ const cardDecks = {
 class PotluckShow extends Component {
 
   render() {
+    debugger
     return (
       <div>
         <Container style={containerStyle}>

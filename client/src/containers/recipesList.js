@@ -12,6 +12,7 @@ const cardDecks = {
 class RecipesList extends Component {
 
 recipeCards() {
+  debugger
   if(this.props.currentPotluck){
     return this.props.recipes.map((recipe) => (
       <RecipePotluck recipe={recipe} currentPotluck={this.props.currentPotluck} potlucks={this.props.potlucks} user={this.props.user} />

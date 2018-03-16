@@ -54,7 +54,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  if(state.potlucks.potlucks){
+  if(state.potlucks.potlucks[0]){
     return {
       potlucks: state.potlucks.potlucks
     }}else {
