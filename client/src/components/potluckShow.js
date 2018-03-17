@@ -23,7 +23,6 @@ const cardDecks = {
 class PotluckShow extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
-    debugger
     return(this.props.potluck !== nextProps.potluck)
   }
 

@@ -41,7 +41,7 @@ class RecipeModal extends Component {
 
   updateRecipeHandler(event) {
     event.preventDefault()
-    debugger
+    debugger //potluckID falls off here
     this.props.actions.updateRecipe(this.state.newRecipe)
     // if(this.props.match.params.potluckId) {
     //   debugger //problem is here--remember this can occur after the api call and state adjestument
@@ -86,12 +86,20 @@ const mapStateToProps = (state, ownProps) => {
      const recipe = state.recipes.allRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.recipeId
     })
-    if(recipe){
+      const potluck = state.potlucks.potlucks.find(potluck => {
+        return potluck.id == ownProps.match.params.potluckId
+      })
+    if(recipe && potluck){
       return {
         recipe: recipe,
+        potluck: potluck,
         user: state.users.user,
-      }}else{
-      return {user: state.users.user}
+      }}else if(recipe){
+      return {
+        recipe: recipe,
+        user: state.users.user}
+      }else{
+        return{user: state.users.user}
       }
   }else if(state.potlucks.potlucks[0] && state.recipes.allRecipes[0] == null || state.potlucks.potlucks[0] ){ //if coming from potluckShow page
 
