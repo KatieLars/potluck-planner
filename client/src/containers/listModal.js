@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reacts
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as recipesActions from '../actions/recipesActions'
-import RecipesList from '../containers/recipesList'
+import RecipesList from '../recipesList'
 import history from '../history'
 
 //used for
@@ -63,7 +63,7 @@ class ListModal extends Component {
         header = <ModalHeader>Select Guests</ModalHeader>
         body = <NotGuestCheckList />
         button = <Button>Invite Guests</Button>
-      case "guests/update":
+      case "/guests/update":
         header =  <ModalHeader>Update Guest List</ModalHeader>
         body = <GuestCheckList />
         button = <Button>Update Guest List</Button>
