@@ -41,7 +41,6 @@ class RecipeModal extends Component {
 
   updateRecipeHandler(event) {
     event.preventDefault()
-    debugger
     this.props.actions.updateRecipe(this.state.newRecipe)
     if(this.props.currentPotluck) {
       history.push(`/potlucks/${this.props.currentPotluck.id}`)

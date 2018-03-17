@@ -23,10 +23,7 @@ const cardDecks = {
 class PotluckShow extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
-    const newPotluck = nextProps.potlucks.potlucks.find(potluck => {
-      return potluck.id == this.props.potluck.id
-    })
-    return(this.props.potluck !== newPotluck)
+    return(this.props.potluck !== nextProps.potluck)
   }
 
   render() {
