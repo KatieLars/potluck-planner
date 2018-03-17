@@ -17,6 +17,7 @@ class ListModal extends Component {
     super(props);
     this.state = {
       selectedIds: [],
+      potluck_id: this.props.currentPotluck.id
     }
   }
 

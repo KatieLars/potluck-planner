@@ -67,3 +67,18 @@ export function getRecipesSuccess(recipes) {
       })
     }
   }
+
+  export function addPotluckRecipes(info) { //add recipes (creates potluck_recipes) to potluck
+    return function(dispatch) {
+      return RecipeApi.addPotluckRecipes(info).then(response => {
+        if(info.potluck_id){
+          dispatch(getPotlucks())
+          history.push(`/potlucks/${info.potluck_id}`)
+        }else{
+        dispatch(getRecipes());
+        history.push('/recipes')
+      }}).catch(error => {
+        throw(error)
+      })
+    }
+  }
