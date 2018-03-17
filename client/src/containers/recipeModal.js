@@ -22,7 +22,7 @@ class RecipeModal extends Component {
         url: "",
         image: "",
         id: this.props.recipe ? (this.props.recipe.id) : "",
-        potluckId: this.props.match.params.potluckId ? (this.props.match.params.potluckId) : ""
+        potluck_id: this.props.match.params.potluckId ? (this.props.match.params.potluckId) : ""
       }
     }
   }

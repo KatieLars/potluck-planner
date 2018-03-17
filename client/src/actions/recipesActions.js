@@ -24,9 +24,9 @@ import {getPotlucks} from './potlucksActions'
 export function createRecipe(info) { //alert and return to potlucks page
   return function(dispatch) {
     return RecipeApi.createRecipe(info).then(response => {
-      if(info.potluckId){
+      if(info.potluck_id){
         dispatch(getPotlucks())
-        history.push(`/potlucks/${info.potluckId}`)
+        history.push(`/potlucks/${info.potluck_id}`)
       }else{
       dispatch(getRecipes());
       history.push('/recipes')
@@ -56,9 +56,9 @@ export function getRecipesSuccess(recipes) {
   export function updateRecipe(info) { //recipe updateRecipe
     return function(dispatch) {
       return RecipeApi.updateRecipe(info).then(response => {
-        if(info.potluckId){
+        if(info.potluck_id){
           dispatch(getPotlucks())
-          history.push(`/potlucks/${info.potluckId}`)
+          history.push(`/potlucks/${info.potluck_id}`)
         }else{
         dispatch(getRecipes());
         history.push('/recipes')
