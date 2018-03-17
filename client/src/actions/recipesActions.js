@@ -30,9 +30,9 @@ export function createRecipe(info) { //alert and return to potlucks page
       }else{
       dispatch(getRecipes());
       history.push('/recipes')
-    }).catch(error => {
+    }}).catch(error => {
       throw(error)
-    })
+    }) //good
   }
 }
 
