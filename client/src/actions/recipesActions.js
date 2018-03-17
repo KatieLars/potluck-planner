@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 import RecipeApi from '../api/recipeApi';
 import history from '../history'
 import {getPotlucks} from './potlucksActions'
-import PotluckRecipeApi from './potluckRecipeApi'
+import PotluckRecipeApi from '../api/potluckRecipeApi'
 
 
 // export function cancelPotluck(potluckId) { //returns updated list of potlucks

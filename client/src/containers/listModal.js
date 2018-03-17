@@ -3,9 +3,9 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reacts
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as recipesActions from '../actions/recipesActions'
-import CheckList from './components/checkList'
-import GuestList from './components/guestList'
-import GuestCheckList from './components/guestCheckList'
+import CheckList from '../components/checkList'
+import GuestList from '../components/guestList'
+import GuestCheckList from '../components/guestCheckList'
 import history from '../history'
 
 //used for
@@ -32,6 +32,11 @@ class ListModal extends Component {
   //   this.props.actions.addFriends(this.state.newFriendIds)
   // }
 
+  addRecipes(event) { //creates potluck_recipes
+    event.preventDefault()
+    this.props.actions.createPotluckRecipes(this.state)
+  }
+
   handleChange(event) {
     event.preventDefault()
     this.setState({
@@ -50,18 +55,18 @@ class ListModal extends Component {
     let button = null
     //all redirect to potluck show page
     switch(this.props.match.url){
-      case "/recipes/select":
+      case "/recipes/select": //checklist of recipes to select
         header = <ModalHeader>Select Recipes</ModalHeader>
         body = <CheckList currentPotluck={this.props.currentPotluck} recipes={this.props.currentPotluck.not_potluck_recipes} />
-        button = <Button>Add Recipes</Button>
-      case "/guests":
+        button = <Button onClick={(event)=> this.addRecipes(event)}>Add Recipes</Button>
+      case "/guests": //list of guests
         header = <ModalHeader>Guests</ModalHeader>
         body = <GuestList guests={this.props.currentPotluck.guests} />
-      case "/guests/select": //needs to be friends not already invited
+      case "/guests/select": //list of friends not already guests
         header = <ModalHeader>Select Guests</ModalHeader>
         body = <CheckList guests={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>
         button = <Button>Invite Guests</Button>
-      case "/guests/update":
+      case "/guests/update": //update who's coming of they have not rsvped
         header =  <ModalHeader>Update Guest List</ModalHeader>
         body = <GuestCheckList currentPotluck={this.props.currentPotluck}/>
         button = <Button>Update Guest List</Button>
@@ -98,7 +103,7 @@ const mapStateToProps = (state, ownProps) => {
         return state
       }
     }
-
+//will also need to bind guest actions
   const mapDispatchToProps = (dispatch) => {
     return {
       actions: bindActionCreators(recipesActions, dispatch)
