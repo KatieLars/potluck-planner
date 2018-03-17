@@ -5,9 +5,10 @@ Rails.application.routes.draw do
        get '/friendships/not_friends' => 'friendships#not_friends'
        post '/friendships/end_friendships' => 'friendships#end_friendships'
        post '/friendships/add_friends' => 'friendships#add_friends'
-       
+
        post 'find_user' => 'users#find'
 
+       resources :potluck_recipes, only: [:create]
        resources :potlucks
        resources :users
        resources :guestships
