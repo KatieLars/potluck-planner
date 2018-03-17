@@ -64,14 +64,14 @@ class Routes extends Component {
       <Route path="/potlucks/new" component={NewPotluckPage} />
       <Route exact path="/recipes" component={RecipesPage}/>
       <Route path="/recipes/new" component={NewRecipePage}/>
-      <Route path="/recipes/:id/edit" component={RecipeModal}/>
+      <Route path="/recipes/:recipeId/edit" component={RecipeModal}/>
       <Route exact path="/potlucks/:id" component={PotluckShow}/>
       <Route path="/potlucks/:id/guests/invite" component={InviteGuests}/>
       <Route exact path="/potlucks/:id/guests" component={GuestList}/>
       <Route exact path="/potlucks/:id/recipes" component={PotluckRecipes}/>
       <Route path="/potlucks/:potluckId/recipes/:recipeId" component={RecipeModal} />
-      <Route path="/potlucks/:id/recipes/new" component={RecipeModal}/>
-      <Route path="/potlucks/:id/recipes/select" component={SelectPotluckRecipes}/>
+      <Route path="/potlucks/:potluckId/recipes/new" component={RecipeModal}/>
+      <Route path="/potlucks/:potluckId/recipes/select" component={SelectPotluckRecipes}/>
       </Switch>
     </div>
   )}

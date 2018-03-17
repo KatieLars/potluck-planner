@@ -79,16 +79,37 @@ class RecipeModal extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   //START HERE: PROBLEM WITH UPDATING RECIPE(RECIPE NOT FOUND)
-  if(state.recipes.allRecipes[0]){ //if coming from index page or has recipes available
+  if(state.recipes.allRecipes[0] && state.potlucks.potlucks[0] == null){ //if coming from index page
      const recipe = state.recipes.allRecipes.find(recipe => {
-      return recipe.id == ownProps.match.params.id
+      return recipe.id == ownProps.match.params.recipeId
     })
     if(recipe){
-      return {recipe: recipe, user: state.users.user}
-    }else{
+      return {
+        recipe: recipe,
+        user: state.users.user,
+      }}else{
       return {user: state.users.user}
+      }
+  }else if(state.potlucks.potlucks[0] && state.recipes.allRecipes[0] == null){ //if coming from potluckShow page
+    const potluckRecipe = state.potlucks.allPotluckRecipes.find(recipe => {
+      return recipe.id == ownProps.match.params.recipeId
+    })
+      const potluckPotluck = state.potlucks.potlucks.find(potluck => {
+        return potluck.id == ownProps.match.params.potluckId
+      })
+    if(potluckRecipe && potluckPotluck){
+      return{
+        recipe: potluckRecipe,
+        currentPotluck: potluckPotluck,
+        user: state.users.user
+      }
+    }else{
+      return{
+        user: state.users.user
+      }
     }
-  }else{
+  }
+  else{
     return {
       user: state.users.user
     }
