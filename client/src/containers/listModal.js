@@ -3,7 +3,9 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reacts
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as recipesActions from '../actions/recipesActions'
-import RecipesList from '../recipesList'
+import CheckList from './components/checkList'
+import GuestList from './components/guestList'
+import GuestCheckList from './components/guestCheckList'
 import history from '../history'
 
 //used for
@@ -42,11 +44,6 @@ class ListModal extends Component {
     history.push(`/potlucks/${this.props.match.params.potluckId}`)
   }
 
-  otherRecipes() {
-    this.props.
-
-    //needs to get recipes NOT already associated with potluck
-  }
   render() {
     let header = null
     let body = null
