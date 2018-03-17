@@ -19,4 +19,8 @@ class Potluck < ApplicationRecord#may need foreign keys specified
       {recipe: potluck_recipe.recipe, claimant_id: potluck_recipe.user_id}
     end
   end
+
+  def other_recipes
+    Recipe.all - self.recipes
+  end
 end

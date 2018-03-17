@@ -1,5 +1,5 @@
 class PotluckSerializer < ActiveModel::Serializer
-  attributes :id, :name, :location, :description, :format_date, :format_time, :canceled, :image, :user_id, :potluck_recipes_claimed
+  attributes :id, :name, :location, :description, :format_date, :format_time, :canceled, :image, :user_id, :not_potluck_recipes, :potluck_recipes_claimed
   belongs_to :user
   has_many :guestships
   has_many :guests, through: :guestships
@@ -22,6 +22,10 @@ class PotluckSerializer < ActiveModel::Serializer
     if object.potluck_recipes
       object.format_recipes_with_claimant_id
     end
+  end
+
+  def not_potluck_recipes
+    object.other_recipes
   end
 
 end

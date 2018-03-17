@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import * as friendsActions from '../actions/friendsActions'
-import NewFriendsList from './newFriendsList'
+import * as recipesActions from '../actions/recipesActions'
+import RecipesList from '../containers/recipesList'
 import history from '../history'
 
 //used for
@@ -32,7 +32,7 @@ class ListModal extends Component {
   handleChange(event) {
     event.preventDefault()
     this.setState({
-      newFriendIds: [...this.state.newFriendIds, event.target.value]
+      newFriendIds: [...this.state.selectedIds, event.target.value]
     })
   }
 
@@ -41,6 +41,11 @@ class ListModal extends Component {
     history.push(`/potlucks/${this.props.match.params.potluckId}`)
   }
 
+  otherRecipes() {
+    this.props.
+
+    //needs to get recipes NOT already associated with potluck
+  }
   render() {
     let header = null
     let body = null
@@ -49,7 +54,7 @@ class ListModal extends Component {
     switch(this.props.match.url){
       case "/recipes/select":
         header = <ModalHeader>Select Recipes</ModalHeader>
-        body = <RecipeList />
+        body = <RecipesList currentPotluck={this.props.currentPotluck} recipes={this.otherRecipes()} />
         button = <Button>Add Recipes</Button>
       case "/guests":
         header = <ModalHeader>Guests</ModalHeader>
@@ -82,5 +87,23 @@ class ListModal extends Component {
     )
   }
 }
+const mapStateToProps = (state, ownProps) => {
+  if(ownProps.match.params.potluckId){ //comping from potluck show page
+      const potluck = state.potlucks.potlucks.find(potluck => {
+        return potluck.id == ownProps.match.params.potluckId
+      })
+      if(potluck) {
+        return {
+          currentPotluck: potluck
+        }
+      }}else{
+        return state
+      }
+    }
 
-export default ListModal
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      actions: bindActionCreators(recipesActions, dispatch)
+    }
+  }
+export default connect(mapStateToProps, null)(ListModal)
