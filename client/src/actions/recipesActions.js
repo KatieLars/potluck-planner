@@ -1,6 +1,7 @@
 import * as types from './actionTypes';
 import RecipeApi from '../api/recipeApi';
 import history from '../history'
+import {getPotlucks} from './potlucksActions'
 
 
 // export function cancelPotluck(potluckId) { //returns updated list of potlucks
@@ -50,8 +51,11 @@ export function getRecipesSuccess(recipes) {
   export function updateRecipe(info) { //recipe updateRecipe
     return function(dispatch) {
       return RecipeApi.updateRecipe(info).then(response => {
+        if(info.potluckId){
+          dispatch(getPotlucks())
+        }else{
         dispatch(getRecipes());
-      }).catch(error => {
+      }}).catch(error => {
         throw(error)
       })
     }
