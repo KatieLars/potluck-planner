@@ -21,9 +21,9 @@ import {getPotlucks} from './potlucksActions'
 //   }
 // }
 //
-export function createRecipe(newRecipe) { //alert and return to potlucks page
+export function createRecipe(info) { //alert and return to potlucks page
   return function(dispatch) {
-    return RecipeApi.createRecipe(newRecipe).then(response => {
+    return RecipeApi.createRecipe(info).then(response => {
       if(info.potluckId){
         dispatch(getPotlucks())
         history.push(`/potlucks/${info.potluckId}`)
