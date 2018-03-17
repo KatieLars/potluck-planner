@@ -54,7 +54,7 @@ class ListModal extends Component {
     switch(this.props.match.url){
       case "/recipes/select":
         header = <ModalHeader>Select Recipes</ModalHeader>
-        body = <RecipesList currentPotluck={this.props.currentPotluck} recipes={this.otherRecipes()} />
+        body = <RecipesList currentPotluck={this.props.currentPotluck} recipes={this.props.currentPotluck.not_potluck_recipes} />
         button = <Button>Add Recipes</Button>
       case "/guests":
         header = <ModalHeader>Guests</ModalHeader>

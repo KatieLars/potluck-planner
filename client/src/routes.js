@@ -16,7 +16,7 @@ import NewRecipePage from './pages/newRecipePage'
 import PotluckShow from './components/potluckShow'
 import InviteGuests from './components/inviteGuests'
 import GuestList from './components/guestList'
-import PotluckRecipes from './components/potluckRecipes'
+import ListModal from './components/listModal'
 import RecipeModal from './containers/recipeModal'
 import SelectPotluckRecipes from './components/selectPotluckRecipes'
 import RecipesPage from './pages/recipesPage'
@@ -68,7 +68,7 @@ class Routes extends Component {
       <Route exact path="/potlucks/:id" component={PotluckShow}/>
       <Route path="/potlucks/:id/guests/invite" component={InviteGuests}/>
       <Route exact path="/potlucks/:id/guests" component={GuestList}/>
-      <Route exact path="/potlucks/:id/recipes" component={PotluckRecipes}/>
+      <Route exact path="/potlucks/:potluckId/recipes/select" component={ListModal}/>
       <Route path="/potlucks/:potluckId/recipes/:recipeId" component={RecipeModal} />
       <Route path="/potlucks/:potluckId/recipes/new" component={RecipeModal}/>
       <Route path="/potlucks/:potluckId/recipes/select" component={SelectPotluckRecipes}/>
