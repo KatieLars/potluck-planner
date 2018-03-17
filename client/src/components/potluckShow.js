@@ -27,7 +27,6 @@ class PotluckShow extends Component {
       return potluck.id == this.props.potluck.id
     })
     return(this.props.potluck !== newPotluck)
-    //component should update if this.props.potluck changes
   }
 
   render() {
@@ -62,7 +61,3 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps, null)(PotluckShow)
-
-
-// <Button onClick={(event) => {this.inviteGuests(event)}}>Invite Guests</Button>
-// <Button onClick={(event) => {this.getAttendees(event)}}>See Who is Coming</Button>
