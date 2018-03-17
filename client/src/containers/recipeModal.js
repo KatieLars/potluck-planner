@@ -22,7 +22,7 @@ class RecipeModal extends Component {
         url: "",
         image: "",
         id: this.props.recipe ? (this.props.recipe.id) : "",
-        potluckId: this.props.currentPotluck ? (this.props.currentPotluck.id) : ""
+        potluckId: this.props.match.params.potluckId ? (this.props.match.params.potluckId) : ""
       }
     }
   }
@@ -36,6 +36,7 @@ class RecipeModal extends Component {
 
   createRecipeHandler(event) {
     event.preventDefault()
+    debugger
     this.props.actions.createRecipe(this.state.newRecipe);
   }
 
@@ -81,50 +82,81 @@ class RecipeModal extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   //START HERE: PROBLEM WITH UPDATING RECIPE(RECIPE NOT FOUND)
-  if(state.recipes.allRecipes[0] && state.potlucks.potlucks[0] == null || state.recipes.allRecipes[0] ){ //if coming from index page
+  if(ownProps.match.params.potluckId){ //comping from potluck show page
      const recipe = state.recipes.allRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.recipeId
     })
       const potluck = state.potlucks.potlucks.find(potluck => {
         return potluck.id == ownProps.match.params.potluckId
       })
-    if(recipe && potluck){
-      return {
-        recipe: recipe,
-        currentPotluck: potluck,
-        user: state.users.user,
-      }}else if(recipe){
-      return {
-        recipe: recipe,
-        user: state.users.user}
-      }else{
-        return{user: state.users.user}
-      }
-  }else if(state.potlucks.potlucks[0] && state.recipes.allRecipes[0] == null || state.potlucks.potlucks[0] ){ //if coming from potluckShow page
-
-    const potluckRecipe = state.potlucks.allPotluckRecipes.find(recipe => {
-      return recipe.id == ownProps.match.params.recipeId
-    })
-      const potluckPotluck = state.potlucks.potlucks.find(potluck => {
-        return potluck.id == ownProps.match.params.potluckId
-      })
-    if(potluckRecipe && potluckPotluck){
-      return{
-        recipe: potluckRecipe,
-        currentPotluck: potluckPotluck,
-        user: state.users.user
-      }
-    }else{
-      return{
-        user: state.users.user
-      }
-    }
-  }
-  else{
-    return {
-      user: state.users.user
-    }
-  }
+        if(recipe && potluck){
+          return {
+            recipe: recipe,
+            currentPotluck: potluck,
+            user: state.users.user,
+          }}else{
+              return{user: state.users.user}
+            }
+          }else if(ownProps.match.params.recipeId){
+              const recipe = state.recipes.allRecipes.find(recipe => {
+                return recipe.id == ownProps.match.params.recipeId
+              })
+              if(recipe){
+                return {
+                  recipe: recipe,
+                  user: state.users.user}
+              }else{
+                return{user: state.users.user}
+              }
+          }else{
+            return {
+              user: state.users.user
+            }
+          }
+  // if(state.recipes.allRecipes[0] && state.potlucks.potlucks[0] == null || state.recipes.allRecipes[0] ){ //if coming from index page
+  //    const recipe = state.recipes.allRecipes.find(recipe => {
+  //     return recipe.id == ownProps.match.params.recipeId
+  //   })
+  //     const potluck = state.potlucks.potlucks.find(potluck => {
+  //       return potluck.id == ownProps.match.params.potluckId
+  //     })
+  //   if(recipe && potluck){
+  //     return {
+  //       recipe: recipe,
+  //       currentPotluck: potluck,
+  //       user: state.users.user,
+  //     }}else if(recipe){
+  //     return {
+  //       recipe: recipe,
+  //       user: state.users.user}
+  //     }else{
+  //       return{user: state.users.user}
+  //     }
+  // }else if(state.potlucks.potlucks[0] && state.recipes.allRecipes[0] == null || state.potlucks.potlucks[0] ){ //if coming from potluckShow page
+  //
+  //   const potluckRecipe = state.potlucks.allPotluckRecipes.find(recipe => {
+  //     return recipe.id == ownProps.match.params.recipeId
+  //   })
+  //     const potluckPotluck = state.potlucks.potlucks.find(potluck => {
+  //       return potluck.id == ownProps.match.params.potluckId
+  //     })
+  //   if(potluckRecipe && potluckPotluck){
+  //     return{
+  //       recipe: potluckRecipe,
+  //       currentPotluck: potluckPotluck,
+  //       user: state.users.user
+  //     }
+  //   }else{
+  //     return{
+  //       user: state.users.user
+  //     }
+  //   }
+  // }
+  // else{
+  //   return {
+  //     user: state.users.user
+  //   }
+  // }
 }
 //problem: getting recipe info from params if accessed from potluck showpage
 const mapDispatchToProps = (dispatch) => {
