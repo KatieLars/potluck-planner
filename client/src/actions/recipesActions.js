@@ -24,7 +24,12 @@ import {getPotlucks} from './potlucksActions'
 export function createRecipe(newRecipe) { //alert and return to potlucks page
   return function(dispatch) {
     return RecipeApi.createRecipe(newRecipe).then(response => {
+      if(info.potluckId){
+        dispatch(getPotlucks())
+        history.push(`/potlucks/${info.potluckId}`)
+      }else{
       dispatch(getRecipes());
+      history.push('/recipes')
     }).catch(error => {
       throw(error)
     })
