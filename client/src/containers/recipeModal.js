@@ -90,7 +90,8 @@ const mapStateToProps = (state, ownProps) => {
       }}else{
       return {user: state.users.user}
       }
-  }else if(state.potlucks.potlucks[0] && state.recipes.allRecipes[0] == null){ //if coming from potluckShow page
+  }else if(state.potlucks.potlucks[0] && state.recipes.allRecipes[0] == null || state.potlucks.potlucks[0] ){ //if coming from potluckShow page
+
     const potluckRecipe = state.potlucks.allPotluckRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.recipeId
     })
