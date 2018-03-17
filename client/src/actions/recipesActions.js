@@ -51,10 +51,13 @@ export function getRecipesSuccess(recipes) {
   export function updateRecipe(info) { //recipe updateRecipe
     return function(dispatch) {
       return RecipeApi.updateRecipe(info).then(response => {
+        debugger
         if(info.potluckId){
           dispatch(getPotlucks())
+          history.push(`/potlucks/${this.props.match.params.potluckId}`)
         }else{
         dispatch(getRecipes());
+        history.push('/recipes')
       }}).catch(error => {
         throw(error)
       })

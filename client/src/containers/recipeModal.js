@@ -41,12 +41,15 @@ class RecipeModal extends Component {
 
   updateRecipeHandler(event) {
     event.preventDefault()
+    debugger
     this.props.actions.updateRecipe(this.state.newRecipe)
-    if(this.props.currentPotluck) {
-      history.push(`/potlucks/${this.props.currentPotluck.id}`)
-    }else {
-      history.push('/recipes')
-    }
+    // if(this.props.match.params.potluckId) {
+    //   debugger //problem is here--remember this can occur after the api call and state adjestument
+    //   //move to actions
+    //   history.push(`/potlucks/${this.props.match.params.potluckId}`)
+    // }else {
+    //   history.push('/recipes')
+    // }
   }
 
   render() {
@@ -79,7 +82,7 @@ class RecipeModal extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   //START HERE: PROBLEM WITH UPDATING RECIPE(RECIPE NOT FOUND)
-  if(state.recipes.allRecipes[0] && state.potlucks.potlucks[0] == null){ //if coming from index page
+  if(state.recipes.allRecipes[0] && state.potlucks.potlucks[0] == null || state.recipes.allRecipes[0] ){ //if coming from index page
      const recipe = state.recipes.allRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.recipeId
     })

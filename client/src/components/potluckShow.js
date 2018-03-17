@@ -23,6 +23,7 @@ const cardDecks = {
 class PotluckShow extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
+    debugger
     return(this.props.potluck !== nextProps.potluck)
   }
 
@@ -45,6 +46,7 @@ class PotluckShow extends Component {
 //if the recipe is chosen it gets a user id
 
 const mapStateToProps = (state, ownProps) => {
+
   if(state.potlucks.potlucks){
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.id
