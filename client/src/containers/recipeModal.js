@@ -36,7 +36,6 @@ class RecipeModal extends Component {
 
   createRecipeHandler(event) {
     event.preventDefault()
-    debugger
     this.props.actions.createRecipe(this.state.newRecipe);
   }
 
@@ -74,7 +73,6 @@ class RecipeModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  //START HERE: PROBLEM WITH UPDATING RECIPE(RECIPE NOT FOUND)
   if(ownProps.match.params.potluckId){ //comping from potluck show page
      const recipe = state.recipes.allRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.recipeId
