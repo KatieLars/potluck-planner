@@ -40,8 +40,8 @@ class RecipeModal extends Component {
   }
 
   updateRecipeHandler(event) {
-    event.preventDefault()
-    debugger //potluckID falls off here
+    event.preventDefault() //potluckID falls off here
+  
     this.props.actions.updateRecipe(this.state.newRecipe)
     // if(this.props.match.params.potluckId) {
     //   debugger //problem is here--remember this can occur after the api call and state adjestument
@@ -92,7 +92,7 @@ const mapStateToProps = (state, ownProps) => {
     if(recipe && potluck){
       return {
         recipe: recipe,
-        potluck: potluck,
+        currentPotluck: potluck,
         user: state.users.user,
       }}else if(recipe){
       return {
