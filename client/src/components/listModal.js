@@ -7,9 +7,9 @@ import NewFriendsList from './newFriendsList'
 import history from '../history'
 
 //used for
-  //selecting guests (if creator of potluck) /guest/select
+  //selecting guests (if creator of potluck) /guests/select
   //viewing guests (non-creator but invited) /guests
-  //updating guestlist (if creator of potluck) /guests (but if logged in, should be checkmarks)
+  //updating guestlist (if creator of potluck) /guests/update (but if logged in, should be checkmarks)
   //selecting recipes (any user) /recipes/select
 
 class ListModal extends Component {
@@ -43,15 +43,34 @@ class ListModal extends Component {
 
   render() {
     let header = null
-    //if this.props.match.url
+    let body = null
+    let button = null
+    //all redirect to potluck show page
+    switch(this.props.match.url){
+      case "/recipes/select":
+        header = <ModalHeader>Select Recipes</ModalHeader>
+        body = <RecipeList />
+        button = <Button>Add Recipes</Button>
+      case "/guests":
+        header = <ModalHeader>Guests</ModalHeader>
+        body = <GuestList />
+      case "/guests/select":
+        header = <ModalHeader>Select Guests</ModalHeader>
+        body = <NotGuestCheckList />
+        button = <Button>Invite Guests</Button>
+      case "guests/update":
+        header =  <ModalHeader>Update Guest List</ModalHeader>
+        body = <GuestCheckList />
+        button = <Button>Update Guest List</Button>
+    }
 
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
-          <ModalHeader></ModalHeader>
+          {header}
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
-              <NewFriendsList newFriends={this.props.newFriends}/>
+              {body}
             </Form>
           </ModalBody>
           <ModalFooter>
