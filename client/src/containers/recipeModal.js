@@ -16,7 +16,7 @@ class RecipeModal extends Component {
     super(props)
     this.state = {
       newRecipe: {
-        userId: this.props.user.id,
+        // userId: this.props.user.id,
         name: "",
         difficulty: "",
         url: "",

@@ -14,12 +14,11 @@ class RecipesController < ApplicationController
 
   def create
     recipe = current_user.recipes.build(recipe_params)
-    potluck = Potluck.find_by_id(params[:recipe][:potluckId])
-    binding.pry
+    potluck = Potluck.find_by_id(params[:recipe][:potluck_id])
     if recipe.save && potluck
-
-    if recipe.save
-
+      PotluckRecipe.create(recipe_id: recipe.id, potluck_id: potluck.id)
+      render json:recipe
+    elsif recipe.save
       render json:recipe
     else
       errors = recipe.errors.full_messages

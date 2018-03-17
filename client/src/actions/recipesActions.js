@@ -24,6 +24,7 @@ import {getPotlucks} from './potlucksActions'
 export function createRecipe(info) { //alert and return to potlucks page
   return function(dispatch) {
     return RecipeApi.createRecipe(info).then(response => {
+      debugger
       if(info.potluck_id){
         dispatch(getPotlucks())
         history.push(`/potlucks/${info.potluck_id}`)
