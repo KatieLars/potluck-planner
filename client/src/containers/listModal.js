@@ -53,25 +53,36 @@ class ListModal extends Component {
     let header = null
     let body = null
     let button = null
-    //all redirect to potluck show page
-    switch(this.props.match.url){
-      case "/recipes/select": //checklist of recipes to select
-        header = <ModalHeader>Select Recipes</ModalHeader>
-        body = <CheckList currentPotluck={this.props.currentPotluck} recipes={this.props.currentPotluck.not_potluck_recipes} />
-        button = <Button onClick={(event)=> this.addRecipes(event)}>Add Recipes</Button>
-      case "/guests": //list of guests
-        header = <ModalHeader>Guests</ModalHeader>
-        body = <GuestList guests={this.props.currentPotluck.guests} />
-      case "/guests/select": //list of friends not already guests
-        header = <ModalHeader>Select Guests</ModalHeader>
-        body = <CheckList guests={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>
-        button = <Button>Invite Guests</Button>
-      case "/guests/update": //update who's coming of they have not rsvped
-        header =  <ModalHeader>Update Guest List</ModalHeader>
-        body = <GuestCheckList currentPotluck={this.props.currentPotluck}/>
-        button = <Button>Update Guest List</Button>
-    }
+    let groupModal = {}
 
+    //all redirect to potluck show page
+
+    switch(this.props.match.url){
+      case `/potlucks/${this.props.currentPotluck.id}/recipes/select`: //checklist of recipes to select
+        groupModal = {
+          header: <ModalHeader>Select Recipes</ModalHeader>,
+          body: <CheckList currentPotluck={this.props.currentPotluck} recipes={this.props.currentPotluck.not_potluck_recipes} />,
+          button: <Button onClick={(event)=> this.addRecipes(event)}>Add Recipes</Button>
+        }
+      case `/potlucks/${this.props.currentPotluck.id}/guests`: //list of guests
+        groupModal = {
+          header: <ModalHeader>Guests</ModalHeader>,
+          body: <GuestList guests={this.props.currentPotluck.guests} />
+        }
+      case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
+        groupModal = {
+          header: <ModalHeader>Select Guests</ModalHeader>,
+          body: <CheckList guests={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>,
+          button: <Button>Invite Guests</Button>
+        }
+      case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming of they have not rsvped
+        groupModal = {
+          header:  <ModalHeader>Update Guest List</ModalHeader>,
+          body: <GuestCheckList currentPotluck={this.props.currentPotluck}/>,
+          button: <Button>Update Guest List</Button>
+        }
+    }
+debugger
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
@@ -109,4 +120,4 @@ const mapStateToProps = (state, ownProps) => {
       actions: bindActionCreators(recipesActions, dispatch)
     }
   }
-export default connect(mapStateToProps, null)(ListModal)
+export default connect(mapStateToProps, mapDispatchToProps)(ListModal)
