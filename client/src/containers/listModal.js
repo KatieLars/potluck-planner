@@ -55,14 +55,14 @@ class ListModal extends Component {
     switch(this.props.match.url){
       case "/recipes/select":
         header = <ModalHeader>Select Recipes</ModalHeader>
-        body = <RecipesCheckList currentPotluck={this.props.currentPotluck} recipes={this.props.currentPotluck.not_potluck_recipes} />
+        body = <CheckList currentPotluck={this.props.currentPotluck} recipes={this.props.currentPotluck.not_potluck_recipes} />
         button = <Button>Add Recipes</Button>
       case "/guests":
         header = <ModalHeader>Guests</ModalHeader>
         body = <GuestList />
-      case "/guests/select":
+      case "/guests/select": //needs to be friends not already invited
         header = <ModalHeader>Select Guests</ModalHeader>
-        body = <NotGuestCheckList />
+        body = <CheckList guests={this.props.currentPotluck.friendsNotInvited}/>
         button = <Button>Invite Guests</Button>
       case "/guests/update":
         header =  <ModalHeader>Update Guest List</ModalHeader>
@@ -95,7 +95,8 @@ const mapStateToProps = (state, ownProps) => {
       })
       if(potluck) {
         return {
-          currentPotluck: potluck
+          currentPotluck: potluck,
+
         }
       }}else{
         return state

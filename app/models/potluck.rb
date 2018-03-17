@@ -23,4 +23,8 @@ class Potluck < ApplicationRecord#may need foreign keys specified
   def other_recipes
     Recipe.all - self.recipes
   end
+
+  def friends_not_invited #list of user's friends not invited to a particular potluck
+    current_user.friends - self.guests
+  end
 end
