@@ -16,3 +16,5 @@ class PotluckRecipeApi {
       return error;
     });
   }
+}
+export default PotluckRecipeApi
