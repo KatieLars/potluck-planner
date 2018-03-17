@@ -59,14 +59,14 @@ class ListModal extends Component {
         button = <Button>Add Recipes</Button>
       case "/guests":
         header = <ModalHeader>Guests</ModalHeader>
-        body = <GuestList />
+        body = <GuestList guests={this.props.currentPotluck.guests} />
       case "/guests/select": //needs to be friends not already invited
         header = <ModalHeader>Select Guests</ModalHeader>
-        body = <CheckList guests={this.props.currentPotluck.friendsNotInvited}/>
+        body = <CheckList guests={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>
         button = <Button>Invite Guests</Button>
       case "/guests/update":
         header =  <ModalHeader>Update Guest List</ModalHeader>
-        body = <GuestCheckList />
+        body = <GuestCheckList currentPotluck={this.props.currentPotluck}/>
         button = <Button>Update Guest List</Button>
     }
 
@@ -80,7 +80,7 @@ class ListModal extends Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button onClick={(event) => this.addFriendsHandler(event)}>Add Friends</Button>
+            {button}
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
           </ModalFooter>
         </Modal>
@@ -95,8 +95,7 @@ const mapStateToProps = (state, ownProps) => {
       })
       if(potluck) {
         return {
-          currentPotluck: potluck,
-
+          currentPotluck: potluck
         }
       }}else{
         return state
