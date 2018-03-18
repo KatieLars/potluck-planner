@@ -33,7 +33,7 @@ class GuestApi {
   // }
 
   static userRsvp(rsvp) {
-    const request = new Request(`http://localhost:3001/guestships`, {
+    const request = new Request(`http://localhost:3001/guestships/${rsvp.guestshipId}`, {
       method: 'PATCH',
       headers: new Headers({
         'Content-Type': 'application/json',

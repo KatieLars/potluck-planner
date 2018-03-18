@@ -9,4 +9,6 @@ class GuestshipsController < ApplicationController
       errors = guestship.errors.full_messages
       render json:errors
     end
+  end
+  
 end
