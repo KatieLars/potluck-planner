@@ -15,8 +15,14 @@ class PotluckCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dynamicElements: this.dynamicElements()
+      dynamicElements: null
     }
+  }
+
+  componentWillMount() {
+    this.setState({
+      dynamicElements: this.dynamicElements()
+    })
   }
 
 potluckShowPage(event){ //opens show page DONE
@@ -55,7 +61,7 @@ cancelPotluck(event) {
 }
 
 changeRSVP(event) {
-  event.preventDefault()
+
   history.push(`/potlucks/${this.props.potluck.id}/rsvp`)
   //should go directly to api, change guestship rsvp value, and come back to this url
 }
@@ -77,7 +83,7 @@ switch(this.props.user.id == this.props.potluck.user_id){
               </span>
     }
   case false: //if user is a guest, not the host need RSVP option
-    const guestship = this.props.user.guestships.find(guestship => {
+    let guestship = this.props.user.guestships.find(guestship => {
       return guestship.potluck_id == this.props.potluck.id
     }) //shows guestship
     if(guestship){

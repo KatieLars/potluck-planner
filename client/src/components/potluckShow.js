@@ -27,6 +27,7 @@ class PotluckShow extends Component {
   }
 
   render() {
+
     return (
       <div>
         <Container style={containerStyle}>

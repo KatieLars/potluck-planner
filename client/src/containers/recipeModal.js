@@ -104,7 +104,7 @@ const mapStateToProps = (state, ownProps) => {
             }
           }
 }
-//problem: getting recipe info from params if accessed from potluck showpage
+
 const mapDispatchToProps = (dispatch) => {
   return {
       actions: bindActionCreators(recipesActions, dispatch)
