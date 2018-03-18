@@ -52,17 +52,16 @@ dynamicElements() {
   let header = null
   let footer = null
 
-
-switch(this.props.match.url){
-  case `/potlucks/${this.props.currentPotluck.id}/recipes/select`: //checklist of recipes to select
+switch(this.props.user.id == this.props.potluck.user_id){
+  case true: //if user is the same as creator of potluck
     return {
-      <CardHeader className="col d-flex justify-content-center">
-        <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.getGuests(event)}>Guest List</CardLink>
-        <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
-      </CardHeader>
+      header: <CardHeader className="col d-flex justify-content-center">
+                <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updateGuestList(event)}>Update Guest List</CardLink>
+                <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
+              </CardHeader>,
     }
 
-  case `/potlucks/${this.props.currentPotluck.id}/guests`: //list of guests
+  case false: //if user is a guest, not the host
     return {
 
     }
@@ -84,9 +83,9 @@ switch(this.props.match.url){
   render() {
     return (
       <Card style={subtitleStyle} >
-      {this.props.url ? ( //if this renders on index page
+      {this.props.url ? ( //rendering on index page
         null
-      ):( {this.dynamicElements().header}
+      ):( {this.dynamicElements().header} //rendering on potluckShow
       )}
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
           <CardBody>

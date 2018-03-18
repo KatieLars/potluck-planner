@@ -33,7 +33,7 @@ handleClick(event) {
     if(this.props.potlucks) {
       return(
         <div style={homeBackground}  >
-          <PotlucksList potlucks={this.props.potlucks} url={this.props.match.url} />
+          <PotlucksList potlucks={this.props.potlucks} url={this.props.match.url} user={this.props.user} />
         </div>
       )
     }else{
@@ -57,7 +57,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   if(state.potlucks.potlucks[0]){
     return {
-      potlucks: state.potlucks.potlucks
+      potlucks: state.potlucks.potlucks,
+      user: state.users.user
     }}else {
       return {
         state

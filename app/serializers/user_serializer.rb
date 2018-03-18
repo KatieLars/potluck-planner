@@ -5,6 +5,7 @@ class UserSerializer < ActiveModel::Serializer
   has_many :potlucks
   has_many :potluck_recipes
   has_many :recipes, through: :potluck_recipes
+  has_many :guestships, foreign_key: :guest_id
 
   def other_users #grabs all users who are NOT also friends
     object.not_friends
