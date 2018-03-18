@@ -60,24 +60,21 @@ switch(this.props.user.id == this.props.potluck.user_id){
                 <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
               </CardHeader>,
     }
-
-  case false: //if user is a guest, not the host
-    return {
-
+  case false: //if user is a guest, not the host need RSVP option
+    const guestship = this.props.user.guestships.find(guestship => {
+      guestship.potluck_id == this.props.potluck.id
+    }) //shows guestship
+    if(guestship.rsvp){
+      return {
+        header:
+          <CardHeader className="col d-flex justify-content-center">
+            <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.changeRSVP(event)}>RSVP{guestship.rsvp ? (: guestship.rsvp) : (null)}</CardLink>
+          </CardHeader>
+        }
+      }
     }
-
-  case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
-    return {
-
-    }
-
-  case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming if they have not rsvped
-   return {
-
-    }
-
   }
-}
+
 //should read rsvp if user is potluck user
 //props url determines if displayed on potluck index page (url) or potluck show page (no url)
   render() {
