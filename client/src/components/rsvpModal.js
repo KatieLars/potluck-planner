@@ -7,9 +7,15 @@ class RsvpModal extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      rsvp: [],
+      rsvp: "",
       guestshipId: this.props.guestship.id
     }
+  }
+
+  handleChange(event) {
+    this.setState({
+      rsvp: event.target.value
+    })
   }
   render() {
 
@@ -19,12 +25,28 @@ class RsvpModal extends Component{
           <ModalHeader>RSVP</ModalHeader>
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
-              {this.dynamicElements().body}
+            <FormGroup check className="form-check-inline">
+              <Label check >
+              <Input type="radio" name="difficulty" value="Going" />
+              Going
+              </Label>
+            </FormGroup>
+            <FormGroup check className="form-check-inline">
+              <Label check >
+              <Input type="radio" name="difficulty" value="Maybe" />
+              Maybe
+              </Label>
+            </FormGroup>
+            <FormGroup check className="form-check-inline">
+              <Label check >
+              <Input type="radio" name="difficulty" value="Not Going" />
+              Not Going
+              </Label>
+            </FormGroup>
             </Form>
           </ModalBody>
           <ModalFooter>
-            {this.dynamicElements().button}
-            <Button onClick={(event) => this.changeRsvp(event)}
+            <Button onClick={(event) => this.changeRsvp(event)}>RSVP</Button>
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
           </ModalFooter>
         </Modal>
