@@ -11,6 +11,7 @@ class RsvpModal extends Component{
     this.state = {
       rsvp: "",
       guestshipId: this.props.guestship.id
+      potluckId: this.props.guestship.potluck_id
     }
   }
 

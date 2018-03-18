@@ -24,6 +24,7 @@ export function userRsvp(rsvp) {
   return function(dispatch) {
     return GuestApi.userRsvp(rsvp).then(response => {
       dispatch(getPotlucks());
+      history.push(`/potlucks/${rsvp.potluckId}`)
     }).catch(error => {
       throw(error)
     })
