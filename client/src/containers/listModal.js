@@ -79,7 +79,7 @@ class ListModal extends Component {
         button: <Button>Invite Guests</Button>
       }
 
-    case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming of they have not rsvped
+    case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming if they have not rsvped
      return {
         header:  <ModalHeader>Update Guest List</ModalHeader>,
         body: <GuestCheckList currentPotluck={this.props.currentPotluck}/>,

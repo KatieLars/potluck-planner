@@ -18,12 +18,12 @@ potluckShowPage(event){ //opens show page DONE
   history.push(`/potlucks/${this.props.potluck.id}`)
 }
 
-createARecipe(event){ //creates a recipe
+createARecipe(event){ //DONE
   event.preventDefault()
   history.push(`/potlucks/${this.props.potluck.id}/recipes/new`)
 }
 
-selectRecipes(event) {//select a recipe--creates potluck recipe
+selectRecipes(event) {//DONE
   event.preventDefault()
   history.push(`/potlucks/${this.props.potluck.id}/recipes/select`)
 }
@@ -48,16 +48,45 @@ cancelPotluck(event) {
   //should go directly to API and cancel potluck
 }
 
+dynamicElements() {
+  let header = null
+  let footer = null
+
+
+switch(this.props.match.url){
+  case `/potlucks/${this.props.currentPotluck.id}/recipes/select`: //checklist of recipes to select
+    return {
+      <CardHeader className="col d-flex justify-content-center">
+        <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.getGuests(event)}>Guest List</CardLink>
+        <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
+      </CardHeader>
+    }
+
+  case `/potlucks/${this.props.currentPotluck.id}/guests`: //list of guests
+    return {
+
+    }
+
+  case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
+    return {
+
+    }
+
+  case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming if they have not rsvped
+   return {
+
+    }
+
+  }
+}
+//should read rsvp if user is potluck user
+//props url determines if displayed on potluck index page (url) or potluck show page (no url)
   render() {
     return (
       <Card style={subtitleStyle} >
-      {this.props.url ? (
+      {this.props.url ? ( //if this renders on index page
         null
-      ):(
-        <CardHeader className="col d-flex justify-content-center">
-          <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.getGuests(event)}>Guest List</CardLink>
-          <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
-        </CardHeader>
+      ):( {this.dynamicElements().header}
       )}
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
           <CardBody>

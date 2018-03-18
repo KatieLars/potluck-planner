@@ -32,7 +32,7 @@ class PotluckShow extends Component {
         <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
             <CardDeck style={cardDecks}>
-              <PotluckCard potluck={this.props.potluck}/>
+              <PotluckCard potluck={this.props.potluck} user={this.props.user}/>
               <RecipesList recipes={this.props.potluck.potluck_recipes_claimed} currentPotluck={this.props.potluck} />
             </CardDeck>
           </Row>
@@ -50,7 +50,10 @@ const mapStateToProps = (state, ownProps) => {
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.id
     })
-    return {potluck: potluck}
+    return {
+      potluck: potluck,
+      user: state.users.user
+    }
   }else{
     return {
       state
