@@ -10,7 +10,7 @@ class RsvpModal extends Component{
     super(props);
     this.state = {
       rsvp: "",
-      guestshipId: this.props.guestship.id
+      guestshipId: this.props.guestship.id,
       potluckId: this.props.guestship.potluck_id
     }
   }
@@ -19,6 +19,11 @@ class RsvpModal extends Component{
     this.setState({
       rsvp: event.target.value
     })
+  }
+
+  changeRsvp(event) {
+    event.preventDefault()
+    this.props.actions.userRsvp(this.state)
   }
   render() {
 
@@ -77,4 +82,4 @@ const mapDispatchToProps = (dispatch) => {
     actions: bindActionCreators(guestsActions, dispatch)
   }
 }
-export default connect(mapStateToProps, null)(RsvpModal)
+export default connect(mapStateToProps, mapDispatchToProps)(RsvpModal)

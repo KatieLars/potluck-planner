@@ -67,3 +67,5 @@ class GuestApi {
   }
 
 }
+
+export default GuestApi
