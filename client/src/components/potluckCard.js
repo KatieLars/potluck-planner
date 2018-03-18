@@ -12,6 +12,12 @@ const subtitleStyle = {
 }
 
 class PotluckCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dynamicElements: this.dynamicElements()
+    }
+  }
 
 potluckShowPage(event){ //opens show page DONE
   event.preventDefault()
@@ -50,6 +56,7 @@ cancelPotluck(event) {
 
 changeRSVP(event) {
   event.preventDefault()
+  history.push(`/potlucks/${this.props.potluck.id}/rsvp`)
   //should go directly to api, change guestship rsvp value, and come back to this url
 }
 
@@ -64,18 +71,20 @@ switch(this.props.user.id == this.props.potluck.user_id){
                 <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updateGuestList(event)}>Update Guest List</CardLink>
                 <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
               </CardHeader>,
-      footer: <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck</CardLink>
-              <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</CardLink>
+      footer: <span>
+                <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck</CardLink>
+                <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</CardLink>
+              </span>
     }
   case false: //if user is a guest, not the host need RSVP option
     const guestship = this.props.user.guestships.find(guestship => {
-      guestship.potluck_id == this.props.potluck.id
+      return guestship.potluck_id == this.props.potluck.id
     }) //shows guestship
-    if(guestship.rsvp){
+    if(guestship){
       return {
         header:
           <CardHeader className="col d-flex justify-content-center">
-            <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.changeRSVP(event)}>RSVP{guestship.rsvp ? (: guestship.rsvp) : (null)}</CardLink>
+            <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.changeRSVP(event)}>{guestship.rsvp ? (guestship.rsvp) : ("RSVP")}</CardLink>
           </CardHeader>,
         footer: null
         }
@@ -88,10 +97,10 @@ switch(this.props.user.id == this.props.potluck.user_id){
   render() {
     return (
       <Card style={subtitleStyle} >
-      {this.props.url ? ( //rendering on index page
+      {this.props.url ? (
         null
-      ):( {this.dynamicElements().header} //rendering on potluckShow
-      )}
+      ): (this.state.dynamicElements ? this.state.dynamicElements.header : null)
+    }
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
           <CardBody>
             <CardTitle>{this.props.potluck.name}</CardTitle>
@@ -112,7 +121,7 @@ switch(this.props.user.id == this.props.potluck.user_id){
                   <span>
                     <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</CardLink>
                     <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.createARecipe(event)} >Create Recipe</CardLink>
-                    {this.dynamicElements().footer}
+                    {this.state.dynamicElements ? this.state.dynamicElements.footer : null}
                   </span>
               </CardFooter>
             )}

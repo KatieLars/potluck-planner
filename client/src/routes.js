@@ -18,6 +18,7 @@ import GuestList from './components/guestList'
 import ListModal from './containers/listModal'
 import RecipeModal from './containers/recipeModal'
 import RecipesPage from './pages/recipesPage'
+import RsvpModal from './components/rsvpModal'
 import { connect } from 'react-redux'
 
 
@@ -70,6 +71,7 @@ class Routes extends Component {
       <Route exact path="/potlucks/:potluckId/recipes/select" component={ListModal}/>
       <Route path="/potlucks/:potluckId/recipes/:recipeId" component={RecipeModal} />
       <Route path="/potlucks/:potluckId/recipes/new" component={RecipeModal}/>
+      <Route exact path="/potlucks/:id/rsvp" component={RsvpModal} />
       </Switch>
     </div>
   )}
