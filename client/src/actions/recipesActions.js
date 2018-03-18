@@ -70,7 +70,6 @@ export function getRecipesSuccess(recipes) {
   }
 
   export function createPotluckRecipes(info) { //add recipes (creates potluck_recipes) to potluck
-    debugger
     return function(dispatch) {
       return PotluckRecipeApi.createPotluckRecipes(info).then(response => {
         if(info.potluck_id){
