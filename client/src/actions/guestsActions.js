@@ -23,7 +23,6 @@ export function uninviteGuestsSuccess(updatedGuestList) {
 export function userRsvp(rsvp) {
   return function(dispatch) {
     return GuestApi.userRsvp(rsvp).then(response => {
-      debugger
       dispatch(getPotlucks());
       history.push(`/potlucks/${rsvp.potluckId}`)
     }).catch(error => {

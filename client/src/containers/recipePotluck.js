@@ -56,6 +56,7 @@ class RecipePotluck extends Component {
      )}else {
        top = <CardHeader></CardHeader>
      }
+
     return(
       <Card style={subtitleStyle} >
           {top}
