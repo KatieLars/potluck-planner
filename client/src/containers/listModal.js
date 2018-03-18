@@ -38,9 +38,13 @@ class ListModal extends Component {
   }
 
   handleChange(event) {
-    event.preventDefault()
+    const newIds = () => {if(this.state.selectedIds.includes(event.target.value)) {//remove the value
+      return this.state.selectedIds.filter(id => id != event.target.value)
+    }else{
+      return [...this.state.selectedIds, event.target.value]
+    }}
     this.setState({
-      newFriendIds: [...this.state.selectedIds, event.target.value]
+      selectedIds: newIds()
     })
   }
 
@@ -49,51 +53,55 @@ class ListModal extends Component {
     history.push(`/potlucks/${this.props.match.params.potluckId}`)
   }
 
-  render() {
+  dynamicElements() {
     let header = null
     let body = null
     let button = null
-    let groupModal = {}
 
-    //all redirect to potluck show page
+  switch(this.props.match.url){
+    case `/potlucks/${this.props.currentPotluck.id}/recipes/select`: //checklist of recipes to select
+      return {
+        header: <ModalHeader>Select Recipes</ModalHeader>,
+        body: <CheckList currentPotluck={this.props.currentPotluck} list={this.props.currentPotluck.not_potluck_recipes} />,
+        button: <Button onClick={(event)=> this.addRecipes(event)}>Add Recipes</Button>
+      }
 
-    switch(this.props.match.url){
-      case `/potlucks/${this.props.currentPotluck.id}/recipes/select`: //checklist of recipes to select
-        groupModal = {
-          header: <ModalHeader>Select Recipes</ModalHeader>,
-          body: <CheckList currentPotluck={this.props.currentPotluck} recipes={this.props.currentPotluck.not_potluck_recipes} />,
-          button: <Button onClick={(event)=> this.addRecipes(event)}>Add Recipes</Button>
-        }
-      case `/potlucks/${this.props.currentPotluck.id}/guests`: //list of guests
-        groupModal = {
-          header: <ModalHeader>Guests</ModalHeader>,
-          body: <GuestList guests={this.props.currentPotluck.guests} />
-        }
-      case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
-        groupModal = {
-          header: <ModalHeader>Select Guests</ModalHeader>,
-          body: <CheckList guests={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>,
-          button: <Button>Invite Guests</Button>
-        }
-      case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming of they have not rsvped
-        groupModal = {
-          header:  <ModalHeader>Update Guest List</ModalHeader>,
-          body: <GuestCheckList currentPotluck={this.props.currentPotluck}/>,
-          button: <Button>Update Guest List</Button>
-        }
+    case `/potlucks/${this.props.currentPotluck.id}/guests`: //list of guests
+      return {
+        header: <ModalHeader>Guests</ModalHeader>,
+        body: <GuestList guests={this.props.currentPotluck.guests} />
+      }
+
+    case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
+      return {
+        header: <ModalHeader>Select Guests</ModalHeader>,
+        body: <CheckList list={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>,
+        button: <Button>Invite Guests</Button>
+      }
+
+    case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming of they have not rsvped
+     return {
+        header:  <ModalHeader>Update Guest List</ModalHeader>,
+        body: <GuestCheckList currentPotluck={this.props.currentPotluck}/>,
+        button: <Button>Update Guest List</Button>
+      }
+
     }
-debugger
+  }
+
+  render() {
+
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
-          {header}
+          {this.dynamicElements().header}
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
-              {body}
+              {this.dynamicElements().body}
             </Form>
           </ModalBody>
           <ModalFooter>
-            {button}
+            {this.dynamicElements().button}
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
           </ModalFooter>
         </Modal>
@@ -101,6 +109,7 @@ debugger
     )
   }
 }
+
 const mapStateToProps = (state, ownProps) => {
   if(ownProps.match.params.potluckId){ //comping from potluck show page
       const potluck = state.potlucks.potlucks.find(potluck => {

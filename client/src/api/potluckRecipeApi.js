@@ -7,7 +7,7 @@ class PotluckRecipeApi {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.jwt}`,
       }),
-      body: JSON.stringify({potluck_recipes: {recipe_ids: recipeIds.selectIds, potluck_id: recipeIds.potluck_id}})
+      body: JSON.stringify({potluck_recipes: {recipe_ids: recipeIds.selectedIds, potluck_id: recipeIds.potluck_id}})
     });
 
     return fetch(request).then(response => {
