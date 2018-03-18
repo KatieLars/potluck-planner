@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap'
 import {connect} from 'react-redux'
+import * as guestsActions from '../actions/guestsActions'
+import {bindActionCreators} from 'redux'
 
 //makes api call and changes guestship.rsvp value
 class RsvpModal extends Component{
@@ -53,11 +55,12 @@ class RsvpModal extends Component{
       </div>
     )
   }
+}
 
   const mapStateToProps = (state, ownProps) => {
-    if(ownProps.match.params.potluckId){ //comping from potluck show page
+    if(ownProps.match.params.id){ //comping from potluck show page
         const guestship = state.users.user.guestships.find(guestship => {
-          return guestship.potluck_id == ownProps.match.params.potluckId
+          return guestship.potluck_id == ownProps.match.params.id
         })
         if(guestship) {
           return {
@@ -67,6 +70,10 @@ class RsvpModal extends Component{
           return state
         }
       }
-}
 
-export default RsvpModal
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(guestsActions, dispatch)
+  }
+}
+export default connect(mapStateToProps, null)(RsvpModal)
