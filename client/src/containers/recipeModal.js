@@ -46,7 +46,7 @@ class RecipeModal extends Component {
 
   render() {
     let lastButton = null
-debugger
+    
     if(this.props.recipe) {
       lastButton = <Button onClick={(event) => this.updateRecipeHandler(event)}>Update Recipe</Button>
     }else{
@@ -73,11 +73,10 @@ debugger
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   if(ownProps.match.params.potluckId){ //comping from potluck show page
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.potluckId
-    }
+    })
      const recipe = state.potlucks.allPotluckRecipes.find(recipe => {
       return recipe.id == ownProps.match.params.recipeId
     })
