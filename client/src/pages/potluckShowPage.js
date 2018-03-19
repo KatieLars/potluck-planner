@@ -32,7 +32,7 @@ class PotluckShowPage extends Component {
         <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
             <CardDeck style={cardDecks}>
-              <PotluckCard potluck={this.props.potluck} user={this.props.user} key={this.props.potluck.id}/>
+              <PotluckShowCard potluck={this.props.potluck} user={this.props.user} key={this.props.potluck.id}/>
               <RecipesList recipes={this.props.potluck.potluck_recipes_claimed} currentPotluck={this.props.potluck} />
             </CardDeck>
           </Row>
