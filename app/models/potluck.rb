@@ -27,4 +27,21 @@ class Potluck < ApplicationRecord#may need foreign keys specified
   def friends_not_invited #list of user's friends not invited to a particular potluck
     self.user.friends - self.guests
   end
+
+  def goings #returns a list of all guests going
+    self.guestships.collect{|guestship| guestship.guest if guestship.rsvp == "Going"}
+  end
+
+  def maybes #returns a list of all guests maybe
+    self.guestships.collect{|guestship| guestship.guest if guestship.rsvp == "Maybe"}
+  end
+
+  def not_goings #returns a list of all guests not ging
+    self.guestships.collect {|guestship| guestship.guest if guestship.rsvp == "Not Going"}
+  end
+
+  def blanks #returns a list of all guests not yet responded
+    self.guestships.collect{|guestship| guestship.guest if guestship.rsvp == ""}
+  end
+
 end

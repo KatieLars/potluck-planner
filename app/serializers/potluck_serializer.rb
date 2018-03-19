@@ -1,5 +1,8 @@
 class PotluckSerializer < ActiveModel::Serializer
-  attributes :id, :name, :location, :description, :format_date, :format_time, :canceled, :image, :user_id, :not_potluck_recipes, :friends_to_invite, :potluck_recipes_claimed
+  attributes :id, :name, :location, :description,
+    :format_date, :format_time, :canceled, :image,
+    :user_id, :not_potluck_recipes, :friends_to_invite,
+    :potluck_recipes_claimed, :going_guests, :not_going_guests, :maybe_guests, :blank_guests
   belongs_to :user
   has_many :guestships
   has_many :guests, through: :guestships
@@ -32,4 +35,19 @@ class PotluckSerializer < ActiveModel::Serializer
     object.friends_not_invited
   end
 
+  def going_guests
+    object.goings
+  end
+
+  def not_going_guests
+    object.not_goings
+  end
+
+  def maybe_guests
+    object.maybes
+  end
+
+  def blank_guests
+    object.blanks
+  end
 end

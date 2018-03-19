@@ -19,10 +19,6 @@ class GuestListContainer extends Component {
 //   this.props.actions.getRecipes()
 // }
 
-shouldComponentUpdate(nextProps, nextState) { //true if change of recipes
-  return(this.props.recipes !== nextProps.recipes)
- }
-
 handleClick(event) {
   // event.preventDefault()
   // history.push("/recipes/new")
@@ -33,16 +29,16 @@ handleClick(event) {
       return(
         <div >
           <h3>Coming</h3>
-          <GuestList guests={this.props.guests.goings} />
+          <GuestList guests={this.props.potluck.going_guests} />
           <hr className="my-4"/>
           <h3>Maybe</h3>
-          <GuestList guests={this.props.guests.maybes} />
+          <GuestList guests={this.props.potluck.maybe_guests} />
+          <hr className="my-4"/>
           <h3>Not Coming</h3>
-          <GuestList guests={this.props.guests.notGoings} />
+          <GuestList guests={this.props.potluck.not_going_guests} />
           <hr className="my-4"/>
           <h3>Not Yet RSVPed</h3>
-          <GuestList guests={this.props.guests.blanks/>
-          <hr className="my-4"/>
+          <GuestList guests={this.props.potluck.blank_guests/>
         </div>
       )
   }

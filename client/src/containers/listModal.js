@@ -69,7 +69,7 @@ class ListModal extends Component {
     case `/potlucks/${this.props.currentPotluck.id}/guests`: //list of guests
       return {
         header: <ModalHeader>Guests</ModalHeader>,
-        body: <GuestListContainer guests={this.props.currentPotluck.guests} potluck={this.props.currentPotluck} user={this.props.user}/>
+        body: <GuestListContainer potluck={this.props.currentPotluck} user={this.props.user}/>
       }
 
     case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
