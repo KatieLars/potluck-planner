@@ -24,7 +24,7 @@ class GuestPotluckShowCard extends Component {
     history.push(`/potlucks/${this.props.potluck.id}/recipes/select`)
   }
 
-  changeRSVP(event) {
+  changeRSVP(event) { //DONE
     history.push(`/potlucks/${this.props.potluck.id}/rsvp`)
     //should go directly to api, change guestship rsvp value, and come back to this url
   }
