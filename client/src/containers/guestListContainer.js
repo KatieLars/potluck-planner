@@ -25,7 +25,7 @@ handleClick(event) {
 }
 
   render() {
-
+debugger
       return(
         <div >
           <h3>Coming</h3>
@@ -38,7 +38,7 @@ handleClick(event) {
           <GuestList guests={this.props.potluck.not_going_guests} />
           <hr className="my-4"/>
           <h3>Not Yet RSVPed</h3>
-          <GuestList guests={this.props.potluck.blank_guests/>
+          <GuestList guests={this.props.potluck.blank_guests}/>
         </div>
       )
   }
@@ -46,7 +46,7 @@ handleClick(event) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      actions: bindActionCreators(recipesActions, dispatch)
+      actions: bindActionCreators(guestsActions, dispatch)
   }
 }
 

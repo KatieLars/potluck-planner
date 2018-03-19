@@ -9,11 +9,16 @@ class GuestList extends Component {
     )}
 
   render() {
-    return (
-      <ul>
-        {this.guestListItem()}
-      </ul>
-    )
+    if(this.props.guests.first){
+      return (
+        <ul>
+          {this.guestListItem()}
+        </ul>
+      )
+    }else{
+      <div>
+      </div>
+    }
   }
 }
 

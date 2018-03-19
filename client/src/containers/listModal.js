@@ -110,7 +110,7 @@ class ListModal extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) =>
+const mapStateToProps = (state, ownProps) => {
   if(ownProps.match.params.potluckId){ //comping from potluck show page
       const potluck = state.potlucks.potlucks.find(potluck => {
         return potluck.id == ownProps.match.params.potluckId
