@@ -6,7 +6,7 @@ import history from '../history.js'
 import * as guestsActions from '../actions/guestsActions'
 import GuestList from '../components/guestList'
 import GuestCheckList from '../components/guestCheckList'
-
+//accessible if you are a host
 class GuestListContainer extends Component {
   constructor() {
     super();
@@ -22,7 +22,8 @@ class GuestListContainer extends Component {
   }
 
   updateGuestsHandler(event) {
-
+    event.preventDefault()
+    //alters an existing guestlist if guest has not rsvped
   }
 
   render() {
@@ -40,8 +41,8 @@ class GuestListContainer extends Component {
           <h5>Not Yet RSVPed</h5>
           <Form onChange={(event)=> this.handleChange(event)}/>
             <GuestCheckList guests={this.props.potluck.blank_guests}/>
-              <Button onClick={(event) => this.updateGuestsHandler(event)}>Update Guests</Button>
           </Form>
+            <Button onClick={(event) => this.updateGuestsHandler(event)}>Update Guests</Button>
         </div>
       )
   }

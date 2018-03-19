@@ -7,6 +7,7 @@ import CheckList from '../components/checkList'
 import GuestListContainer from '../containers/guestListContainer'
 import GuestCheckList from '../components/guestCheckList'
 import history from '../history'
+import UpdateGuestListContainer from '../containers/updateGuestListContainer'
 
 //used for
   //selecting guests (if creator of potluck) /guests/select
@@ -82,7 +83,7 @@ class ListModal extends Component {
     case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming if they have not rsvped
      return {
         header:  <ModalHeader>Update Guest List</ModalHeader>,
-        body: <GuestCheckList currentPotluck={this.props.currentPotluck}/>,
+        body: <UpdateGuestListContainer currentPotluck={this.props.currentPotluck}/>,
         button: <Button>Update Guest List</Button>
       }
 
