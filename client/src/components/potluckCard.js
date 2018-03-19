@@ -8,7 +8,7 @@ class PotluckCard extends Component {
 
   render() {
     return (
-
+      <div>
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
           <CardBody>
             <CardTitle>{this.props.potluck.name}</CardTitle>
@@ -20,7 +20,7 @@ class PotluckCard extends Component {
               {this.props.potluck.description}
             </CardText>
           </CardBody>
-      </Card>
+      </div>
     )
   }
 }
