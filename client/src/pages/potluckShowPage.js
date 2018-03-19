@@ -20,7 +20,7 @@ const cardDecks = {
   columnCount: "3"
 }
 
-class PotluckShow extends Component {
+class PotluckShowPage extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return(this.props.potluck !== nextProps.potluck)
@@ -61,4 +61,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, null)(PotluckShow)
+export default connect(mapStateToProps, null)(PotluckShowPage)

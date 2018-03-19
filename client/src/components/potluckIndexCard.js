@@ -1,7 +1,14 @@
 import React, {Component} from 'react'
-import { CardLink, CardImg, CardBody, CardTitle, CardSubtitle, CardFooter, CardText, Button} from 'reactstrap'
+import { CardLink, CardImg, CardBody, CardTitle, CardSubtitle, CardFooter, CardText, Button, Card} from 'reactstrap'
 import history from '../history'
 
+const subtitleStyle = {
+  opacity: "0.60",
+  textAlign: "center",
+  width: "30vw",
+  display: "inline-block",
+  marginTop: "1.25rem"
+}
 
 class PotluckIndexCard extends Component {
 
@@ -12,7 +19,7 @@ class PotluckIndexCard extends Component {
 
   render() {
     return (
-      <div>
+      <Card style={subtitleStyle} >
       <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
         <CardBody>
           <CardTitle>{this.props.potluck.name}</CardTitle>
@@ -27,7 +34,7 @@ class PotluckIndexCard extends Component {
         <CardFooter>
           <Button onClick={(event)=> this.potluckShowPage(event)}>More Info</Button>
         </CardFooter>
-      </div>
+      </Card>
     )
   }
 }
