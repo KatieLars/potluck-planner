@@ -66,7 +66,7 @@ class ListModal extends Component {
         button: <Button onClick={(event)=> this.addRecipes(event)}>Add Recipes</Button>
       }
 
-    case `/potlucks/${this.props.currentPotluck.id}/guests`: //list of guests
+    case `/potlucks/${this.props.currentPotluck.id}/guests`: //DONE
       return {
         header: <ModalHeader>Guests</ModalHeader>,
         body: <GuestListContainer potluck={this.props.currentPotluck} user={this.props.user}/>

@@ -15,17 +15,7 @@ const homeBackground = {
 //index problem: sorting cooked and uncooked recipes
 class GuestListContainer extends Component {
 
-// componentWillMount() {
-//   this.props.actions.getRecipes()
-// }
-
-handleClick(event) {
-  // event.preventDefault()
-  // history.push("/recipes/new")
-}
-
   render() {
-    debugger
       return(
         <div >
           <h5>Coming</h5>

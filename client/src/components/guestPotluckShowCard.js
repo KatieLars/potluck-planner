@@ -29,7 +29,7 @@ class GuestPotluckShowCard extends Component {
     //should go directly to api, change guestship rsvp value, and come back to this url
   }
 
-  getGuests(event) { //gets guests and sorts them according to rsvp
+  getGuests(event) { //DONE
     event.preventDefault()
     history.push(`/potlucks/${this.props.potluck.id}/guests`)
   }
