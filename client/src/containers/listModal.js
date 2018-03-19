@@ -75,7 +75,7 @@ class ListModal extends Component {
     case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
       return {
         header: <ModalHeader>Select Guests</ModalHeader>,
-        body: <CheckList list={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>,
+        body: <GuestsListContainer list={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>,
         button: <Button>Invite Guests</Button>
       }
 
