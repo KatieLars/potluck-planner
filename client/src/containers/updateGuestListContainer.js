@@ -8,8 +8,20 @@ import GuestList from '../components/guestList'
 import GuestCheckList from '../components/guestCheckList'
 
 class GuestListContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      guestIds: [],
+    }
+  }
 
-  handleChange() {
+  handleChange(event) {
+    this.setState({
+      guestIds: [...this.state.guestIds, event.target.value]
+    })
+  }
+
+  updateGuestsHandler(event) {
 
   }
 
@@ -28,6 +40,7 @@ class GuestListContainer extends Component {
           <h5>Not Yet RSVPed</h5>
           <Form onChange={(event)=> this.handleChange(event)}/>
             <GuestCheckList guests={this.props.potluck.blank_guests}/>
+              <Button onClick={(event) => this.updateGuestsHandler(event)}>Update Guests</Button>
           </Form>
         </div>
       )

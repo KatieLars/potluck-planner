@@ -24,7 +24,6 @@ class AddFriends extends Component {
   }
 
   handleChange(event) {
-    event.preventDefault()
     this.setState({
       newFriendIds: [...this.state.newFriendIds, event.target.value]
     })
