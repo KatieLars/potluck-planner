@@ -27,13 +27,12 @@ class PotluckShow extends Component {
   }
 
   render() {
-
     return (
       <div>
         <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
             <CardDeck style={cardDecks}>
-              <PotluckCard potluck={this.props.potluck} user={this.props.user}/>
+              <PotluckCard potluck={this.props.potluck} user={this.props.user} key={this.props.potluck.id}/>
               <RecipesList recipes={this.props.potluck.potluck_recipes_claimed} currentPotluck={this.props.potluck} />
             </CardDeck>
           </Row>

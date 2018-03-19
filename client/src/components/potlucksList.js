@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Label, Form, FormGroup, Input, Container, Row, CardDeck} from 'reactstrap'
 import {connect} from 'react-redux'
-import PotluckCard from './potluckCard'
+import PotluckIndexCard from './potluckIndexCard'
 
 const cardDecks = {
   columnGap: "1rem",
@@ -13,7 +13,7 @@ class PotlucksList extends Component {
   potlucksCards() {
 
       return this.props.potlucks.map((potluck) => (
-        <PotluckCard potluck={potluck} url={this.props.url} user={this.props.user}/>
+        <PotluckIndexCard potluck={potluck} url={this.props.url} user={this.props.user}/>
       )
     )}
 

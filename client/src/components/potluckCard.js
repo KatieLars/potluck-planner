@@ -15,20 +15,39 @@ class PotluckCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dynamicElements: null
+      dynamicElements: null,
+      rsvp: ""
+    }
+  }
+  //
+  componentWillMount() {
+    let guestship = this.props.potluck.guestships.find(guestship => {
+      return guestship.guest_id == this.props.user.id
+    })
+    debugger
+    if(guestship){
+      this.setState({
+        rsvp: guestship.rsvp,
+        dynamicElements: this.dynamicElements()
+      })
+    }else{
+      this.setState({
+        dynamicElements: this.dynamicElements()
+      })
     }
   }
 
-  componentWillMount() {
-    this.setState({
-      dynamicElements: this.dynamicElements()
-    })
+  componentWillReceiveProps(nextProps) {//HERE!!!
+    debugger
+    if(this.props.potluck !== nextProps.potluck){
+      let guest = nextProps.potluck.guestships.find(guestship => {
+        return guestship.guest_id == nextProps.user.id
+      })
+      this.setState({
+        rsvp: guest.rsvp
+      })
+    }
   }
-
-potluckShowPage(event){ //opens show page DONE
-  event.preventDefault()
-  history.push(`/potlucks/${this.props.potluck.id}`)
-}
 
 createARecipe(event){ //DONE
   event.preventDefault()
@@ -61,7 +80,6 @@ cancelPotluck(event) {
 }
 
 changeRSVP(event) {
-
   history.push(`/potlucks/${this.props.potluck.id}/rsvp`)
   //should go directly to api, change guestship rsvp value, and come back to this url
 }
@@ -83,14 +101,15 @@ switch(this.props.user.id == this.props.potluck.user_id){
               </span>
     }
   case false: //if user is a guest, not the host need RSVP option
-    let guestship = this.props.user.guestships.find(guestship => {
-      return guestship.potluck_id == this.props.potluck.id
+
+    let guestship = this.props.potluck.guestships.find(guestship => {
+      return guestship.guest_id == this.props.user.id
     }) //shows guestship
     if(guestship){
       return {
         header:
           <CardHeader className="col d-flex justify-content-center">
-            <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.changeRSVP(event)}>{guestship.rsvp ? (guestship.rsvp) : ("RSVP")}</CardLink>
+            <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.changeRSVP(event)}>{this.state ? (this.state.rsvp) : ("RSVP")}</CardLink>
           </CardHeader>,
         footer: null
         }
