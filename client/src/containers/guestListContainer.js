@@ -25,19 +25,19 @@ handleClick(event) {
 }
 
   render() {
-debugger
+    debugger
       return(
         <div >
-          <h3>Coming</h3>
+          <h5>Coming</h5>
           <GuestList guests={this.props.potluck.going_guests} />
           <hr className="my-4"/>
-          <h3>Maybe</h3>
+          <h5>Maybe</h5>
           <GuestList guests={this.props.potluck.maybe_guests} />
           <hr className="my-4"/>
-          <h3>Not Coming</h3>
+          <h5>Not Coming</h5>
           <GuestList guests={this.props.potluck.not_going_guests} />
           <hr className="my-4"/>
-          <h3>Not Yet RSVPed</h3>
+          <h5>Not Yet RSVPed</h5>
           <GuestList guests={this.props.potluck.blank_guests}/>
         </div>
       )
