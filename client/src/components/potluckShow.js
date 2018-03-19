@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { CardLink, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
+import GuestPotluckShowCard from './guestPotluckShowCard'
+import HostPotluckShowCard from './hostPotluckShowCard'
 
 const subtitleStyle = {
   opacity: "0.60",

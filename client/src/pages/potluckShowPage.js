@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import PotluckShow from './potluckShow'
+import PotluckShow from '../components/potluckShow'
 import {Container, Row, Col, Button, CardDeck} from 'reactstrap'
 import history from '../history'
 import RecipesList from '../containers/recipesList'
