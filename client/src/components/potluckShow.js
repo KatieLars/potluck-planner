@@ -119,11 +119,15 @@ class PotluckShow extends Component {
 //     }
 //   }
 
-  guestOrHost() { //if user id is equal to the owner of the potluck id
+  guestOrHost() {
+    //if user id is equal to the owner of the potluck id
     if(this.props.user.id == this.props.potluck.user_id) { //host
       return <HostPotluckShowCard potluck={this.props.potluck} user={this.props.user}/>
-    }else{//guets
-      return <GuestPotluckShowCard potluck={this.props.potluck} user={this.props.user}/>
+    }else {//guets
+      const guestship = this.props.potluck.guestships.find(guestship => {
+        return guestship.guest_id == this.props.user.id
+      })
+      return <GuestPotluckShowCard potluck={this.props.potluck} user={this.props.user} guestship={guestship}/>
     }
   }
 

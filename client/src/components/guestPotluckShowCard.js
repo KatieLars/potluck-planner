@@ -12,14 +12,24 @@ const subtitleStyle = {
 }
 
 class GuestPotluckShowCard extends Component {
-  potluckShowPage(event){ //opens show page DONE
+
+  changeRSVP(event) {
+    history.push(`/potlucks/${this.props.potluck.id}/rsvp`)
+    //should go directly to api, change guestship rsvp value, and come back to this url
+  }
+
+  getGuests(event) { //gets guests and sorts them according to rsvp
     event.preventDefault()
-    history.push(`/potlucks/${this.props.potluck.id}`)
+    history.push(`/potlucks/${this.props.potluck.id}/guests`)
   }
 
   render() {
     return (
       <Card style={subtitleStyle} >
+      <CardHeader className="col d-flex justify-content-center">
+        <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.changeRSVP(event)}>{this.props.guestship.rsvp ? (this.props.guestship.rsvp) : ("RSVP")}</CardLink>
+        <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.getGuests(event)} >Who Is Invited</CardLink>
+      </CardHeader>,
       <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
         <CardBody>
           <CardTitle>{this.props.potluck.name}</CardTitle>
@@ -31,8 +41,11 @@ class GuestPotluckShowCard extends Component {
             {this.props.potluck.description}
           </CardText>
         </CardBody>
-        <CardFooter>
-          <Button onClick={(event)=> this.potluckShowPage(event)}>More Info</Button>
+        <CardFooter className="col d-flex justify-content-center">
+            <span>
+              <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</CardLink>
+              <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.createARecipe(event)} >Create Recipe</CardLink>
+            </span>
         </CardFooter>
       </Card>
     )
