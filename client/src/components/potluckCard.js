@@ -79,10 +79,6 @@ cancelPotluck(event) {
   //should go directly to API and cancel potluck
 }
 
-changeRSVP(event) {
-  history.push(`/potlucks/${this.props.potluck.id}/rsvp`)
-  //should go directly to api, change guestship rsvp value, and come back to this url
-}
 
 dynamicElements() {
   let header = null
@@ -100,22 +96,6 @@ switch(this.props.user.id == this.props.potluck.user_id){
                 <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</CardLink>
               </span>
     }
-  case false: //if user is a guest, not the host need RSVP option
-
-    let guestship = this.props.potluck.guestships.find(guestship => {
-      return guestship.guest_id == this.props.user.id
-    }) //shows guestship
-    if(guestship){
-      return {
-        header:
-          <CardHeader className="col d-flex justify-content-center">
-            <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.changeRSVP(event)}>{this.state ? (this.state.rsvp) : ("RSVP")}</CardLink>
-          </CardHeader>,
-        footer: null
-        }
-      }
-    }
-  }
 
 //should read rsvp if user is potluck user
 //props url determines if displayed on potluck index page (url) or potluck show page (no url)

@@ -13,6 +13,16 @@ const subtitleStyle = {
 
 class GuestPotluckShowCard extends Component {
 
+  createARecipe(event){ //DONE
+    event.preventDefault()
+    history.push(`/potlucks/${this.props.potluck.id}/recipes/new`)
+  }
+
+  selectRecipes(event) {//DONE
+    event.preventDefault()
+    history.push(`/potlucks/${this.props.potluck.id}/recipes/select`)
+  }
+
   changeRSVP(event) {
     history.push(`/potlucks/${this.props.potluck.id}/rsvp`)
     //should go directly to api, change guestship rsvp value, and come back to this url
