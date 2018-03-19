@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as recipesActions from '../actions/recipesActions'
 import CheckList from '../components/checkList'
-import GuestList from '../components/guestList'
+import GuestListContainer from '../containers/guestListContainer'
 import GuestCheckList from '../components/guestCheckList'
 import history from '../history'
 
@@ -59,7 +59,7 @@ class ListModal extends Component {
     let button = null
 
   switch(this.props.match.url){
-    case `/potlucks/${this.props.currentPotluck.id}/recipes/select`: //checklist of recipes to select
+    case `/potlucks/${this.props.currentPotluck.id}/recipes/select`: //DONE
       return {
         header: <ModalHeader>Select Recipes</ModalHeader>,
         body: <CheckList currentPotluck={this.props.currentPotluck} list={this.props.currentPotluck.not_potluck_recipes} />,
@@ -69,7 +69,7 @@ class ListModal extends Component {
     case `/potlucks/${this.props.currentPotluck.id}/guests`: //list of guests
       return {
         header: <ModalHeader>Guests</ModalHeader>,
-        body: <GuestList guests={this.props.currentPotluck.guests} />
+        body: <GuestListContainer guests={this.props.currentPotluck.guests} potluck={this.props.currentPotluck} user={this.props.user}/>
       }
 
     case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
@@ -110,17 +110,21 @@ class ListModal extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, ownProps) =>
   if(ownProps.match.params.potluckId){ //comping from potluck show page
       const potluck = state.potlucks.potlucks.find(potluck => {
         return potluck.id == ownProps.match.params.potluckId
       })
       if(potluck) {
         return {
+          user: state.users.user,
           currentPotluck: potluck
         }
       }}else{
-        return state
+        return {
+          user: state.users.user
+        }
+
       }
     }
 //will also need to bind guest actions
