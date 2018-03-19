@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import PotluckCard from './potluckCard'
+import PotluckShow from './potluckShow'
 import {Container, Row, Col, Button, CardDeck} from 'reactstrap'
 import history from '../history'
 import RecipesList from '../containers/recipesList'
@@ -32,7 +32,7 @@ class PotluckShowPage extends Component {
         <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
             <CardDeck style={cardDecks}>
-              <PotluckShowCard potluck={this.props.potluck} user={this.props.user} key={this.props.potluck.id}/>
+              <PotluckShow potluck={this.props.potluck} user={this.props.user} key={this.props.potluck.id}/>
               <RecipesList recipes={this.props.potluck.potluck_recipes_claimed} currentPotluck={this.props.potluck} />
             </CardDeck>
           </Row>
