@@ -6,17 +6,11 @@ import history from '../history'
 export function cancelPotluck(potluckId) { //returns updated list of potlucks
   return function(dispatch) { //can only delete if user ID matches
     return PotluckApi.cancelPotluck(potluckId).then(response => {
-      dispatch(cancelPotlucksSuccess(response));
+      dispatch(getPotlucks(response));
+      history.push(`/potlucks/${potluckId}`)
     }).catch(error => {
       throw(error)
     })
-  }
-}
-
-export function cancelPotlucksSuccess(updatedList) {
-  return{
-    type: types.CANCEL_POTLUCK,
-    potlucks: updatedList
   }
 }
 

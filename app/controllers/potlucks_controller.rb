@@ -26,7 +26,7 @@ class PotlucksController < ApplicationController
   private
 
   def potluck_params
-    params.require(:potluck).permit(:image, :time, :date, :location, :user_id, :name, :description)
+    params.require(:potluck).permit(:image, :time, :date, :location, :user_id, :name, :canceled, :description)
   end
 
 end

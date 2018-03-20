@@ -50,6 +50,23 @@ class PotluckApi {
     });
   }
 
+  static cancelPotluck(id) { //get potlucks
+    const request = new Request(`http://localhost:3001/potlucks/${id}`, {
+      method: 'PATCH',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.jwt}`,
+      }),
+      body: JSON.stringify({potluck: id})
+    });
+
+    return fetch(request).then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
+  }
+
 
 }
 

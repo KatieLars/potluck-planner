@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
-import { CardLink, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
+import { CardImgOverlay, CardLink, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
 import PotluckCard from './potluckCard'
+import cancelled from '../images/cancelled.jpg'
+import {bindActionCreators} from 'redux'
+import * as potlucksActions from '../actions/potlucksActions'
 
 const subtitleStyle = {
   opacity: "0.60",
@@ -41,12 +44,14 @@ class HostPotluckShowCard extends Component {
 
   cancelPotluck(event) {
     event.preventDefault()
+    this.props.actions.cancelPotluck(this.props.potluck.id)
     //should go directly to API and cancel potluck
   }
 
   render() {
     return (
       <Card style={subtitleStyle} >
+        {this.props.potluck.canceled ? <CardImgOverlay><img src="url(" + cancelled+ ")"></CardImgOverlay> : null}
         <CardHeader className="col d-flex justify-content-center">
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updateGuestList(event)}>Update Guest List</CardLink>
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
@@ -67,4 +72,10 @@ class HostPotluckShowCard extends Component {
   }
 }
 
-export default HostPotluckShowCard
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(potlucksActions, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(HostPotluckShowCard)
