@@ -34,16 +34,9 @@ class RecipePotluck extends Component {
     this.props.actions.deleteRecipe(this.state)
   }
 
-  deleteUserFromPotluckRecipe(event) {
+  claimOrUnclaimPotluckRecipe(event) {
     event.preventDefault()
-    this.props.actions.unclaimRecipe(this.state)
-    //api call that deletes user_id from potluckRecipe
-    //make sure that recipe list is updated if this happens
-  }
-
-  cookRecipe(event) {
-    event.preventDefault()
-    //adds user_id to correct potluck_recipe and re-renders the potluck show page
+    this.props.actions.claimRecipe(this.state)
   }
 
   render() {
@@ -52,11 +45,11 @@ class RecipePotluck extends Component {
     let top = null
 //bottom
      if(this.props.recipe.claimant_id == this.props.user.id) {
-       bottom = <Button onClick={(event) => {this.deleteUserFromPotluckRecipe(event)}}>Fine. Reject Me.</Button>
+       bottom = <Button onClick={(event) => {this.claimOrUnclaimPotluckRecipe(event)}}>Fine. Reject Me.</Button>
      }else if(this.props.recipe.claimant_id != null) {
        bottom =  <strong>I am Taken!</strong>
      }else{
-       bottom = <Button onClick={(event) => this.cookRecipe(event)}>Cook Me!</Button>
+       bottom = <Button onClick={(event) => this.claimOrUnclaimPotluckRecipe(event)}>Cook Me!</Button>
      }
 //top
      if (this.props.recipe.recipe.user_id == this.props.user.id) {
