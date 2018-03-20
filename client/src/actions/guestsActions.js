@@ -30,3 +30,14 @@ export function userRsvp(rsvp) {
     })
   }
 }
+
+export function removeGuests(idList) {
+  return function(dispatch) {
+    return GuestApi.removeGuests(idList).then(response => {
+      dispatch(getPotlucks());
+      history.push(`/potlucks/${rsvp.potluckId}`)
+    }).catch(error => {
+      throw(error)
+    })
+  }
+}

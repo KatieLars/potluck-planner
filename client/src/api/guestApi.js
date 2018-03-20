@@ -56,7 +56,7 @@ class GuestApi {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.jwt}`,
       }),
-      body: JSON.stringify({guestship: uninvitedGuests})
+      body: JSON.stringify({guestship: idList})
     })
 
     return fetch(request).then(response => {

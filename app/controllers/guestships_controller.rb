@@ -12,6 +12,11 @@ class GuestshipsController < ApplicationController
   end
 
   def end_guestships
+    params[:guestship][:selectedIds].each do |guestship|
+      Guestship.destroy(guestship)
+    end
+    potluck = Potluck.find_by_id(params[:guestship][:potluck_id])
+    render json:potluck
   end
 
 end
