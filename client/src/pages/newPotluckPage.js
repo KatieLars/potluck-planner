@@ -9,7 +9,8 @@ import stillLife from '../images/stillLife.jpg'
 const homeBackground = {
   backgroundImage: "url(" + stillLife + ")",
   height: "100vh",
-  textAlign: "center"
+  textAlign: "center",
+  color: "white"
 }
 
 const leftColStyle = {
@@ -58,11 +59,15 @@ return(
               <Col className="col-4" style={leftColStyle}>
                 <h1>New Potluck!</h1>
               </Col>
-              <PotluckForm />
+              <Col className="col-4">
+                <PotluckForm />
+              </Col>
             </Row>
             <Row>
-              <Col className="col-4"></Col>
+            <Col className="col-4"></Col>
+            <Col className="col-4">
               <Button>Create</Button>
+            </Col>
             </Row>
           </Container>
         </Form>
@@ -71,6 +76,7 @@ return(
   }
 }
 
+//<Col className="col-4"></Col>
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(potlucksActions, dispatch)

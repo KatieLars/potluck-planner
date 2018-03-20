@@ -1,9 +1,9 @@
 import React from 'react'
-import {Label, FormGroup, Input, Col} from 'reactstrap'
+import {Label, FormGroup, Input, Col, Button} from 'reactstrap'
 
 const PotluckForm = ({ potluck }) => {
   return(
-    <Col className="col-4" style={{marginLeft: "25px"}}>
+    <Col style={{marginLeft: "25px"}}>
       <FormGroup>
         <Label for="name">Name</Label>
         <Input type="text" name="name" id="name" placeholder={potluck ? (potluck.name) : (null)} />
