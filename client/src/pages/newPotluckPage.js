@@ -52,26 +52,20 @@ class NewPotluckPage extends Component {
 
 render() {
 return(
-      <div style={homeBackground}>
+  <Container>
+    <Row style={{paddingTop: "25px"}}>
+      <Col className="col-3">
+        <h1>New Potluck!</h1>
+      </Col>
+      <Col className="col-6">
         <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
-          <Container style={containerStyle}>
-            <Row >
-              <Col className="col-4" style={leftColStyle}>
-                <h1>New Potluck!</h1>
-              </Col>
-              <Col className="col-4">
-                <PotluckForm />
-              </Col>
-            </Row>
-            <Row>
-            <Col className="col-4"></Col>
-            <Col className="col-4">
-              <Button>Create</Button>
-            </Col>
-            </Row>
-          </Container>
+          <PotluckForm />
+          <Button>Create</Button>
         </Form>
-      </div>
+      </Col>
+      <Col className="col-3"></Col>
+      </Row>
+    </Container>
     )
   }
 }
@@ -89,3 +83,24 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewPotluckPage);
+
+// <div style={homeBackground}>
+//   <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
+//     <Container style={containerStyle}>
+//       <Row >
+//         <Col className="col-4" style={leftColStyle}>
+//           <h1>New Potluck!</h1>
+//         </Col>
+//         <Col className="col-4">
+//           <PotluckForm />
+//         </Col>
+//       </Row>
+//       <Row>
+//       <Col className="col-4"></Col>
+//       <Col className="col-4">
+//         <Button>Create</Button>
+//       </Col>
+//       </Row>
+//     </Container>
+//   </Form>
+// </div>

@@ -36,7 +36,9 @@ render() {
 return(
     <Container>
       <Row style={{paddingTop: "25px"}}>
-        <Col className="col-3"></Col>
+        <Col className="col-3">
+          <h1>New Recipe!</h1>
+        </Col>
         <Col className="col-6">
           <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
             <RecipeForm />

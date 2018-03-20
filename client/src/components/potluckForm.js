@@ -1,9 +1,9 @@
 import React from 'react'
 import {Label, FormGroup, Input, Col, Button} from 'reactstrap'
-
+//<Col style={{marginLeft: "25px"}}>
 const PotluckForm = ({ potluck }) => {
   return(
-    <Col style={{marginLeft: "25px"}}>
+    <div>
       <FormGroup>
         <Label for="name">Name</Label>
         <Input type="text" name="name" id="name" placeholder={potluck ? (potluck.name) : (null)} />
@@ -28,7 +28,7 @@ const PotluckForm = ({ potluck }) => {
         <Label for="image">Image</Label>
         <Input type="text" name="image" id="image" placeholder={potluck ? (potluck.image) : (null)}/>
       </FormGroup>
-    </Col>
+    </div>
   )
 }
 
