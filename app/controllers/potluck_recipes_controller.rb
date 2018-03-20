@@ -19,5 +19,7 @@ class PotluckRecipesController < ApplicationController
     else
       errors = potluck_recipe.errors.full_messages
       render json:errors
+    end
   end
+
 end
