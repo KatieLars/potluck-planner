@@ -2,63 +2,55 @@ import React, {Component} from 'react'
 import {Modal, ModalHeader, Form, ModalFooter, Button, ModalBody} from 'reactstrap'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import RecipeForm from '../components/recipeForm'
-import * as recipesActions from '../actions/recipesActions'
+import PotluckForm from '../components/potluckForm'
+import * as potlucksActions from '../actions/potlucksActions'
 import history from '../history'
 
-//this modal should call the Recipe form component, but have a button to update
+//called for updating Potluck
 class PotluckeModal extends Component {
   constructor(props) { //remeber to handle null values in api call for update
     super(props)
     this.state = {
       updatedPotluck: {
         name: "",
+        date: "",
+        time: "",
         location: "",
-        url: "",
         image: "",
-        id: this.props.potluck.id,
-        potluck_id: this.props.match.params.potluckId ? (this.props.match.params.potluckId) : ""
-      }
+        user_id: this.props.potluck.user_id,
+        id: this.props.potluck.id
     }
   }
 
   handleChange(event){
     const field = event.target.name;
-    const newRecipe = this.state.newRecipe;
-    newRecipe[field] = event.target.value;
-    return this.setState({newRecipe: newRecipe})
+    const updatedPotluck = this.state.updatedPotluck;
+    updatedPotluck[field] = event.target.value;
+    return this.setState({potluck: updatedPotluck})
   }
 
-  createRecipeHandler(event) {
-    event.preventDefault()
-    this.props.actions.createRecipe(this.state.newRecipe);
-  }
-
-  updateRecipeHandler(event) {
+  updatePotluckHandler(event) {
     event.preventDefault() //potluckID falls off here
-    this.props.actions.updateRecipe(this.state.newRecipe)
+    this.props.actions.updatePotluck(this.state.updatedPotluck)
+  }
+
+  cancel(event) {
+    event.preventDefault()
+    history.push(`/potlucks/${this.props.potluck.id}`)
   }
 
   render() {
-    let lastButton = null
-
-    if(this.props.recipe) {
-      lastButton = <Button onClick={(event) => this.updateRecipeHandler(event)}>Update Recipe</Button>
-    }else{
-      lastButton = <Button onClick={(event) => this.createRecipeHandler(event)}>Create Recipe</Button>
-    }
-
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
           <ModalHeader></ModalHeader>
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
-              <RecipeForm recipe={this.props.recipe ? (this.props.recipe) : (null)}/>
+              <PotluckForm potluck={this.props.potluck}/>
             </Form>
           </ModalBody>
           <ModalFooter>
-            {lastButton}
+             <Button onClick={(event) => this.updatePotluckHandler(event)}>Update Potluck</Button>
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
           </ModalFooter>
         </Modal>
@@ -67,39 +59,39 @@ class PotluckeModal extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  if(ownProps.match.params.potluckId){ //comping from potluck show page
-    const potluck = state.potlucks.potlucks.find(potluck => {
-      return potluck.id == ownProps.match.params.potluckId
-    })
-     const recipe = state.potlucks.allPotluckRecipes.find(recipe => {
-      return recipe.id == ownProps.match.params.recipeId
-    })
-        if(recipe && potluck){
-          return {
-            recipe: recipe,
-            currentPotluck: potluck,
-            user: state.users.user,
-          }}else{
-              return{user: state.users.user}
-            }
-          }else if(ownProps.match.params.recipeId){ //coming from recipe index page
-              const recipe = state.recipes.allRecipes.find(recipe => {
-                return recipe.id == ownProps.match.params.recipeId
-              })
-              if(recipe){
-                return {
-                  recipe: recipe,
-                  user: state.users.user}
-              }else{
-                return{user: state.users.user}
-              }
-          }else{
-            return {
-              user: state.users.user
-            }
-          }
-}
+// const mapStateToProps = (state, ownProps) => {
+//   if(ownProps.match.params.potluckId){ //comping from potluck show page
+//     const potluck = state.potlucks.potlucks.find(potluck => {
+//       return potluck.id == ownProps.match.params.potluckId
+//     })
+//      const recipe = state.potlucks.allPotluckRecipes.find(recipe => {
+//       return recipe.id == ownProps.match.params.recipeId
+//     })
+//         if(recipe && potluck){
+//           return {
+//             recipe: recipe,
+//             currentPotluck: potluck,
+//             user: state.users.user,
+//           }}else{
+//               return{user: state.users.user}
+//             }
+//           }else if(ownProps.match.params.recipeId){ //coming from recipe index page
+//               const recipe = state.recipes.allRecipes.find(recipe => {
+//                 return recipe.id == ownProps.match.params.recipeId
+//               })
+//               if(recipe){
+//                 return {
+//                   recipe: recipe,
+//                   user: state.users.user}
+//               }else{
+//                 return{user: state.users.user}
+//               }
+//           }else{
+//             return {
+//               user: state.users.user
+//             }
+//           }
+// }
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -107,4 +99,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PotluckModal)
+export default connect(null, mapDispatchToProps)(PotluckModal)
