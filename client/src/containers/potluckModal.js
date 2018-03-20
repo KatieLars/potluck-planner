@@ -6,12 +6,12 @@ import PotluckForm from '../components/potluckForm'
 import * as potlucksActions from '../actions/potlucksActions'
 import history from '../history'
 
-//called for updating Potluck
+//called for updating Potluck from Potluck Show Page
 class PotluckeModal extends Component {
   constructor(props) { //remeber to handle null values in api call for update
     super(props)
     this.state = {
-      updatedPotluck: {
+      potluck: {
         name: "",
         date: "",
         time: "",
@@ -24,7 +24,7 @@ class PotluckeModal extends Component {
 
   handleChange(event){
     const field = event.target.name;
-    const updatedPotluck = this.state.updatedPotluck;
+    const updatedPotluck = this.state.potluck;
     updatedPotluck[field] = event.target.value;
     return this.setState({potluck: updatedPotluck})
   }
@@ -50,7 +50,7 @@ class PotluckeModal extends Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-             <Button onClick={(event) => this.updatePotluckHandler(event)}>Update Potluck</Button>
+            <Button onClick={(event) => this.updatePotluckHandler(event)}>Update Potluck</Button>
             <Button onClick={(event) => this.cancel(event)}>Cancel</Button>
           </ModalFooter>
         </Modal>

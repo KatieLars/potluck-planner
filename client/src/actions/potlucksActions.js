@@ -54,7 +54,7 @@ export function getPotlucksSuccess(potlucks) {
     }
   }
 
-  export function updatePotlucks(info) {
+  export function updatePotluck(info) {
     return function(dispatch) {
       return PotluckApi.updatePotluck(info).then(response => {
         dispatch(updatePotluckSuccess(response));
