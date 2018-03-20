@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reacts
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as recipesActions from '../actions/recipesActions'
+import * as guestsActions from '../actions/guestsActions'
 import CheckList from '../components/checkList'
 import GuestListContainer from '../containers/guestListContainer'
 import GuestCheckList from '../components/guestCheckList'
@@ -36,6 +37,17 @@ class ListModal extends Component {
   addRecipes(event) { //creates potluck_recipes
     event.preventDefault()
     this.props.actions.createPotluckRecipes(this.state)
+  }
+
+  removeGuests(event) {
+    event.preventDefault()
+    this.props.actions.removeGuests(this.state)
+    //alters an existing guestlist if guest has not rsvped
+  }
+
+  inviteGuests(event) {
+    event.preventDefault()
+    //invites guests based on friends list
   }
 
   handleChange(event) {
@@ -84,7 +96,7 @@ class ListModal extends Component {
      return {
         header:  <ModalHeader>Update Guest List</ModalHeader>,
         body: <UpdateGuestListContainer currentPotluck={this.props.currentPotluck}/>,
-        button: <Button>Update Guest List</Button>
+        button: <Button onClick={(event) => this.removeGuests(event)>Update Guest List</Button>
       }
 
     }
@@ -131,7 +143,7 @@ const mapStateToProps = (state, ownProps) => {
 //will also need to bind guest actions
   const mapDispatchToProps = (dispatch) => {
     return {
-      actions: bindActionCreators(recipesActions, dispatch)
+      actions: bindActionCreators(recipesActions, guestsActions, dispatch)
     }
   }
 export default connect(mapStateToProps, mapDispatchToProps)(ListModal)

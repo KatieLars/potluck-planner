@@ -10,5 +10,8 @@ class GuestshipsController < ApplicationController
       render json:errors
     end
   end
-  
+
+  def end_guestships
+  end
+
 end

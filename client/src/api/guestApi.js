@@ -49,7 +49,7 @@ class GuestApi {
     });
   }
 
-  static uninviteGuests(uninvitedGuests) {
+  static removeGuests(idList) {
     const request = new Request(`http://localhost:3001/guestships/end_guestships`, {
       method: 'POST',
       headers: new Headers({
