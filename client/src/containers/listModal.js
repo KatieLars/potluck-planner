@@ -47,7 +47,6 @@ class ListModal extends Component {
 
   inviteGuests(event) {
     event.preventDefault()
-    debugger
     this.props.actions.inviteGuests(this.state)
   }
 
