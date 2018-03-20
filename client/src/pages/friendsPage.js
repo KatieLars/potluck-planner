@@ -11,7 +11,6 @@ const backgroundImage = {
   backgroundImage: "url(" + BoysSpoerri + ")",
   backgroundSize: "cover",
   height: "100vh",
-  textAlign: "center",
   color: "black",
 }
 
@@ -51,7 +50,7 @@ removeFriends(event) {
 
     if(this.props.friends) {
       return(
-        <div>
+        <div style={backgroundImage}>
           <Form onChange={(event)=> this.handleChange(event)}>
           <Container style={{paddingTop: "15px"}}>
             <Row >
