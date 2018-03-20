@@ -1,18 +1,9 @@
 import React, {Component} from 'react'
-import { Button, Container, Col, Row, CardColumns} from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import history from '../history.js'
 import * as guestsActions from '../actions/guestsActions'
 import GuestList from '../components/guestList'
-import stillLife from '../images/stillLife.jpg'
 
-const homeBackground = {
-  backgroundImage: "url(" + stillLife + ")",
-  height: "100vh",
-  textAlign: "center"
-}
-//index problem: sorting cooked and uncooked recipes
 class GuestListContainer extends Component {
 
   render() {
