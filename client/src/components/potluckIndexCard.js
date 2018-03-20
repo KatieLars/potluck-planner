@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { CardLink, CardImg, CardBody, CardTitle, CardSubtitle, CardFooter, CardText, Button, Card} from 'reactstrap'
+import { CardImg, CardBody, CardTitle, CardSubtitle, CardFooter, CardText, Button, Card} from 'reactstrap'
 import history from '../history'
 
 const subtitleStyle = {
@@ -12,7 +12,7 @@ const subtitleStyle = {
 
 class PotluckIndexCard extends Component {
 
-  potluckShowPage(event){ //opens show page DONE
+  potluckShowPage(event){
     event.preventDefault()
     history.push(`/potlucks/${this.props.potluck.id}`)
   }
