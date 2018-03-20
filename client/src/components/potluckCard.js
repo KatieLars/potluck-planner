@@ -5,15 +5,15 @@ import { CardImg, CardText, CardBody, CardTitle, CardSubtitle} from 'reactstrap'
 const PotluckCard = ({ potluck }) => {
     return (
       <div>
-        <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
+        <CardImg top width="100%" src={potluck.image} alt="Potluck Image" />
           <CardBody>
-            <CardTitle>{this.props.potluck.name}</CardTitle>
-            <CardSubtitle style={{fontSize: "0.7em"}}>{this.props.potluck.format_date}</CardSubtitle>
+            <CardTitle>{potluck.name}</CardTitle>
+            <CardSubtitle style={{fontSize: "0.7em"}}>{potluck.format_date}</CardSubtitle>
             <CardText>
               <p></p>
-              <p><em>{this.props.potluck.format_time}</em></p>
-              <p>Location: {this.props.potluck.location}</p>
-              {this.props.potluck.description}
+              <p><em>{potluck.format_time}</em></p>
+              <p>Location: {potluck.location}</p>
+              {potluck.description}
             </CardText>
           </CardBody>
       </div>
