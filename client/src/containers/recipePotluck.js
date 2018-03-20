@@ -18,7 +18,7 @@ class RecipePotluck extends Component {
   constructor(props) { //remeber to handle null values in api call for update
     super(props)
     this.state = {
-      recipe_id: this.props.recipe.id,
+      recipe_id: this.props.recipe.recipe.id,
       potluck_id: this.props.currentPotluck.id
     }
   }
@@ -45,7 +45,7 @@ class RecipePotluck extends Component {
   }
 
   render() {
-    debugger
+
     let bottom = null
     let top = null
 //bottom

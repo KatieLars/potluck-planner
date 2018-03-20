@@ -29,7 +29,7 @@ handleClick(event) {
 }
 
   render() {
-    if(this.props.recipes) {
+    if(this.props.recipes.allRecipes[0]) {
       return(
         <div >
           <h3>New-to-You Recipes</h3>
