@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
        post 'find_user' => 'users#find'
 
+       post '/guestships/end_guestships' => 'guestships#end_guestships'
+       
        resources :potluck_recipes, only: [:create]
        resources :potlucks
        resources :users

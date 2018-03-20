@@ -35,7 +35,7 @@ export function removeGuests(idList) {
   return function(dispatch) {
     return GuestApi.removeGuests(idList).then(response => {
       dispatch(getPotlucks());
-      history.push(`/potlucks/${rsvp.potluckId}`)
+      history.push(`/potlucks/${idList.potluck_id}`)
     }).catch(error => {
       throw(error)
     })
