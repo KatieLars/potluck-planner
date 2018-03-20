@@ -17,8 +17,8 @@ const homeBackground = {
   height: "100vh",
   width: "100%",
 }
-class About extends Component {
-  render() {
+
+const About = () => {
     return(
       <div>
         <Container style={homeBackground}>
@@ -29,7 +29,7 @@ class About extends Component {
                 <p>Potluck planner takes your food-sharing game to the next level.
                 Now you can track not only who's coming, but what they're bringing.
                 Avoid guests bringing the same dishes (one can only eat so much potato salad, after all),
-                get ideas for portable foods when you're at a loss of what to bring, and track your own
+                get ideas for portable foods when you are at a loss of what to bring, and track your own
                 contributions to the time-honored tradition of bringing a dish to pass.
                 </p>
               </Jumbotron>
@@ -37,7 +37,6 @@ class About extends Component {
           </Container>
         </div>
     )
-  }
 }
 
 export default About
