@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Label, Form, FormGroup, Input, Container, Row, CardDeck} from 'reactstrap'
-import {connect} from 'react-redux'
+import {CardDeck} from 'reactstrap'
 import PotluckIndexCard from './potluckIndexCard'
 import CanceledPotluckCard from './canceledPotluckCard'
 
@@ -31,4 +30,3 @@ class PotlucksList extends Component {
 }
 
 export default PotlucksList
-//className="col d-flex justify-content-center"
