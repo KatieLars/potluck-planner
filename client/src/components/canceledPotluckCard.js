@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import { CardImgOverlay, CardLink, CardImg, CardBody, CardTitle, CardSubtitle, CardFooter, CardText, Button, Card} from 'reactstrap'
-import history from '../history'
+import { CardImgOverlay, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Card} from 'reactstrap'
 import cancelled from '../images/cancelled.jpg'
 
 const subtitleStyle = {
