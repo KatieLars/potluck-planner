@@ -15,6 +15,12 @@ const subtitleStyle = {
 }
 
 class RecipeIndex extends Component {
+  constructor(props) { //remeber to handle null values in api call for update
+    super(props)
+    this.state = {
+      recipe_id: this.props.recipe.id
+    }
+  }
 
   editRecipe(event) {
     event.preventDefault()
@@ -23,7 +29,7 @@ class RecipeIndex extends Component {
 
   deleteRecipe(event) {
     event.preventDefault()
-    this.props.actions.deleteRecipe(this.props.recipe.id)
+    this.props.actions.deleteRecipe(this.state)
   }
 
   render() {
@@ -55,4 +61,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default RecipeIndex
+export default connect(null, mapDispatchToProps)(RecipeIndex)

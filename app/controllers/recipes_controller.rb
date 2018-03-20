@@ -34,9 +34,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    Recipe.destroy(params[:recipe][:recipeId])
+    Recipe.destroy(params[:recipe][:recipe_id])
   end
-  
+
   private
 
   def recipe_params

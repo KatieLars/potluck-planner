@@ -50,14 +50,14 @@ class RecipeApi {
     });
   }
 
-  static deleteRecipe(recipeId) {
-    const request = new Request(`http://localhost:3001/recipes/${recipe.id}`, {
+  static deleteRecipe(info) {
+    const request = new Request(`http://localhost:3001/recipes/${info.recipe_id}`, {
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.jwt}`,
       }),
-      body: JSON.stringify({recipe: recipeId})
+      body: JSON.stringify({recipe: info})
     });
 
     return fetch(request).then(response => {
