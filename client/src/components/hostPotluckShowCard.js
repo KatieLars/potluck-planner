@@ -15,6 +15,8 @@ const subtitleStyle = {
   marginTop: "1.25rem"
 }
 
+
+
 class HostPotluckShowCard extends Component {
 
   createARecipe(event){ //DONE
@@ -51,7 +53,7 @@ class HostPotluckShowCard extends Component {
   render() {
     return (
       <Card style={subtitleStyle} >
-        {this.props.potluck.canceled ? <CardImgOverlay><img src="url(" + cancelled+ ")"></CardImgOverlay> : null}
+        {this.props.potluck.canceled ? <CardImgOverlay><img src={cancelled}/></CardImgOverlay> : null}
         <CardHeader className="col d-flex justify-content-center">
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updateGuestList(event)}>Update Guest List</CardLink>
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>

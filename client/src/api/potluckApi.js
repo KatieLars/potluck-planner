@@ -50,14 +50,14 @@ class PotluckApi {
     });
   }
 
-  static cancelPotluck(id) { //get potlucks
+  static cancelPotluck(id) { //cancel potluck
     const request = new Request(`http://localhost:3001/potlucks/${id}`, {
       method: 'PATCH',
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.jwt}`,
       }),
-      body: JSON.stringify({potluck: id})
+      body: JSON.stringify({potluck: {id: id, canceled: true}})
     });
 
     return fetch(request).then(response => {
