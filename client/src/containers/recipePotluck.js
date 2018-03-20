@@ -19,7 +19,8 @@ class RecipePotluck extends Component {
     super(props)
     this.state = {
       recipe_id: this.props.recipe.recipe.id,
-      potluck_id: this.props.currentPotluck.id
+      potluck_id: this.props.currentPotluck.id,
+      user_id: this.props.user.id
     }
   }
 
@@ -35,6 +36,7 @@ class RecipePotluck extends Component {
 
   deleteUserFromPotluckRecipe(event) {
     event.preventDefault()
+    this.props.actions.unclaimRecipe(this.state)
     //api call that deletes user_id from potluckRecipe
     //make sure that recipe list is updated if this happens
   }

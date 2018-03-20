@@ -103,3 +103,15 @@ export function getRecipesSuccess(recipes) {
       })
     }
   }
+
+  export function claimRecipe(info) {
+    return function(dispatch) { //coming from potluck show page
+      return RecipeApi.claimRecipe(info).then(response => {
+          dispatch(getPotlucks());
+          history.push(`/potlucks/${info.potluck_id}`)
+      }).catch(error => {
+        throw(error)
+      })
+    }
+
+  }
