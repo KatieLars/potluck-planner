@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import {Button, CardHeader, Card, CardLink, CardFooter} from 'reactstrap'
 import RecipeCard from '../components/recipeCard'
 import history from '../history'
+import * as recipesActions from '../actions/recipesActions'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
 const subtitleStyle = {
   opacity: "0.60",
@@ -12,6 +15,13 @@ const subtitleStyle = {
 }
 
 class RecipePotluck extends Component {
+  constructor(props) { //remeber to handle null values in api call for update
+    super(props)
+    this.state = {
+      recipe_id: this.props.recipe.id,
+      potluck_id: this.props.currentPotluck.id
+    }
+  }
 
   editRecipe(event) {
     event.preventDefault()
@@ -20,8 +30,7 @@ class RecipePotluck extends Component {
 
   deleteRecipe(event) {
     event.preventDefault()
-    //direct API delete, and pushes back to recipe index page
-    //recipe recipe list is updated if this happens
+    this.props.actions.
   }
 
   deleteUserFromPotluckRecipe(event) {
@@ -70,4 +79,11 @@ class RecipePotluck extends Component {
 
 }
 
-export default RecipePotluck
+const mapDispatchToProps = (dispatch) => {
+  return{
+    actions: bindActionCreators(recipesActions, dispatch)
+  }
+}
+
+
+export default  connect(null, mapDispatchToProps)(RecipePotluck)
