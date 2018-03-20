@@ -22,7 +22,8 @@ class NewPotluckPage extends Component {
       potluck: {
         user_id: this.props.userId,
         location: "",
-        happening: "",
+        date: "",
+        time: "",
         description: "",
         image: "",
         name: ""

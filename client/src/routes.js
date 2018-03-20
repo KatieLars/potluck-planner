@@ -20,6 +20,7 @@ import RecipeModal from './containers/recipeModal'
 import RecipesPage from './pages/recipesPage'
 import RsvpModal from './components/rsvpModal'
 import { connect } from 'react-redux'
+import PotluckModal from './containers/potluckModal'
 
 
 const checkAuth = (token) => {
@@ -72,6 +73,7 @@ class Routes extends Component {
       <Route path="/potlucks/:potluckId/recipes/:recipeId" component={RecipeModal} />
       <Route path="/potlucks/:potluckId/recipes/new" component={RecipeModal}/>
       <Route exact path="/potlucks/:id/rsvp" component={RsvpModal} />
+      <Route exact path="/potlucks/:id/edit" component={PotluckModal} />
       </Switch>
     </div>
   )}
