@@ -32,7 +32,7 @@ class PotluckModal extends Component {
 
   updatePotluckHandler(event) {
     event.preventDefault() //potluckID falls off here
-    this.props.actions.updatePotluck(this.state.updatedPotluck)
+    this.props.actions.updatePotluck(this.state.potluck)
   }
 
   cancel(event) {
@@ -61,7 +61,6 @@ class PotluckModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
    if(ownProps.match.params.id){ //coming from potluck show page
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.id

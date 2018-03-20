@@ -34,7 +34,7 @@ class PotluckApi {
   }
 
   static updatePotluck(info) { //get potlucks
-    const request = new Request(`http://localhost:3001/potlucks/${info.potluck.id}`, {
+    const request = new Request(`http://localhost:3001/potlucks/${info.id}`, {
       method: 'PATCH',
       headers: new Headers({
         'Content-Type': 'application/json',

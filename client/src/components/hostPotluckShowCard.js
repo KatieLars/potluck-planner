@@ -34,7 +34,7 @@ class HostPotluckShowCard extends Component {
     history.push(`/potlucks/${this.props.potluck.id}/guests/update`)
   }
 
-  updatePotluck(event) { //update basic potluck info
+  updatePotluck(event) { //DONE
     event.preventDefault()
     history.push(`/potlucks/${this.props.potluck.id}/edit`)
   }
