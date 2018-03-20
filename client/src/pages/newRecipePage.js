@@ -11,7 +11,6 @@ class NewRecipePage extends Component {
     super(props)
     this.state = {
       recipe: {
-        // userId: this.props.user.id,
         name: "",
         difficulty: "",
         url: "",

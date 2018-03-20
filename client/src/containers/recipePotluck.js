@@ -15,7 +15,7 @@ const subtitleStyle = {
 }
 
 class RecipePotluck extends Component {
-  constructor(props) { //remeber to handle null values in api call for update
+  constructor(props) {
     super(props)
     this.state = {
       recipe_id: this.props.recipe.recipe.id,
@@ -80,6 +80,5 @@ const mapDispatchToProps = (dispatch) => {
     actions: bindActionCreators(recipesActions, dispatch)
   }
 }
-
 
 export default  connect(null, mapDispatchToProps)(RecipePotluck)

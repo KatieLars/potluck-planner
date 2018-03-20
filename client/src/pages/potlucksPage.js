@@ -19,7 +19,7 @@ componentWillMount() {
   this.props.actions.getPotlucks()
 }
 
-shouldComponentUpdate(nextProps, nextState) { //true if change of friends
+shouldComponentUpdate(nextProps, nextState) {
   return(this.props.potlucks != nextProps.potlucks)
  }
 
@@ -65,6 +65,5 @@ const mapStateToProps = (state) => {
       }
     }
   }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(PotlucksPage)

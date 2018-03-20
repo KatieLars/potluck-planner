@@ -26,10 +26,6 @@ class PotluckShowPage extends Component {
     return(this.props.potluck !== nextProps.potluck)
   }
 
-  // filterRecipes() {
-  //   return this.props.potluck.potluck_recipes_claimed.filter(recipe => recipe.recipe !== null)
-  // }
-
   render() {
     return (
       <div>
@@ -45,11 +41,8 @@ class PotluckShowPage extends Component {
     )
   }
 }
-//when a recipe is added to potluck, it is a potluck recipe.
-//if the recipe is chosen it gets a user id
 
 const mapStateToProps = (state, ownProps) => {
-
   if(state.potlucks.potlucks){
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.id

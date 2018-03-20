@@ -5,14 +5,9 @@ import {bindActionCreators} from 'redux'
 import RecipeForm from '../components/recipeForm'
 import * as recipesActions from '../actions/recipesActions'
 import history from '../history'
-//this modal can be called to:
-//   create a recipe from potluck show page
-//   update a recipe from potluck show page
-//   update a recipe from recipe index page
-//
-//this modal should call the Recipe form component, but have a button to update
+
 class RecipeModal extends Component {
-  constructor(props) { //remeber to handle null values in api call for update
+  constructor(props) {
     super(props)
     this.state = {
       newRecipe: {
@@ -39,7 +34,7 @@ class RecipeModal extends Component {
   }
 
   updateRecipeHandler(event) {
-    event.preventDefault() //potluckID falls off here
+    event.preventDefault()
     this.props.actions.updateRecipe(this.state.newRecipe)
   }
 
@@ -72,7 +67,7 @@ class RecipeModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  if(ownProps.match.params.potluckId){ //comping from potluck show page
+  if(ownProps.match.params.potluckId){
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.potluckId
     })
@@ -87,7 +82,7 @@ const mapStateToProps = (state, ownProps) => {
           }}else{
               return{user: state.users.user}
             }
-          }else if(ownProps.match.params.recipeId){ //coming from recipe index page
+          }else if(ownProps.match.params.recipeId){
               const recipe = state.recipes.allRecipes.find(recipe => {
                 return recipe.id == ownProps.match.params.recipeId
               })

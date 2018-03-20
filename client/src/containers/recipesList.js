@@ -37,7 +37,7 @@ recipeCards() {
   }
 }
 
-const mapStateToProps = (state) => {//make this conditional if no potlucks
+const mapStateToProps = (state) => {
   if(state.potlucks.potlucks) {
     return {
       user: state.users.user,
