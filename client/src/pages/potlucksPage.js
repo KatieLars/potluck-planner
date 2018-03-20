@@ -9,13 +9,13 @@ import stillLife from '../images/stillLife.jpg'
 
 const homeBackground = {
   backgroundImage: "url(" + stillLife + ")",
-  height: "100vh",
+  height: "100%",
   textAlign: "center"
 }
 
 const backgroundImage = {
   backgroundImage: "url(" + stillLife + ")",
-  height: "100vh",
+  height: "100%",
   textAlign: "center",
   color: "white",
 }

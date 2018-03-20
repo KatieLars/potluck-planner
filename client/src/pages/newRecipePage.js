@@ -10,7 +10,7 @@ import VintageEaster from '../images/VintageEaster.jpg'
 const homeBackground = {
   backgroundImage: "url(" + VintageEaster + ")",
   backgroundSize: "cover",
-  height: "100vh",
+  height: "100%",
   color: "black"
 }
 

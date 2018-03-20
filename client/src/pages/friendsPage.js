@@ -10,7 +10,7 @@ import BoysSpoerri from '../images/BoysSpoerri.jpg'
 const backgroundImage = {
   backgroundImage: "url(" + BoysSpoerri + ")",
   backgroundSize: "cover",
-  height: "100vh",
+  height: "100%",
   color: "black",
 }
 

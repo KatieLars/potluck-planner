@@ -8,7 +8,7 @@ import stillLife from '../images/stillLife.jpg'
 
 const homeBackground = {
   backgroundImage: "url(" + stillLife + ")",
-  height: "100vh",
+  height: "100%",
   color: "white"
 }
 

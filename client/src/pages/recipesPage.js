@@ -1,16 +1,17 @@
 import React, {Component} from 'react'
-import { Button, Container, Col, Row, CardColumns} from 'reactstrap'
+import { Button, Container, Col, Row, CardColumns, Jumbotron} from 'reactstrap'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import history from '../history.js'
 import * as recipesActions from '../actions/recipesActions'
 import RecipesList from '../containers/recipesList'
-import stillLife from '../images/stillLife.jpg'
+import VintageEaster from '../images/VintageEaster.jpg'
 
 const homeBackground = {
-  backgroundImage: "url(" + stillLife + ")",
+  backgroundImage: "url(" + VintageEaster + ")",
+  backgroundSize: "cover",
   height: "100vh",
-  textAlign: "center"
+  color: "black"
 }
 
 class RecipesPage extends Component {
@@ -19,7 +20,7 @@ componentWillMount() {
   this.props.actions.getRecipes()
 }
 
-shouldComponentUpdate(nextProps, nextState) { 
+shouldComponentUpdate(nextProps, nextState) {
   return(this.props.recipes !== nextProps.recipes)
  }
 
@@ -31,7 +32,7 @@ handleClick(event) {
   render() {
     if(this.props.recipes.allRecipes[0]) {
       return(
-        <div >
+        <div style={homeBackground}>
           <h3>New-to-You Recipes</h3>
           <RecipesList recipes={this.props.recipes.userRecipes.newRecipes} url={this.props.match.url} />
           <hr className="my-4"/>
@@ -41,14 +42,17 @@ handleClick(event) {
       )
     }else{
       return(
-        <div>
-          <h1>No Recipes!</h1>
-          <Button onClick={(event) => this.handleClick(event)}>Create a Recipe</Button>
+        <div className="container-full-bg">
+          <Jumbotron  style={homeBackground}>
+            <Container>
+              <h1>No Potlucks!</h1>
+                <Button onClick={(event) => this.handleClick(event)}>Create a Recipe</Button>
+            </Container>
+          </Jumbotron>
         </div>
       )
     }
   }
-
 }
 
 const mapDispatchToProps = (dispatch) => {

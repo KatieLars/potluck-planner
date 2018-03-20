@@ -4,6 +4,7 @@ import PotluckShow from '../components/potluckShow'
 import {Container, Row, Col, Button, CardDeck} from 'reactstrap'
 import history from '../history'
 import RecipesList from '../containers/recipesList'
+import stillLife from '../images/stillLife.jpg'
 
 const imageStyle ={
   height: "30%",
@@ -20,6 +21,13 @@ const cardDecks = {
   columnCount: "3"
 }
 
+const homeBackground = {
+  backgroundImage: "url(" + stillLife + ")",
+  backgroundSize: "cover",
+  height: "100%"
+}
+
+
 class PotluckShowPage extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -28,7 +36,7 @@ class PotluckShowPage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={homeBackground}>
         <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
             <CardDeck style={cardDecks}>

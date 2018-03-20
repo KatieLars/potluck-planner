@@ -5,14 +5,14 @@ import {Link} from 'react-router-dom'
 import BoysSpoerri from '../images/BoysSpoerri.jpg'
 
 const imageStyle ={
-  height: "30%",
+  height: "100px",
   paddingBottom: "20px"
 }
 
 const backgroundImage = {
   backgroundImage: "url(" + BoysSpoerri + ")",
   backgroundSize: "cover",
-  height: "100vh",
+  height: "100%",
   textAlign: "center",
   color: "black",
 }
