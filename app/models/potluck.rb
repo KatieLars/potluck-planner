@@ -41,7 +41,7 @@ class Potluck < ApplicationRecord#may need foreign keys specified
   end
 
   def blanks #returns a list of all guests not yet responded
-    self.guestships.collect{|guestship| guestship.guest if guestship.rsvp == ""}
+    self.guestships.collect{|guestship| guestship.guest if guestship.rsvp == nil}
   end
 
 end

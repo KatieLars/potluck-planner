@@ -3,6 +3,7 @@ import RecipeApi from '../api/recipeApi';
 import history from '../history'
 import {getPotlucks} from './potlucksActions'
 import PotluckRecipeApi from '../api/potluckRecipeApi'
+import GuestApi from '../api/guestApi'
 
 
 // export function cancelPotluck(potluckId) { //returns updated list of potlucks
@@ -22,6 +23,29 @@ import PotluckRecipeApi from '../api/potluckRecipeApi'
 //   }
 // }
 //
+
+export function inviteGuests(idList) {
+  return function(dispatch) {
+    return GuestApi.createGuests(idList).then(response => {
+      dispatch(getPotlucks());
+      history.push(`/potlucks/${idList.potluck_id}`)
+    }).catch(error => {
+      throw(error)
+    })
+  }
+}
+
+export function removeGuests(idList) {
+  return function(dispatch) {
+    return GuestApi.removeGuests(idList).then(response => {
+      dispatch(getPotlucks());
+      history.push(`/potlucks/${idList.potluck_id}`)
+    }).catch(error => {
+      throw(error)
+    })
+  }
+}
+
 export function createRecipe(info) { //alert and return to potlucks page
   return function(dispatch) {
     return RecipeApi.createRecipe(info).then(response => {

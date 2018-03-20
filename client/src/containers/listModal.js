@@ -3,12 +3,12 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reacts
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as recipesActions from '../actions/recipesActions'
-import * as guestsActions from '../actions/guestsActions'
 import CheckList from '../components/checkList'
 import GuestListContainer from './guestListContainer'
 import GuestCheckList from '../components/guestCheckList'
 import history from '../history'
 import UpdateGuestListContainer from '../containers/updateGuestListContainer'
+import NewFriendsList from '../components/newFriendsList'
 
 //used for
   //selecting guests (if creator of potluck) /guests/select
@@ -47,6 +47,7 @@ class ListModal extends Component {
 
   inviteGuests(event) {
     event.preventDefault()
+    debugger
     this.props.actions.inviteGuests(this.state)
   }
 
@@ -85,17 +86,17 @@ class ListModal extends Component {
         body: <GuestListContainer potluck={this.props.currentPotluck} user={this.props.user}/>
       }
 
-    case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
+    case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //DONE
       return {
         header: <ModalHeader>Select Guests</ModalHeader>,
-        body: <NewFriendsList newFriends={this.props.currentPotluck.friendsNotInvited} />,
+        body: <NewFriendsList newFriends={this.props.currentPotluck.friends_to_invite} />,
         button: <Button onClick={(event) => this.inviteGuests(event)}>Invite Guests</Button>
       }
 
     case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming if they have not rsvped
      return {
         header:  <ModalHeader>Update Guest List</ModalHeader>,
-        body: <UpdateGuestListContainer currentPotluck={this.props.currentPotluck}/>,
+        body: <UpdateGuestListContainer potluck={this.props.currentPotluck}/>,
         button: <Button onClick={(event) => this.removeGuests(event)}>Update Guest List</Button>
       }
 
@@ -142,8 +143,9 @@ const mapStateToProps = (state, ownProps) => {
     }
 //will also need to bind guest actions
   const mapDispatchToProps = (dispatch) => {
+
     return {
-      actions: bindActionCreators(recipesActions, guestsActions, dispatch)
+      actions: bindActionCreators(recipesActions, dispatch)
     }
   }
 export default connect(mapStateToProps, mapDispatchToProps)(ListModal)

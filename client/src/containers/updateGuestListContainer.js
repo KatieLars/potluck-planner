@@ -5,11 +5,12 @@ import {connect} from 'react-redux'
 import history from '../history.js'
 import * as guestsActions from '../actions/guestsActions'
 import GuestList from '../components/guestList'
-import CheckList from '../components/guestCheckList'
+import CheckList from '../components/checkList'
 //accessible if you are a host
 class GuestListContainer extends Component {
 
   render() {
+
       return(
         <div >
           <h5>Coming</h5>
