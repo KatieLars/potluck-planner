@@ -53,31 +53,33 @@ class Routes extends Component {
 
       <PrivateRoute path="/home" component={UserHomePage}/>
 
-      <Route exact path="/account/update" component={UpdateAccountForm}/>
-      <Route path="/account" component={AccountPage}/>
-      <Route exact path="/friends" component={FriendsPage}/>
-      <Route path="/friends/add" component={AddFriends} />
-      <Route exact path="/potlucks" component={PotlucksPage}/>
-      <Route path="/potlucks/new" component={NewPotluckPage} />
-      <Route exact path="/recipes" component={RecipesPage}/>
-      <Route path="/recipes/new" component={NewRecipePage}/>
-      <Route path="/recipes/:recipeId/edit" component={RecipeModal}/>
-      <Route exact path="/potlucks/:id" component={PotluckShowPage}/>
-      <Route path="/potlucks/:potluckId/guests/select" component={ListModal}/>
-      <Route path="/potlucks/:potluckId/guests/update" component={ListModal}/>
-      <Route exact path="/potlucks/:potluckId/guests" component={ListModal}/>
-      <Route exact path="/potlucks/:potluckId/recipes/select" component={ListModal}/>
-      <Route path="/potlucks/:potluckId/recipes/:recipeId" component={RecipeModal} />
-      <Route path="/potlucks/:potluckId/recipes/new" component={RecipeModal}/>
-      <Route exact path="/potlucks/:id/rsvp" component={RsvpModal} />
-      <Route exact path="/potlucks/:id/edit" component={PotluckModal} />
+      <PrivateRoute exact path="/account/update" component={UpdateAccountForm}/>
+      <PrivateRoute path="/account" component={AccountPage}/>
+
+      <PrivateRoute path="/friends" component={FriendsPage}/>
+      <PrivateRoute path="/friends/add" component={AddFriends} />
+
+      <PrivateRoute exact path="/recipes" component={RecipesPage}/>
+      <PrivateRoute path="/recipes/new" component={NewRecipePage}/>
+      <PrivateRoute path="/recipes/:recipeId/edit" component={RecipeModal}/>
+
+      <PrivateRoute exact path="/potlucks" component={PotlucksPage}/>
+      <PrivateRoute path="/potlucks/new" component={NewPotluckPage} />
+      <PrivateRoute exact path="/potlucks/:id" component={PotluckShowPage}/>
+      <PrivateRoute exact path="/potlucks/:id/edit" component={PotluckModal} />
+
+      <PrivateRoute path="/potlucks/:potluckId/guests/select" component={ListModal}/>
+      <PrivateRoute path="/potlucks/:potluckId/guests/update" component={ListModal}/>
+      <PrivateRoute exact path="/potlucks/:potluckId/guests" component={ListModal}/>
+
+      <PrivateRoute exact path="/potlucks/:potluckId/recipes/select" component={ListModal}/>
+      <PrivateRoute path="/potlucks/:potluckId/recipes/:recipeId" component={RecipeModal} />
+      <PrivateRoute path="/potlucks/:potluckId/recipes/new" component={RecipeModal}/>
+
+      <PrivateRoute exact path="/potlucks/:id/rsvp" component={RsvpModal} />
       </Switch>
     </div>
   )}
 }
 
 export default Routes
-
-
-// <PrivateRoute token={sessionStorage.jwt} path="/home" component={UserHomePage}
-//   />
