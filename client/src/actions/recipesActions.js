@@ -5,25 +5,6 @@ import {getPotlucks} from './potlucksActions'
 import PotluckRecipeApi from '../api/potluckRecipeApi'
 import GuestApi from '../api/guestApi'
 
-
-// export function cancelPotluck(potluckId) { //returns updated list of potlucks
-//   return function(dispatch) { //can only delete if user ID matches
-//     return PotluckApi.cancelPotluck(potluckId).then(response => {
-//       dispatch(cancelPotlucksSuccess(response));
-//     }).catch(error => {
-//       throw(error)
-//     })
-//   }
-// }
-//
-// export function cancelPotlucksSuccess(updatedList) {
-//   return{
-//     type: types.CANCEL_POTLUCK,
-//     potlucks: updatedList
-//   }
-// }
-//
-
 export function inviteGuests(idList) {
   return function(dispatch) {
     return GuestApi.createGuests(idList).then(response => {

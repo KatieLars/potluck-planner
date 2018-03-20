@@ -16,7 +16,7 @@ filterRecipes() {
 }
 
 recipeCards() {
-  const filteredRecipes =   this.filterRecipes()
+  const filteredRecipes = this.filterRecipes()
   if(this.props.currentPotluck){
     return filteredRecipes.map((recipe) => (
       <RecipePotluck recipe={recipe} currentPotluck={this.props.currentPotluck} potlucks={this.props.potlucks} user={this.props.user} />
