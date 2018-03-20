@@ -6,9 +6,8 @@ import PotluckForm from '../components/potluckForm'
 import * as potlucksActions from '../actions/potlucksActions'
 import history from '../history'
 
-//called for updating Potluck from Potluck Show Page
 class PotluckModal extends Component {
-  constructor(props) { //remeber to handle null values in api call for update
+  constructor(props) {
     super(props)
     this.state = {
       potluck: {
@@ -31,7 +30,7 @@ class PotluckModal extends Component {
   }
 
   updatePotluckHandler(event) {
-    event.preventDefault() //potluckID falls off here
+    event.preventDefault()
     this.props.actions.updatePotluck(this.state.potluck)
   }
 
@@ -61,7 +60,7 @@ class PotluckModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-   if(ownProps.match.params.id){ //coming from potluck show page
+   if(ownProps.match.params.id){
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.id
     })
