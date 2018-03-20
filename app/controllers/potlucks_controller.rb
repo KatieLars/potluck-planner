@@ -17,9 +17,9 @@ class PotlucksController < ApplicationController
 
   def update
     potluck = Potluck.find_by_id(params[:potluck][:id])
-    clean_params = recipe_params.reject { |k, v| v.blank? }
-    @recipe.update(clean_params)
-    render json:@recipe
+    clean_params = potluck_params.reject { |k, v| v.blank? }
+    potluck.update(clean_params)
+    render json:potluck
   end
 
 
