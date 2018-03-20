@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {Form, FormGroup, Col, Row, Container, Button, Label, Input} from 'reactstrap'
+import {Form, FormGroup, Row, Container, Button, Label, Input} from 'reactstrap'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as sessionActions from '../actions/sessionActions'
-import {BrowserRouter} from 'react-router-dom';
 import peeledOrange from "../images/peeledOrange.jpg"
 
 const formStyle ={

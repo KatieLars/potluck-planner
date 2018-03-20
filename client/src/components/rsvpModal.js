@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import * as guestsActions from '../actions/guestsActions'
 import {bindActionCreators} from 'redux'
 
-//makes api call and changes guestship.rsvp value
 class RsvpModal extends Component{
   constructor(props) {
     super(props);
@@ -26,7 +25,6 @@ class RsvpModal extends Component{
     this.props.actions.userRsvp(this.state)
   }
   render() {
-
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
