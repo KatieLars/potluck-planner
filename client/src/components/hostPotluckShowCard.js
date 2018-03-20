@@ -44,7 +44,6 @@ class HostPotluckShowCard extends Component {
   cancelPotluck(event) {
     event.preventDefault()
     this.props.actions.cancelPotluck(this.props.potluck.id)
-    history.push("/potlucks")
   }
 
   render() {

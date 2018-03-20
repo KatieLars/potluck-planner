@@ -24,7 +24,7 @@ const cardDecks = {
 const homeBackground = {
   backgroundImage: "url(" + stillLife + ")",
   backgroundSize: "cover",
-  height: "100%"
+  // height: "100%"
 }
 
 
