@@ -33,6 +33,10 @@ class RecipesController < ApplicationController
     render json:@recipe
   end
 
+  def destroy
+    Recipe.destroy(params[:recipe][:recipeId])
+  end
+  
   private
 
   def recipe_params
