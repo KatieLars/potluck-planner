@@ -20,7 +20,7 @@ componentWillMount() {
 }
 
 shouldComponentUpdate(nextProps, nextState) { //true if change of friends
-  return(this.props.potlucks !== nextProps.potlucks)
+  return(this.props.potlucks != nextProps.potlucks)
  }
 
 handleClick(event) {

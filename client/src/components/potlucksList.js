@@ -12,11 +12,11 @@ const cardDecks = {
 class PotlucksList extends Component {
 
   potlucksCards() {
-      return this.props.potlucks.map((potluck) => {
+     return this.props.potlucks.map((potluck) => {
         if(potluck.canceled) {
-          <CanceledPotluckCard potluck={potluck} />
+          return <CanceledPotluckCard potluck={potluck} />
         }else{
-          <PotluckIndexCard potluck={potluck} url={this.props.url} user={this.props.user}/>
+          return <PotluckIndexCard potluck={potluck} url={this.props.url} user={this.props.user}/>
         }
       }
     )}
