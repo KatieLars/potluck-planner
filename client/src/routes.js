@@ -31,21 +31,16 @@ const checkAuth = (token) => {
   }
 }
 
-const PrivateRoute = ({component: Component, token, ...rest}) => {
-  return (
-  <Route {...rest} render={(props) => {
-    checkAuth(token) ? (
-      <Component {...props} />
+const PrivateRoute = ({component: Component, ...rest}) => (
+  <Route {...rest} render={(props) => (
+    checkAuth(sessionStorage.jwt)
+    ? <Component {...props} />
+    : <Redirect to='/signin' />
     )
-      : (<Redirect to={{pathname: '/signin', state: {from: props.location}}} />)
-    }
   }
   />)
-}//last brace
 
 class Routes extends Component {
-
-
   render() {
     return(
     <div>
@@ -55,7 +50,9 @@ class Routes extends Component {
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/about" component={About}/>
-      <Route path="/home" component={UserHomePage}/>
+
+      <PrivateRoute path="/home" component={UserHomePage}/>
+
       <Route exact path="/account/update" component={UpdateAccountForm}/>
       <Route path="/account" component={AccountPage}/>
       <Route exact path="/friends" component={FriendsPage}/>
