@@ -19,8 +19,9 @@ class GuestshipsController < ApplicationController
 
   def end_guestships #destroy multiple guestships
     params[:guestship][:selectedIds].each do |guestship|
+      guest = Guestship.find_by_id(guestship)
       Guestship.destroy(guestship)
-    end
+    end 
     # potluck = Potluck.find_by_id(params[:guestship][:potluck_id])
     # render json:potluck
   end

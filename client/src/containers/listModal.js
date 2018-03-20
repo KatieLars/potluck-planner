@@ -25,15 +25,6 @@ class ListModal extends Component {
     }
   }
 
-  // componentWillMount() {
-  //    this.props.actions.getNotFriends()
-  //  }
-
-  // addFriendsHandler(event) {
-  //   event.preventDefault()
-  //   this.props.actions.addFriends(this.state.newFriendIds)
-  // }
-
   addRecipes(event) { //creates potluck_recipes
     event.preventDefault()
     this.props.actions.createPotluckRecipes(this.state)
