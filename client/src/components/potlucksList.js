@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Label, Form, FormGroup, Input, Container, Row, CardDeck} from 'reactstrap'
 import {connect} from 'react-redux'
 import PotluckIndexCard from './potluckIndexCard'
+import CanceledPotluckCard from './canceledPotluckCard'
 
 const cardDecks = {
   columnGap: "1rem",

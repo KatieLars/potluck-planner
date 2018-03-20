@@ -3,7 +3,6 @@ import { CardImgOverlay, CardImg, CardBody, CardTitle, CardSubtitle, CardText, C
 import cancelled from '../images/cancelled.jpg'
 
 const subtitleStyle = {
-  opacity: "0.60",
   textAlign: "center",
   width: "30vw",
   display: "inline-block",

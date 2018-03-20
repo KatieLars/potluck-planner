@@ -31,7 +31,6 @@ class PotluckIndexCard extends Component {
             {this.props.potluck.description}
           </CardText>
         </CardBody>
-        {this.props.potluck.canceled}
         <CardFooter>
           <Button onClick={(event)=> this.potluckShowPage(event)}>More Info</Button>
         </CardFooter>
