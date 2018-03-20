@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import { CardLink, CardImg, CardBody, CardTitle, CardSubtitle} from 'reactstrap'
 
-class RecipeCard extends Component {
-
-  render() {
+const RecipeCard = ({ recipe }) => {
     return (
       <div>
         <CardImg top width="100%" src={this.props.recipe.image} alt="Potluck Image" />
@@ -14,7 +12,6 @@ class RecipeCard extends Component {
           </CardBody>
       </div>
     )
-  }
 }
 
 export default RecipeCard
