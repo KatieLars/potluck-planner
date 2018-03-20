@@ -9,7 +9,7 @@ const backgroundImage = {
   backgroundImage: "url(" + BoysSpoerri + ")",
   backgroundSize: "cover",
 
-  height: "100%",
+  height: "100vh",
   textAlign: "center",
   color: "black",
 }
