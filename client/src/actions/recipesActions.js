@@ -107,3 +107,18 @@ export function getRecipesSuccess(recipes) {
       })
     }
   }
+
+  export function deleteRecipe(recipeId) {
+    return function(dispatch) { //coming from potluck show page
+      return RecipeApi.deleteRecipe(recipeId).then(response => {
+        if(info.potluck_id){
+          dispatch(getPotlucks())
+          history.push(`/potlucks/${info.potluck_id}`)
+        }else{ //coming from recipe index
+        dispatch(getRecipes());
+        history.push('/recipes')
+      }}).catch(error => {
+        throw(error)
+      })
+    }
+  }

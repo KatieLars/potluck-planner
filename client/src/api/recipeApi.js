@@ -33,7 +33,7 @@ class RecipeApi {
     });
   }
 
-  static updateRecipe(recipe) { 
+  static updateRecipe(recipe) {
     const request = new Request(`http://localhost:3001/recipes/${recipe.id}`, {
       method: 'PATCH',
       headers: new Headers({
@@ -41,6 +41,23 @@ class RecipeApi {
         'Authorization': `Bearer ${sessionStorage.jwt}`,
       }),
       body: JSON.stringify({recipe: recipe})
+    });
+
+    return fetch(request).then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
+  }
+
+  static deleteRecipe(recipeId) {
+    const request = new Request(`http://localhost:3001/recipes/${recipe.id}`, {
+      method: 'DELETE',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.jwt}`,
+      }),
+      body: JSON.stringify({recipe: recipeId})
     });
 
     return fetch(request).then(response => {
