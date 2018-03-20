@@ -4,10 +4,16 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as potlucksActions from '../actions/potlucksActions'
 import PotluckForm from '../components/potluckForm'
+import stillLife from '../images/stillLife.jpg'
+
+const homeBackground = {
+  backgroundImage: "url(" + stillLife + ")",
+  height: "100vh",
+  textAlign: "center"
+}
 
 const leftColStyle = {
   paddingTop: "100px",
-
 }
 
 const containerStyle = {
@@ -45,7 +51,7 @@ class NewPotluckPage extends Component {
 
 render() {
 return(
-      <div>
+      <div style={homeBackground}>
         <Form onChange={(event) => this.handleChange(event)} onSubmit={(event) => this.handleSubmit(event)}>
           <Container style={containerStyle}>
             <Row >
