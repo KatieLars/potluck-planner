@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { CardImgOverlay, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Card} from 'reactstrap'
 import cancelled from '../images/cancelled.jpg'
 

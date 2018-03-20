@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Container, Col, Row, Jumbotron } from 'reactstrap'
 import janKornstaedt from '../images/janKornstaedt.jpg'
 

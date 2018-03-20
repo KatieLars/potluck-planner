@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { CardLink, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
+import { CardLink, Card, CardFooter, CardHeader} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
 import PotluckCard from './potluckCard'
