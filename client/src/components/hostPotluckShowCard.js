@@ -26,7 +26,7 @@ class HostPotluckShowCard extends Component {
 
   inviteGuests(event) { //invite guests from friends
     event.preventDefault()
-    history.push(`/potlucks/${this.props.potluck.id}/guests/invite`)
+    history.push(`/potlucks/${this.props.potluck.id}/guests/select`)
   }
 
   updateGuestList(event) { //gets guests and sorts them according to rsvp

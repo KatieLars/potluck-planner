@@ -28,10 +28,4 @@ class GuestListContainer extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-      actions: bindActionCreators(guestsActions, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(GuestListContainer)
+export default GuestListContainer

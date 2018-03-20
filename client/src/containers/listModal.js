@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import * as recipesActions from '../actions/recipesActions'
 import * as guestsActions from '../actions/guestsActions'
 import CheckList from '../components/checkList'
-import GuestListContainer from '../containers/guestListContainer'
+import GuestListContainer from './guestListContainer'
 import GuestCheckList from '../components/guestCheckList'
 import history from '../history'
 import UpdateGuestListContainer from '../containers/updateGuestListContainer'
@@ -88,15 +88,15 @@ class ListModal extends Component {
     case `/potlucks/${this.props.currentPotluck.id}/guests/select`: //list of friends not already guests
       return {
         header: <ModalHeader>Select Guests</ModalHeader>,
-        body: <GuestsListContainer list={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>,
-        button: <Button onClick={(event) => this.inviteGuests(event)>Invite Guests</Button>
+        body: <NewFriendsList newFriends={this.props.currentPotluck.friendsNotInvited} />,
+        button: <Button onClick={(event) => this.inviteGuests(event)}>Invite Guests</Button>
       }
 
     case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming if they have not rsvped
      return {
         header:  <ModalHeader>Update Guest List</ModalHeader>,
         body: <UpdateGuestListContainer currentPotluck={this.props.currentPotluck}/>,
-        button: <Button onClick={(event) => this.removeGuests(event)>Update Guest List</Button>
+        button: <Button onClick={(event) => this.removeGuests(event)}>Update Guest List</Button>
       }
 
     }

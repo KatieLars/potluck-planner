@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reactstrap'
+import { FormGroup, Label, Input } from 'reactstrap'
 
 
 const imageStyle = {
@@ -43,7 +43,7 @@ class GuestCheckList extends Component {
 //   }
 // }
 
-export default connect(mapStateToProps, null)(GuestCheckList)
+export default GuestCheckList
 //
 // onstructor(props) {
 //   super(props);
