@@ -68,13 +68,13 @@ class RecipeApi {
   }
 
   static claimRecipe(info) {
-    const request = new Request(`http://localhost:3001/recipes/${info.recipe_id}`, {
+    const request = new Request(`http://localhost:3001/potluck_recipes/claim`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.jwt}`,
       }),
-      body: JSON.stringify({recipe: info})
+      body: JSON.stringify({info: info})
     });
 
     return fetch(request).then(response => {
