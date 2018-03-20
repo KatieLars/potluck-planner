@@ -1,8 +1,7 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Label, FormGroup, Input, Col} from 'reactstrap'
 
-class PotluckForm extends Component {
-  render() {
+const PotluckForm = ({ potluck }) => {
   return(
     <Col className="col-4" style={{marginLeft: "25px"}}>
       <FormGroup>
@@ -31,7 +30,6 @@ class PotluckForm extends Component {
       </FormGroup>
     </Col>
   )
-}
 }
 
 export default PotluckForm
