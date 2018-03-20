@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import {Card, CardFooter, CardHeader, CardLink } from 'reactstrap'
 import RecipeCard from '../components/recipeCard'
 import history from '../history'
+import * as recipesActions from '../actions/recipesActions'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
 const subtitleStyle = {
   opacity: "0.60",
@@ -20,8 +23,7 @@ class RecipeIndex extends Component {
 
   deleteRecipe(event) {
     event.preventDefault()
-    //direct API delete, and pushes back to recipe index page
-    //recipe recipe list is updated if this happens
+    this.props.actions.deleteRecipe(this.props.recipe.id)
   }
 
   render() {
@@ -45,6 +47,12 @@ class RecipeIndex extends Component {
     )
   }
 
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    actions: bindActionCreators(recipesActions, dispatch)
+  }
 }
 
 export default RecipeIndex
