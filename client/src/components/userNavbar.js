@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-import { Navbar, Nav, NavItem, NavLink, NavbarBrand, Button } from 'reactstrap';
-import { NavLink as TopNav, Link, BrowserRouter, withRouter } from 'react-router-dom'
+import { Navbar, Nav, NavItem, NavLink, NavbarBrand } from 'reactstrap';
+import { NavLink as TopNav, Link} from 'react-router-dom'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux'
 import * as sessionActions from '../actions/sessionActions'
@@ -16,7 +16,6 @@ import history from '../history'
   }
 
   render() {
-
   return(
     <div>
     <Navbar className="navbar navbar-expand-lg bg-dark" >
