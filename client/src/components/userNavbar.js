@@ -4,6 +4,7 @@ import { NavLink as TopNav, Link, BrowserRouter, withRouter } from 'react-router
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux'
 import * as sessionActions from '../actions/sessionActions'
+import history from '../history'
 
 
  class UserNavbar extends Component {
@@ -11,6 +12,7 @@ import * as sessionActions from '../actions/sessionActions'
   signOut = (event) => {
     event.preventDefault()
     this.props.actions.signOut()
+    history.push("/")
   }
 
   render() {
