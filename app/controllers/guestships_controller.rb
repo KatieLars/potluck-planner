@@ -2,9 +2,10 @@
 class GuestshipsController < ApplicationController
 
   def create #creates mulitple guestships
-    params[:guestship][:selectedIds].each do |friendId|
+    guestships = params[:guestship][:selectedIds].collect do |friendId|
       Guestship.create(guest_id: friendId, potluck_id: params[:guestship][:potluck_id])
     end
+    render json:guestships
   end
 
   def update
