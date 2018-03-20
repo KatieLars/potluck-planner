@@ -57,16 +57,10 @@ export function getPotlucksSuccess(potlucks) {
   export function updatePotluck(info) {
     return function(dispatch) {
       return PotluckApi.updatePotluck(info).then(response => {
-        dispatch(updatePotluckSuccess(response));
+          dispatch(getPotlucks());
         history.push(`/potlucks/${response.id}`)
       }).catch(error => {
         throw(error)
       })
-    }
-  }
-
-  export function updatePotluckSuccess(potluck) {
-    return {type: types.UPDATE_POTLUCK,
-            potluck: potluck
     }
   }
