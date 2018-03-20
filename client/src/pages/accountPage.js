@@ -2,10 +2,19 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import { Button, Col, Row, Container } from 'reactstrap'
 import {Link} from 'react-router-dom'
+import BoysSpoerri from '../images/BoysSpoerri.jpg'
 
 const imageStyle ={
   height: "30%",
   paddingBottom: "20px"
+}
+
+const backgroundImage = {
+  backgroundImage: "url(" + BoysSpoerri + ")",
+  backgroundSize: "cover",
+  height: "100vh",
+  textAlign: "center",
+  color: "black",
 }
 class AccountPage extends Component {
 
@@ -14,7 +23,7 @@ class AccountPage extends Component {
      const email = this.props.user.users.user.email
      const image = this.props.user.users.user.image
     return(
-      <div>
+      <div style={backgroundImage}>
         <Container style={{textAlign: "center"}}>
           <Row style={{paddingTop: "25px"}}>
             <Col className="col-3"></Col>

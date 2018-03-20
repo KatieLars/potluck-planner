@@ -5,6 +5,15 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import history from '../history.js'
 import * as friendsActions from '../actions/friendsActions'
+import BoysSpoerri from '../images/BoysSpoerri.jpg'
+
+const backgroundImage = {
+  backgroundImage: "url(" + BoysSpoerri + ")",
+  backgroundSize: "cover",
+  height: "100vh",
+  textAlign: "center",
+  color: "black",
+}
 
 class FriendsPage extends Component {
   constructor(){

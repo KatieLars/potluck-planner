@@ -3,13 +3,15 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as sessionActions from '../actions/sessionActions'
 import { Jumbotron, Container } from 'reactstrap'
-import stillLife from '../images/stillLife.jpg'
+import BoysSpoerri from '../images/BoysSpoerri.jpg'
 
 const backgroundImage = {
-  backgroundImage: "url(" + stillLife + ")",
+  backgroundImage: "url(" + BoysSpoerri + ")",
+  backgroundSize: "cover",
+
   height: "100vh",
   textAlign: "center",
-  color: "white",
+  color: "black",
 }
 
 class UserHomePage extends Component {

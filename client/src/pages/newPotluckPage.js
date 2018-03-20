@@ -76,7 +76,6 @@ return(
   }
 }
 
-//<Col className="col-4"></Col>
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(potlucksActions, dispatch)
