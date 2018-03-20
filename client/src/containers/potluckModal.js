@@ -44,7 +44,7 @@ class PotluckModal extends Component {
     return(
       <div>
         <Modal isOpen="true" style={{paddingTop: "50px"}}>
-          <ModalHeader></ModalHeader>
+          <ModalHeader>Update Potluck</ModalHeader>
           <ModalBody>
             <Form onChange={(event)=> this.handleChange(event)}>
               <PotluckForm potluck={this.props.potluck}/>
@@ -61,6 +61,7 @@ class PotluckModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
    if(ownProps.match.params.id){ //coming from potluck show page
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.id
