@@ -47,7 +47,7 @@ class ListModal extends Component {
 
   inviteGuests(event) {
     event.preventDefault()
-    //invites guests based on friends list
+    this.props.actions.inviteGuests(this.state)
   }
 
   handleChange(event) {
@@ -89,7 +89,7 @@ class ListModal extends Component {
       return {
         header: <ModalHeader>Select Guests</ModalHeader>,
         body: <GuestsListContainer list={this.props.currentPotluck.friendsNotInvited} currentPotluck={this.props.currentPotluck}/>,
-        button: <Button>Invite Guests</Button>
+        button: <Button onClick={(event) => this.inviteGuests(event)>Invite Guests</Button>
       }
 
     case `/potlucks/${this.props.currentPotluck.id}/guests/update`: //update who's coming if they have not rsvped
