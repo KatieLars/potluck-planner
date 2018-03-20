@@ -29,7 +29,7 @@ class HostPotluckShowCard extends Component {
     history.push(`/potlucks/${this.props.potluck.id}/guests/select`)
   }
 
-  updateGuestList(event) { //gets guests and sorts them according to rsvp
+  updateGuestList(event) { //DONE
     event.preventDefault()
     history.push(`/potlucks/${this.props.potluck.id}/guests/update`)
   }

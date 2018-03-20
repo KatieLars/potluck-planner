@@ -7,7 +7,7 @@ import * as potlucksActions from '../actions/potlucksActions'
 import history from '../history'
 
 //called for updating Potluck from Potluck Show Page
-class PotluckeModal extends Component {
+class PotluckModal extends Component {
   constructor(props) { //remeber to handle null values in api call for update
     super(props)
     this.state = {
@@ -21,6 +21,7 @@ class PotluckeModal extends Component {
         id: this.props.potluck.id
     }
   }
+}
 
   handleChange(event){
     const field = event.target.name;
