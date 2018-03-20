@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { CardImgOverlay, CardLink, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
+import { CardLink, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
 import PotluckCard from './potluckCard'
@@ -53,7 +53,6 @@ class HostPotluckShowCard extends Component {
   render() {
     return (
       <Card style={subtitleStyle} >
-        {this.props.potluck.canceled ? <CardImgOverlay><img src={cancelled}/></CardImgOverlay> : null}
         <CardHeader className="col d-flex justify-content-center">
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updateGuestList(event)}>Update Guest List</CardLink>
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
