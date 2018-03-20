@@ -60,39 +60,20 @@ class PotluckModal extends Component {
   }
 }
 
-// const mapStateToProps = (state, ownProps) => {
-//   if(ownProps.match.params.potluckId){ //comping from potluck show page
-//     const potluck = state.potlucks.potlucks.find(potluck => {
-//       return potluck.id == ownProps.match.params.potluckId
-//     })
-//      const recipe = state.potlucks.allPotluckRecipes.find(recipe => {
-//       return recipe.id == ownProps.match.params.recipeId
-//     })
-//         if(recipe && potluck){
-//           return {
-//             recipe: recipe,
-//             currentPotluck: potluck,
-//             user: state.users.user,
-//           }}else{
-//               return{user: state.users.user}
-//             }
-//           }else if(ownProps.match.params.recipeId){ //coming from recipe index page
-//               const recipe = state.recipes.allRecipes.find(recipe => {
-//                 return recipe.id == ownProps.match.params.recipeId
-//               })
-//               if(recipe){
-//                 return {
-//                   recipe: recipe,
-//                   user: state.users.user}
-//               }else{
-//                 return{user: state.users.user}
-//               }
-//           }else{
-//             return {
-//               user: state.users.user
-//             }
-//           }
-// }
+const mapStateToProps = (state, ownProps) => {
+   if(ownProps.match.params.id){ //coming from potluck show page
+    const potluck = state.potlucks.potlucks.find(potluck => {
+      return potluck.id == ownProps.match.params.id
+    })
+    return {
+     potluck: potluck,
+     user: state.users.user,
+   }}else{
+     return {
+       user: state.users.user
+     }
+   }
+ }
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -100,4 +81,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(PotluckModal)
+export default connect(mapStateToProps, mapDispatchToProps)(PotluckModal)
