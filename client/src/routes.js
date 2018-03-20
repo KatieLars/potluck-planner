@@ -56,7 +56,7 @@ class Routes extends Component {
       <PrivateRoute exact path="/account/update" component={UpdateAccountForm}/>
       <PrivateRoute path="/account" component={AccountPage}/>
 
-      <PrivateRoute path="/friends" component={FriendsPage}/>
+      <PrivateRoute exact path="/friends" component={FriendsPage}/>
       <PrivateRoute path="/friends/add" component={AddFriends} />
 
       <PrivateRoute exact path="/recipes" component={RecipesPage}/>

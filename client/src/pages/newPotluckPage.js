@@ -9,18 +9,17 @@ import stillLife from '../images/stillLife.jpg'
 const homeBackground = {
   backgroundImage: "url(" + stillLife + ")",
   height: "100vh",
-  textAlign: "center",
   color: "white"
 }
 
-const leftColStyle = {
-  paddingTop: "100px",
-}
-
-const containerStyle = {
-  marginLeft: "100px",
-  paddingTop: "15px"
-}
+// const leftColStyle = {
+//   paddingTop: "100px",
+// }
+//
+// const containerStyle = {
+//   marginLeft: "100px",
+//   paddingTop: "15px"
+// }
 
 class NewPotluckPage extends Component {
   constructor(props) {
@@ -52,6 +51,7 @@ class NewPotluckPage extends Component {
 
 render() {
 return(
+  <div style={homeBackground}>
   <Container>
     <Row style={{paddingTop: "25px"}}>
       <Col className="col-3">
@@ -66,6 +66,7 @@ return(
       <Col className="col-3"></Col>
       </Row>
     </Container>
+    </div>
     )
   }
 }

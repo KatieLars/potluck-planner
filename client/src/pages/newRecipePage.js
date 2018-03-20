@@ -5,6 +5,14 @@ import {connect} from 'react-redux';
 import RecipeForm from '../components/recipeForm'
 import * as recipesActions from '../actions/recipesActions'
 import history from '../history'
+import VintageEaster from '../images/VintageEaster.jpg'
+
+const homeBackground = {
+  backgroundImage: "url(" + VintageEaster + ")",
+  backgroundSize: "cover",
+  height: "100vh",
+  color: "black"
+}
 
 class NewRecipePage extends Component {
   constructor(props) {
@@ -34,6 +42,7 @@ class NewRecipePage extends Component {
 
 render() {
 return(
+    <div style={homeBackground}>
     <Container>
       <Row style={{paddingTop: "25px"}}>
         <Col className="col-3">
@@ -48,6 +57,7 @@ return(
         <Col className="col-3"></Col>
         </Row>
       </Container>
+      </div>
     )
   }
 }
