@@ -30,7 +30,7 @@ class RecipePotluck extends Component {
 
   deleteRecipe(event) {
     event.preventDefault()
-    this.props.actions.
+    this.props.actions.deleteRecipe(this.state)
   }
 
   deleteUserFromPotluckRecipe(event) {
@@ -45,6 +45,7 @@ class RecipePotluck extends Component {
   }
 
   render() {
+    debugger
     let bottom = null
     let top = null
 //bottom

@@ -26,6 +26,10 @@ class PotluckShowPage extends Component {
     return(this.props.potluck !== nextProps.potluck)
   }
 
+  // filterRecipes() {
+  //   return this.props.potluck.potluck_recipes_claimed.filter(recipe => recipe.recipe !== null)
+  // }
+
   render() {
     return (
       <div>
