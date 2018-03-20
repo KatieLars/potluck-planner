@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Button, Jumbotron, Container, Row, Col } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import danielSpoerri from '../images/danielSpoerri.jpg'
@@ -18,10 +18,8 @@ const homeBackground = {
   height: "100vh",
   width: "100%",
 }
-class Home extends Component {
 
-  render() {
-
+const Home = () => {
     return(
       <div>
         <Container style={homeBackground}>
@@ -29,7 +27,7 @@ class Home extends Component {
         <Col className="col-2"></Col>
         <Jumbotron style={homeStyle} >
           <h1><strong>Potluck Planner</strong></h1>
-          <p className="lead"><em><strong>What's happening, who's coming, and what's to eat!</strong></em></p>
+          <p className="lead"><em><strong>What's happening, who's coming, and what is to eat!</strong></em></p>
           <hr className="my-4"/>
           <p><strong>Set a date. Invite friends. Bring food. And track it all.</strong></p>
           <Button><Link to="/about">Learn More</Link></Button>
@@ -38,8 +36,6 @@ class Home extends Component {
         </Container>
       </div>
     )
-  }
 }
-
 
 export default Home
