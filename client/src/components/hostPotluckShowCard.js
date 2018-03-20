@@ -16,7 +16,6 @@ const subtitleStyle = {
 }
 
 
-
 class HostPotluckShowCard extends Component {
 
   createARecipe(event){ //DONE
