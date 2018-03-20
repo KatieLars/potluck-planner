@@ -3,20 +3,14 @@ import GuestApi from '../api/guestApi';
 import history from '../history'
 import {getPotlucks} from './potlucksActions'
 
-export function uninviteGuests(uninvitedGuests) { //delete friendships--returns updated list of friends
+export function inviteGuests(idList) {
   return function(dispatch) {
-    return GuestApi.deleteGuestships(uninvitedGuests).then(response => {
-      dispatch(uninviteGuestsSuccess(response));
+    return GuestApi.createGuests(idList).then(response => {
+      dispatch(getPotlucks());
+      history.push(`/potlucks/${idList.potluck_id}`)
     }).catch(error => {
       throw(error)
     })
-  }
-}
-
-export function uninviteGuestsSuccess(updatedGuestList) {
-  return{
-    type: types.UNINVITE_GUESTS,
-    guests: updatedGuestList
   }
 }
 
