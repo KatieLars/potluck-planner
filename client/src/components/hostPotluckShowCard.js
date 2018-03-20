@@ -3,7 +3,6 @@ import { CardLink, Card, CardFooter, CardHeader} from 'reactstrap'
 import history from '../history.js'
 import {connect} from 'react-redux'
 import PotluckCard from './potluckCard'
-import cancelled from '../images/cancelled.jpg'
 import {bindActionCreators} from 'redux'
 import * as potlucksActions from '../actions/potlucksActions'
 
@@ -14,7 +13,6 @@ const subtitleStyle = {
   display: "inline-block",
   marginTop: "1.25rem"
 }
-
 
 class HostPotluckShowCard extends Component {
 

@@ -1,12 +1,8 @@
-import React, {Component} from 'react'
-import { CardLink, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, CardFooter, Button, CardHeader, Nav, NavItem, NavLink, Navbar} from 'reactstrap'
-import history from '../history.js'
-import {connect} from 'react-redux'
+import React from 'react'
+import { CardImg, CardText, CardBody, CardTitle, CardSubtitle} from 'reactstrap'
 
 
-class PotluckCard extends Component {
-
-  render() {
+const PotluckCard = ({ potluck }) => {
     return (
       <div>
         <CardImg top width="100%" src={this.props.potluck.image} alt="Potluck Image" />
@@ -22,9 +18,6 @@ class PotluckCard extends Component {
           </CardBody>
       </div>
     )
-  }
 }
 
-//<CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updatePotluck(event)} >Edit Potluck</CardLink>
-//<CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</CardLink>
 export default PotluckCard
