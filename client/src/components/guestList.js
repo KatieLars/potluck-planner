@@ -3,11 +3,10 @@ import React, {Component} from 'react'
 class GuestList extends Component {
 
   filterGuests() {
-    return this.props.guests.filter(recipe => recipe.recipe !== null)
+    return this.props.guests.filter(guest => guest !== null)
   }
 
   guestListItem() {
-    debugger
       const filteredGuests = this.filterGuests()
       return filteredGuests.map((guest) => {
         return <li><img src={guest.image} /> {guest.username}</li>
