@@ -21,10 +21,10 @@ const cardDecks = {
   columnCount: "3"
 }
 
-const homeBackground = {
+const homeBackground = { //problem here
   backgroundImage: "url(" + stillLife + ")",
   backgroundSize: "cover",
-  // height: "100%"
+   height: "100vh"
 }
 
 

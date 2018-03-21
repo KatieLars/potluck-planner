@@ -2,14 +2,21 @@ import React, {Component} from 'react'
 
 class GuestList extends Component {
 
+  filterGuests() {
+    return this.props.guests.filter(recipe => recipe.recipe !== null)
+  }
+
   guestListItem() {
-      return this.props.guests.map((guest) => {
+    debugger
+      const filteredGuests = this.filterGuests()
+      return filteredGuests.map((guest) => {
         return <li><img src={guest.image} /> {guest.username}</li>
       }
     )
   }
 
   render() {
+    debugger
     if(this.props.guests[0]){
       return (
         <ul>
