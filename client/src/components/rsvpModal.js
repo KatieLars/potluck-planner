@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, La
 import {connect} from 'react-redux'
 import * as guestsActions from '../actions/guestsActions'
 import {bindActionCreators} from 'redux'
+import history from '../history'
 
 class RsvpModal extends Component{
   constructor(props) {

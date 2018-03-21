@@ -15,7 +15,7 @@ class GuestList extends Component {
   }
 
   render() {
-    if(this.props.guests[0]){
+    if(this.filterGuests()[0]){
       return (
         <ul>
           {this.guestListItem()}
