@@ -24,6 +24,11 @@ class RsvpModal extends Component{
     event.preventDefault()
     this.props.actions.userRsvp(this.state)
   }
+
+  cancel(event) {
+    event.preventDefault()
+    history.push(`/potlucks/${this.props.guestship.potluck_id}`)
+  }
   render() {
     return(
       <div>

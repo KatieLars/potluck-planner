@@ -8,9 +8,13 @@ const cardDecks = {
 }
 //either selecting guests or selecting recipes
 class CheckList extends Component {
+  filterList() {
+    return this.props.list.filter(item => item !== null)
+  }
 
   checklistItem() {
-      return this.props.list.map((item) => (
+    const filteredList = this.filterList()
+      return filteredList.map((item) => (
         <FormGroup check>
          <Label check>
            <Input type="checkbox" value={item.id} />{' '}

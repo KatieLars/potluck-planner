@@ -15,7 +15,6 @@ class GuestList extends Component {
   }
 
   render() {
-    debugger
     if(this.props.guests[0]){
       return (
         <ul>
