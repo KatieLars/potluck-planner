@@ -16,6 +16,13 @@ export function inviteGuests(idList) {
   }
 }
 
+function recipeDelete(id) {
+  return {
+    type: types.DELETE_RECIPE,
+    id
+  }
+}
+
 export function removeGuests(idList) {
   return function(dispatch) {
     return GuestApi.removeGuests(idList).then(response => {
@@ -93,10 +100,11 @@ export function getRecipesSuccess(recipes) {
     return function(dispatch) { //coming from potluck show page
       return RecipeApi.deleteRecipe(info).then(response => {
         if(info.potluck_id){
-          dispatch(getPotlucks())
+          //dispatch(getPotlucks())
+          dispatch(recipeDelete(response))
           history.push(`/potlucks/${info.potluck_id}`)
         }else{ //coming from recipe index
-        dispatch(getRecipes());
+        dispatch(recipeDelete(response) //
         history.push('/recipes')
       }}).catch(error => {
         throw(error)

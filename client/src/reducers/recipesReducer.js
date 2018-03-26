@@ -7,7 +7,7 @@ const filterRecipes = (recipes) => {
 
 export default (state = initialState.recipes , action) => {
 
-
+//LISTEN FOR DELETE_RECIPE
   switch(action.type) {
     case types.RECIPES_FOUND:
       return {...state, allRecipes: filterRecipes(action.recipes.all_recipes),

@@ -34,7 +34,10 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    Recipe.destroy(params[:recipe][:recipe_id])
+    recipe = Recipe.find(params[:recipe][:recipe_id])
+    if recipe.destroy
+      render json: {id: recipe.id}
+    end
   end
 
   private

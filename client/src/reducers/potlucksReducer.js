@@ -12,6 +12,12 @@ export default (state = initialState.potlucks , action) => {
       return {...state, potlucks: action.potlucks, allPotluckRecipes: flatten(recipeCollection) }
     case types.CREATE_POTLUCK:
       return {...state, potlucks: [...state, action.newPotluck]}
+    case types.DELETE_RECIPE:
+      const newState = state.potlucks.map(potluck => {
+        return {...potluck, recipes: potluck.recipes.filter(recipe => recipe.id !== action.id.id)}
+    })
+      debugger
+
     default:
       return state
     }

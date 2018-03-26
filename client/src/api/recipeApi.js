@@ -61,7 +61,7 @@ class RecipeApi {
     });
 
     return fetch(request).then(response => {
-      return response;
+      return response.json();
     }).catch(error => {
       return error;
     });
