@@ -5,9 +5,11 @@ import {getPotlucks} from './potlucksActions'
 import PotluckRecipeApi from '../api/potluckRecipeApi'
 import GuestApi from '../api/guestApi'
 
+
 export function inviteGuests(idList) {
   return function(dispatch) {
     return GuestApi.createGuests(idList).then(response => {
+      debugger
       dispatch(getPotlucks());
       history.push(`/potlucks/${idList.potluck_id}`)
     }).catch(error => {

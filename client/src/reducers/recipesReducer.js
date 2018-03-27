@@ -6,7 +6,6 @@ const filterRecipes = (recipes) => {
 }
 
 export default (state = initialState.recipes , action) => {
-
 //LISTEN FOR DELETE_RECIPE
   switch(action.type) {
     case types.RECIPES_FOUND:
@@ -14,6 +13,8 @@ export default (state = initialState.recipes , action) => {
         userRecipes: {newRecipes: filterRecipes(action.recipes.user_recipes.new_recipes),
                       cookedRecipes: filterRecipes(action.recipes.user_recipes.cooked_recipes),
                       totalRecipes: filterRecipes(action.recipes.user_recipes.total_recipes)}}
+    case types.DELETE_RECIPE:
+      debugger
     default:
       return state
     }
