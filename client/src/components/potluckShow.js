@@ -4,6 +4,10 @@ import HostPotluckShowCard from './hostPotluckShowCard'
 
 class PotluckShow extends Component {
 
+  // shouldComponentUpdate(nextProps, nextState) 
+  //   return(this.props.potluck !== nextProps.potluck)
+  // }
+
   guestOrHost() {
     if(this.props.user.id == this.props.potluck.user_id) {
       return <HostPotluckShowCard potluck={this.props.potluck} user={this.props.user}/>

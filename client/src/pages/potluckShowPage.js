@@ -30,9 +30,9 @@ const homeBackground = { //problem here
 
 class PotluckShowPage extends Component {
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return(this.props.potluck !== nextProps.potluck)
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return(this.props.potluck !== nextProps.potluck)
+  // }
 
   render() {
     return (
