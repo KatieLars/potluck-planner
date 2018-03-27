@@ -100,11 +100,10 @@ export function getRecipesSuccess(recipes) {
     return function(dispatch) { //coming from potluck show page
       return RecipeApi.deleteRecipe(info).then(response => {
         if(info.potluck_id){
-          //dispatch(getPotlucks())
           dispatch(recipeDelete(response))
           history.push(`/potlucks/${info.potluck_id}`)
-        }else{ //coming from recipe index
-        dispatch(recipeDelete(response) //
+        }else{
+        dispatch(recipeDelete(response)) //
         history.push('/recipes')
       }}).catch(error => {
         throw(error)

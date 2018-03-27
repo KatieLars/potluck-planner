@@ -3,7 +3,7 @@ import userApi from '../api/userApi';
 import history from '../history'
 import {signIn} from './sessionActions'
 
-export function getUser(credentials) { //grab user info
+export function getUser(credentials) {
   return function(dispatch) {
     return userApi.getUserInfo(credentials).then(response => {
       dispatch(getUserSuccess(response));
@@ -14,14 +14,13 @@ export function getUser(credentials) { //grab user info
   }
 }
 
-
 export function getUserSuccess(user) {
   return {type: types.FOUND_USER,
           user: user
   }
 }
 
-export function createUser(info) { //creates a user
+export function createUser(info) {
   return function(dispatch) {
     return userApi.signUp(info).then(response => {
       const credentials = {email: response.email, password: response.password}
@@ -34,7 +33,7 @@ export function createUser(info) { //creates a user
 
 export function updateUser(info) {
   return function(dispatch) {
-    return UserApi.updateUser(info).then(response => {
+    return userApi.updateUser(info).then(response => {
       dispatch(updateUserSuccess(response));
       history.push("/account")
     }).catch(error => {
