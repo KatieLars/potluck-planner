@@ -1,11 +1,11 @@
 import * as types from './actionTypes';
-import UserApi from '../api/userApi';
+import userApi from '../api/userApi';
 import history from '../history'
 import {signIn} from './sessionActions'
 
 export function getUser(credentials) { //grab user info
   return function(dispatch) {
-    return sessionApi.getUserInfo(credentials).then(response => {
+    return userApi.getUserInfo(credentials).then(response => {
       dispatch(getUserSuccess(response));
       history.push("/home")
     }).catch(error => {
@@ -13,6 +13,7 @@ export function getUser(credentials) { //grab user info
     })
   }
 }
+
 
 export function getUserSuccess(user) {
   return {type: types.FOUND_USER,
@@ -22,7 +23,7 @@ export function getUserSuccess(user) {
 
 export function createUser(info) { //creates a user
   return function(dispatch) {
-    return sessionApi.signUp(info).then(response => {
+    return userApi.signUp(info).then(response => {
       const credentials = {email: response.email, password: response.password}
       dispatch(signIn(credentials))
     }).catch(error => {
