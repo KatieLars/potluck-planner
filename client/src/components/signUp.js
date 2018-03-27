@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Form, FormGroup, Row, Container, Button, Label, Input} from 'reactstrap'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as sessionActions from '../actions/sessionActions'
+import * as userActions from '../actions/userActions'
 import tonyCuranaj from '../images/tonyCuranaj.jpg'
 
 const formStyle ={
@@ -40,7 +40,7 @@ handleChange(event){
 
 handleSubmit(event) {
   event.preventDefault()
-  this.props.actions.signUp(this.state.info);
+  this.props.actions.createUser(this.state.info);
 }
 
 render() {
@@ -75,7 +75,7 @@ return(
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(sessionActions, dispatch)
+    actions: bindActionCreators(userActions, dispatch)
   };
 }
 export default connect(null, mapDispatchToProps)(SignUp)
