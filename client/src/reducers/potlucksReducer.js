@@ -13,9 +13,9 @@ export default (state = initialState.potlucks , action) => {
     case types.CREATE_POTLUCK:
       return {...state, potlucks: [...state, action.newPotluck]}
     case types.DELETE_RECIPE:
-      return state.potlucks.map(potluck => {
+      return {...state, potlucks: state.potlucks.map(potluck => {
         return {...potluck, recipes: potluck.recipes.filter(recipe => recipe.id !== action.id.id)}
-    })
+    })}
     default:
       return state
     }
