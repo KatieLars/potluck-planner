@@ -17,7 +17,13 @@ export default (state = initialState.recipes , action) => {
                       cookedRecipes: filterRecipes(action.recipes.user_recipes.cooked_recipes),
                       totalRecipes: filterRecipes(action.recipes.user_recipes.total_recipes)}}
     case types.DELETE_RECIPE:
-      return {...state, allRecipes: deleteRecipe(state.allRecipes, action.id.id)),
+      debugger
+      let newState = {...state, allRecipes: deleteRecipe(state.allRecipes, action.id.id),
+        userRecipes: {newRecipes: deleteRecipe(state.userRecipes.newRecipes, action.id.id),
+                      cookedRecipes: deleteRecipe(state.userRecipes.cookedRecipes, action.id.id),
+                      totalRecipes: deleteRecipe(state.userRecipes.totalRecipes, action.id.id)}}
+
+      return {...state, allRecipes: deleteRecipe(state.allRecipes, action.id.id),
         userRecipes: {newRecipes: deleteRecipe(state.userRecipes.newRecipes, action.id.id),
                       cookedRecipes: deleteRecipe(state.userRecipes.cookedRecipes, action.id.id),
                       totalRecipes: deleteRecipe(state.userRecipes.allRecipes, action.id.id)}}
