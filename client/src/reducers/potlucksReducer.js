@@ -4,10 +4,6 @@ import initialState from './initialState';
 
 const flatten = (arr) => [].concat(...arr)
 
-const filterRecipes = (recipes) => {
-  return recipes.filter(recipe => recipe !== null)
-}
-
 export default (state = initialState.potlucks , action) => {
   switch(action.type) {
     case types.POTLUCKS_FOUND:

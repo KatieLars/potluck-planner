@@ -10,19 +10,19 @@ const cardDecks = {
 }
 
 class RecipesList extends Component {
-
-filterRecipes() {
-  return this.props.recipes.filter(recipe => recipe.recipe !== null)
-}
+//
+// filterRecipes() {
+//   return this.props.recipes.filter(recipe => recipe.recipe !== null)
+// }
 
 recipeCards() {
-  const filteredRecipes = this.filterRecipes()
+  // const filteredRecipes = this.filterRecipes()
   if(this.props.currentPotluck){
-    return filteredRecipes.map((recipe) => (
+    return this.props.recipes.map((recipe) => (
       <RecipePotluck recipe={recipe} currentPotluck={this.props.currentPotluck} potlucks={this.props.potlucks} user={this.props.user} />
     ))
   }else{
-    return filteredRecipes.map((recipe) => (
+    return this.props.recipes.map((recipe) => (
       <RecipeIndex recipe={recipe} user={this.props.user}/>
     ))
   }
