@@ -30,9 +30,9 @@ const homeBackground = { //problem here
 
 class PotluckShowPage extends Component {
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return(this.props.potluck !== nextProps.potluck)
-  // }
+  shouldComponentUpdate(nextProps, nextState) {
+    return(this.props.potluck.recipes !== nextProps.potluck.recipes)
+  }
 
   render() {
     return (
@@ -41,7 +41,7 @@ class PotluckShowPage extends Component {
           <Row style={{paddingTop: "25px"}}>
             <CardDeck style={cardDecks}>
               <PotluckShow potluck={this.props.potluck} user={this.props.user} key={this.props.potluck.id}/>
-              <RecipesList recipes={this.props.potluck.potluck_recipes_claimed} currentPotluck={this.props.potluck} />
+              <RecipesList recipes={this.props.potluck.recipes[0] ? (this.props.potluck.potluck_recipes_claimed) : null} currentPotluck={this.props.potluck} />
             </CardDeck>
           </Row>
         </Container>
@@ -52,6 +52,7 @@ class PotluckShowPage extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   if(state.potlucks.potlucks){
+
     const potluck = state.potlucks.potlucks.find(potluck => {
       return potluck.id == ownProps.match.params.id
     })
