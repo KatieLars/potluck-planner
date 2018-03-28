@@ -5,6 +5,7 @@ import {Container, Row, Col, Button, CardDeck} from 'reactstrap'
 import history from '../history'
 import RecipesList from '../containers/recipesList'
 import stillLife from '../images/stillLife.jpg'
+import PrivateRoute from '../privateRoute'
 
 const imageStyle ={
   height: "30%",
@@ -36,6 +37,9 @@ class PotluckShowPage extends Component {
         <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
             <CardDeck style={cardDecks}>
+              <PrivateRoute path={`${match.url}/new`} component={NewPotluckPage} />
+              <PrivateRoute exact path={`${match.url}/:id`} component={PotluckShowPage}/>
+              <PrivateRoute exact path={`${match.url}/:id/edit`} component={PotluckModal} />
               <PotluckShow potluck={this.props.potluck} user={this.props.user} key={this.props.potluck.id}/>
               <RecipesList recipes={this.props.potluck.potluck_recipes_claimed} currentPotluck={this.props.potluck} />
             </CardDeck>

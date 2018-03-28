@@ -45,7 +45,7 @@ handleClick(event) {
         <div className="container-full-bg">
           <Jumbotron  style={homeBackground}>
             <Container>
-              <h1>No Potlucks!</h1>
+              <h1>No Recipes!</h1>
                 <Button onClick={(event) => this.handleClick(event)}>Create a Recipe</Button>
             </Container>
           </Jumbotron>

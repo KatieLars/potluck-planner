@@ -21,24 +21,25 @@ import RecipesPage from './pages/recipesPage'
 import RsvpModal from './components/rsvpModal'
 import { connect } from 'react-redux'
 import PotluckModal from './containers/potluckModal'
+import PrivateRoute from './privateRoute'
 
 
-const checkAuth = (token) => {
-  if(!token) {
-    return false
-  }else{
-    return true
-  }
-}
-
-const PrivateRoute = ({component: Component, ...rest}) => (
-  <Route {...rest} render={(props) => (
-    checkAuth(sessionStorage.jwt)
-    ? <Component {...props} />
-    : <Redirect to='/signin' />
-    )
-  }
-  />)
+// const checkAuth = (token) => {
+//   if(!token) {
+//     return false
+//   }else{
+//     return true
+//   }
+// }
+//
+// const PrivateRoute = ({component: Component, ...rest}) => (
+//   <Route {...rest} render={(props) => (
+//     checkAuth(sessionStorage.jwt)
+//     ? <Component {...props} />
+//     : <Redirect to='/signin' />
+//     )
+//   }
+//   />)
 
 class Routes extends Component {
   render() {
@@ -64,9 +65,9 @@ class Routes extends Component {
       <PrivateRoute path="/recipes/:recipeId/edit" component={RecipeModal}/>
 
       <PrivateRoute exact path="/potlucks" component={PotlucksPage}/>
-      <PrivateRoute path="/potlucks/new" component={NewPotluckPage} />
-      <PrivateRoute exact path="/potlucks/:id" component={PotluckShowPage}/>
-      <PrivateRoute exact path="/potlucks/:id/edit" component={PotluckModal} />
+      // <PrivateRoute path="/potlucks/new" component={NewPotluckPage} />
+      // <PrivateRoute exact path="/potlucks/:id" component={PotluckShowPage}/>
+      // <PrivateRoute exact path="/potlucks/:id/edit" component={PotluckModal} />
 
       <PrivateRoute path="/potlucks/:potluckId/guests/select" component={ListModal}/>
       <PrivateRoute path="/potlucks/:potluckId/guests/update" component={ListModal}/>
