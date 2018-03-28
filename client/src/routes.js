@@ -23,24 +23,6 @@ import { connect } from 'react-redux'
 import PotluckModal from './containers/potluckModal'
 import PrivateRoute from './privateRoute'
 
-
-// const checkAuth = (token) => {
-//   if(!token) {
-//     return false
-//   }else{
-//     return true
-//   }
-// }
-//
-// const PrivateRoute = ({component: Component, ...rest}) => (
-//   <Route {...rest} render={(props) => (
-//     checkAuth(sessionStorage.jwt)
-//     ? <Component {...props} />
-//     : <Redirect to='/signin' />
-//     )
-//   }
-//   />)
-
 class Routes extends Component {
   render() {
     return(

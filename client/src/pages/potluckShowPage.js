@@ -5,11 +5,11 @@ import {Container, Row, Col, Button, CardDeck} from 'reactstrap'
 import history from '../history'
 import RecipesList from '../containers/recipesList'
 import stillLife from '../images/stillLife.jpg'
-// import PrivateRoute from '../privateRoute'
-// import ListModal from '../containers/listModal'
-// import PotluckModal from '../containers/potluckModal'
-// import RecipeModal from '../containers/recipeModal'
-// import RsvpModal from '../components/rsvpModal'
+import PrivateRoute from '../privateRoute'
+import ListModal from '../containers/listModal'
+import PotluckModal from '../containers/potluckModal'
+import RecipeModal from '../containers/recipeModal'
+import RsvpModal from '../components/rsvpModal'
 
 const imageStyle ={
   height: "30%",
@@ -41,7 +41,15 @@ class PotluckShowPage extends Component {
         <Container style={containerStyle}>
           <Row style={{paddingTop: "25px"}}>
             <CardDeck style={cardDecks}>
-              <PotluckShow potluck={this.props.potluck} user={this.props.user} key={this.props.potluck.id}/>
+              <PrivateRoute exact path={`/${this.props.url}/:id/edit`} component={PotluckModal} />
+              <PrivateRoute path={`/${this.props.url}/:potluckId/guests/select`} component={ListModal}/>
+              <PrivateRoute path={`/${this.props.match.url}/:potluckId/guests/update`} component={ListModal}/>
+              <PrivateRoute exact path={`/${this.props.match.url}/:potluckId/guests`} component={ListModal}/>
+              <PrivateRoute exact path={`/${this.props.match.url}/:potluckId/recipes/select`} component={ListModal}/>
+              <PrivateRoute path={`/${this.props.match.url}/:potluckId/recipes/:recipeId`} component={RecipeModal} />
+              <PrivateRoute path={`/${this.props.match.url}/:potluckId/recipes/new`} component={RecipeModal}/>
+              <PrivateRoute exact path={`/${this.props.match.url}/:id/rsvp`} component={RsvpModal} />
+              <PotluckShow potluck={this.props.potluck} user={this.props.user} url={this.props.match.url} key={this.props.potluck.id}/>
               <RecipesList recipes={this.props.potluck.potluck_recipes_claimed} currentPotluck={this.props.potluck} />
             </CardDeck>
           </Row>
@@ -59,7 +67,8 @@ const mapStateToProps = (state, ownProps) => {
     })
     return {
       potluck: potluck,
-      user: state.users.user
+      user: state.users.user,
+      match: ownProps.match
     }
   }else{
     return {
