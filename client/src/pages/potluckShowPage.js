@@ -49,6 +49,7 @@ class PotluckShowPage extends Component {
               <PrivateRoute path={`/${this.props.match.url}/:potluckId/recipes/:recipeId`} component={RecipeModal} />
               <PrivateRoute path={`/${this.props.match.url}/:potluckId/recipes/new`} component={RecipeModal}/>
               <PrivateRoute exact path={`/${this.props.match.url}/:id/rsvp`} component={RsvpModal} />
+              
               <PotluckShow potluck={this.props.potluck} user={this.props.user} url={this.props.match.url} key={this.props.potluck.id}/>
               <RecipesList recipes={this.props.potluck.potluck_recipes_claimed} currentPotluck={this.props.potluck} />
             </CardDeck>
