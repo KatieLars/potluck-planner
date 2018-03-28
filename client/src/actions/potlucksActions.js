@@ -4,14 +4,21 @@ import history from '../history'
 
 //REFACTOR GETPOTLUCKS()
 
-export function cancelPotluck(potluckId) { //refactor
+export function cancelPotluck(potluckId) { //refactor--you only need to update one potluck
   return function(dispatch) {
     return PotluckApi.cancelPotluck(potluckId).then(response => {
+      // dispatch(cancelPotluckSuccess(response))
       dispatch(getPotlucks(response));
       history.push("/potlucks")
     }).catch(error => {
       throw(error)
     })
+  }
+}
+
+function cancelPotluckSuccess(updatedPotluck) {
+  return{ type: types.CANCEL_POTLUCK,
+      updatedPotluck
   }
 }
 

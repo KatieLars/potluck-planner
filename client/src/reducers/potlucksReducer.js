@@ -24,6 +24,13 @@ export default (state = initialState.potlucks , action) => {
             }
         }), allPotluckRecipes: state.allPotluckRecipes.filter(recipe => recipe.id !== action.id.id)
       }
+    // case types.CANCEL_POTLUCK: //this should only replace the one potluck claimed
+    //   const potluckUpdated =
+    //     state.potlucks.map(potluck => {
+    //       if(potluck.id === action.updatedPotluck.id {
+    //         return potluck.canceled = true
+    //       })})
+    //   debugger
     default:
       return state
     }

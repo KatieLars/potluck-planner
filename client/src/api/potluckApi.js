@@ -50,7 +50,7 @@ class PotluckApi {
     });
   }
 
-  static cancelPotluck(id) { //cancel potluck
+  static cancelPotluck(id) { //cancel potluck--could probably be just use updatePotluck
     const request = new Request(`http://localhost:3001/potlucks/${id}`, {
       method: 'PATCH',
       headers: new Headers({
