@@ -3,6 +3,7 @@ import GuestApi from '../api/guestApi';
 import history from '../history'
 import {getPotlucks} from './potlucksActions'
 
+//refactor to adjust just one record
 export function userRsvp(rsvp) {
   return function(dispatch) {
     return GuestApi.userRsvp(rsvp).then(response => {
