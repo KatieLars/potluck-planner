@@ -31,7 +31,6 @@ const homeBackground = { //problem here
 class PotluckShowPage extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
-    debugger
     return(this.props.potluck.potluck_recipes_claimed !== nextProps.potluck.potluck_recipes_claimed)
   }
 
