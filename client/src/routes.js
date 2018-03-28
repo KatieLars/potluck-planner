@@ -68,16 +68,16 @@ class Routes extends Component {
       <PrivateRoute path="/potlucks/new" component={NewPotluckPage} />
       <PrivateRoute exact path="/potlucks/:id" component={PotluckShowPage}/>
       // <PrivateRoute exact path="/potlucks/:id/edit" component={PotluckModal} />
-      // 
+      //
       // <PrivateRoute path="/potlucks/:potluckId/guests/select" component={ListModal}/>
       // <PrivateRoute path="/potlucks/:potluckId/guests/update" component={ListModal}/>
       // <PrivateRoute exact path="/potlucks/:potluckId/guests" component={ListModal}/>
 
-      <PrivateRoute exact path="/potlucks/:potluckId/recipes/select" component={ListModal}/>
-      <PrivateRoute path="/potlucks/:potluckId/recipes/:recipeId" component={RecipeModal} />
-      <PrivateRoute path="/potlucks/:potluckId/recipes/new" component={RecipeModal}/>
-
-      <PrivateRoute exact path="/potlucks/:id/rsvp" component={RsvpModal} />
+      // <PrivateRoute exact path="/potlucks/:potluckId/recipes/select" component={ListModal}/>
+      // <PrivateRoute path="/potlucks/:potluckId/recipes/:recipeId" component={RecipeModal} />
+      // <PrivateRoute path="/potlucks/:potluckId/recipes/new" component={RecipeModal}/>
+      //
+      // <PrivateRoute exact path="/potlucks/:id/rsvp" component={RsvpModal} />
       </Switch>
     </div>
   )}
