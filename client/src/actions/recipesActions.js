@@ -5,11 +5,13 @@ import {getPotlucks} from './potlucksActions'
 import PotluckRecipeApi from '../api/potluckRecipeApi'
 import GuestApi from '../api/guestApi'
 
+//TO REFACTOR:
+  // ~GUEST ACTIONS TO GUESTAPI
+  // ~REPLACE GETPOTLUCKS WITH SPECIFIC ACTIONS IN REDUCER TO MODIFY STATE
 
-export function inviteGuests(idList) {
+export function inviteGuests(idList) {//should be moved
   return function(dispatch) {
     return GuestApi.createGuests(idList).then(response => {
-      debugger
       dispatch(getPotlucks());
       history.push(`/potlucks/${idList.potluck_id}`)
     }).catch(error => {
@@ -25,7 +27,7 @@ function recipeDelete(id) {
   }
 }
 
-export function removeGuests(idList) {
+export function removeGuests(idList) { //should be moved
   return function(dispatch) {
     return GuestApi.removeGuests(idList).then(response => {
       dispatch(getPotlucks());
@@ -36,7 +38,8 @@ export function removeGuests(idList) {
   }
 }
 
-export function createRecipe(info) { //alert and return to potlucks page
+//refactor
+export function createRecipe(info) { //see deleteRecipe
   return function(dispatch) {
     return RecipeApi.createRecipe(info).then(response => {
       if(info.potluck_id){
@@ -67,8 +70,8 @@ export function getRecipesSuccess(recipes) {
       recipes: recipes
     }
   }
-
-  export function updateRecipe(info) { //recipe updateRecipe
+//should listen for update in potluck and recipe. See advanced state manipulation
+  export function updateRecipe(info) { //see deleteRecipe. updating one recipe
     return function(dispatch) {
       return RecipeApi.updateRecipe(info).then(response => {
         if(info.potluck_id){
@@ -83,6 +86,7 @@ export function getRecipesSuccess(recipes) {
     }
   }
 
+//refactor
   export function createPotluckRecipes(info) { //add recipes (creates potluck_recipes) to potluck
     return function(dispatch) {
       return PotluckRecipeApi.createPotluckRecipes(info).then(response => {
@@ -113,6 +117,7 @@ export function getRecipesSuccess(recipes) {
     }
   }
 
+//refactor
   export function claimRecipe(info) {
     return function(dispatch) { //coming from potluck show page
       return RecipeApi.claimRecipe(info).then(response => {
