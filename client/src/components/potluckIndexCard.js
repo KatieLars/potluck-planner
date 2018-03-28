@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { CardImg, CardBody, CardTitle, CardSubtitle, CardFooter, CardText, Button, Card} from 'reactstrap'
+import { CardFooter, Button, Card} from 'reactstrap'
 import history from '../history'
 import PotluckCard from './potluckCard'
 

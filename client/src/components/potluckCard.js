@@ -2,9 +2,10 @@ import React from 'react'
 import { CardImg, CardText, CardBody, CardTitle, CardSubtitle} from 'reactstrap'
 
 
-const PotluckCard = ( props) => {
+const PotluckCard = (props) => {
     return (
       <div>
+        {props.children.length > 1 ? props.children[0] : null}
         <CardImg top width="100%" style={{opacity: "1.0"}} src={props.potluck.image} alt="Potluck Image" />
           <CardBody>
             <CardTitle>{props.potluck.name}</CardTitle>
@@ -16,7 +17,7 @@ const PotluckCard = ( props) => {
               {props.potluck.description}
             </CardText>
           </CardBody>
-          {props.children}
+          {props.children.length > 1 ? props.children[1] : props.children}
       </div>
     )
 }

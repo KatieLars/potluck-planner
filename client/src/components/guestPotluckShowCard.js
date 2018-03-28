@@ -37,19 +37,20 @@ class GuestPotluckShowCard extends Component {
   render() {
     return (
       <Card style={subtitleStyle} >
+      <PotluckCard potluck={this.props.potluck}>
       <CardHeader className="col d-flex justify-content-center">
       <span>
         <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.changeRSVP(event)}>{this.props.guestship.rsvp ? (this.props.guestship.rsvp) : ("RSVP")}</CardLink>
         <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.getGuests(event)} >Who Is Invited</CardLink>
       </span>
       </CardHeader>
-        <PotluckCard potluck={this.props.potluck} user={this.props.user} />
         <CardFooter className="col d-flex justify-content-center">
             <span>
               <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</CardLink>
               <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.createARecipe(event)} >Create Recipe</CardLink>
             </span>
         </CardFooter>
+        </PotluckCard>
       </Card>
     )
   }

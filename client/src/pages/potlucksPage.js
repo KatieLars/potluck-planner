@@ -37,7 +37,6 @@ handleClick(event) {
 
   render() {
     if(this.props.potlucks) {
-      debugger
       return(
         <div style={homeBackground}  >
           <PotlucksList potlucks={this.props.potlucks} url={this.props.match.url} user={this.props.user} />

@@ -49,11 +49,12 @@ class HostPotluckShowCard extends Component {
   render() {
     return (
       <Card style={subtitleStyle} >
+        <PotluckCard potluck={this.props.potluck} >
         <CardHeader className="col d-flex justify-content-center">
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.updateGuestList(event)}>Update Guest List</CardLink>
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.inviteGuests(event)}>Invite Guests</CardLink>
         </CardHeader>
-        <PotluckCard potluck={this.props.potluck} user={this.props.user} />
+
         <CardFooter className="col d-flex justify-content-center">
           <span>
             <CardLink href="#" style={{display: "inline-block"}}onClick={(event) => this.selectRecipes(event)} >Suggest Recipes</CardLink>
@@ -64,6 +65,7 @@ class HostPotluckShowCard extends Component {
             <CardLink href="#" style={{display: "inline-block"}} onClick={(event) => this.cancelPotluck(event)} >Cancel Potluck</CardLink>
           </span>
         </CardFooter>
+        </PotluckCard>
       </Card>
     )
   }
