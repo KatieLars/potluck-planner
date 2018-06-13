@@ -1,6 +1,6 @@
 import * as types from './actionTypes';
 import RecipeApi from '../api/recipeApi';
-import history from '../history'
+//import history from '../history'
 import {getPotlucks} from './potlucksActions'
 import PotluckRecipeApi from '../api/potluckRecipeApi'
 import GuestApi from '../api/guestApi'
@@ -39,7 +39,7 @@ export function removeGuests(idList) { //should be moved
 }
 
 //refactor
-export function createRecipe(info) { //see deleteRecipe
+export function createRecipe(info, history) { //see deleteRecipe
   return function(dispatch) {
     return RecipeApi.createRecipe(info).then(response => {
       if(info.potluck_id){

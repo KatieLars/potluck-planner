@@ -36,7 +36,7 @@ class NewRecipePage extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.actions.createRecipe(this.state.recipe);
+    this.props.actions.createRecipe(this.state.recipe, this.props.history);
     history.push("/recipes")
   }
 

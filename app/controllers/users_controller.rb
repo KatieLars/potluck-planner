@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       render json:@users
     end
 
-    def create #create a new user then log them in
+    def create
       @user = User.new(user_params)
       if @user.save
         render json:@user
