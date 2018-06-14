@@ -1,6 +1,6 @@
 import * as types from './actionTypes';
 import RecipeApi from '../api/recipeApi';
-//import history from '../history'
+import history from '../history'
 import {getPotlucks} from './potlucksActions'
 import PotluckRecipeApi from '../api/potluckRecipeApi'
 import GuestApi from '../api/guestApi'
