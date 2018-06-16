@@ -1,7 +1,9 @@
+import * as serve from './server'
+
 class PotluckApi {
 
   static getPotlucks() { //get potlucks
-    const request = new Request('http://localhost:3001/potlucks', {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/potlucks`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -17,7 +19,7 @@ class PotluckApi {
   }
 
   static createPotluck(newPotluck) { //get potlucks
-    const request = new Request('http://localhost:3001/potlucks', {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/potlucks`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -34,7 +36,7 @@ class PotluckApi {
   }
 
   static updatePotluck(info) { //get potlucks
-    const request = new Request(`http://localhost:3001/potlucks/${info.id}`, {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/potlucks/${info.id}`, {
       method: 'PATCH',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -51,7 +53,7 @@ class PotluckApi {
   }
 
   static cancelPotluck(id) { //cancel potluck--could probably be just use updatePotluck
-    const request = new Request(`http://localhost:3001/potlucks/${id}`, {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/potlucks/${id}`, {
       method: 'PATCH',
       headers: new Headers({
         'Content-Type': 'application/json',

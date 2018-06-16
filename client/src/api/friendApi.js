@@ -1,7 +1,9 @@
+import * as serve from './server'
+
 class FriendApi {
 
   static getFriends() { //get current friends
-    const request = new Request('http://localhost:3001/friendships/friends', {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/friendships/friends`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -17,7 +19,7 @@ class FriendApi {
   }
 
   static getNotFriends() { //gets all users who are not friends
-    const request = new Request('http://localhost:3001/friendships/not_friends', {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/friendships/not_friends`, {
       method: "GET",
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -33,7 +35,7 @@ class FriendApi {
   }
 
   static addFriends(newFriendIds) { //post new friends to database
-    const request = new Request(`http://localhost:3001/friendships/add_friends`, {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/friendships/add_friends`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -50,7 +52,7 @@ class FriendApi {
   }
 
   static removeFriends(friendshipIds) {
-    const request = new Request(`http://localhost:3001/friendships/end_friendships`, {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/friendships/end_friendships`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',

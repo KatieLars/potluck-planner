@@ -1,7 +1,9 @@
+import * as serve from './server'
+
 class RecipeApi {
 
   static getRecipes() { //get potlucks
-    const request = new Request('http://localhost:3001/recipes', {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/recipes`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -17,7 +19,7 @@ class RecipeApi {
   }
 
   static createRecipe(newRecipe) { //get potlucks
-    const request = new Request('http://localhost:3001/recipes', {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/recipes`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -34,7 +36,7 @@ class RecipeApi {
   }
 
   static updateRecipe(recipe) {
-    const request = new Request(`http://localhost:3001/recipes/${recipe.id}`, {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/recipes/${recipe.id}`, {
       method: 'PATCH',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -51,7 +53,7 @@ class RecipeApi {
   }
 
   static deleteRecipe(info) {
-    const request = new Request(`http://localhost:3001/recipes/${info.recipe_id}`, {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/recipes/${info.recipe_id}`, {
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -68,7 +70,7 @@ class RecipeApi {
   }
 
   static claimRecipe(info) {
-    const request = new Request(`http://localhost:3001/potluck_recipes/claim`, {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/potluck_recipes/claim`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',

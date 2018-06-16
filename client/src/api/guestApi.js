@@ -1,7 +1,9 @@
+import * as serve from './server'
+
 class GuestApi {
 
   static createGuests(idList) {
-    const request = new Request(`http://localhost:3001/guestships`, {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/guestships`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -18,7 +20,7 @@ class GuestApi {
   }
 
     static userRsvp(rsvp) {
-      const request = new Request(`http://localhost:3001/guestships/${rsvp.guestshipId}`, {
+      const request = new Request(`${serve.PRODUCTION_SERVER}/guestships/${rsvp.guestshipId}`, {
         method: 'PATCH',
         headers: new Headers({
           'Content-Type': 'application/json',
@@ -35,7 +37,7 @@ class GuestApi {
     }
 
   static removeGuests(idList) {
-    const request = new Request(`http://localhost:3001/guestships/end_guestships`, {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/guestships/end_guestships`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
