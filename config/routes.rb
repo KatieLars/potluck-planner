@@ -11,11 +11,15 @@ Rails.application.routes.draw do
        post '/guestships/end_guestships' => 'guestships#end_guestships'
 
        post '/potluck_recipes/claim' => 'potluck_recipes#claim'
-       
+
        resources :potluck_recipes, only: [:create]
        resources :potlucks
        resources :users
        resources :guestships
        resources :friendships
        resources :recipes
+
+       get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+         !request.xhr? && request.format.html?
+       end
 end
