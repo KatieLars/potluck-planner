@@ -1,6 +1,6 @@
 namespace :start do
   task :development do
-    exec 'heroku local -f Procfile.dev'
+    exec 'foreman start -f Procfile.dev'
   end
 
   desc 'Start production server'
