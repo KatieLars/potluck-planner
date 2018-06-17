@@ -1,6 +1,6 @@
 
 {
-  "name": "list-of-ingredients",
+  "name": "potluck-planner",
   "license": "MIT",
   "engines": {
     "node": "8.11.3",
