@@ -1,2 +1,2 @@
-web: https://git.heroku.com/potluckers.git
+web: bundle exec rails s
 release: bin/rake db:migrate
