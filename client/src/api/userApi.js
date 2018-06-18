@@ -19,7 +19,7 @@ class UserApi {
   }
 
   static signUp(info) {
-    const request= new Request('http://localhost:3001/users', {
+    const request= new Request(`${serve.PRODUCTION_SERVER}/users`, {
       method: "POST",
       headers: new Headers({
         'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ class UserApi {
   }
 
   static getUserInfo(credentials) { //user show page
-    const request = new Request('http://localhost:3001/find_user', {
+    const request = new Request(`${serve.PRODUCTION_SERVER}/find_user`, {
       method: "POST",
       headers: new Headers({
         'Content-Type': 'application/json',
